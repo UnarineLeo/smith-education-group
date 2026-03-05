@@ -6,11 +6,12 @@ export interface University {
   logo: string;
   fields: string[];
   image: string;
-  students: number;
   rating: number;
   openingDate: string;
   closingDate: string;
   link: string;
+  webscrap_link: string;
+  brochure_link: string;
 }
 
 export interface SelectOption {

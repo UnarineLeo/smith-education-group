@@ -183,10 +183,10 @@
           </div>
 
           <div class="card-actions">
-            <ion-button fill="outline" class="learn-more-btn" href="/tabs/universities">
+            <ion-button fill="outline" class="learn-more-btn" [href]="uni.brochure_link" target="_blank" rel="noopener noreferrer">
               Learn More
             </ion-button>
-            <ion-button class="apply-now-btn" href="/tabs/profile">
+            <ion-button class="apply-now-btn" [href]="uni.link" target="_blank" rel="noopener noreferrer">
               Apply Now
             </ion-button>
           </div>

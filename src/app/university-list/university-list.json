@@ -10,7 +10,9 @@
     "rating": 1,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.cput.ac.za"
+    "link": "https://www.cput.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 2,
@@ -23,7 +25,9 @@
     "rating": 2,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.cut.ac.za"
+    "link": "https://www.cut.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 3,
@@ -36,7 +40,9 @@
     "rating": 3,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.dut.ac.za"
+    "link": "https://www.dut.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 4,
@@ -49,7 +55,9 @@
     "rating": 4,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.mut.ac.za"
+    "link": "https://www.mut.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 5,
@@ -62,7 +70,9 @@
     "rating": 5,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.nmu.ac.za"
+    "link": "https://www.nmu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 6,
@@ -75,7 +85,9 @@
     "rating": 6,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.nwu.ac.za"
+    "link": "https://www.nwu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 7,
@@ -88,7 +100,9 @@
     "rating": 7,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ru.ac.za"
+    "link": "https://www.ru.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 8,
@@ -101,7 +115,9 @@
     "rating": 8,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.smu.ac.za"
+    "link": "https://www.smu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 9,
@@ -114,7 +130,9 @@
     "rating": 9,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.spu.ac.za"
+    "link": "https://www.spu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 10,
@@ -127,7 +145,9 @@
     "rating": 10,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.sun.ac.za"
+    "link": "https://www.sun.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 11,
@@ -140,7 +160,9 @@
     "rating": 11,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.tut.ac.za"
+    "link": "https://www.tut.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 12,
@@ -153,7 +175,9 @@
     "rating": 12,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.uct.ac.za"
+    "link": "https://www.uct.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 13,
@@ -166,7 +190,9 @@
     "rating": 13,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ufh.ac.za"
+    "link": "https://www.ufh.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 14,
@@ -179,7 +205,9 @@
     "rating": 14,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.uj.ac.za"
+    "link": "https://www.uj.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 15,
@@ -192,7 +220,9 @@
     "rating": 15,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ukzn.ac.za"
+    "link": "https://www.ukzn.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 16,
@@ -205,7 +235,9 @@
     "rating": 16,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ul.ac.za"
+    "link": "https://www.ul.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 17,
@@ -218,7 +250,9 @@
     "rating": 17,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ump.ac.za"
+    "link": "https://www.ump.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 18,
@@ -231,7 +265,9 @@
     "rating": 18,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.up.ac.za"
+    "link": "https://www.up.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 19,
@@ -244,7 +280,9 @@
     "rating": 19,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.unisa.ac.za"
+    "link": "https://www.unisa.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 20,
@@ -257,7 +295,9 @@
     "rating": 20,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.ufs.ac.za"
+    "link": "https://www.ufs.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 21,
@@ -270,7 +310,9 @@
     "rating": 21,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.uwc.ac.za"
+    "link": "https://www.uwc.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 22,
@@ -283,7 +325,9 @@
     "rating": 22,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.wits.ac.za"
+    "link": "https://www.wits.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 23,
@@ -296,7 +340,9 @@
     "rating": 23,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.univen.ac.za"
+    "link": "https://www.univen.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 24,
@@ -304,12 +350,14 @@
     "suburb": "KwaDlangezwa",
     "province": "KwaZulu-Natal",
     "logo": "assets/logos/unizulu.png",
-    "fields": ["business", "law", "arts", "science", "education"],
+    "fields": ["Law", "Education", "Nursing Science", "Agronomy", "Hydrology", "Biochemistry", "Microbiology", "Sport Science"],
     "image": "../../assets/img/unizulu.jpg",
     "rating": 24,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.unizulu.ac.za"
+    "link": "https://www.unizulu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 25,
@@ -322,7 +370,9 @@
     "rating": 25,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.vut.ac.za"
+    "link": "https://www.vut.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   },
   {
     "id": 26,
@@ -335,6 +385,8 @@
     "rating": 26,
     "openingDate": "2024-07-01",
     "closingDate": "2024-09-30",
-    "link": "https://www.wsu.ac.za"
+    "link": "https://www.wsu.ac.za",
+    "brochure_link": "",
+    "webscrap_link": "https://www.education.gov.za/FurtherStudies/Universities.aspx"
   }
 ]
