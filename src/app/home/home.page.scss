@@ -338,6 +338,24 @@ ion-content {
   }
 }
 
+.more-universities-cta {
+  display: flex;
+  justify-content: center;
+  margin: -20px 0 48px;
+  padding: 0 20px;
+}
+
+.view-more-universities-btn {
+  --background: #f59e0b;
+  --background-hover: #d97706;
+  --color: #1f2937;
+  height: 44px;
+  font-weight: 600;
+  text-transform: none;
+  width: auto;
+  min-width: 260px;
+}
+
 .university-spotlight-card {
   border-radius: 18px;
   overflow: hidden;
@@ -409,6 +427,10 @@ ion-content {
   font-size: 0.95rem;
   font-weight: 600;
   color: #0f172a;
+}
+
+.closed-status-text {
+  color: #dc2626;
 }
 
 .card-actions {

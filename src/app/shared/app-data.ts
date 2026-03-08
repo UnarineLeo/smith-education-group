@@ -9,6 +9,7 @@ export interface University {
   rating: number;
   openingDate: string;
   closingDate: string;
+  status?: string;
   link: string;
   webscrap_link: string;
   brochure_link: string;

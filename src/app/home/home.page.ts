@@ -20,7 +20,16 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit, OnDestroy {
-  featuredUniversities: University[] = (universitiesData as University[]).slice(0, 6);
+  private readonly featuredUniversityOrder: string[] = [
+    'University of Cape Town',
+    'University of the Witwatersrand',
+    'University of Pretoria',
+    'University of Johannesburg',
+    'Stellenbosch University',
+    'University of the Western Cape'
+  ];
+
+  featuredUniversities: University[] = this.getFeaturedUniversities();
   // Counter properties
   currentUniversities: number = 0;
   currentStudents: number = 0;
@@ -155,6 +164,77 @@ export class HomePage implements OnInit, OnDestroy {
     this.searchQuery = '';
     this.selectedField = '';
     this.selectedProvince = '';
+  }
+
+  private getFeaturedUniversities(): University[] {
+    const universities = universitiesData as University[];
+    const universitiesByName = new Map(universities.map(uni => [uni.name, uni]));
+
+    return this.featuredUniversityOrder
+      .map(name => universitiesByName.get(name))
+      .filter((uni): uni is University => !!uni);
+  }
+
+  private parseDate(dateString: string): Date | null {
+    if (!dateString) return null;
+    const parsedDate = new Date(`${dateString}T00:00:00`);
+    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
+  }
+
+  private formatDate(date: Date | null): string {
+    if (!date) return 'N/A';
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }).format(date);
+  }
+
+  private getTodayDateOnly(): Date {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  }
+
+  private getApplicationDisplay(uni: University): { label: string; value: string } {
+    const openingDate = this.parseDate(uni.openingDate);
+    const closingDate = this.parseDate(uni.closingDate);
+    const today = this.getTodayDateOnly();
+
+    if (openingDate && openingDate < today) {
+      if (closingDate && closingDate < today) {
+        return { label: 'Application Status', value: 'Closed' };
+      }
+
+      if (closingDate && closingDate > today) {
+        return { label: 'Application Deadline', value: this.formatDate(closingDate) };
+      }
+
+      if (!closingDate) {
+        return { label: 'Application Status', value: 'Open' };
+      }
+
+      return { label: 'Application Deadline', value: this.formatDate(closingDate) };
+    }
+
+    if (openingDate && openingDate >= today) {
+      return { label: 'Application Opening Date', value: this.formatDate(openingDate) };
+    }
+
+    return { label: 'Application Status', value: uni.status || 'Closed' };
+  }
+
+  getApplicationMetricLabel(uni: University): string {
+    return this.getApplicationDisplay(uni).label;
+  }
+
+  getApplicationMetricValue(uni: University): string {
+    return this.getApplicationDisplay(uni).value;
+  }
+
+  isClosedStatusDisplay(uni: University): boolean {
+    const label = this.getApplicationMetricLabel(uni);
+    const value = this.getApplicationMetricValue(uni);
+    return label === 'Application Status' && value.toLowerCase() === 'closed';
   }
 
   moreinfo = [

@@ -159,14 +159,14 @@
   </div>
 
   <div class="university-cards">
-    @for (uni of featuredUniversities; track uni.id) {
+    @for (uni of featuredUniversities; track uni.id; let index = $index) {
       <ion-card class="university-spotlight-card">
         <img class="card-image" [src]="uni.image" [alt]="uni.name + ' campus'" />
 
         <ion-card-content>
           <div class="card-header-row">
             <h3 class="card-title">{{ uni.name }}</h3>
-            <span class="rank-badge">#{{ uni.rating }}</span>
+            <span class="rank-badge">#{{ index + 1 }}</span>
           </div>
 
           <p class="card-location">{{ uni.suburb }}, {{ uni.province }}</p>
@@ -177,8 +177,10 @@
               <span class="metric-value">{{ formatPrograms(uni.fields.slice(0, 3)) }}</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Application Deadline</span>
-              <span class="metric-value">{{ uni.closingDate | date: 'mediumDate' }}</span>
+              <span class="metric-label">{{ getApplicationMetricLabel(uni) }}</span>
+              <span class="metric-value" [class.closed-status-text]="isClosedStatusDisplay(uni)">
+                {{ getApplicationMetricValue(uni) }}
+              </span>
             </div>
           </div>
 
@@ -193,6 +195,12 @@
         </ion-card-content>
       </ion-card>
     }
+  </div>
+
+  <div class="more-universities-cta">
+    <ion-button class="view-more-universities-btn" (click)="exploreUniversities()">
+      View More Universities
+    </ion-button>
   </div>
 
   <div class="search-section">

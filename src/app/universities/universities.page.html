@@ -132,8 +132,10 @@
               <span class="metric-value">{{ formatPrograms(uni.fields.slice(0, 3)) }}</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Application Deadline</span>
-              <span class="metric-value">{{ uni.closingDate }}</span>
+              <span class="metric-label">{{ getApplicationMetricLabel(uni) }}</span>
+              <span class="metric-value" [class.closed-status-text]="isClosedStatusDisplay(uni)">
+                {{ getApplicationMetricValue(uni) }}
+              </span>
             </div>
           </div>
 

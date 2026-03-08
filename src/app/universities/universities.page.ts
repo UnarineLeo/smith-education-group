@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, I
  } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
 
 @Component({
@@ -18,7 +18,8 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
     IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule, CommonModule],
 })
 export class Universities {
-  featuredUniversities: University[] = (universitiesData as University[])
+  private readonly allUniversities: University[] = universitiesData as University[];
+  featuredUniversities: University[] = [...this.allUniversities];
 
   searchQuery: string = '';
   selectedField: string = '';
@@ -27,8 +28,17 @@ export class Universities {
   // Provinces Array
   provinces = PROVINCES;
   
-  constructor(private router: Router,
+  constructor(private route: ActivatedRoute,
     private alertController: AlertController) {}
+
+  ngOnInit() {
+    this.route.queryParamMap.subscribe((params) => {
+      this.searchQuery = params.get('q') ?? '';
+      this.selectedField = params.get('field') ?? '';
+      this.selectedProvince = params.get('province') ?? '';
+      this.applyFilters();
+    });
+  }
 
    formatPrograms(fields: string[]): string {
     return fields
@@ -57,14 +67,7 @@ export class Universities {
       province: this.selectedProvince
     });
 
-    // Navigate to universities page with search params
-    this.router.navigate(['/tabs/universities'], {
-      queryParams: {
-        q: this.searchQuery || undefined,
-        field: this.selectedField || undefined,
-        province: this.selectedProvince || undefined
-      }
-    });
+    this.applyFilters();
   }
 
   async showAdvancedFilters() {
@@ -91,5 +94,105 @@ export class Universities {
     this.searchQuery = '';
     this.selectedField = '';
     this.selectedProvince = '';
+    this.applyFilters();
+  }
+
+  private applyFilters(): void {
+    const query = this.searchQuery.trim().toLowerCase();
+    const selectedField = this.selectedField.trim().toLowerCase();
+    const selectedProvince = this.selectedProvince.trim().toLowerCase();
+
+    this.featuredUniversities = this.allUniversities.filter((uni) => {
+      const matchesField = !selectedField || uni.fields.some((field) => field.toLowerCase() === selectedField);
+      const matchesProvince = !selectedProvince || this.toSlug(uni.province) === selectedProvince;
+
+      if (!query) {
+        return matchesField && matchesProvince;
+      }
+
+      const searchText = [
+        uni.name,
+        uni.suburb,
+        uni.province,
+        ...uni.fields,
+        this.formatPrograms(uni.fields)
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      const matchesQuery = searchText.includes(query);
+      return matchesQuery && matchesField && matchesProvince;
+    });
+  }
+
+  private toSlug(value: string): string {
+    return value
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  private parseDate(dateString: string): Date | null {
+    if (!dateString) return null;
+    const parsedDate = new Date(`${dateString}T00:00:00`);
+    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
+  }
+
+  private formatDate(date: Date | null): string {
+    if (!date) return 'N/A';
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }).format(date);
+  }
+
+  private getTodayDateOnly(): Date {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  }
+
+  private getApplicationDisplay(uni: University): { label: string; value: string } {
+    const openingDate = this.parseDate(uni.openingDate);
+    const closingDate = this.parseDate(uni.closingDate);
+    const today = this.getTodayDateOnly();
+
+    if (openingDate && openingDate < today) {
+      if (closingDate && closingDate < today) {
+        return { label: 'Application Status', value: 'Closed' };
+      }
+
+      if (closingDate && closingDate > today) {
+        return { label: 'Application Deadline', value: this.formatDate(closingDate) };
+      }
+
+      if (!closingDate) {
+        return { label: 'Application Status', value: 'Open' };
+      }
+
+      return { label: 'Application Deadline', value: this.formatDate(closingDate) };
+    }
+
+    if (openingDate && openingDate >= today) {
+      return { label: 'Application Opening Date', value: this.formatDate(openingDate) };
+    }
+
+    return { label: 'Application Status', value: uni.status || 'Closed' };
+  }
+
+  getApplicationMetricLabel(uni: University): string {
+    return this.getApplicationDisplay(uni).label;
+  }
+
+  getApplicationMetricValue(uni: University): string {
+    return this.getApplicationDisplay(uni).value;
+  }
+
+  isClosedStatusDisplay(uni: University): boolean {
+    const label = this.getApplicationMetricLabel(uni);
+    const value = this.getApplicationMetricValue(uni);
+    return label === 'Application Status' && value.toLowerCase() === 'closed';
   }
 }
