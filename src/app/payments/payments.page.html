@@ -19,6 +19,10 @@
         {{ paymentStatus === 'success' ? 'Payment successful' : 'Payment not successful' }}
       </div>
 
+      <p class="error-description" [class.hidden]="paymentStatus !== 'failed'">
+        {{ paymentErrorDescription }}
+      </p>
+
       <button
         id="payUsingOzow"
         type="button"

@@ -21,6 +21,7 @@ declare global {
 export class PaymentsPage implements OnInit {
   ozowReady = false;
   paymentStatus: 'success' | 'failed' | null = null;
+  paymentErrorDescription: string | null = null;
   private ozow: { createPaymentModal: (paymentUrl: string, postData: Record<string, unknown>) => void } | null = null;
 
   private readonly paymentUrl = 'https://pay.ozow.com/';
@@ -33,9 +34,9 @@ export class PaymentsPage implements OnInit {
     transactionReference: `Golf-${Date.now()}`,
     bankReference: 'GolfTournament2026',
     SuccessUrl: `${this.callbackBaseUrl}?paymentStatus=success`,
-    CancelUrl: `${this.callbackBaseUrl}?paymentStatus=failed`,
-    ErrorUrl: `${this.callbackBaseUrl}?paymentStatus=failed`,
-    isTest: false
+    CancelUrl: `${this.callbackBaseUrl}?paymentStatus=failed&errorDescription=${encodeURIComponent('Payment was cancelled.')}`,
+    ErrorUrl: `${this.callbackBaseUrl}?paymentStatus=failed&errorDescription=${encodeURIComponent('Payment could not be processed.')}`,
+    isTest: true
   };
 
   constructor(
@@ -47,6 +48,17 @@ export class PaymentsPage implements OnInit {
     this.route.queryParamMap.subscribe((params) => {
       const status = params.get('paymentStatus');
       this.paymentStatus = status === 'success' ? 'success' : status === 'failed' ? 'failed' : null;
+      const callbackErrorDescription = params.get('errorDescription')?.trim();
+      this.paymentErrorDescription = this.paymentStatus === 'failed'
+        ? callbackErrorDescription || 'The payment was not successful. Please try again.'
+        : null;
+
+      if (this.paymentStatus === 'failed') {
+        console.error('Payment failed', {
+          status: this.paymentStatus,
+          description: this.paymentErrorDescription,
+        });
+      }
     });
 
     void this.initializeOzow();

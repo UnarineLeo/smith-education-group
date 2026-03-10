@@ -52,6 +52,17 @@
   border-color: rgba(var(--ion-color-danger-rgb), 0.28);
 }
 
+.error-description {
+  margin: -4px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--ion-color-danger-shade);
+}
+
+.error-description.hidden {
+  display: none;
+}
+
 .pay-btn {
   appearance: none;
   border: none;
