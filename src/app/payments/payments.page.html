@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Payments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="payments-content">
+    <section class="payments-card">
+      <h1>Pay with Ozow</h1>
+      <p class="description">Start checkout and return to this page to see if payment was successful or not.</p>
+
+      <div
+        class="status-banner"
+        [class.success]="paymentStatus === 'success'"
+        [class.failed]="paymentStatus === 'failed'"
+        [class.hidden]="paymentStatus === null"
+      >
+        {{ paymentStatus === 'success' ? 'Payment successful' : 'Payment not successful' }}
+      </div>
+
+      <button
+        id="payUsingOzow"
+        type="button"
+        class="pay-btn"
+        [disabled]="!ozowReady"
+        (click)="payUsingOzow()"
+      >
+        {{ ozowReady ? 'Pay Using Ozow' : 'Loading payment gateway...' }}
+      </button>
+    </section>
+  </div>
+</ion-content>

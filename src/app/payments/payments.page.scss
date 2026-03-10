@@ -1,0 +1,71 @@
+.payments-content {
+  min-height: 100%;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payments-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--ion-item-background, var(--ion-color-step-50));
+  border: 1px solid var(--ion-color-step-150);
+  border-radius: 16px;
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.payments-card h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--ion-text-color);
+}
+
+.description {
+  margin: 0;
+  color: var(--ion-color-medium);
+  line-height: 1.45;
+}
+
+.status-banner {
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.status-banner.hidden {
+  display: none;
+}
+
+.status-banner.success {
+  background: rgba(var(--ion-color-success-rgb), 0.12);
+  color: var(--ion-color-success-shade);
+  border-color: rgba(var(--ion-color-success-rgb), 0.28);
+}
+
+.status-banner.failed {
+  background: rgba(var(--ion-color-danger-rgb), 0.12);
+  color: var(--ion-color-danger-shade);
+  border-color: rgba(var(--ion-color-danger-rgb), 0.28);
+}
+
+.pay-btn {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.pay-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
