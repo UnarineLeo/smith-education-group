@@ -7,9 +7,11 @@ export interface University {
   fields: string[];
   image: string;
   rating: number;
+  year: number;
   openingDate: string;
   closingDate: string;
   status?: string;
+  application_fee: number;
   link: string;
   webscrap_link: string;
   brochure_link: string;

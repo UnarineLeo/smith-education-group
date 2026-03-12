@@ -195,4 +195,53 @@ export class Universities {
     const value = this.getApplicationMetricValue(uni);
     return label === 'Application Status' && value.toLowerCase() === 'closed';
   }
+
+  isOpenStatusDisplay(uni: University): boolean {
+    const label = this.getApplicationMetricLabel(uni);
+    const value = this.getApplicationMetricValue(uni);
+    return label === 'Application Status' && value.toLowerCase() === 'open';
+  }
+
+  private formatDateToReadable(dateString: string): string {
+    if (!dateString) return 'N/A';
+
+    const [day, month] = dateString.split('/');
+    const dayNum = parseInt(day, 10);
+    const monthNum = parseInt(month, 10);
+
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const getOrdinal = (n: number): string => {
+      if (n > 3 && n < 21) return 'th';
+      switch (n % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    };
+
+    if (monthNum < 1 || monthNum > 12) return 'N/A';
+
+    const ordinal = getOrdinal(dayNum);
+    const monthName = monthNames[monthNum - 1];
+
+    return `${dayNum} ${monthName}`;
+  }
+
+  getYearAndDates(uni: University): string {
+    const opening = this.formatDateToReadable(uni.openingDate);
+    const closing = this.formatDateToReadable(uni.closingDate);
+    return `${opening} - ${closing}`;
+  }
+
+  getApplicationFeeDisplay(uni: University): string {
+    if (uni.application_fee === 0 || uni.application_fee === null || uni.application_fee === undefined) {
+      return 'Free';
+    }
+    return `R${uni.application_fee.toLocaleString()}`;
+  }
 }

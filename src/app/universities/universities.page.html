@@ -128,12 +128,16 @@
 
           <div class="card-metrics">
             <div class="metric">
-              <span class="metric-label">Popular Programs</span>
-              <span class="metric-value">{{ formatPrograms(uni.fields.slice(0, 3)) }}</span>
+              <span class="metric-label">Application Dates</span>
+              <span class="metric-value">{{ getYearAndDates(uni) }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Application Fee</span>
+              <span class="metric-value">{{ getApplicationFeeDisplay(uni) }}</span>
             </div>
             <div class="metric">
               <span class="metric-label">{{ getApplicationMetricLabel(uni) }}</span>
-              <span class="metric-value" [class.closed-status-text]="isClosedStatusDisplay(uni)">
+              <span class="metric-value" [class.closed-status-text]="isClosedStatusDisplay(uni)" [class.open-status-text]="isOpenStatusDisplay(uni)">
                 {{ getApplicationMetricValue(uni) }}
               </span>
             </div>

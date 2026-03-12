@@ -24,3 +24,5 @@ This command reads `link`, `brochure_link`, and `webscrap_link` from `src/app/un
 - Treats brochure as **prospectus** and prefers prospectus-like links
 - Downloads only document brochures (`.pdf`, `.doc`, `.docx`)
 - Saves local brochure path as `brochure_asset` when download succeeds
+
+https://www.education.gov.za/Informationfor/Learners/SubjectChoiceandCareerPathing/tabid/980/Default.aspx
