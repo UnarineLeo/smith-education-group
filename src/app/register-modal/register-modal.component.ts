@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText } from '@ionic/angular/standalone';
-import { ModalController } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText } from '@ionic/angular/standalone';
 import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
 
 @Component({
@@ -10,9 +9,11 @@ import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
   templateUrl: './register-modal.component.html',
   styleUrls: ['./register-modal.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, FormsModule]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, FormsModule]
 })
 export class RegisterModalComponent {
+  @Output() dismissed = new EventEmitter<{ action: string; payload?: any } | null>();
+
   firstName = '';
   surname = '';
   email = '';
@@ -24,14 +25,12 @@ export class RegisterModalComponent {
   studyLevels = STUDY_LEVELS;
   interestOptions = INTEREST_OPTIONS;
 
-  constructor(private modalController: ModalController) {}
-
   close() {
-    this.modalController.dismiss();
+    this.dismissed.emit(null);
   }
 
   register() {
-    this.modalController.dismiss({
+    this.dismissed.emit({
       action: 'register',
       payload: {
         firstName: this.firstName,
@@ -44,10 +43,10 @@ export class RegisterModalComponent {
   }
 
   continueWithGoogle() {
-    this.modalController.dismiss({ action: 'google-register' });
+    this.dismissed.emit({ action: 'google-register' });
   }
 
   openLogin() {
-    this.modalController.dismiss({ action: 'open-login' });
+    this.dismissed.emit({ action: 'open-login' });
   }
 }

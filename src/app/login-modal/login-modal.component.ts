@@ -1,38 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText } from '@ionic/angular/standalone';
-import { ModalController } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText, FormsModule]
+  imports: [IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText, FormsModule]
 })
 export class LoginModalComponent {
+  @Output() dismissed = new EventEmitter<{ action: string; email?: string } | null>();
+
   email = '';
   password = '';
 
-  constructor(private modalController: ModalController) {}
-
   close() {
-    this.modalController.dismiss();
+    this.dismissed.emit(null);
   }
 
   forgotPassword() {
-    this.modalController.dismiss({ action: 'forgot-password' });
+    this.dismissed.emit({ action: 'forgot-password' });
   }
 
   login() {
-    this.modalController.dismiss({ action: 'login', email: this.email });
+    this.dismissed.emit({ action: 'login', email: this.email });
   }
 
   continueWithGoogle() {
-    this.modalController.dismiss({ action: 'google-login' });
+    this.dismissed.emit({ action: 'google-login' });
   }
 
   openRegister() {
-    this.modalController.dismiss({ action: 'open-register' });
+    this.dismissed.emit({ action: 'open-register' });
   }
 }

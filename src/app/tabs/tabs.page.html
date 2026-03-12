@@ -16,11 +16,11 @@
       <ion-button fill="clear" routerLink="/tabs/universities" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Universities</ion-button>
       <ion-button fill="clear" routerLink="/tabs/our-story" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Our Story</ion-button>
       <ion-button fill="clear" routerLink="/tabs/contact-us" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Contact Us</ion-button>
-      <ion-button class="login-btn">
+      <ion-button class="login-btn" (click)="openLoginModal()">
         <ion-icon slot="start" name="log-in-outline"></ion-icon>
         Log In
       </ion-button>
-      <ion-button color="warning" fill="solid" shape="round" routerLink="/tabs/profile" class="profile-btn">
+      <ion-button color="warning" fill="solid" shape="round" (click)="openRegisterModal()" class="profile-btn">
         Register
       </ion-button>
     </ion-buttons>
@@ -56,12 +56,12 @@
         <ion-label>Contact Us</ion-label>
       </ion-item>
       
-      <ion-item button (click)="closeMenu()" class="menu-divider">
+      <ion-item button (click)="closeMenu(); openLoginModal()" class="menu-divider">
         <ion-icon slot="start" name="log-in-outline"></ion-icon>
         <ion-label>Log In</ion-label>
       </ion-item>
       
-      <ion-item button routerLink="/tabs/profile" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+      <ion-item button routerLink="/tabs/profile" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu(); openRegisterModal()">
         <ion-icon slot="start" name="person-outline"></ion-icon>
         <ion-label>Register</ion-label>
       </ion-item>
@@ -78,3 +78,15 @@
     <ion-tab-button tab="profile"></ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+
+<ion-modal [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
+  <ng-template>
+    <app-login-modal (dismissed)="loginModalOpen = false"></app-login-modal>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
+  <ng-template>
+    <app-register-modal (dismissed)="registerModalOpen = false"></app-register-modal>
+  </ng-template>
+</ion-modal>
