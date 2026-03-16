@@ -16,13 +16,20 @@
       <ion-button fill="clear" routerLink="/tabs/universities" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Universities</ion-button>
       <ion-button fill="clear" routerLink="/tabs/our-story" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Our Story</ion-button>
       <ion-button fill="clear" routerLink="/tabs/contact-us" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Contact Us</ion-button>
-      <ion-button class="login-btn" (click)="openLoginModal()">
-        <ion-icon slot="start" name="log-in-outline"></ion-icon>
-        Log In
-      </ion-button>
-      <ion-button color="warning" fill="solid" shape="round" (click)="openRegisterModal()" class="profile-btn">
-        Register
-      </ion-button>
+
+      @if (isLoggedIn$ | async) {
+        <ion-button color="warning" fill="solid" shape="round" routerLink="/tabs/profile" routerLinkActive="active-tab" class="profile-btn">
+          Profile
+        </ion-button>
+      } @else {
+        <ion-button class="login-btn" (click)="openLoginModal()">
+          <ion-icon slot="start" name="log-in-outline"></ion-icon>
+          Log In
+        </ion-button>
+        <ion-button color="warning" fill="solid" shape="round" (click)="openRegisterModal()" class="profile-btn">
+          Register
+        </ion-button>
+      }
     </ion-buttons>
 
     <!-- Mobile Menu Button -->
@@ -56,15 +63,22 @@
         <ion-label>Contact Us</ion-label>
       </ion-item>
       
-      <ion-item button (click)="closeMenu(); openLoginModal()" class="menu-divider">
-        <ion-icon slot="start" name="log-in-outline"></ion-icon>
-        <ion-label>Log In</ion-label>
-      </ion-item>
-      
-      <ion-item button routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu(); openRegisterModal()">
-        <ion-icon slot="start" name="person-outline"></ion-icon>
-        <ion-label>Register</ion-label>
-      </ion-item>
+      @if (isLoggedIn$ | async) {
+        <ion-item button routerLink="/tabs/profile" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="menu-divider">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>Profile</ion-label>
+        </ion-item>
+      } @else {
+        <ion-item button (click)="closeMenu(); openLoginModal()" class="menu-divider">
+          <ion-icon slot="start" name="log-in-outline"></ion-icon>
+          <ion-label>Log In</ion-label>
+        </ion-item>
+        
+        <ion-item button routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu(); openRegisterModal()">
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>Register</ion-label>
+        </ion-item>
+      }
     </ion-list>
   </div>
 </ion-header>
@@ -81,12 +95,12 @@
 
 <ion-modal [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
   <ng-template>
-    <app-login-modal (dismissed)="loginModalOpen = false"></app-login-modal>
+    <app-login-modal (dismissed)="handleLoginDismiss($event)"></app-login-modal>
   </ng-template>
 </ion-modal>
 
 <ion-modal [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
   <ng-template>
-    <app-register-modal (dismissed)="registerModalOpen = false"></app-register-modal>
+    <app-register-modal (dismissed)="handleRegisterDismiss($event)"></app-register-modal>
   </ng-template>
 </ion-modal>

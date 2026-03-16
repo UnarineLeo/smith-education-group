@@ -1,3 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
 .modal-header ion-toolbar {
   --background: #ffffff;
   --color: #0f172a;
@@ -5,14 +12,14 @@
 
 .modal-scroll {
   background: #ffffff;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  height: calc(100% - 56px);
-  display: flex;
-  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
 }
 
 .auth-shell {
-  padding: 18px 18px 22px;
+  padding: 18px 18px max(28px, env(safe-area-inset-bottom));
 }
 
 .auth-subtitle {

@@ -10,7 +10,10 @@ import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput
   imports: [IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText, FormsModule]
 })
 export class LoginModalComponent {
-  @Output() dismissed = new EventEmitter<{ action: string; email?: string } | null>();
+  @Output() dismissed = new EventEmitter<{
+    action: string;
+    payload?: { email?: string; password?: string };
+  } | null>();
 
   email = '';
   password = '';
@@ -20,11 +23,17 @@ export class LoginModalComponent {
   }
 
   forgotPassword() {
-    this.dismissed.emit({ action: 'forgot-password' });
+    this.dismissed.emit({
+      action: 'forgot-password',
+      payload: { email: this.email }
+    });
   }
 
   login() {
-    this.dismissed.emit({ action: 'login', email: this.email });
+    this.dismissed.emit({
+      action: 'login',
+      payload: { email: this.email, password: this.password }
+    });
   }
 
   continueWithGoogle() {
