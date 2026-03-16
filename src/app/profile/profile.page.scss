@@ -134,6 +134,13 @@
 			border-color: #1e40af;
 			box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
 		}
+
+		&.readonly {
+			background: #f8fafc;
+			border-color: #e2e8f0;
+			color: #475569;
+			cursor: not-allowed;
+		}
 	}
 
 	&.full {

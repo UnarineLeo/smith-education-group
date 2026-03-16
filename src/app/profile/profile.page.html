@@ -24,13 +24,15 @@
         (click)="setTab('personal')">
         Personal Details
       </button>
-      <button
-        type="button"
-        class="tab-link"
-        [class.active]="activeTab === 'password'"
-        (click)="setTab('password')">
-        Change Password
-      </button>
+      @if (!isGoogleUser) {
+        <button
+          type="button"
+          class="tab-link"
+          [class.active]="activeTab === 'password'"
+          (click)="setTab('password')">
+          Change Password
+        </button>
+      }
       <button
         type="button"
         class="tab-link"
@@ -44,34 +46,42 @@
       @if (activeTab === 'personal') {
         <section class="panel">
           <h2>Personal Details</h2>
-          <p class="panel-subtitle">Keep your personal information up to date.</p>
+          <p class="panel-subtitle">
+            @if (isGoogleUser) {
+              These details come from your Google account and cannot be edited here.
+            } @else {
+              Keep your personal information up to date.
+            }
+          </p>
 
           <div class="form-grid">
             <label class="field">
               <span>First Name</span>
-              <input type="text" value="Leo" />
+              <input type="text" [value]="profile.firstName" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
             </label>
             <label class="field">
               <span>Last Name</span>
-              <input type="text" value="Unarine" />
+              <input type="text" [value]="profile.lastName" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
             </label>
             <label class="field full">
               <span>Email Address</span>
-              <input type="email" value="leo@example.com" />
+              <input type="email" [value]="profile.email" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
             </label>
             <label class="field full">
               <span>Phone Number</span>
-              <input type="tel" value="+27 71 000 0000" />
+              <input type="tel" [value]="profile.phone" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
             </label>
           </div>
 
-          <div class="actions">
-            <button type="button" class="btn primary">Save Changes</button>
-          </div>
+          @if (!isGoogleUser) {
+            <div class="actions">
+              <button type="button" class="btn primary">Save Changes</button>
+            </div>
+          }
         </section>
       }
 
-      @if (activeTab === 'password') {
+      @if (activeTab === 'password' && !isGoogleUser) {
         <section class="panel">
           <h2>Change Password</h2>
           <p class="panel-subtitle">Use a strong password that you do not reuse elsewhere.</p>
