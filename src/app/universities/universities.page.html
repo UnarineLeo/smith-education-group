@@ -34,6 +34,8 @@
 
   <div class="search-section">
     <div class="search-container">
+      
+
       <h2 class="section-title">Find Your Perfect University</h2>
       <p class="section-subtitle">
         Search through South Africa's top universities by program, location, or requirements.
@@ -96,8 +98,19 @@
           </div>
         </ion-card-content>
       </ion-card>
+      <br>
+      <div class="deadline-banner" role="note" aria-label="Important deadline notice">
+        <ion-icon name="information-circle-outline" aria-hidden="true"></ion-icon>
+        <p>
+          Closing dates may differ by faculty or programme. Always confirm exact deadlines on the university site before applying.
+        </p>
+      </div>
     </div>
+
+    
   </div>
+
+  
 
   <div class="university-cards">
     @for (uni of featuredUniversities; track uni.id) {

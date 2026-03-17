@@ -72,6 +72,46 @@ ion-content {
   margin: 0 auto;
 }
 
+.deadline-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 auto 20px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #3b82f6;
+  border-left: 6px solid #1d4ed8;
+  background: linear-gradient(90deg, #dbeafe 0%, #eff6ff 100%);
+  color: #1e3a8a;
+  box-shadow: 0 8px 18px -10px rgba(37, 99, 235, 0.45);
+
+  ion-icon {
+    font-size: 1.3rem;
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: #1d4ed8;
+    background: #fff;
+    border-radius: 50%;
+    padding: 2px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.45;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 16px;
+    padding: 10px 12px;
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
 .section-title {
   font-size: 2.75rem;
   font-weight: 700;
