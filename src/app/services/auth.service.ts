@@ -87,33 +87,6 @@ export class AuthService {
   private authState = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.authState.asObservable(); ///I don't think theres a need for this
 
-  // googleSignIn() {
-  //   return this.isAuthenticated().then(authenticated => 
-  //   {
-  //     if (!authenticated) 
-  //       {
-  //       return this.performGoogleSignIn();
-  //     }
-  //     return Promise.resolve(true);
-  //   });
-  // }
-
-  // private async performGoogleSignIn() {
-  //   try 
-  //   {
-  //     const result = await signInWithPopup(getAuth(firebase.initializeApp(environment.firebaseConfig)), new GoogleAuthProvider());
-  //     this.updateUserState(result.user);
-  //     this.router.navigate(['/tabs/profile']);
-
-  //     return true;
-  //   } 
-  //   catch (error) 
-  //   {
-  //     this.presentToast(error)
-  //     return false;
-  //   }
-  // }
-
   private updateUserState(user: any) 
   {
     this.loadProfile = true
