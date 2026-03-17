@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, IonSelect, 
- IonSelectOption, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, 
+ IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FooterComponent } from '../footer/footer.component';
@@ -15,7 +15,7 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonSelect, IonSelectOption, IonCardTitle, IonCardHeader,
+    IonButton, IonCardTitle, IonCardHeader,
     FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -34,8 +34,8 @@ export class HomePage implements OnInit, OnDestroy {
   currentUniversities: number = 0;
   currentStudents: number = 0;
   currentSuccessRate: number = 0;
-  targetUniversities: number = 12;
-  targetStudents: number = 1000;
+  targetUniversities: number = 26;
+  targetStudents: number = 499;
   targetSuccessRate: number = 99.8;
   private animationInterval: any;
 
@@ -141,6 +141,10 @@ export class HomePage implements OnInit, OnDestroy {
     this.router.navigate(['/tabs/universities']);
   }
 
+  openProspectus(uni: University) {
+    this.router.navigate(['/tabs/prospectus', uni.id]);
+  }
+
   // Helper method to get label from value
   getFieldLabel(value: string): string {
     const field = this.studyFields.find(f => f.value === value);
@@ -177,8 +181,17 @@ export class HomePage implements OnInit, OnDestroy {
 
   private parseDate(dateString: string): Date | null {
     if (!dateString) return null;
-    const parsedDate = new Date(`${dateString}T00:00:00`);
-    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
+
+    const [dayPart, monthPart] = dateString.split('/');
+    const day = Number.parseInt(dayPart, 10);
+    const month = Number.parseInt(monthPart, 10);
+
+    if (Number.isNaN(day) || Number.isNaN(month) || day < 1 || day > 31 || month < 1 || month > 12) {
+      return null;
+    }
+
+    const currentYear = new Date().getFullYear();
+    return new Date(currentYear, month - 1, day);
   }
 
   private formatDate(date: Date | null): string {
@@ -200,27 +213,14 @@ export class HomePage implements OnInit, OnDestroy {
     const closingDate = this.parseDate(uni.closingDate);
     const today = this.getTodayDateOnly();
 
-    if (openingDate && openingDate < today) {
-      if (closingDate && closingDate < today) {
-        return { label: 'Application Status', value: 'Closed' };
-      }
+    const isOpenByOpening = !openingDate || today >= openingDate;
+    const isOpenByClosing = !closingDate || today <= closingDate;
+    const isOpen = isOpenByOpening && isOpenByClosing;
 
-      if (closingDate && closingDate > today) {
-        return { label: 'Application Deadline', value: this.formatDate(closingDate) };
-      }
-
-      if (!closingDate) {
-        return { label: 'Application Status', value: 'Open' };
-      }
-
-      return { label: 'Application Deadline', value: this.formatDate(closingDate) };
-    }
-
-    if (openingDate && openingDate >= today) {
-      return { label: 'Application Opening Date', value: this.formatDate(openingDate) };
-    }
-
-    return { label: 'Application Status', value: uni.status || 'Closed' };
+    return {
+      label: 'Application Status',
+      value: isOpen ? 'Open' : 'Closed'
+    };
   }
 
   getApplicationMetricLabel(uni: University): string {

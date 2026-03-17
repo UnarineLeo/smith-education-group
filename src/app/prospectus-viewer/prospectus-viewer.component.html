@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar class="viewer-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/universities"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="viewer-title">Prospectus</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [href]="university?.brochure_asset || university?.brochure_link" target="_blank" rel="noopener noreferrer" fill="solid" color="dark">
+        <ion-icon slot="start" name="open-outline"></ion-icon>
+        Open
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="viewer-content">
+  @if (university) {
+    <section class="viewer-hero">
+      <p class="viewer-kicker">University Prospectus</p>
+      <h1 class="viewer-name">{{ university.name }}</h1>
+      <p class="viewer-location">{{ university.suburb }}, {{ university.province }}</p>
+
+      <div class="meta-row">
+        <ion-chip>
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>{{ getDatesDisplay() }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="cash-outline"></ion-icon>
+          <ion-label>{{ getApplicationFeeDisplay() }}</ion-label>
+        </ion-chip>
+      </div>
+    </section>
+
+    <section class="viewer-panel">
+      @if (safePdfUrl) {
+        <iframe
+          class="pdf-frame"
+          [src]="safePdfUrl"
+          type="application/pdf"
+          title="{{ university.name }} Prospectus">
+        </iframe>
+      } @else {
+        <div class="no-pdf">
+          <h2>Prospectus not available yet</h2>
+          <p>We do not have a local PDF for this university right now.</p>
+          @if (university.brochure_link) {
+            <ion-button [href]="university.brochure_link" target="_blank" rel="noopener noreferrer" color="dark">
+              View Online Prospectus
+            </ion-button>
+          }
+        </div>
+      }
+    </section>
+  } @else {
+    <div class="no-pdf">
+      <h2>University not found</h2>
+      <p>The requested prospectus could not be loaded.</p>
+      <ion-button routerLink="/tabs/universities" color="dark">Back to Universities</ion-button>
+    </div>
+  }
+</ion-content>

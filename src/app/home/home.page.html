@@ -107,7 +107,7 @@
           </div>
 
           <div class="card-actions">
-            <ion-button fill="outline" class="learn-more-btn" [href]="uni.brochure_link" target="_blank" rel="noopener noreferrer">
+            <ion-button fill="outline" class="learn-more-btn" (click)="openProspectus(uni)">
               Learn More
             </ion-button>
             <ion-button class="apply-now-btn" [href]="uni.link" target="_blank" rel="noopener noreferrer">

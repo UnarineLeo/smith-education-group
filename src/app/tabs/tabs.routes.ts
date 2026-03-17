@@ -17,6 +17,11 @@ export const routes: Routes = [
           import('../universities/universities.page').then((m) => m.Universities),
       },
       {
+        path: 'prospectus/:id',
+        loadComponent: () =>
+          import('../prospectus-viewer/prospectus-viewer.component').then((m) => m.ProspectusViewerComponent),
+      },
+      {
         path: 'our-story',
         loadComponent: () =>
           import('../our-story/our-story.page').then((m) => m.OurStoryPage),

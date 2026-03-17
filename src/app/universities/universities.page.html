@@ -55,20 +55,6 @@
 
             <div class="select-wrapper">
               <ion-select
-                placeholder="Study Field"
-                [(ngModel)]="selectedField"
-                interface="popover"
-                class="custom-select">
-                <ion-select-option
-                  *ngFor="let field of studyFields"
-                  [value]="field.value">
-                  {{ field.label }}
-                </ion-select-option>
-              </ion-select>
-            </div>
-
-            <div class="select-wrapper">
-              <ion-select
                 placeholder="Province"
                 [(ngModel)]="selectedProvince"
                 interface="popover"
@@ -103,7 +89,7 @@
               fill="clear"
               class="clear-button"
               (click)="clearFilters()"
-              *ngIf="searchQuery || selectedField || selectedProvince">
+              *ngIf="searchQuery || selectedProvince">
               <ion-icon slot="start" name="close-circle-outline"></ion-icon>
               Clear
             </ion-button>
@@ -121,7 +107,6 @@
         <ion-card-content>
           <div class="card-header-row">
             <h3 class="card-title">{{ uni.name }}</h3>
-            <span class="rank-badge">#{{ uni.rating }}</span>
           </div>
 
           <p class="card-location">{{ uni.suburb }}, {{ uni.province }}</p>
@@ -144,7 +129,7 @@
           </div>
 
           <div class="card-actions">
-            <ion-button fill="outline" class="learn-more-btn" [href]="uni.brochure_link" target="_blank" rel="noopener noreferrer">
+            <ion-button fill="outline" class="learn-more-btn" (click)="openProspectus(uni)">
               Learn More
             </ion-button>
             <ion-button class="apply-now-btn" [href]="uni.link" target="_blank" rel="noopener noreferrer">

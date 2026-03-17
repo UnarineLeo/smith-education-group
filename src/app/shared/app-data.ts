@@ -4,17 +4,16 @@ export interface University {
   suburb: string;
   province: string;
   logo: string;
-  fields: string[];
   image: string;
-  rating: number;
-  year: number;
   openingDate: string;
   closingDate: string;
+  closingDateNote?: string;
   status?: string;
   application_fee: number;
   link: string;
   webscrap_link: string;
   brochure_link: string;
+  brochure_asset?: string;
 }
 
 export interface SelectOption {

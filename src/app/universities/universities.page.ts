@@ -1,12 +1,11 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import universitiesData from '../university-list/university-list.json';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption,
- } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
-import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PROVINCES, University } from '../shared/app-data';
 
 @Component({
   selector: 'app-universities',
@@ -14,7 +13,7 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   styleUrls: ['universities.page.scss'],
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, 
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard,
     IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule, CommonModule],
 })
 export class Universities {
@@ -22,48 +21,36 @@ export class Universities {
   featuredUniversities: University[] = [...this.allUniversities];
 
   searchQuery: string = '';
-  selectedField: string = '';
   selectedProvince: string = '';
 
   // Provinces Array
   provinces = PROVINCES;
   
   constructor(private route: ActivatedRoute,
+    private router: Router,
     private alertController: AlertController) {}
 
   ngOnInit() {
     this.route.queryParamMap.subscribe((params) => {
       this.searchQuery = params.get('q') ?? '';
-      this.selectedField = params.get('field') ?? '';
       this.selectedProvince = params.get('province') ?? '';
       this.applyFilters();
     });
   }
 
-   formatPrograms(fields: string[]): string {
-    return fields
-      .map(field => this.getFieldLabel(field) || field.replace(/-/g, ' '))
-      .map(label => label.replace(/\b\w/g, char => char.toUpperCase()))
-      .join(', ');
+  openProspectus(uni: University) {
+    this.router.navigate(['/tabs/prospectus', uni.id]);
   }
-
-  getFieldLabel(value: string): string {
-    const field = this.studyFields.find(f => f.value === value);
-    return field ? field.label : '';
-  }
-
-  studyFields = STUDY_FIELDS;
 
     searchUniversities() {
     // Validate that at least one search criteria is provided
-    if (!this.searchQuery && !this.selectedField && !this.selectedProvince) {
+    if (!this.searchQuery && !this.selectedProvince) {
       this.showAlert('Please enter a search term or select filters');
       return;
     }
 
     console.log('Searching universities:', {
       query: this.searchQuery,
-      field: this.selectedField,
       province: this.selectedProvince
     });
 
@@ -92,36 +79,31 @@ export class Universities {
 
   clearFilters() {
     this.searchQuery = '';
-    this.selectedField = '';
     this.selectedProvince = '';
     this.applyFilters();
   }
 
   private applyFilters(): void {
     const query = this.searchQuery.trim().toLowerCase();
-    const selectedField = this.selectedField.trim().toLowerCase();
     const selectedProvince = this.selectedProvince.trim().toLowerCase();
 
     this.featuredUniversities = this.allUniversities.filter((uni) => {
-      const matchesField = !selectedField || uni.fields.some((field) => field.toLowerCase() === selectedField);
       const matchesProvince = !selectedProvince || this.toSlug(uni.province) === selectedProvince;
 
       if (!query) {
-        return matchesField && matchesProvince;
+        return matchesProvince;
       }
 
       const searchText = [
         uni.name,
         uni.suburb,
-        uni.province,
-        ...uni.fields,
-        this.formatPrograms(uni.fields)
+        uni.province
       ]
         .join(' ')
         .toLowerCase();
 
       const matchesQuery = searchText.includes(query);
-      return matchesQuery && matchesField && matchesProvince;
+      return matchesQuery && matchesProvince;
     });
   }
 
@@ -136,8 +118,17 @@ export class Universities {
 
   private parseDate(dateString: string): Date | null {
     if (!dateString) return null;
-    const parsedDate = new Date(`${dateString}T00:00:00`);
-    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
+
+    const [dayPart, monthPart] = dateString.split('/');
+    const day = Number.parseInt(dayPart, 10);
+    const month = Number.parseInt(monthPart, 10);
+
+    if (Number.isNaN(day) || Number.isNaN(month) || day < 1 || day > 31 || month < 1 || month > 12) {
+      return null;
+    }
+
+    const currentYear = new Date().getFullYear();
+    return new Date(currentYear, month - 1, day);
   }
 
   private formatDate(date: Date | null): string {
@@ -159,27 +150,14 @@ export class Universities {
     const closingDate = this.parseDate(uni.closingDate);
     const today = this.getTodayDateOnly();
 
-    if (openingDate && openingDate < today) {
-      if (closingDate && closingDate < today) {
-        return { label: 'Application Status', value: 'Closed' };
-      }
+    const isOpenByOpening = !openingDate || today >= openingDate;
+    const isOpenByClosing = !closingDate || today <= closingDate;
+    const isOpen = isOpenByOpening && isOpenByClosing;
 
-      if (closingDate && closingDate > today) {
-        return { label: 'Application Deadline', value: this.formatDate(closingDate) };
-      }
-
-      if (!closingDate) {
-        return { label: 'Application Status', value: 'Open' };
-      }
-
-      return { label: 'Application Deadline', value: this.formatDate(closingDate) };
-    }
-
-    if (openingDate && openingDate >= today) {
-      return { label: 'Application Opening Date', value: this.formatDate(openingDate) };
-    }
-
-    return { label: 'Application Status', value: uni.status || 'Closed' };
+    return {
+      label: 'Application Status',
+      value: isOpen ? 'Open' : 'Closed'
+    };
   }
 
   getApplicationMetricLabel(uni: University): string {
