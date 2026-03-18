@@ -22,21 +22,6 @@ export class AuthService {
     private toastController: ToastController, private firestore: AngularFirestore,
     public loader: LoadingController) 
   {
-    // const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
-    // setPersistence(authInstance, browserLocalPersistence).then(() =>{
-    //   this.auth.onAuthStateChanged(user => {
-    //     this.isLoggedIn = !!user
-    //     this.userName = user ? user.displayName || 'Guest' : 'Guest'
-    //     this.userEmail = user?.email || `not signed in`
-    //     this.isVerified = user?.emailVerified ?? false;;
-    //     this.verificationMsg = 'Please verify your email address '+ this.userEmail
-    //     this.userId = user?.uid || ''
-    //   });
-    // })
-    // .catch(error => {
-    //   console.error('Error setting persistence:', error);
-    //   this.presentToast('Authentication error occurred');
-    // });
 
     this.initializeAuth()
     
@@ -372,32 +357,50 @@ export class AuthService {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
-        hasMini: false,
+        isSubscribed: false,
         expiryDate: "",
-        points: 0,
+        apsScore: 0,
         lastSignIn: serverTimestamp(),
-        currentPlan: ""
+        subjects: [],
+        studyAreas: []
       });
     }
   }
 
   // update
-  async updateUser(uid: string, updatedInfo: [string, boolean, number, string]): Promise<void> {
+  async updateUser(uid: string, updatedInfo: [string, boolean, number, string[], string[]]): Promise<void> {
     const userRef = doc(this.db, 'users', uid);
     const userDoc = await getDoc(userRef);
+    const existingData = userDoc.data();
 
-    updatedInfo[0] == "" ? updatedInfo[0] = userDoc.data()?.['expiryDate'] : updatedInfo[0] = updatedInfo[0]
-    userDoc.data()?.['hasMini'] == true ? updatedInfo[1] = true : updatedInfo[1] = updatedInfo[1]
-    userDoc.data()?.['points'] > updatedInfo[2] ? updatedInfo[2] = userDoc.data()?.['points'] : updatedInfo[2] = updatedInfo[2]
-    updatedInfo[3] == "" ? updatedInfo[3] = userDoc.data()?.['currentPlan'] : updatedInfo[3] = updatedInfo[3]
+    if (updatedInfo[0] === "") {
+      updatedInfo[0] = existingData?.['expiryDate'] ?? "";
+    }
+
+    if (existingData?.['isSubscribed'] === true) {
+      updatedInfo[1] = true;
+    }
+
+    if ((existingData?.['apsScore'] ?? 0) > updatedInfo[2]) {
+      updatedInfo[2] = existingData?.['apsScore'];
+    }
+
+    if ((!updatedInfo[3] || updatedInfo[3].length === 0) && Array.isArray(existingData?.['subjects'])) {
+      updatedInfo[3] = existingData?.['subjects'];
+    }
+
+    if ((!updatedInfo[4] || updatedInfo[4].length === 0) && Array.isArray(existingData?.['studyAreas'])) {
+      updatedInfo[4] = existingData?.['studyAreas'];
+    }
 
     if(userDoc.exists()) 
     {
       await setDoc(userRef, {
         expiryDate: updatedInfo[0],
-        hasMini: updatedInfo[1],
-        points: updatedInfo[2],
-        currentPlan: updatedInfo[3]
+        isSubscribed: updatedInfo[1],
+        apsScore: updatedInfo[2],
+        subjects: updatedInfo[3],
+        studyAreas: updatedInfo[4]
       }, { merge: true });
     }
   }

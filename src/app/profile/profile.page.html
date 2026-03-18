@@ -40,6 +40,13 @@
         (click)="setTab('education')">
         Educational Details
       </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'highSchoolSubjects'"
+        (click)="setTab('highSchoolSubjects')">
+        High School Subjects
+      </button>
     </aside>
 
     <div class="tab-content">
@@ -57,25 +64,38 @@
           <div class="form-grid">
             <label class="field">
               <span>First Name</span>
-              <input type="text" [value]="profile.firstName" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
+              <input
+                type="text"
+                [value]="profile.firstName"
+                [readOnly]="isGoogleUser"
+                [class.readonly]="isGoogleUser"
+                (input)="onProfileInputChange('firstName', $event)" />
             </label>
             <label class="field">
               <span>Last Name</span>
-              <input type="text" [value]="profile.lastName" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
+              <input
+                type="text"
+                [value]="profile.lastName"
+                [readOnly]="isGoogleUser"
+                [class.readonly]="isGoogleUser"
+                (input)="onProfileInputChange('lastName', $event)" />
             </label>
             <label class="field full">
               <span>Email Address</span>
-              <input type="email" [value]="profile.email" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
-            </label>
-            <label class="field full">
-              <span>Phone Number</span>
-              <input type="tel" [value]="profile.phone" [readOnly]="isGoogleUser" [class.readonly]="isGoogleUser" />
+              <input
+                type="email"
+                [value]="profile.email"
+                [readOnly]="isGoogleUser"
+                [class.readonly]="isGoogleUser"
+                (input)="onProfileInputChange('email', $event)" />
             </label>
           </div>
 
           @if (!isGoogleUser) {
             <div class="actions">
-              <button type="button" class="btn primary">Save Changes</button>
+              <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveProfileChanges()">
+                {{ isSavingProfile ? 'Saving...' : 'Save Changes' }}
+              </button>
             </div>
           }
         </section>
@@ -125,7 +145,64 @@
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary">Save Interests</button>
+            <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveInterests()">
+              {{ isSavingProfile ? 'Saving...' : 'Save Interests' }}
+            </button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'highSchoolSubjects') {
+        <section class="panel">
+          <h2>High School Subjects</h2>
+          <p class="panel-subtitle">
+            Add at least 7 high school subjects with marks. Subject choices are deduplicated automatically.
+          </p>
+
+          <div class="subjects-grid">
+            @for (entry of subjectEntries; track $index; let i = $index) {
+              <div class="subject-row">
+                <label class="field">
+                  <span>Subject {{ i + 1 }}</span>
+                  <select [value]="entry.subject" (change)="onSubjectChange(i, $event)">
+                    <option value="">Select subject</option>
+                    @for (subject of highSchoolSubjectOptions; track subject) {
+                      <option [value]="subject" [disabled]="isSubjectDisabled(subject, i)">
+                        {{ subject }}
+                      </option>
+                    }
+                  </select>
+                </label>
+
+                <label class="field marks-field">
+                  <span>Mark (%)</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    inputmode="numeric"
+                    placeholder="0-100"
+                    [value]="entry.mark ?? ''"
+                    (input)="onMarkChange(i, $event)" />
+                </label>
+
+                @if (subjectEntries.length > minimumSubjects) {
+                  <button type="button" class="icon-btn remove" (click)="removeSubjectEntry(i)">
+                    Remove
+                  </button>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="subjects-actions">
+            <button type="button" class="btn secondary" (click)="addSubjectEntry()">Add Subject</button>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary" [disabled]="isSavingSubjects" (click)="saveHighSchoolSubjects()">
+              {{ isSavingSubjects ? 'Saving...' : 'Save Subjects' }}
+            </button>
           </div>
         </section>
       }

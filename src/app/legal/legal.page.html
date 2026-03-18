@@ -1,0 +1,109 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Legal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="legal-hero">
+    <div class="legal-hero-inner">
+      <p class="eyebrow">Policies</p>
+      <h1>{{ activeView === 'terms' ? 'Terms of Service' : 'Privacy Policy' }}</h1>
+      <p>
+        Please review the information below carefully. By using Unipply, you agree to these terms and policies.
+      </p>
+    </div>
+  </section>
+
+  <section class="legal-shell">
+    <div class="legal-switcher" role="tablist" aria-label="Legal documents">
+      <ion-button
+        fill="clear"
+        class="switch-btn"
+        [class.active]="activeView === 'terms'"
+        (click)="swapView('terms')">
+        Terms of Service
+      </ion-button>
+      <ion-button
+        fill="clear"
+        class="switch-btn"
+        [class.active]="activeView === 'privacy'"
+        (click)="swapView('privacy')">
+        Privacy Policy
+      </ion-button>
+    </div>
+
+    @if (activeView === 'terms') {
+      <article class="legal-card" aria-label="Terms of Service">
+        <h2>Terms of Service</h2>
+        <p class="meta">Effective date: {{ effectiveDate }}</p>
+
+        <h3>1. Platform Scope</h3>
+        <p>
+          Unipply is an information and guidance platform. University applications are completed on the various
+          university websites. We help by bringing university information into one space to reduce repeated searching,
+          support career guidance, and share useful university information.
+        </p>
+
+        <h3>2. User Responsibilities</h3>
+        <p>
+          You are responsible for checking deadlines, admission criteria, supporting documents, and final application
+          submissions on official university websites.
+        </p>
+
+        <h3>3. Accuracy Disclaimer</h3>
+        <p>
+          We work to keep information accurate and current, but requirements can change at any time. Always verify
+          details directly with the university.
+        </p>
+
+        <h3>4. Acceptable Use</h3>
+        <p>
+          You agree not to misuse the platform, interfere with service availability, or submit false information.
+        </p>
+
+        <h3>5. Limitation of Liability</h3>
+        <p>
+          Unipply is not liable for decisions made by universities, missed deadlines, or outcomes caused by third-party
+          website changes.
+        </p>
+      </article>
+    }
+
+    @if (activeView === 'privacy') {
+      <article class="legal-card" aria-label="Privacy Policy">
+        <h2>Privacy Policy</h2>
+        <p class="meta">Effective date: {{ effectiveDate }}</p>
+
+        <h3>1. Information We Collect</h3>
+        <p>
+          We may collect account details, profile data, and platform usage data needed to provide guidance features,
+          subject tracking, and personalized recommendations.
+        </p>
+
+        <h3>2. How We Use Information</h3>
+        <p>
+          We use your data to improve user experience, provide career guidance, and present university information in a
+          clear and centralized way.
+        </p>
+
+        <h3>3. Application Submission Clarification</h3>
+        <p>
+          Unipply does not submit applications to universities on your behalf. Applications are completed on official
+          university websites.
+        </p>
+
+        <h3>4. Data Sharing</h3>
+        <p>
+          We do not sell personal data. We only share information when required for service delivery, legal compliance,
+          or with your explicit consent.
+        </p>
+
+        <h3>5. Contact</h3>
+        <p>
+          For privacy questions, contact support through the official support channels listed in the app.
+        </p>
+      </article>
+    }
+  </section>
+</ion-content>

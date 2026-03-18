@@ -17,4 +17,12 @@ export const routes: Routes = [
     path: 'payments',
     loadComponent: () => import('./payments/payments.page').then((m) => m.PaymentsPage)
   },
+  {
+    path: 'terms',
+    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+  },
+  {
+    path: 'privacy',
+    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+  },
 ];
