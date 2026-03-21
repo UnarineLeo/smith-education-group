@@ -25,4 +25,8 @@ export const routes: Routes = [
     path: 'privacy',
     loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
   },
+  {
+    path: 'popia',
+    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+  },
 ];

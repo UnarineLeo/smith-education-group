@@ -8,7 +8,15 @@
   <section class="legal-hero">
     <div class="legal-hero-inner">
       <p class="eyebrow">Policies</p>
-      <h1>{{ activeView === 'terms' ? 'Terms of Service' : 'Privacy Policy' }}</h1>
+      <h1>
+        {{
+          activeView === 'terms'
+            ? 'Terms of Service'
+            : activeView === 'privacy'
+              ? 'Privacy Policy'
+              : 'POPIA Notice'
+        }}
+      </h1>
       <p>
         Please review the information below carefully. By using Unipply, you agree to these terms and policies.
       </p>
@@ -16,22 +24,20 @@
   </section>
 
   <section class="legal-shell">
-    <div class="legal-switcher" role="tablist" aria-label="Legal documents">
-      <ion-button
-        fill="clear"
-        class="switch-btn"
-        [class.active]="activeView === 'terms'"
-        (click)="swapView('terms')">
+    <ion-segment
+      class="legal-tabs"
+      [value]="activeView"
+      (ionChange)="onTabChange($event.detail.value)">
+      <ion-segment-button value="terms">
         Terms of Service
-      </ion-button>
-      <ion-button
-        fill="clear"
-        class="switch-btn"
-        [class.active]="activeView === 'privacy'"
-        (click)="swapView('privacy')">
+      </ion-segment-button>
+      <ion-segment-button value="privacy">
         Privacy Policy
-      </ion-button>
-    </div>
+      </ion-segment-button>
+      <ion-segment-button value="popia">
+        POPIA
+      </ion-segment-button>
+    </ion-segment>
 
     @if (activeView === 'terms') {
       <article class="legal-card" aria-label="Terms of Service">
@@ -102,6 +108,48 @@
         <h3>5. Contact</h3>
         <p>
           For privacy questions, contact support through the official support channels listed in the app.
+        </p>
+      </article>
+    }
+
+    @if (activeView === 'popia') {
+      <article class="legal-card" aria-label="POPIA Notice">
+        <h2>POPIA Notice</h2>
+        <p class="meta">Effective date: {{ effectiveDate }}</p>
+
+        <h3>1. Purpose</h3>
+        <p>
+          This notice explains how Unipply processes personal information in accordance with South Africa's Protection
+          of Personal Information Act (POPIA).
+        </p>
+
+        <h3>2. Information Processed</h3>
+        <p>
+          We process account details, profile information, platform activity, and support communications required to
+          deliver guidance features and improve service quality.
+        </p>
+
+        <h3>3. Lawful Basis and Use</h3>
+        <p>
+          Personal information is processed to provide requested services, maintain platform security, comply with
+          legal obligations, and support legitimate operational needs.
+        </p>
+
+        <h3>4. Data Subject Rights</h3>
+        <p>
+          You may request access, correction, deletion, or restriction of personal information, and you may object to
+          certain processing where applicable under POPIA.
+        </p>
+
+        <h3>5. Retention and Safeguards</h3>
+        <p>
+          We retain personal information only as long as necessary for legitimate business or legal purposes and apply
+          reasonable technical and organizational safeguards to protect that information.
+        </p>
+
+        <h3>6. Contact</h3>
+        <p>
+          For POPIA-related requests or concerns, contact support through the official channels listed in the app.
         </p>
       </article>
     }

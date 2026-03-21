@@ -42,28 +42,33 @@ ion-content {
   padding: 24px 20px 40px;
 }
 
-.legal-switcher {
-  display: inline-flex;
+.legal-tabs {
+  width: 100%;
+  max-width: 560px;
   border: 1px solid #dbe4ef;
   border-radius: 12px;
   background: #ffffff;
   padding: 4px;
   margin-bottom: 14px;
+
+  --background: transparent;
+  --indicator-color: rgba(30, 64, 175, 0.16);
 }
 
-.switch-btn {
+.legal-tabs ion-segment-button {
   --color: #475569;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  margin: 0;
-  border-radius: 8px;
+  --color-checked: #1e40af;
+  --indicator-box-shadow: none;
+  --border-radius: 8px;
+  --padding-start: 14px;
+  --padding-end: 14px;
   min-height: 40px;
   text-transform: none;
   font-weight: 600;
+  letter-spacing: 0;
 
-  &.active {
-    --background: rgba(30, 64, 175, 0.13);
-    --color: #1e40af;
+  &::part(native) {
+    border-radius: 8px;
   }
 }
 

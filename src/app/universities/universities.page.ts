@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PROVINCES, University } from '../shared/app-data';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-universities',
@@ -14,7 +15,7 @@ import { PROVINCES, University } from '../shared/app-data';
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard,
-    IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule, CommonModule],
+    IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule, CommonModule, FooterComponent],
 })
 export class Universities {
   private readonly allUniversities: University[] = universitiesData as University[];

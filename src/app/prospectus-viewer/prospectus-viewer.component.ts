@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonBadge, IonChip, IonLabel } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { calendarOutline, cashOutline, openOutline, sendOutline } from 'ionicons/icons';
@@ -23,7 +23,6 @@ import universitiesData from '../university-list/university-list.json';
     IonIcon,
     IonContent,
     IonBackButton,
-    IonBadge,
     IonChip,
     IonLabel,
     RouterLink
