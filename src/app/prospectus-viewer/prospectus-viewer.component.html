@@ -29,6 +29,9 @@
           <ion-icon name="cash-outline"></ion-icon>
           <ion-label>{{ getApplicationFeeDisplay() }}</ion-label>
         </ion-chip>
+        <ion-chip class="status-chip" [class.open]="isApplicationOpen()" [class.closed]="!isApplicationOpen()">
+          <ion-label>{{ getApplicationStatusDisplay() }}</ion-label>
+        </ion-chip>
         <ion-button
           color="dark"
           fill="solid"
@@ -39,6 +42,7 @@
           <ion-icon slot="start" name="send-outline"></ion-icon>
           Apply
         </ion-button>
+        
       </div>
     </section>
 

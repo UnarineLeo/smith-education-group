@@ -85,11 +85,56 @@ export class ProspectusViewerComponent implements OnInit {
     return `${this.university.openingDate} - ${this.university.closingDate}`;
   }
 
+  getApplicationStatusDisplay(): string {
+    if (!this.university) {
+      return 'N/A';
+    }
+
+    const configuredStatus = (this.university.status ?? '').trim();
+    if (configuredStatus) {
+      return configuredStatus;
+    }
+
+    const openingDate = this.parseDate(this.university.openingDate);
+    const closingDate = this.parseDate(this.university.closingDate);
+    const today = this.getTodayDateOnly();
+
+    const isOpenByOpening = !openingDate || today >= openingDate;
+    const isOpenByClosing = !closingDate || today <= closingDate;
+    return isOpenByOpening && isOpenByClosing ? 'Open' : 'Closed';
+  }
+
+  isApplicationOpen(): boolean {
+    return this.getApplicationStatusDisplay().toLowerCase() === 'open';
+  }
+
   private detectPhoneDevice(): boolean {
     const userAgent = navigator.userAgent || '';
     const isMobileUa = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(userAgent);
     const isSmallViewport = window.matchMedia('(max-width: 768px)').matches;
     return isMobileUa || isSmallViewport;
+  }
+
+  private parseDate(dateString: string): Date | null {
+    if (!dateString) {
+      return null;
+    }
+
+    const [dayPart, monthPart] = dateString.split('/');
+    const day = Number.parseInt(dayPart, 10);
+    const month = Number.parseInt(monthPart, 10);
+
+    if (Number.isNaN(day) || Number.isNaN(month) || day < 1 || day > 31 || month < 1 || month > 12) {
+      return null;
+    }
+
+    const currentYear = new Date().getFullYear();
+    return new Date(currentYear, month - 1, day);
+  }
+
+  private getTodayDateOnly(): Date {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
   }
 
   private getOpenLink(university: University | null): string | null {

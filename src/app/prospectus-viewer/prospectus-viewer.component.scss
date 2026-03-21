@@ -69,6 +69,22 @@ ion-content {
   border: 1px solid #dbe4ff;
 }
 
+.status-chip {
+  font-weight: 700;
+}
+
+.status-chip.open {
+  --background: #ecfdf3;
+  --color: #166534;
+  border-color: #86efac;
+}
+
+.status-chip.closed {
+  --background: #fef2f2;
+  --color: #991b1b;
+  border-color: #fecaca;
+}
+
 .hero-actions {
   margin-top: 14px;
   display: flex;
