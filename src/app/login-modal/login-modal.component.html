@@ -7,11 +7,12 @@
 
 <div class="modal-scroll">
   <div class="auth-shell">
+    <h2 class="auth-title">Welcome back</h2>
     <p class="auth-subtitle">Access your Unipply account.</p>
 
     <ion-item lines="none" class="field-item">
       <ion-label position="stacked">Email Address</ion-label>
-      <ion-input type="email" [(ngModel)]="email" placeholder="you@example.com"></ion-input>
+      <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
     </ion-item>
 
     <ion-item lines="none" class="field-item">
@@ -29,7 +30,10 @@
       Log In
     </ion-button>
 
+    <div class="auth-divider"><span>or</span></div>
+
     <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
+      <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
       Continue with Google
     </ion-button>
 

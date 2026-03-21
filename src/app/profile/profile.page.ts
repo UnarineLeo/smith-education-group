@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { doc, setDoc } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
-type ProfileTab = 'personal' | 'password' | 'education' | 'highSchoolSubjects' | 'documents';
+type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents';
 
 type RequiredDocumentKey =
   | 'idDocument'
@@ -24,6 +24,13 @@ interface RequiredDocumentRequirement {
 interface SubjectMarkEntry {
   subject: string;
   mark: number | null;
+}
+
+interface AcademicInformation {
+  currentOrLastSchool: string;
+  schoolProvince: string;
+  matricYear: string;
+  hasWrittenNbt: string;
 }
 
 @Component({
@@ -79,6 +86,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   ];
 
   selectedInterests: string[] = ['Information Technology', 'Business & Commerce'];
+
+  academicInformation: AcademicInformation = {
+    currentOrLastSchool: '',
+    schoolProvince: '',
+    matricYear: '',
+    hasWrittenNbt: ''
+  };
 
   requiredDocuments: RequiredDocumentRequirement[] = [
     {
@@ -265,6 +279,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     });
   }
 
+  onAcademicInformationInputChange(field: keyof AcademicInformation, event: Event) {
+    const value = (event.target as HTMLInputElement | HTMLSelectElement).value;
+    this.academicInformation = {
+      ...this.academicInformation,
+      [field]: value
+    };
+  }
+
   isSubjectDisabled(subject: string, currentIndex: number): boolean {
     return this.subjectEntries.some((entry, index) => index !== currentIndex && entry.subject === subject);
   }
@@ -294,6 +316,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     try {
       await this.saveViaUpdateUser('High school subjects saved successfully.');
+      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+        academicInformation: this.academicInformation
+      }, { merge: true });
     } catch {
       await this.authService.presentToast('Could not save subjects right now. Please try again.');
     } finally {
@@ -472,9 +497,19 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       const userData = await this.authService.getUser(uid) as {
         subjects?: string[];
         studyAreas?: string[];
+        academicInformation?: Partial<AcademicInformation>;
         documents?: Partial<Record<RequiredDocumentKey, string>>;
         documentFileNames?: Partial<Record<RequiredDocumentKey, string>>;
       };
+
+      if (userData.academicInformation && typeof userData.academicInformation === 'object') {
+        this.academicInformation = {
+          currentOrLastSchool: userData.academicInformation.currentOrLastSchool ?? '',
+          schoolProvince: userData.academicInformation.schoolProvince ?? '',
+          matricYear: userData.academicInformation.matricYear ?? '',
+          hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? ''
+        };
+      }
 
       if (Array.isArray(userData.studyAreas) && userData.studyAreas.length > 0) {
         this.selectedInterests = userData.studyAreas;
@@ -533,6 +568,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         race: '',
         disabilityStatus: ''
       };
+      this.academicInformation = {
+        currentOrLastSchool: '',
+        schoolProvince: '',
+        matricYear: '',
+        hasWrittenNbt: ''
+      };
       this.subjectEntries = this.createInitialSubjectRows();
       return;
     }
@@ -559,6 +600,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       nationality: '',
       race: '',
       disabilityStatus: ''
+    };
+    this.academicInformation = {
+      currentOrLastSchool: '',
+      schoolProvince: '',
+      matricYear: '',
+      hasWrittenNbt: ''
     };
 
     if (this.isGoogleUser && this.activeTab === 'password') {

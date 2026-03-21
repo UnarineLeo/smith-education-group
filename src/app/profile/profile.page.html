@@ -36,16 +36,9 @@
       <button
         type="button"
         class="tab-link"
-        [class.active]="activeTab === 'education'"
-        (click)="setTab('education')">
-        Educational Details
-      </button>
-      <button
-        type="button"
-        class="tab-link"
         [class.active]="activeTab === 'highSchoolSubjects'"
         (click)="setTab('highSchoolSubjects')">
-        High School Subjects
+        Academic Informations
       </button>
       <button
         type="button"
@@ -305,36 +298,56 @@
         </section>
       }
 
-      @if (activeTab === 'education') {
-        <section class="panel">
-          <h2>Educational Details</h2>
-          <p class="panel-subtitle">Select the study areas you are most interested in.</p>
-
-          <div class="interest-grid">
-            @for (interest of interests; track interest) {
-              <button
-                type="button"
-                class="interest-chip"
-                [class.selected]="selectedInterests.includes(interest)"
-                (click)="toggleInterest(interest)">
-                {{ interest }}
-              </button>
-            }
-          </div>
-
-          <div class="actions">
-            <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveInterests()">
-              {{ isSavingProfile ? 'Saving...' : 'Save Interests' }}
-            </button>
-          </div>
-        </section>
-      }
-
       @if (activeTab === 'highSchoolSubjects') {
-        <section class="panel">
-          <h2>High School Subjects</h2>
-          <p class="panel-subtitle">
-            Add at least 7 high school subjects with marks. Subject choices are deduplicated automatically.
+        <section class="panel academic-panel">
+          <h2>Academic Informations</h2>
+          <p class="panel-subtitle academic-subtitle">Add your school background before entering subjects.</p>
+
+          <div class="form-grid academic-info-grid">
+            <label class="field full">
+              <span>Current/Last School</span>
+              <input
+                type="text"
+                placeholder="Enter current or last school"
+                [value]="academicInformation.currentOrLastSchool"
+                (input)="onAcademicInformationInputChange('currentOrLastSchool', $event)" />
+            </label>
+
+            <label class="field">
+              <span>School Province</span>
+              <input
+                type="text"
+                placeholder="Enter school province"
+                [value]="academicInformation.schoolProvince"
+                (input)="onAcademicInformationInputChange('schoolProvince', $event)" />
+            </label>
+
+            <label class="field">
+              <span>Matric Year</span>
+              <input
+                type="number"
+                min="1900"
+                max="2100"
+                inputmode="numeric"
+                placeholder="YYYY"
+                [value]="academicInformation.matricYear"
+                (input)="onAcademicInformationInputChange('matricYear', $event)" />
+            </label>
+
+            <label class="field full">
+              <span>Have you written the NBT?</span>
+              <select
+                [value]="academicInformation.hasWrittenNbt"
+                (change)="onAcademicInformationInputChange('hasWrittenNbt', $event)">
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="panel-subtitle subjects-subtitle">
+            Add at least 7 high school subjects with marks.
           </p>
 
           <div class="subjects-grid">
