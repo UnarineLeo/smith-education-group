@@ -3,8 +3,23 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
+import { doc, setDoc } from 'firebase/firestore';
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
-type ProfileTab = 'personal' | 'password' | 'education' | 'highSchoolSubjects';
+type ProfileTab = 'personal' | 'password' | 'education' | 'highSchoolSubjects' | 'documents';
+
+type RequiredDocumentKey =
+  | 'idDocument'
+  | 'matricCertificate'
+  | 'grade11Transcript'
+  | 'grade12MidYearResults';
+
+interface RequiredDocumentRequirement {
+  key: RequiredDocumentKey;
+  label: string;
+  helperText: string;
+  accept: string;
+}
 
 interface SubjectMarkEntry {
   subject: string;
@@ -25,6 +40,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   minimumSubjects = 7;
   isSavingProfile = false;
   isSavingSubjects = false;
+  isUploadingDocuments = false;
   userUid = '';
 
   profile = {
@@ -46,6 +62,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private streetAddressAutocomplete?: any;
   private hasShownAddressAutocompleteUnavailableToast = false;
+  private readonly allowedDocumentMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png']);
+  private readonly allowedDocumentExtensions = new Set(['pdf', 'jpg', 'jpeg', 'png']);
 
   private unsubscribeAuth?: () => void;
 
@@ -61,6 +79,44 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   ];
 
   selectedInterests: string[] = ['Information Technology', 'Business & Commerce'];
+
+  requiredDocuments: RequiredDocumentRequirement[] = [
+    {
+      key: 'idDocument',
+      label: 'ID Document',
+      helperText: 'Upload a clear scan or photo of your South African ID.',
+      accept: '.pdf,.jpg,.jpeg,.png'
+    },
+    {
+      key: 'matricCertificate',
+      label: 'Matric Certificate',
+      helperText: 'Upload your official Grade 12 certificate.',
+      accept: '.pdf,.jpg,.jpeg,.png'
+    },
+    {
+      key: 'grade11Transcript',
+      label: 'Grade 11 Transcript',
+      helperText: 'Upload your final Grade 11 report/transcript.',
+      accept: '.pdf,.jpg,.jpeg,.png'
+    },
+    {
+      key: 'grade12MidYearResults',
+      label: 'Grade 12 Mid-Year Results',
+      helperText: 'Upload your latest Grade 12 mid-year results.',
+      accept: '.pdf,.jpg,.jpeg,.png'
+    }
+  ];
+
+  selectedDocumentFiles: Record<RequiredDocumentKey, File | null> = {
+    idDocument: null,
+    matricCertificate: null,
+    grade11Transcript: null,
+    grade12MidYearResults: null
+  };
+
+  uploadedDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = {};
+  uploadedDocumentNames: Partial<Record<RequiredDocumentKey, string>> = {};
+  readonly requiredDocumentKey: RequiredDocumentKey = 'idDocument';
 
   highSchoolSubjectOptions = [
     'Accounting',
@@ -245,6 +301,110 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
   }
 
+  onDocumentFileChange(key: RequiredDocumentKey, event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+
+    if (!file) {
+      this.selectedDocumentFiles = {
+        ...this.selectedDocumentFiles,
+        [key]: null
+      };
+      return;
+    }
+
+    if (!this.isAllowedDocumentType(file)) {
+      input.value = '';
+      this.selectedDocumentFiles = {
+        ...this.selectedDocumentFiles,
+        [key]: null
+      };
+      void this.authService.presentToast('Please upload a PDF, JPG, or PNG document.');
+      return;
+    }
+
+    this.selectedDocumentFiles = {
+      ...this.selectedDocumentFiles,
+      [key]: file
+    };
+  }
+
+  getSelectedDocumentName(key: RequiredDocumentKey): string {
+    const selectedName = this.selectedDocumentFiles[key]?.name;
+    if (selectedName) {
+      return selectedName;
+    }
+
+    return this.uploadedDocumentNames[key] ?? '';
+  }
+
+  hasUploadedDocument(key: RequiredDocumentKey): boolean {
+    return Boolean(this.uploadedDocumentUrls[key]);
+  }
+
+  getUploadedDocumentUrl(key: RequiredDocumentKey): string {
+    return this.uploadedDocumentUrls[key] ?? '';
+  }
+
+  async uploadRequiredDocuments() {
+    if (!this.userUid) {
+      await this.authService.presentToast('Please sign in to upload documents.');
+      return;
+    }
+
+    const hasIdDocument = Boolean(this.selectedDocumentFiles[this.requiredDocumentKey] || this.uploadedDocumentUrls[this.requiredDocumentKey]);
+
+    if (!hasIdDocument) {
+      await this.authService.presentToast('Please upload your ID document before submitting.');
+      return;
+    }
+
+    this.isUploadingDocuments = true;
+
+    try {
+      const storage = getStorage();
+      const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentUrls };
+      const nextDocumentNames: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentNames };
+
+      for (const requirement of this.requiredDocuments) {
+        const file = this.selectedDocumentFiles[requirement.key];
+        if (!file) {
+          continue;
+        }
+
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+        const storagePath = `users/${this.userUid}/documents/${requirement.key}-${Date.now()}-${safeName}`;
+        const storageRef = ref(storage, storagePath);
+
+        await uploadBytes(storageRef, file);
+        const downloadUrl = await getDownloadURL(storageRef);
+
+        nextDocumentUrls[requirement.key] = downloadUrl;
+        nextDocumentNames[requirement.key] = file.name;
+      }
+
+      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+        documents: nextDocumentUrls,
+        documentFileNames: nextDocumentNames
+      }, { merge: true });
+
+      this.uploadedDocumentUrls = nextDocumentUrls;
+      this.uploadedDocumentNames = nextDocumentNames;
+      this.selectedDocumentFiles = {
+        idDocument: null,
+        matricCertificate: null,
+        grade11Transcript: null,
+        grade12MidYearResults: null
+      };
+
+      await this.authService.presentToast('Documents uploaded successfully.');
+    } catch {
+      await this.authService.presentToast('Could not upload documents right now. Please try again.');
+    } finally {
+      this.isUploadingDocuments = false;
+    }
+  }
+
   ngOnDestroy() {
     this.unsubscribeAuth?.();
   }
@@ -312,10 +472,20 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       const userData = await this.authService.getUser(uid) as {
         subjects?: string[];
         studyAreas?: string[];
+        documents?: Partial<Record<RequiredDocumentKey, string>>;
+        documentFileNames?: Partial<Record<RequiredDocumentKey, string>>;
       };
 
       if (Array.isArray(userData.studyAreas) && userData.studyAreas.length > 0) {
         this.selectedInterests = userData.studyAreas;
+      }
+
+      if (userData.documents && typeof userData.documents === 'object') {
+        this.uploadedDocumentUrls = { ...userData.documents };
+      }
+
+      if (userData.documentFileNames && typeof userData.documentFileNames === 'object') {
+        this.uploadedDocumentNames = { ...userData.documentFileNames };
       }
 
       if (!Array.isArray(userData.subjects) || userData.subjects.length === 0) {
@@ -524,5 +694,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       provinceAddress: province || this.profile.provinceAddress,
       postalCode: postalCode || this.profile.postalCode
     };
+  }
+
+  private isAllowedDocumentType(file: File): boolean {
+    const extension = file.name.split('.').pop()?.toLowerCase() ?? '';
+    return this.allowedDocumentMimeTypes.has(file.type) || this.allowedDocumentExtensions.has(extension);
   }
 }

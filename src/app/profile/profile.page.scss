@@ -302,6 +302,51 @@
 	margin-bottom: 8px;
 }
 
+.document-grid {
+	display: grid;
+	gap: 14px;
+}
+
+.document-card {
+	padding: 14px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+}
+
+.document-helper {
+	margin: 0;
+	font-size: 0.84rem;
+	line-height: 1.5;
+	color: #64748b;
+}
+
+.document-file-name {
+	margin: 0;
+	font-size: 0.84rem;
+	color: #0f172a;
+	font-weight: 600;
+	word-break: break-word;
+}
+
+.document-link {
+	width: fit-content;
+	font-size: 0.84rem;
+	font-weight: 600;
+	color: #1e40af;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #1e40af;
+		outline-offset: 2px;
+		border-radius: 6px;
+	}
+}
+
 .subjects-grid {
 	display: grid;
 	gap: 16px;

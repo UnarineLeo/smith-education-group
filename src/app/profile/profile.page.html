@@ -47,6 +47,13 @@
         (click)="setTab('highSchoolSubjects')">
         High School Subjects
       </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'documents'"
+        (click)="setTab('documents')">
+        Document Upload
+      </button>
     </aside>
 
     <div class="tab-content">
@@ -373,6 +380,53 @@
           <div class="actions">
             <button type="button" class="btn primary" [disabled]="isSavingSubjects" (click)="saveHighSchoolSubjects()">
               {{ isSavingSubjects ? 'Saving...' : 'Save Subjects' }}
+            </button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'documents') {
+        <section class="panel">
+          <h2>Document Upload</h2>
+          <p class="panel-subtitle">
+            Upload your documents. ID Document is required, while Matric certificate, Grade 11 transcript, and Grade 12 mid-year results are optional.
+          </p>
+
+          <div class="document-grid">
+            @for (requirement of requiredDocuments; track requirement.key) {
+              <label class="field full document-card">
+                <span>
+                  {{ requirement.label }}
+                  @if (requirement.key === requiredDocumentKey) {
+                    <span class="required">*</span>
+                  }
+                </span>
+                <p class="document-helper">{{ requirement.helperText }}</p>
+                <input
+                  type="file"
+                  [accept]="requirement.accept"
+                  (change)="onDocumentFileChange(requirement.key, $event)" />
+
+                @if (getSelectedDocumentName(requirement.key)) {
+                  <p class="document-file-name">Selected: {{ getSelectedDocumentName(requirement.key) }}</p>
+                }
+
+                @if (hasUploadedDocument(requirement.key)) {
+                  <a
+                    class="document-link"
+                    [href]="getUploadedDocumentUrl(requirement.key)"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View uploaded file
+                  </a>
+                }
+              </label>
+            }
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary" [disabled]="isUploadingDocuments" (click)="uploadRequiredDocuments()">
+              {{ isUploadingDocuments ? 'Uploading...' : 'Upload Documents' }}
             </button>
           </div>
         </section>
