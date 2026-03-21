@@ -69,6 +69,55 @@ ion-content {
   border: 1px solid #dbe4ff;
 }
 
+.viewer-back-btn {
+  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+  --background-hover: linear-gradient(135deg, #111827 0%, #1f2937 60%, #374151 100%);
+  --background-activated: #0b1220;
+  --color: #f8fafc;
+  --border-radius: 12px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --box-shadow: 0 8px 18px rgba(15, 23, 42, 0.26);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  min-height: 38px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.viewer-back-btn:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.08);
+}
+
+.viewer-back-btn:active {
+  transform: translateY(0);
+}
+
+.viewer-apply-btn {
+  --background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #3b82f6 100%);
+  --background-hover: linear-gradient(135deg, #1e40af 0%, #1d4ed8 55%, #2563eb 100%);
+  --background-activated: #1e3a8a;
+  --background-focused: #1d4ed8;
+  --color: #eff6ff;
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+  min-height: 38px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.viewer-apply-btn:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.08);
+}
+
+.viewer-apply-btn:active {
+  transform: translateY(0);
+}
+
 .status-chip {
   font-weight: 700;
 }

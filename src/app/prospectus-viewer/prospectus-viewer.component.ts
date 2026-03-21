@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { calendarOutline, cashOutline, openOutline, sendOutline } from 'ionicons/icons';
+import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline } from 'ionicons/icons';
 import { University } from '../shared/app-data';
 import universitiesData from '../university-list/university-list.json';
 
@@ -40,7 +40,7 @@ export class ProspectusViewerComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private route: ActivatedRoute
   ) {
-    addIcons({ openOutline, calendarOutline, cashOutline, sendOutline });
+    addIcons({openOutline,arrowBackOutline,calendarOutline,cashOutline,rocketOutline});
     this.isPhoneDevice = this.detectPhoneDevice();
   }
 

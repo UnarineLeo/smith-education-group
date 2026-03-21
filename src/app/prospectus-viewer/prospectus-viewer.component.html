@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="viewer-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/universities"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/universities" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title class="viewer-title">Prospectus</ion-title>
     <ion-buttons slot="end">
@@ -21,6 +21,10 @@
       <p class="viewer-location">{{ university.suburb }}, {{ university.province }}</p>
 
       <div class="meta-row">
+        <ion-button class="viewer-back-btn" fill="solid" color="dark" routerLink="/tabs/universities">
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+          Back
+        </ion-button>
         <ion-chip>
           <ion-icon name="calendar-outline"></ion-icon>
           <ion-label>{{ getDatesDisplay() }}</ion-label>
@@ -33,13 +37,14 @@
           <ion-label>{{ getApplicationStatusDisplay() }}</ion-label>
         </ion-chip>
         <ion-button
-          color="dark"
+          class="viewer-apply-btn"
+          color="primary"
           fill="solid"
           [href]="getApplyLink()"
           [disabled]="!hasApplyLink()"
           target="_blank"
           rel="noopener noreferrer">
-          <ion-icon slot="start" name="send-outline"></ion-icon>
+          <ion-icon slot="start" name="rocket-outline"></ion-icon>
           Apply
         </ion-button>
         
