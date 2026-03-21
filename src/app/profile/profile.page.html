@@ -64,40 +64,211 @@
           <div class="form-grid">
             <label class="field">
               <span>First Name</span>
-              <input
-                type="text"
-                [value]="profile.firstName"
-                [readOnly]="isGoogleUser"
-                [class.readonly]="isGoogleUser"
-                (input)="onProfileInputChange('firstName', $event)" />
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  [value]="profile.firstName"
+                  [readOnly]="isGoogleUser"
+                  [class.readonly]="isGoogleUser"
+                  (input)="onProfileInputChange('firstName', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('firstName', 'First name')"
+                  aria-label="Copy first name"
+                  title="Copy first name">
+                </button>
+              </div>
             </label>
             <label class="field">
               <span>Last Name</span>
-              <input
-                type="text"
-                [value]="profile.lastName"
-                [readOnly]="isGoogleUser"
-                [class.readonly]="isGoogleUser"
-                (input)="onProfileInputChange('lastName', $event)" />
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  [value]="profile.lastName"
+                  [readOnly]="isGoogleUser"
+                  [class.readonly]="isGoogleUser"
+                  (input)="onProfileInputChange('lastName', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('lastName', 'Last name')"
+                  aria-label="Copy last name"
+                  title="Copy last name">
+                </button>
+              </div>
             </label>
             <label class="field full">
               <span>Email Address</span>
+              <div class="input-with-copy">
+                <input
+                  type="email"
+                  [value]="profile.email"
+                  [readOnly]="isGoogleUser"
+                  [class.readonly]="isGoogleUser"
+                  (input)="onProfileInputChange('email', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('email', 'Email address')"
+                  aria-label="Copy email address"
+                  title="Copy email address">
+                </button>
+              </div>
+            </label>
+            <label class="field full">
+              <span>Cellphone Number</span>
+              <div class="input-with-copy">
+                <input
+                  type="tel"
+                  autocomplete="tel-national"
+                  inputmode="tel"
+                  placeholder="e.g. 082 123 4567"
+                  [value]="profile.phone"
+                  (input)="onProfileInputChange('phone', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('phone', 'Cellphone number')"
+                  aria-label="Copy cellphone number"
+                  title="Copy cellphone number">
+                </button>
+              </div>
+            </label>
+            <label class="field full">
+              <span>SA ID Number <span class="required">*</span></span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  placeholder="13-digit ID number"
+                  [value]="profile.saIdNumber"
+                  required
+                  aria-required="true"
+                  (input)="onProfileInputChange('saIdNumber', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('saIdNumber', 'SA ID number')"
+                  aria-label="Copy SA ID number"
+                  title="Copy SA ID number">
+                </button>
+              </div>
+            </label>
+            <label class="field full">
+              <span>Street Address</span>
               <input
-                type="email"
-                [value]="profile.email"
-                [readOnly]="isGoogleUser"
-                [class.readonly]="isGoogleUser"
-                (input)="onProfileInputChange('email', $event)" />
+                #streetAddressInput
+                type="text"
+                autocomplete="street-address"
+                placeholder="Start typing your address"
+                [value]="profile.streetAddress"
+                (input)="onProfileInputChange('streetAddress', $event)" />
+            </label>
+            <label class="field">
+              <span>City/Town</span>
+              <input
+                type="text"
+                autocomplete="address-level2"
+                placeholder="City or town"
+                [value]="profile.cityTown"
+                (input)="onProfileInputChange('cityTown', $event)" />
+            </label>
+            <label class="field">
+              <span>Province</span>
+              <input
+                type="text"
+                autocomplete="address-level1"
+                placeholder="Province"
+                [value]="profile.provinceAddress"
+                (input)="onProfileInputChange('provinceAddress', $event)" />
+            </label>
+            <label class="field">
+              <span>Postal Code</span>
+              <input
+                type="text"
+                autocomplete="postal-code"
+                inputmode="numeric"
+                placeholder="Postal code"
+                [value]="profile.postalCode"
+                (input)="onProfileInputChange('postalCode', $event)" />
+            </label>
+            <label class="field">
+              <span>Date of Birth <span class="required">*</span></span>
+              <input
+                type="date"
+                [value]="profile.dateOfBirth"
+                required
+                aria-required="true"
+                (click)="openDatePicker($event)"
+                (focus)="openDatePicker($event)"
+                (input)="onProfileInputChange('dateOfBirth', $event)" />
+            </label>
+            <label class="field">
+              <span>Gender <span class="required">*</span></span>
+              <select
+                [value]="profile.gender"
+                required
+                aria-required="true"
+                (change)="onProfileInputChange('gender', $event)">
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Nationality <span class="required">*</span></span>
+              <select
+                [value]="profile.nationality"
+                required
+                aria-required="true"
+                (change)="onProfileInputChange('nationality', $event)">
+                <option value="">Select nationality</option>
+                <option value="south-african">South African</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Race <span class="required">*</span></span>
+              <select
+                [value]="profile.race"
+                required
+                aria-required="true"
+                (change)="onProfileInputChange('race', $event)">
+                <option value="">Select race</option>
+                <option value="black-african">Black African</option>
+                <option value="coloured">Coloured</option>
+                <option value="indian-asian">Indian/Asian</option>
+                <option value="white">White</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Disability Status <span class="required">*</span></span>
+              <select
+                [value]="profile.disabilityStatus"
+                required
+                aria-required="true"
+                (change)="onProfileInputChange('disabilityStatus', $event)">
+                <option value="">Select disability status</option>
+                <option value="no-disability">No disability</option>
+                <option value="mobility">Mobility impairment</option>
+                <option value="visual">Visual impairment</option>
+                <option value="hearing">Hearing impairment</option>
+                <option value="learning">Learning disability</option>
+                <option value="chronic-illness">Chronic illness</option>
+                <option value="mental-health">Mental health condition</option>
+                <option value="other">Other</option>
+              </select>
             </label>
           </div>
 
-          @if (!isGoogleUser) {
-            <div class="actions">
-              <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveProfileChanges()">
-                {{ isSavingProfile ? 'Saving...' : 'Save Changes' }}
-              </button>
-            </div>
-          }
+          <div class="actions">
+            <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveProfileChanges()">
+              {{ isSavingProfile ? 'Saving...' : 'Save Changes' }}
+            </button>
+          </div>
         </section>
       }
 

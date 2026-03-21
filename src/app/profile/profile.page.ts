@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 type ProfileTab = 'personal' | 'password' | 'education' | 'highSchoolSubjects';
 
@@ -16,7 +17,9 @@ interface SubjectMarkEntry {
   styleUrls: ['profile.page.scss'],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
-export class ProfilePage implements OnDestroy {
+export class ProfilePage implements OnDestroy, AfterViewInit {
+  @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;
+
   activeTab: ProfileTab = 'personal';
   isGoogleUser = false;
   minimumSubjects = 7;
@@ -28,8 +31,21 @@ export class ProfilePage implements OnDestroy {
     firstName: 'User',
     lastName: '',
     email: '',
-    phone: ''
+    phone: '',
+    saIdNumber: '',
+    streetAddress: '',
+    cityTown: '',
+    provinceAddress: '',
+    postalCode: '',
+    dateOfBirth: '',
+    gender: '',
+    nationality: '',
+    race: '',
+    disabilityStatus: ''
   };
+
+  private streetAddressAutocomplete?: any;
+  private hasShownAddressAutocompleteUnavailableToast = false;
 
   private unsubscribeAuth?: () => void;
 
@@ -86,6 +102,10 @@ export class ProfilePage implements OnDestroy {
 
   setTab(tab: ProfileTab) {
     this.activeTab = tab;
+
+    if (tab === 'personal') {
+      void this.initializeStreetAddressAutocomplete();
+    }
   }
 
   toggleInterest(interest: string) {
@@ -103,6 +123,29 @@ export class ProfilePage implements OnDestroy {
       ...this.profile,
       [field]: value
     };
+  }
+
+  openDatePicker(event: Event) {
+    const input = event.target as HTMLInputElement & { showPicker?: () => void };
+    if (typeof input.showPicker === 'function') {
+      input.showPicker();
+    }
+  }
+
+  async copyProfileField(field: keyof typeof this.profile, label: string) {
+    const value = this.profile[field]?.trim();
+
+    if (!value) {
+      await this.authService.presentToast(`${label} is empty.`);
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(value);
+      await this.authService.presentToast(`${label} copied.`);
+    } catch {
+      await this.authService.presentToast(`Could not copy ${label.toLowerCase()}.`);
+    }
   }
 
   async saveProfileChanges() {
@@ -206,6 +249,10 @@ export class ProfilePage implements OnDestroy {
     this.unsubscribeAuth?.();
   }
 
+  async ngAfterViewInit() {
+    await this.initializeStreetAddressAutocomplete();
+  }
+
   private createInitialSubjectRows(): SubjectMarkEntry[] {
     return Array.from({ length: this.minimumSubjects }, () => ({ subject: '', mark: null }));
   }
@@ -304,7 +351,17 @@ export class ProfilePage implements OnDestroy {
         firstName: 'User',
         lastName: '',
         email: '',
-        phone: ''
+        phone: '',
+        saIdNumber: '',
+        streetAddress: '',
+        cityTown: '',
+        provinceAddress: '',
+        postalCode: '',
+        dateOfBirth: '',
+        gender: '',
+        nationality: '',
+        race: '',
+        disabilityStatus: ''
       };
       this.subjectEntries = this.createInitialSubjectRows();
       return;
@@ -321,7 +378,17 @@ export class ProfilePage implements OnDestroy {
       firstName,
       lastName: rest.join(' '),
       email: user.email ?? '',
-      phone: user.phoneNumber ?? ''
+      phone: user.phoneNumber ?? '',
+      saIdNumber: '',
+      streetAddress: '',
+      cityTown: '',
+      provinceAddress: '',
+      postalCode: '',
+      dateOfBirth: '',
+      gender: '',
+      nationality: '',
+      race: '',
+      disabilityStatus: ''
     };
 
     if (this.isGoogleUser && this.activeTab === 'password') {
@@ -369,5 +436,93 @@ export class ProfilePage implements OnDestroy {
     } finally {
       this.isSavingProfile = false;
     }
+  }
+
+  private async initializeStreetAddressAutocomplete() {
+    if (!this.streetAddressInput?.nativeElement || this.streetAddressAutocomplete) {
+      return;
+    }
+
+    const loaded = await this.loadGooglePlacesApi();
+    const googleRef = (window as any).google;
+
+    if (!loaded || !googleRef?.maps?.places) {
+      if (!this.hasShownAddressAutocompleteUnavailableToast) {
+        this.hasShownAddressAutocompleteUnavailableToast = true;
+        await this.authService.presentToast('Address autocomplete is unavailable right now. You can still enter your address manually.');
+      }
+      return;
+    }
+
+    this.streetAddressAutocomplete = new googleRef.maps.places.Autocomplete(this.streetAddressInput.nativeElement, {
+      types: ['address'],
+      fields: ['formatted_address', 'address_components']
+    });
+
+    this.streetAddressAutocomplete.addListener('place_changed', () => {
+      const place = this.streetAddressAutocomplete.getPlace();
+      this.applyGoogleAddress(place);
+    });
+  }
+
+  private async loadGooglePlacesApi(): Promise<boolean> {
+    const googleRef = (window as any).google;
+    if (googleRef?.maps?.places) {
+      return true;
+    }
+
+    const existingScript = document.querySelector('script[data-google-places="true"]') as HTMLScriptElement | null;
+    if (existingScript) {
+      await new Promise<void>((resolve) => {
+        existingScript.addEventListener('load', () => resolve(), { once: true });
+        existingScript.addEventListener('error', () => resolve(), { once: true });
+      });
+      return Boolean((window as any).google?.maps?.places);
+    }
+
+    const apiKey = environment.googleMapsApiKey;
+    if (!apiKey) {
+      return false;
+    }
+
+    await new Promise<void>((resolve) => {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async&v=weekly`;
+      script.async = true;
+      script.defer = true;
+      script.dataset['googlePlaces'] = 'true';
+      script.onload = () => resolve();
+      script.onerror = () => resolve();
+      document.head.appendChild(script);
+    });
+
+    return Boolean((window as any).google?.maps?.places);
+  }
+
+  private applyGoogleAddress(place: any) {
+    const components: any[] = Array.isArray(place?.address_components) ? place.address_components : [];
+
+    const findComponent = (...types: string[]) => {
+      const component = components.find((item) =>
+        Array.isArray(item?.types) && item.types.some((type: string) => types.includes(type))
+      );
+      return component?.long_name ?? '';
+    };
+
+    const streetNumber = findComponent('street_number');
+    const route = findComponent('route');
+    const locality = findComponent('locality', 'postal_town', 'sublocality', 'administrative_area_level_2');
+    const province = findComponent('administrative_area_level_1');
+    const postalCode = findComponent('postal_code');
+
+    const streetAddress = `${streetNumber} ${route}`.trim() || place?.formatted_address || this.profile.streetAddress;
+
+    this.profile = {
+      ...this.profile,
+      streetAddress,
+      cityTown: locality || this.profile.cityTown,
+      provinceAddress: province || this.profile.provinceAddress,
+      postalCode: postalCode || this.profile.postalCode
+    };
   }
 }
