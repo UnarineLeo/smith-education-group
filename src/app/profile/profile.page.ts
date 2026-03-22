@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { EmailAuthProvider, getAuth, onAuthStateChanged, reauthenticateWithCredential, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
 import { doc, setDoc } from 'firebase/firestore';
@@ -33,6 +33,18 @@ interface AcademicInformation {
   hasWrittenNbt: string;
 }
 
+interface StreetAddressSuggestion {
+  placeId: string;
+  primaryText: string;
+  secondaryText: string;
+}
+
+interface PasswordForm {
+  currentPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
@@ -48,6 +60,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isSavingProfile = false;
   isSavingSubjects = false;
   isUploadingDocuments = false;
+  isUpdatingPassword = false;
   userUid = '';
 
   profile = {
@@ -67,7 +80,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     disabilityStatus: ''
   };
 
-  private streetAddressAutocomplete?: any;
+  private streetAddressAutocompleteInput?: HTMLInputElement;
+  private streetAddressAutocompleteService?: any;
+  private streetAddressPlacesService?: any;
+  private streetAddressSessionToken?: any;
+  private streetAddressSuggestDebounce?: number;
+  private latestStreetAddressQuery = '';
   private hasShownAddressAutocompleteUnavailableToast = false;
   private readonly allowedDocumentMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png']);
   private readonly allowedDocumentExtensions = new Set(['pdf', 'jpg', 'jpeg', 'png']);
@@ -86,6 +104,15 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   ];
 
   selectedInterests: string[] = ['Information Technology', 'Business & Commerce'];
+
+  streetAddressSuggestions: StreetAddressSuggestion[] = [];
+  showStreetAddressSuggestions = false;
+
+  passwordForm: PasswordForm = {
+    currentPassword: '',
+    newPassword: '',
+    confirmNewPassword: ''
+  };
 
   academicInformation: AcademicInformation = {
     currentOrLastSchool: '',
@@ -219,11 +246,112 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveProfileChanges() {
-    await this.saveViaUpdateUser('Profile changes saved successfully.');
+    if (!this.userUid) {
+      await this.authService.presentToast('Please sign in to save changes.');
+      return;
+    }
+
+    this.isSavingProfile = true;
+
+    try {
+      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+        firstName: this.profile.firstName,
+        lastName: this.profile.lastName,
+        email: this.profile.email,
+        phone: this.profile.phone,
+        saIdNumber: this.profile.saIdNumber,
+        streetAddress: this.profile.streetAddress,
+        cityTown: this.profile.cityTown,
+        provinceAddress: this.profile.provinceAddress,
+        postalCode: this.profile.postalCode,
+        dateOfBirth: this.profile.dateOfBirth,
+        gender: this.profile.gender,
+        nationality: this.profile.nationality,
+        race: this.profile.race,
+        disabilityStatus: this.profile.disabilityStatus
+      }, { merge: true });
+
+      await this.authService.presentToast('Profile changes saved successfully.');
+    } catch {
+      await this.authService.presentToast('Could not save right now. Please try again.');
+    } finally {
+      this.isSavingProfile = false;
+    }
   }
 
   async saveInterests() {
     await this.saveViaUpdateUser('Interests saved successfully.');
+  }
+
+  onPasswordInputChange(field: keyof PasswordForm, event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.passwordForm = {
+      ...this.passwordForm,
+      [field]: value
+    };
+  }
+
+  async updatePasswordFromForm() {
+    const currentPassword = this.passwordForm.currentPassword.trim();
+    const newPassword = this.passwordForm.newPassword.trim();
+    const confirmNewPassword = this.passwordForm.confirmNewPassword.trim();
+
+    if (!currentPassword || !newPassword || !confirmNewPassword) {
+      await this.authService.presentToast('Please complete all password fields.');
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      await this.authService.presentToast('New password must be at least 8 characters.');
+      return;
+    }
+
+    if (newPassword !== confirmNewPassword) {
+      await this.authService.presentToast('New password and confirmation do not match.');
+      return;
+    }
+
+    if (currentPassword === newPassword) {
+      await this.authService.presentToast('New password must be different from current password.');
+      return;
+    }
+
+    const user = getAuth().currentUser;
+    if (!user || !user.email) {
+      await this.authService.presentToast('Please sign in again to update your password.');
+      return;
+    }
+
+    this.isUpdatingPassword = true;
+
+    try {
+      const credential = EmailAuthProvider.credential(user.email, currentPassword);
+      await reauthenticateWithCredential(user, credential);
+      await updatePassword(user, newPassword);
+
+      this.passwordForm = {
+        currentPassword: '',
+        newPassword: '',
+        confirmNewPassword: ''
+      };
+
+      await this.authService.presentToast('Password updated successfully.');
+    } catch (error: any) {
+      const code = error?.code as string | undefined;
+      if (code === 'auth/wrong-password' || code === 'auth/invalid-credential') {
+        await this.authService.presentToast('Current password is incorrect.');
+      } else if (code === 'auth/weak-password') {
+        await this.authService.presentToast('Please choose a stronger new password.');
+      } else if (code === 'auth/too-many-requests') {
+        await this.authService.presentToast('Too many attempts. Please try again later.');
+      } else if (code === 'auth/requires-recent-login') {
+        await this.authService.presentToast('Please sign in again, then update your password.');
+      } else {
+        await this.authService.presentToast('Could not update password right now. Please try again.');
+      }
+    } finally {
+      this.isUpdatingPassword = false;
+    }
   }
 
   addSubjectEntry() {
@@ -287,6 +415,76 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     };
   }
 
+  onStreetAddressInput(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.profile = {
+      ...this.profile,
+      streetAddress: value
+    };
+
+    if (this.streetAddressSuggestDebounce) {
+      window.clearTimeout(this.streetAddressSuggestDebounce);
+    }
+
+    const query = value.trim();
+    if (!query) {
+      this.streetAddressSuggestions = [];
+      this.showStreetAddressSuggestions = false;
+      this.latestStreetAddressQuery = '';
+      return;
+    }
+
+    this.streetAddressSuggestDebounce = window.setTimeout(() => {
+      void this.fetchStreetAddressSuggestions(query);
+    }, 220);
+  }
+
+  onStreetAddressFocus() {
+    this.showStreetAddressSuggestions = this.streetAddressSuggestions.length > 0;
+  }
+
+  onStreetAddressBlur() {
+    window.setTimeout(() => {
+      this.showStreetAddressSuggestions = false;
+    }, 120);
+  }
+
+  async selectStreetAddressSuggestion(placeId: string) {
+    const placesService = this.streetAddressPlacesService;
+    if (!placesService) {
+      return;
+    }
+
+    const place = await new Promise<any | null>((resolve) => {
+      placesService.getDetails({
+        placeId,
+        fields: ['formatted_address', 'address_components'],
+        sessionToken: this.streetAddressSessionToken
+      }, (result: any, status: any) => {
+        const googleRef = (window as any).google;
+        if (status !== googleRef?.maps?.places?.PlacesServiceStatus?.OK || !result) {
+          resolve(null);
+          return;
+        }
+
+        resolve(result);
+      });
+    });
+
+    if (!place) {
+      return;
+    }
+
+    this.applyGoogleAddress(place);
+    this.streetAddressSuggestions = [];
+    this.showStreetAddressSuggestions = false;
+
+    const googleRef = (window as any).google;
+    if (googleRef?.maps?.places?.AutocompleteSessionToken) {
+      this.streetAddressSessionToken = new googleRef.maps.places.AutocompleteSessionToken();
+    }
+  }
+
   isSubjectDisabled(subject: string, currentIndex: number): boolean {
     return this.subjectEntries.some((entry, index) => index !== currentIndex && entry.subject === subject);
   }
@@ -315,10 +513,20 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isSavingSubjects = true;
 
     try {
-      await this.saveViaUpdateUser('High school subjects saved successfully.');
+      const apsScore = completedEntries
+        .map((entry) => this.toApsPoints(entry.mark as number))
+        .reduce((total, points) => total + points, 0);
+
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
-        academicInformation: this.academicInformation
+        currentOrLastSchool: this.academicInformation.currentOrLastSchool,
+        schoolProvince: this.academicInformation.schoolProvince,
+        matricYear: this.academicInformation.matricYear,
+        hasWrittenNbt: this.academicInformation.hasWrittenNbt,
+        highSchoolSubjects: completedEntries,
+        apsScore
       }, { merge: true });
+
+      await this.authService.presentToast('Academic information saved successfully.');
     } catch {
       await this.authService.presentToast('Could not save subjects right now. Please try again.');
     } finally {
@@ -495,11 +703,48 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   private async loadSavedSubjects(uid: string) {
     try {
       const userData = await this.authService.getUser(uid) as {
+        firstName?: string;
+        lastName?: string;
+        email?: string;
+        phone?: string;
+        saIdNumber?: string;
+        streetAddress?: string;
+        cityTown?: string;
+        provinceAddress?: string;
+        postalCode?: string;
+        dateOfBirth?: string;
+        gender?: string;
+        nationality?: string;
+        race?: string;
+        disabilityStatus?: string;
         subjects?: string[];
+        highSchoolSubjects?: SubjectMarkEntry[];
         studyAreas?: string[];
         academicInformation?: Partial<AcademicInformation>;
+        currentOrLastSchool?: string;
+        schoolProvince?: string;
+        matricYear?: string;
+        hasWrittenNbt?: string;
         documents?: Partial<Record<RequiredDocumentKey, string>>;
         documentFileNames?: Partial<Record<RequiredDocumentKey, string>>;
+      };
+
+      this.profile = {
+        ...this.profile,
+        firstName: userData.firstName ?? this.profile.firstName,
+        lastName: userData.lastName ?? this.profile.lastName,
+        email: userData.email ?? this.profile.email,
+        phone: userData.phone ?? this.profile.phone,
+        saIdNumber: userData.saIdNumber ?? this.profile.saIdNumber,
+        streetAddress: userData.streetAddress ?? this.profile.streetAddress,
+        cityTown: userData.cityTown ?? this.profile.cityTown,
+        provinceAddress: userData.provinceAddress ?? this.profile.provinceAddress,
+        postalCode: userData.postalCode ?? this.profile.postalCode,
+        dateOfBirth: userData.dateOfBirth ?? this.profile.dateOfBirth,
+        gender: userData.gender ?? this.profile.gender,
+        nationality: userData.nationality ?? this.profile.nationality,
+        race: userData.race ?? this.profile.race,
+        disabilityStatus: userData.disabilityStatus ?? this.profile.disabilityStatus
       };
 
       if (userData.academicInformation && typeof userData.academicInformation === 'object') {
@@ -508,6 +753,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           schoolProvince: userData.academicInformation.schoolProvince ?? '',
           matricYear: userData.academicInformation.matricYear ?? '',
           hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? ''
+        };
+      } else {
+        this.academicInformation = {
+          currentOrLastSchool: userData.currentOrLastSchool ?? '',
+          schoolProvince: userData.schoolProvince ?? '',
+          matricYear: userData.matricYear ?? '',
+          hasWrittenNbt: userData.hasWrittenNbt ?? ''
         };
       }
 
@@ -523,14 +775,25 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         this.uploadedDocumentNames = { ...userData.documentFileNames };
       }
 
-      if (!Array.isArray(userData.subjects) || userData.subjects.length === 0) {
-        this.subjectEntries = this.createInitialSubjectRows();
-        return;
-      }
+      const savedHighSchoolSubjects = Array.isArray(userData.highSchoolSubjects)
+        ? userData.highSchoolSubjects
+            .filter((entry): entry is SubjectMarkEntry =>
+              Boolean(entry)
+              && typeof entry.subject === 'string'
+              && typeof entry.mark === 'number'
+              && entry.mark >= 0
+              && entry.mark <= 100
+            )
+            .map((entry) => ({ subject: entry.subject, mark: entry.mark }))
+        : [];
 
-      const parsedSubjects = userData.subjects
-        .map((subject) => this.parseSavedSubject(subject))
-        .filter((subject): subject is SubjectMarkEntry => subject !== null);
+      const parsedSubjects = savedHighSchoolSubjects.length > 0
+        ? savedHighSchoolSubjects
+        : (Array.isArray(userData.subjects)
+            ? userData.subjects
+                .map((subject) => this.parseSavedSubject(subject))
+                .filter((subject): subject is SubjectMarkEntry => subject !== null)
+            : []);
 
       if (parsedSubjects.length === 0) {
         this.subjectEntries = this.createInitialSubjectRows();
@@ -574,6 +837,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         matricYear: '',
         hasWrittenNbt: ''
       };
+      this.passwordForm = {
+        currentPassword: '',
+        newPassword: '',
+        confirmNewPassword: ''
+      };
       this.subjectEntries = this.createInitialSubjectRows();
       return;
     }
@@ -606,6 +874,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       schoolProvince: '',
       matricYear: '',
       hasWrittenNbt: ''
+    };
+    this.passwordForm = {
+      currentPassword: '',
+      newPassword: '',
+      confirmNewPassword: ''
     };
 
     if (this.isGoogleUser && this.activeTab === 'password') {
@@ -655,9 +928,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
   }
 
-  private async initializeStreetAddressAutocomplete() {
-    if (!this.streetAddressInput?.nativeElement || this.streetAddressAutocomplete) {
-      return;
+  private async initializeStreetAddressAutocomplete(): Promise<boolean> {
+    const inputElement = this.streetAddressInput?.nativeElement;
+    if (!inputElement) {
+      return false;
+    }
+
+    if (this.streetAddressAutocompleteService && this.streetAddressPlacesService && this.streetAddressAutocompleteInput === inputElement) {
+      return true;
     }
 
     const loaded = await this.loadGooglePlacesApi();
@@ -668,18 +946,65 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         this.hasShownAddressAutocompleteUnavailableToast = true;
         await this.authService.presentToast('Address autocomplete is unavailable right now. You can still enter your address manually.');
       }
+      return false;
+    }
+
+    this.streetAddressAutocompleteInput = inputElement;
+
+    if (!this.streetAddressAutocompleteService) {
+      this.streetAddressAutocompleteService = new googleRef.maps.places.AutocompleteService();
+    }
+
+    if (!this.streetAddressPlacesService) {
+      this.streetAddressPlacesService = new googleRef.maps.places.PlacesService(document.createElement('div'));
+    }
+
+    if (!this.streetAddressSessionToken && googleRef.maps.places.AutocompleteSessionToken) {
+      this.streetAddressSessionToken = new googleRef.maps.places.AutocompleteSessionToken();
+    }
+
+    return true;
+  }
+
+  private async fetchStreetAddressSuggestions(query: string) {
+    this.latestStreetAddressQuery = query;
+
+    const ready = await this.initializeStreetAddressAutocomplete();
+    if (!ready || !this.streetAddressAutocompleteService) {
       return;
     }
 
-    this.streetAddressAutocomplete = new googleRef.maps.places.Autocomplete(this.streetAddressInput.nativeElement, {
-      types: ['address'],
-      fields: ['formatted_address', 'address_components']
+    const googleRef = (window as any).google;
+    if (!this.streetAddressSessionToken && googleRef?.maps?.places?.AutocompleteSessionToken) {
+      this.streetAddressSessionToken = new googleRef.maps.places.AutocompleteSessionToken();
+    }
+
+    const predictions = await new Promise<any[]>((resolve) => {
+      this.streetAddressAutocompleteService.getPlacePredictions({
+        input: query,
+        types: ['address'],
+        sessionToken: this.streetAddressSessionToken
+      }, (results: any[] | null, status: any) => {
+        if (status !== googleRef?.maps?.places?.PlacesServiceStatus?.OK || !Array.isArray(results)) {
+          resolve([]);
+          return;
+        }
+
+        resolve(results);
+      });
     });
 
-    this.streetAddressAutocomplete.addListener('place_changed', () => {
-      const place = this.streetAddressAutocomplete.getPlace();
-      this.applyGoogleAddress(place);
-    });
+    if (this.latestStreetAddressQuery !== query) {
+      return;
+    }
+
+    this.streetAddressSuggestions = predictions.slice(0, 3).map((prediction: any) => ({
+      placeId: prediction.place_id,
+      primaryText: prediction.structured_formatting?.main_text ?? prediction.description,
+      secondaryText: prediction.structured_formatting?.secondary_text ?? ''
+    }));
+
+    this.showStreetAddressSuggestions = this.streetAddressSuggestions.length > 0;
   }
 
   private async loadGooglePlacesApi(): Promise<boolean> {
@@ -690,9 +1015,22 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     const existingScript = document.querySelector('script[data-google-places="true"]') as HTMLScriptElement | null;
     if (existingScript) {
+      // If the script already exists, load/error events may have fired before we attached listeners.
+      if ((window as any).google?.maps?.places) {
+        return true;
+      }
+
       await new Promise<void>((resolve) => {
-        existingScript.addEventListener('load', () => resolve(), { once: true });
-        existingScript.addEventListener('error', () => resolve(), { once: true });
+        const handleDone = () => {
+          clearTimeout(timeoutId);
+          existingScript.removeEventListener('load', handleDone);
+          existingScript.removeEventListener('error', handleDone);
+          resolve();
+        };
+
+        const timeoutId = window.setTimeout(handleDone, 4000);
+        existingScript.addEventListener('load', handleDone, { once: true });
+        existingScript.addEventListener('error', handleDone, { once: true });
       });
       return Boolean((window as any).google?.maps?.places);
     }

@@ -156,13 +156,36 @@
             </label>
             <label class="field full">
               <span>Street Address</span>
-              <input
-                #streetAddressInput
-                type="text"
-                autocomplete="street-address"
-                placeholder="Start typing your address"
-                [value]="profile.streetAddress"
-                (input)="onProfileInputChange('streetAddress', $event)" />
+              <div class="street-address-autocomplete">
+                <input
+                  #streetAddressInput
+                  type="text"
+                  autocomplete="off"
+                  aria-autocomplete="list"
+                  [attr.aria-expanded]="showStreetAddressSuggestions"
+                  placeholder="Start typing your address"
+                  [value]="profile.streetAddress"
+                  (input)="onStreetAddressInput($event)"
+                  (focus)="onStreetAddressFocus()"
+                  (blur)="onStreetAddressBlur()" />
+
+                @if (showStreetAddressSuggestions && streetAddressSuggestions.length > 0) {
+                  <ul class="street-address-suggestions" role="listbox" aria-label="Address suggestions">
+                    @for (suggestion of streetAddressSuggestions; track suggestion.placeId) {
+                      <li>
+                        <button
+                          type="button"
+                          class="street-address-option"
+                          (mousedown)="$event.preventDefault()"
+                          (click)="selectStreetAddressSuggestion(suggestion.placeId)">
+                          <span class="street-address-main">{{ suggestion.primaryText }}</span>
+                          <span class="street-address-secondary">{{ suggestion.secondaryText }}</span>
+                        </button>
+                      </li>
+                    }
+                  </ul>
+                }
+              </div>
             </label>
             <label class="field">
               <span>City/Town</span>
@@ -280,20 +303,41 @@
           <div class="form-grid one-column">
             <label class="field full">
               <span>Current Password</span>
-              <input type="password" placeholder="Enter current password" />
+              <input
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter current password"
+                [value]="passwordForm.currentPassword"
+                (input)="onPasswordInputChange('currentPassword', $event)" />
             </label>
             <label class="field full">
               <span>New Password</span>
-              <input type="password" placeholder="Enter new password" />
+              <input
+                type="password"
+                autocomplete="new-password"
+                placeholder="Enter new password"
+                [value]="passwordForm.newPassword"
+                (input)="onPasswordInputChange('newPassword', $event)" />
             </label>
             <label class="field full">
               <span>Confirm New Password</span>
-              <input type="password" placeholder="Confirm new password" />
+              <input
+                type="password"
+                autocomplete="new-password"
+                placeholder="Confirm new password"
+                [value]="passwordForm.confirmNewPassword"
+                (input)="onPasswordInputChange('confirmNewPassword', $event)" />
             </label>
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary">Update Password</button>
+            <button
+              type="button"
+              class="btn primary"
+              [disabled]="isUpdatingPassword"
+              (click)="updatePasswordFromForm()">
+              {{ isUpdatingPassword ? 'Updating...' : 'Update Password' }}
+            </button>
           </div>
         </section>
       }
