@@ -291,6 +291,15 @@
 
 .street-address-autocomplete {
 	position: relative;
+
+	input {
+		padding-right: 44px;
+	}
+
+	.copy-icon-btn {
+		top: 9px;
+		transform: none;
+	}
 }
 
 .street-address-suggestions {
@@ -400,6 +409,43 @@
 		outline: 2px solid #1e40af;
 		outline-offset: 2px;
 		border-radius: 6px;
+	}
+}
+
+.account-actions-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.account-action-card {
+	padding: 16px;
+	border-radius: 12px;
+	border: 1px solid #dbe4ef;
+	background: #f8fafc;
+	display: grid;
+	gap: 12px;
+
+	h3 {
+		margin: 0;
+		font-size: 1.02rem;
+		color: #0f172a;
+	}
+
+	p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		color: #475569;
+	}
+
+	&.danger {
+		border-color: #fecaca;
+		background: #fff7f7;
+
+		h3 {
+			color: #991b1b;
+		}
 	}
 }
 
@@ -610,6 +656,22 @@
 		}
 	}
 
+	&.danger {
+		background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+		color: #ffffff;
+		box-shadow: 0 4px 12px rgba(185, 28, 28, 0.26);
+
+		&:hover:not(:disabled) {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(185, 28, 28, 0.34);
+		}
+
+		&:active:not(:disabled) {
+			transform: translateY(0);
+			box-shadow: 0 2px 8px rgba(185, 28, 28, 0.3);
+		}
+	}
+
 	&:disabled {
 		opacity: 0.55;
 		cursor: not-allowed;
@@ -682,6 +744,10 @@
 	}
 
 	.subject-row {
+		grid-template-columns: 1fr;
+	}
+
+	.account-actions-grid {
 		grid-template-columns: 1fr;
 	}
 

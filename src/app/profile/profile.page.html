@@ -47,6 +47,13 @@
         (click)="setTab('documents')">
         Document Upload
       </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'account'"
+        (click)="setTab('account')">
+        Account Settings
+      </button>
     </aside>
 
     <div class="tab-content">
@@ -117,7 +124,7 @@
               </div>
             </label>
             <label class="field full">
-              <span>Cellphone Number</span>
+              <span>Cellphone Number <span class="required">*</span></span>
               <div class="input-with-copy">
                 <input
                   type="tel"
@@ -125,6 +132,8 @@
                   inputmode="tel"
                   placeholder="e.g. 082 123 4567"
                   [value]="profile.phone"
+                  required
+                  aria-required="true"
                   (input)="onProfileInputChange('phone', $event)" />
                 <button
                   type="button"
@@ -136,11 +145,15 @@
               </div>
             </label>
             <label class="field full">
-              <span>SA ID Number <span class="required">*</span></span>
+              <span>SA ID Number/ Passport Number <span class="required">*</span></span>
               <div class="input-with-copy">
                 <input
                   type="text"
-                  placeholder="13-digit ID number"
+                  placeholder="13-digit ID number or passport number"
+                  inputmode="numeric"
+                  maxlength="13"
+                  minlength="10"
+                  pattern="[0-9]{10,13}"
                   [value]="profile.saIdNumber"
                   required
                   aria-required="true"
@@ -155,7 +168,7 @@
               </div>
             </label>
             <label class="field full">
-              <span>Street Address</span>
+              <span>Street Address <span class="required">*</span></span>
               <div class="street-address-autocomplete">
                 <input
                   #streetAddressInput
@@ -165,9 +178,19 @@
                   [attr.aria-expanded]="showStreetAddressSuggestions"
                   placeholder="Start typing your address"
                   [value]="profile.streetAddress"
+                  required
+                  aria-required="true"
                   (input)="onStreetAddressInput($event)"
                   (focus)="onStreetAddressFocus()"
                   (blur)="onStreetAddressBlur()" />
+
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('streetAddress', 'Street address')"
+                  aria-label="Copy street address"
+                  title="Copy street address">
+                </button>
 
                 @if (showStreetAddressSuggestions && streetAddressSuggestions.length > 0) {
                   <ul class="street-address-suggestions" role="listbox" aria-label="Address suggestions">
@@ -188,32 +211,65 @@
               </div>
             </label>
             <label class="field">
-              <span>City/Town</span>
-              <input
-                type="text"
-                autocomplete="address-level2"
-                placeholder="City or town"
-                [value]="profile.cityTown"
-                (input)="onProfileInputChange('cityTown', $event)" />
+              <span>City/Town <span class="required">*</span></span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  autocomplete="address-level2"
+                  placeholder="City or town"
+                  [value]="profile.cityTown"
+                  required
+                  aria-required="true"
+                  (input)="onProfileInputChange('cityTown', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('cityTown', 'City/Town')"
+                  aria-label="Copy city or town"
+                  title="Copy city or town">
+                </button>
+              </div>
             </label>
             <label class="field">
-              <span>Province</span>
-              <input
-                type="text"
-                autocomplete="address-level1"
-                placeholder="Province"
-                [value]="profile.provinceAddress"
-                (input)="onProfileInputChange('provinceAddress', $event)" />
+              <span>Province <span class="required">*</span></span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  autocomplete="address-level1"
+                  placeholder="Province"
+                  [value]="profile.provinceAddress"
+                  required
+                  aria-required="true"
+                  (input)="onProfileInputChange('provinceAddress', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('provinceAddress', 'Province')"
+                  aria-label="Copy province"
+                  title="Copy province">
+                </button>
+              </div>
             </label>
             <label class="field">
-              <span>Postal Code</span>
-              <input
-                type="text"
-                autocomplete="postal-code"
-                inputmode="numeric"
-                placeholder="Postal code"
-                [value]="profile.postalCode"
-                (input)="onProfileInputChange('postalCode', $event)" />
+              <span>Postal Code <span class="required">*</span></span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  autocomplete="postal-code"
+                  inputmode="numeric"
+                  placeholder="Postal code"
+                  [value]="profile.postalCode"
+                  required
+                  aria-required="true"
+                  (input)="onProfileInputChange('postalCode', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('postalCode', 'Postal code')"
+                  aria-label="Copy postal code"
+                  title="Copy postal code">
+                </button>
+              </div>
             </label>
             <label class="field">
               <span>Date of Birth <span class="required">*</span></span>
@@ -288,7 +344,11 @@
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary" [disabled]="isSavingProfile" (click)="saveProfileChanges()">
+            <button
+              type="button"
+              class="btn primary"
+              [disabled]="isSavingProfile || !canSaveProfile()"
+              (click)="saveProfileChanges()">
               {{ isSavingProfile ? 'Saving...' : 'Save Changes' }}
             </button>
           </div>
@@ -349,25 +409,44 @@
 
           <div class="form-grid academic-info-grid">
             <label class="field full">
-              <span>Current/Last School</span>
+              <span>Current/Last School <span class="required">*</span></span>
               <input
                 type="text"
                 placeholder="Enter current or last school"
                 [value]="academicInformation.currentOrLastSchool"
+                required
+                aria-required="true"
                 (input)="onAcademicInformationInputChange('currentOrLastSchool', $event)" />
             </label>
 
             <label class="field">
-              <span>School Province</span>
+              <span>Current Level <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.currentLevel"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('currentLevel', $event)">
+                <option value="">Select current level</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+                <option value="Completed Matric">Completed Matric</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>School Province <span class="required">*</span></span>
               <input
                 type="text"
                 placeholder="Enter school province"
                 [value]="academicInformation.schoolProvince"
+                required
+                aria-required="true"
                 (input)="onAcademicInformationInputChange('schoolProvince', $event)" />
             </label>
 
             <label class="field">
-              <span>Matric Year</span>
+              <span>Matric Year <span class="required">*</span></span>
               <input
                 type="number"
                 min="1900"
@@ -375,13 +454,17 @@
                 inputmode="numeric"
                 placeholder="YYYY"
                 [value]="academicInformation.matricYear"
+                required
+                aria-required="true"
                 (input)="onAcademicInformationInputChange('matricYear', $event)" />
             </label>
 
-            <label class="field full">
-              <span>Have you written the NBT?</span>
+            <label class="field">
+              <span>Have you written the NBT? <span class="required">*</span></span>
               <select
                 [value]="academicInformation.hasWrittenNbt"
+                required
+                aria-required="true"
                 (change)="onAcademicInformationInputChange('hasWrittenNbt', $event)">
                 <option value="">Select an option</option>
                 <option value="yes">Yes</option>
@@ -435,7 +518,11 @@
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary" [disabled]="isSavingSubjects" (click)="saveHighSchoolSubjects()">
+            <button
+              type="button"
+              class="btn primary"
+              [disabled]="isSavingSubjects || !canSaveHighSchoolSubjects()"
+              (click)="saveHighSchoolSubjects()">
               {{ isSavingSubjects ? 'Saving...' : 'Save Subjects' }}
             </button>
           </div>
@@ -446,7 +533,7 @@
         <section class="panel">
           <h2>Document Upload</h2>
           <p class="panel-subtitle">
-            Upload your documents. ID Document is required, while Matric certificate, Grade 11 transcript, and Grade 12 mid-year results are optional.
+            Upload your documents. Use the following format: [YourName]_[DocumentType].pdf (e.g. JaneDoe_ID.pdf)
           </p>
 
           <div class="document-grid">
@@ -485,6 +572,39 @@
             <button type="button" class="btn primary" [disabled]="isUploadingDocuments" (click)="uploadRequiredDocuments()">
               {{ isUploadingDocuments ? 'Uploading...' : 'Upload Documents' }}
             </button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'account') {
+        <section class="panel account-panel">
+          <h2>Account Settings</h2>
+          <p class="panel-subtitle">Manage your active session or permanently remove your account.</p>
+
+          <div class="account-actions-grid">
+            <article class="account-action-card">
+              <h3>Logout</h3>
+              <p>Sign out from this device and return to the guest profile view.</p>
+              <button
+                type="button"
+                class="btn secondary"
+                [disabled]="isDeletingAccount"
+                (click)="logoutFromAccountSettings()">
+                Logout
+              </button>
+            </article>
+
+            <article class="account-action-card danger">
+              <h3>Delete Account</h3>
+              <p>Permanently delete your account and profile data. This cannot be undone.</p>
+              <button
+                type="button"
+                class="btn danger"
+                [disabled]="isDeletingAccount"
+                (click)="deleteAccountFromAccountSettings()">
+                {{ isDeletingAccount ? 'Deleting...' : 'Delete Account' }}
+              </button>
+            </article>
           </div>
         </section>
       }

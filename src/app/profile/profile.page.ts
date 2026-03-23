@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { EmailAuthProvider, getAuth, onAuthStateChanged, reauthenticateWithCredential, updatePassword, User } from 'firebase/auth';
+import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
-import { doc, setDoc } from 'firebase/firestore';
+import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
-type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents';
+type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
 
 type RequiredDocumentKey =
   | 'idDocument'
@@ -28,6 +28,7 @@ interface SubjectMarkEntry {
 
 interface AcademicInformation {
   currentOrLastSchool: string;
+  currentLevel: string;
   schoolProvince: string;
   matricYear: string;
   hasWrittenNbt: string;
@@ -61,7 +62,39 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isSavingSubjects = false;
   isUploadingDocuments = false;
   isUpdatingPassword = false;
+  isDeletingAccount = false;
   userUid = '';
+
+  private readonly requiredProfileFieldLabels: Record<keyof typeof this.profile, string> = {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email Address',
+    phone: 'Cellphone Number',
+    saIdNumber: 'SA ID Number',
+    streetAddress: 'Street Address',
+    cityTown: 'City/Town',
+    provinceAddress: 'Province',
+    postalCode: 'Postal Code',
+    dateOfBirth: 'Date of Birth',
+    gender: 'Gender',
+    nationality: 'Nationality',
+    race: 'Race',
+    disabilityStatus: 'Disability Status'
+  };
+
+  private readonly mandatoryProfileFields: Array<keyof typeof this.profile> = [
+    'phone',
+    'saIdNumber',
+    'streetAddress',
+    'cityTown',
+    'provinceAddress',
+    'postalCode',
+    'dateOfBirth',
+    'gender',
+    'nationality',
+    'race',
+    'disabilityStatus'
+  ];
 
   profile = {
     firstName: 'User',
@@ -116,6 +149,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   academicInformation: AcademicInformation = {
     currentOrLastSchool: '',
+    currentLevel: '',
     schoolProvince: '',
     matricYear: '',
     hasWrittenNbt: ''
@@ -161,6 +195,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   highSchoolSubjectOptions = [
     'Accounting',
+    'Afrikaans',
     'Agricultural Management Practices',
     'Agricultural Sciences',
     'Agricultural Technology',
@@ -173,19 +208,28 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     'Economics',
     'Electrical Technology',
     'Engineering Graphics and Design',
+    'English',
     'Geography',
     'History',
     'Hospitality Studies',
     'Information Technology',
-    'Languages (refer to institution websites for their language entry requirements)',
+    'isiNdebele',
+    'isiXhosa',
+    'isiZulu',
     'Life Sciences',
-    'Mechanical Technology',
-    'Mathematics',
     'Mathematical Literacy',
+    'Mathematics',
+    'Mechanical Technology',
     'Music',
     'Physical Sciences',
     'Religion Studies',
+    'Sepedi',
+    'Sesotho',
+    'Setswana',
+    'siSwati',
     'Tourism',
+    'Tshivenda',
+    'Xitsonga',
     'Visual Arts'
   ];
 
@@ -215,7 +259,15 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   onProfileInputChange(field: keyof typeof this.profile, event: Event) {
-    const value = (event.target as HTMLInputElement).value;
+    const inputValue = (event.target as HTMLInputElement).value;
+    const value = field === 'saIdNumber'
+      ? inputValue.replace(/\D/g, '').slice(0, 13)
+      : inputValue;
+
+    if (field === 'saIdNumber') {
+      (event.target as HTMLInputElement).value = value;
+    }
+
     this.profile = {
       ...this.profile,
       [field]: value
@@ -251,6 +303,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
+    const missingMandatoryFields = this.getMissingMandatoryProfileFields();
+    if (missingMandatoryFields.length > 0) {
+      await this.authService.presentToast(`Please fill in all mandatory fields: ${missingMandatoryFields.join(', ')}.`);
+      return;
+    }
+
+    if (!this.hasValidSaIdNumber()) {
+      await this.authService.presentToast('SA ID Number or Passport Number must be between 10 and 13 digits.');
+      return;
+    }
+
     this.isSavingProfile = true;
 
     try {
@@ -279,8 +342,59 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
   }
 
+  canSaveProfile(): boolean {
+    return this.getMissingMandatoryProfileFields().length === 0 && this.hasValidSaIdNumber();
+  }
+
   async saveInterests() {
     await this.saveViaUpdateUser('Interests saved successfully.');
+  }
+
+  async logoutFromAccountSettings() {
+    await this.authService.logOut({
+      toastMessage: 'Account logged out successfully.',
+      redirectTo: '/tabs/home'
+    });
+  }
+
+  async deleteAccountFromAccountSettings() {
+    if (this.isDeletingAccount) {
+      return;
+    }
+
+    const currentUser = getAuth().currentUser;
+    if (!currentUser || !this.userUid) {
+      await this.authService.presentToast('Please sign in again to delete your account.');
+      return;
+    }
+
+    const hasConfirmedDeletion = window.confirm('Delete your account permanently? This action cannot be undone.');
+    if (!hasConfirmedDeletion) {
+      return;
+    }
+
+    this.isDeletingAccount = true;
+
+    try {
+      await deleteDoc(doc(this.authService.db, 'users', this.userUid));
+      await deleteUser(currentUser);
+      await this.authService.logOut({
+        toastMessage: 'Account deleted successfully.',
+        redirectTo: '/tabs/home'
+      });
+    } catch (error: any) {
+      const code = error?.code as string | undefined;
+
+      if (code === 'auth/requires-recent-login' || code === 'auth/user-token-expired') {
+        await this.authService.presentToast('Please sign in again, then try deleting your account.');
+      } else if (code === 'auth/network-request-failed') {
+        await this.authService.presentToast('Network issue while deleting account. Please try again.');
+      } else {
+        await this.authService.presentToast('Could not delete account right now. Please try again.');
+      }
+    } finally {
+      this.isDeletingAccount = false;
+    }
   }
 
   onPasswordInputChange(field: keyof PasswordForm, event: Event) {
@@ -397,7 +511,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       const parsedMark = Number(rawValue);
       const sanitizedMark = Number.isFinite(parsedMark)
-        ? Math.min(100, Math.max(0, Math.round(parsedMark)))
+        ? parsedMark
         : null;
 
       return {
@@ -495,6 +609,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
+    if (!this.hasRequiredAcademicInformation()) {
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT before saving.');
+      return;
+    }
+
+    const hasInvalidMark = this.subjectEntries.some((entry) => entry.mark !== null && (entry.mark < 0 || entry.mark > 100));
+    if (hasInvalidMark) {
+      await this.authService.presentToast('Each mark must be between 0 and 100.');
+      return;
+    }
+
     const completedEntries = this.subjectEntries.filter((entry) =>
       entry.subject.trim() !== '' && entry.mark !== null && entry.mark >= 0 && entry.mark <= 100
     );
@@ -519,6 +644,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
+        currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
         matricYear: this.academicInformation.matricYear,
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
@@ -532,6 +658,23 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     } finally {
       this.isSavingSubjects = false;
     }
+  }
+
+  canSaveHighSchoolSubjects(): boolean {
+    if (!this.hasRequiredAcademicInformation()) {
+      return false;
+    }
+
+    const hasInvalidMark = this.subjectEntries.some((entry) => entry.mark !== null && (entry.mark < 0 || entry.mark > 100));
+    if (hasInvalidMark) {
+      return false;
+    }
+
+    const completedEntries = this.subjectEntries.filter((entry) =>
+      entry.subject.trim() !== '' && entry.mark !== null && entry.mark >= 0 && entry.mark <= 100
+    );
+
+    return completedEntries.length >= this.minimumSubjects;
   }
 
   onDocumentFileChange(key: RequiredDocumentKey, event: Event) {
@@ -722,6 +865,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         studyAreas?: string[];
         academicInformation?: Partial<AcademicInformation>;
         currentOrLastSchool?: string;
+        currentLevel?: string;
         schoolProvince?: string;
         matricYear?: string;
         hasWrittenNbt?: string;
@@ -750,6 +894,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       if (userData.academicInformation && typeof userData.academicInformation === 'object') {
         this.academicInformation = {
           currentOrLastSchool: userData.academicInformation.currentOrLastSchool ?? '',
+          currentLevel: userData.academicInformation.currentLevel ?? '',
           schoolProvince: userData.academicInformation.schoolProvince ?? '',
           matricYear: userData.academicInformation.matricYear ?? '',
           hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? ''
@@ -757,6 +902,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       } else {
         this.academicInformation = {
           currentOrLastSchool: userData.currentOrLastSchool ?? '',
+          currentLevel: userData.currentLevel ?? '',
           schoolProvince: userData.schoolProvince ?? '',
           matricYear: userData.matricYear ?? '',
           hasWrittenNbt: userData.hasWrittenNbt ?? ''
@@ -833,6 +979,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       };
       this.academicInformation = {
         currentOrLastSchool: '',
+        currentLevel: '',
         schoolProvince: '',
         matricYear: '',
         hasWrittenNbt: ''
@@ -871,6 +1018,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     };
     this.academicInformation = {
       currentOrLastSchool: '',
+      currentLevel: '',
       schoolProvince: '',
       matricYear: '',
       hasWrittenNbt: ''
@@ -1084,5 +1232,23 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   private isAllowedDocumentType(file: File): boolean {
     const extension = file.name.split('.').pop()?.toLowerCase() ?? '';
     return this.allowedDocumentMimeTypes.has(file.type) || this.allowedDocumentExtensions.has(extension);
+  }
+
+  private hasRequiredAcademicInformation(): boolean {
+    return this.academicInformation.currentOrLastSchool.trim() !== ''
+      && this.academicInformation.currentLevel.trim() !== ''
+      && this.academicInformation.schoolProvince.trim() !== ''
+      && this.academicInformation.matricYear.trim() !== ''
+      && this.academicInformation.hasWrittenNbt.trim() !== '';
+  }
+
+  private getMissingMandatoryProfileFields(): string[] {
+    return this.mandatoryProfileFields
+      .filter((field) => this.profile[field].trim() === '')
+      .map((field) => this.requiredProfileFieldLabels[field]);
+  }
+
+  private hasValidSaIdNumber(): boolean {
+    return /^\d{13}$/.test(this.profile.saIdNumber.trim());
   }
 }

@@ -298,32 +298,35 @@ export class AuthService {
 
   //  Logout
 
-  logOut() {
-    signOut(getAuth(firebase.initializeApp(environment.firebaseConfig)))
-      .then(() => {
-        sessionStorage.clear()
-        this.isLoggedIn = false
-        this.authState.next(false)
-        this.userName = 'Guest'
-        if(!this.regVerification)
-        {
-          this.router.navigate(['/tabs/profile'])
-        }
-        else
-        {
-          window.location.reload()
-        }
-      })
-      .catch(error => {
-        if(error.code === 'auth/internal-error')
-        {
-          this.presentToast('Problem from our end, please try again later')
-        }
-        else
-        {
-          this.presentToast(error.code)
-        }
-    });
+  async logOut(options?: { toastMessage?: string; redirectTo?: string; forceReload?: boolean }) {
+    try {
+      await signOut(getAuth(firebase.initializeApp(environment.firebaseConfig)))
+
+      sessionStorage.clear()
+      this.isLoggedIn = false
+      this.authState.next(false)
+      this.userName = 'Guest'
+
+      if (options?.toastMessage) {
+        await this.presentToast(options.toastMessage)
+      }
+
+      if (options?.forceReload || this.regVerification) {
+        window.location.reload()
+        return
+      }
+
+      await this.router.navigate([options?.redirectTo ?? '/tabs/profile'])
+    } catch (error: any) {
+      if(error.code === 'auth/internal-error')
+      {
+        this.presentToast('Problem from our end, please try again later')
+      }
+      else
+      {
+        this.presentToast(error.code)
+      }
+    }
   }
 
   async presentToast(msg: any) {
