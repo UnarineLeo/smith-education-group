@@ -1,45 +1,42 @@
-<ion-header class="modal-header">
-  <ion-toolbar>
-    <ion-title>Log In</ion-title>
-    <ion-button slot="end" fill="clear" (click)="close()">Close</ion-button>
-  </ion-toolbar>
-</ion-header>
-
-<div class="modal-scroll">
-  <div class="auth-shell">
-    <h2 class="auth-title">Welcome back</h2>
-    <p class="auth-subtitle">Access your Unipply account.</p>
-
-    <ion-item lines="none" class="field-item">
-      <ion-label position="stacked">Email Address</ion-label>
-      <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
-    </ion-item>
-
-    <ion-item lines="none" class="field-item">
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password" placeholder="Enter your password"></ion-input>
-    </ion-item>
-
-    <div class="row-end">
-      <ion-button fill="clear" size="small" class="link-btn" (click)="forgotPassword()">
-        Forgot password?
-      </ion-button>
-    </div>
-
-    <ion-button expand="block" class="primary-btn" (click)="login()">
-      Log In
-    </ion-button>
-
-    <div class="auth-divider"><span>or</span></div>
-
-    <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
-      <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
-      Continue with Google
-    </ion-button>
-
-    <ion-text class="auth-footer">
-      New to Unipply?
-      <button type="button" class="inline-link" (click)="openRegister()">Create an account</button>
-    </ion-text>
+<div class="auth-shell">
+  <div class="shell-head">
+    <p class="auth-kicker">Student Portal</p>
+    <ion-button fill="clear" size="small" class="close-btn" (click)="close()">Close</ion-button>
   </div>
+  <h2 class="auth-title">Welcome back</h2>
+  <p class="auth-subtitle">Pick up where you left off and keep your applications moving.</p>
+
+  <ion-item lines="none" class="field-item">
+    <ion-icon slot="start" name="mail-outline" aria-hidden="true" class="field-icon"></ion-icon>
+    <ion-label position="stacked">Email Address</ion-label>
+    <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none" class="field-item">
+    <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true" class="field-icon"></ion-icon>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" placeholder="Enter your password"></ion-input>
+  </ion-item>
+
+  <div class="row-end">
+    <ion-button fill="clear" size="small" class="link-btn" (click)="forgotPassword()">
+      Forgot password?
+    </ion-button>
+  </div>
+
+  <ion-button expand="block" class="primary-btn" (click)="login()">
+    Sign In
+  </ion-button>
+
+  <div class="auth-divider"><span>or</span></div>
+
+  <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
+    <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
+    Continue with Google
+  </ion-button>
+
+  <ion-text class="auth-footer">
+    New to Unipply?
+    <button type="button" class="inline-link" (click)="openRegister()">Create an account</button>
+  </ion-text>
 </div>

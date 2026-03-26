@@ -1,84 +1,86 @@
-<ion-header class="modal-header">
-  <ion-toolbar>
-    <ion-title>Create Account</ion-title>
-    <ion-button slot="end" fill="clear" (click)="close()">Close</ion-button>
-  </ion-toolbar>
-</ion-header>
-
-<div class="modal-scroll">
-  <div class="auth-shell">
-    <h2 class="auth-title">Join Unipply</h2>
-    <p class="auth-subtitle">Create your Unipply profile in a few quick steps.</p>
-
-    <div class="grid-two">
-      <ion-item lines="none" class="field-item">
-        <ion-label position="stacked">Name</ion-label>
-        <ion-input type="text" [(ngModel)]="firstName" placeholder="First name"></ion-input>
-      </ion-item>
-
-      <ion-item lines="none" class="field-item">
-        <ion-label position="stacked">Surname</ion-label>
-        <ion-input type="text" [(ngModel)]="surname" placeholder="Last name"></ion-input>
-      </ion-item>
-    </div>
-
-    <ion-item lines="none" class="field-item">
-      <ion-label position="stacked">Email Address</ion-label>
-      <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
-    </ion-item>
-
-    <div class="grid-two">
-      <ion-item lines="none" class="field-item">
-        <ion-label position="stacked">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="password" placeholder="Create password"></ion-input>
-      </ion-item>
-
-      <ion-item lines="none" class="field-item">
-        <ion-label position="stacked">Confirm Password</ion-label>
-        <ion-input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm password"></ion-input>
-      </ion-item>
-    </div>
-
-    <ion-item lines="none" class="field-item">
-      <ion-label position="stacked">Current Study Level</ion-label>
-      <ion-select [(ngModel)]="currentStudyLevel" interface="popover" placeholder="Select your current level">
-        @for (level of studyLevels; track level.value) {
-          <ion-select-option [value]="level.value">
-            {{ level.label }}
-          </ion-select-option>
-        }
-      </ion-select>
-    </ion-item>
-
-    <ion-item lines="none" class="field-item">
-      <ion-label position="stacked">Interests</ion-label>
-      <ion-select
-        [(ngModel)]="interests"
-        interface="popover"
-        [multiple]="true"
-        placeholder="Select your interests">
-        @for (interest of interestOptions; track interest.value) {
-          <ion-select-option [value]="interest.value">
-            {{ interest.label }}
-          </ion-select-option>
-        }
-      </ion-select>
-    </ion-item>
-
-    <ion-button expand="block" class="primary-btn" (click)="register()">
-      Create Account
-    </ion-button>
-
-    <div class="auth-divider"><span>or</span></div>
-
-    <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
-      <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
-      Continue with Google
-    </ion-button>
-
-    <ion-text class="auth-footer">
-      Already have an account?
-      <button type="button" class="inline-link" (click)="openLogin()">Log in</button>
-    </ion-text>
+<div class="auth-shell">
+  <div class="shell-head">
+    <p class="auth-kicker">Get Started</p>
+    <ion-button fill="clear" size="small" class="close-btn" (click)="close()">Close</ion-button>
   </div>
+  <h2 class="auth-title">Join Unipply</h2>
+  <p class="auth-subtitle">Build your student profile and personalize your university journey.</p>
+
+  <div class="grid-two">
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="person-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="firstName" placeholder="First name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="person-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Surname</ion-label>
+      <ion-input type="text" [(ngModel)]="surname" placeholder="Last name"></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-item lines="none" class="field-item">
+    <ion-icon slot="start" name="mail-outline" aria-hidden="true" class="field-icon"></ion-icon>
+    <ion-label position="stacked">Email Address</ion-label>
+    <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
+  </ion-item>
+
+  <div class="grid-two">
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Create password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="shield-checkmark-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm password"></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-item lines="none" class="field-item">
+    <ion-icon slot="start" name="school-outline" aria-hidden="true" class="field-icon"></ion-icon>
+    <ion-label position="stacked">Current Study Level</ion-label>
+    <ion-select [(ngModel)]="currentStudyLevel" interface="popover" placeholder="Select your current level">
+      @for (level of studyLevels; track level.value) {
+        <ion-select-option [value]="level.value">
+          {{ level.label }}
+        </ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+
+  <ion-item lines="none" class="field-item">
+    <ion-icon slot="start" name="sparkles-outline" aria-hidden="true" class="field-icon"></ion-icon>
+    <ion-label position="stacked">Interests</ion-label>
+    <ion-select
+      [(ngModel)]="interests"
+      interface="popover"
+      [multiple]="true"
+      placeholder="Select your interests">
+      @for (interest of interestOptions; track interest.value) {
+        <ion-select-option [value]="interest.value">
+          {{ interest.label }}
+        </ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" class="primary-btn" (click)="register()">
+    Create Account
+  </ion-button>
+
+  <div class="auth-divider"><span>or</span></div>
+
+  <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
+    <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
+    Continue with Google
+  </ion-button>
+
+  <ion-text class="auth-footer">
+    Already have an account?
+    <button type="button" class="inline-link" (click)="openLogin()">Log in</button>
+  </ion-text>
 </div>
