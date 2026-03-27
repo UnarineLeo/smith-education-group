@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonSegment, IonSegmentButton } from '@ionic/angular/standalone';
 
@@ -16,7 +17,7 @@ export class LegalPage {
 
   readonly effectiveDate = '18 March 2026';
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private location: Location) {
     this.route.url.subscribe((segments) => {
       const path = segments[0]?.path;
       if (path === 'privacy') {
@@ -45,11 +46,25 @@ export class LegalPage {
   }
 
   onTabChange(value: string | number | null | undefined) {
+    if (value === 'back') {
+      void this.goBack();
+      return;
+    }
+
     if (!this.isLegalView(value)) {
       return;
     }
 
     void this.swapView(value);
+  }
+
+  async goBack() {
+    if (window.history.length > 1) {
+      this.location.back();
+      return;
+    }
+
+    await this.router.navigate(['/tabs/home']);
   }
 
   private isLegalView(value: string | number | null | undefined): value is LegalView {

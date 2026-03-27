@@ -24,20 +24,27 @@
   </section>
 
   <section class="legal-shell">
-    <ion-segment
-      class="legal-tabs"
-      [value]="activeView"
-      (ionChange)="onTabChange($event.detail.value)">
-      <ion-segment-button value="terms">
-        Terms of Service
-      </ion-segment-button>
-      <ion-segment-button value="privacy">
-        Privacy Policy
-      </ion-segment-button>
-      <ion-segment-button value="popia">
-        POPIA
-      </ion-segment-button>
-    </ion-segment>
+    <div class="legal-tabs-row">
+
+      <ion-segment
+        class="legal-tabs"
+        [value]="activeView"
+        (ionChange)="onTabChange($event.detail.value)">
+        <ion-segment-button value="back">
+          Back
+        </ion-segment-button>
+        <ion-segment-button value="terms">
+          Terms of Service
+        </ion-segment-button>
+        
+        <ion-segment-button value="privacy">
+          Privacy Policy
+        </ion-segment-button>
+        <ion-segment-button value="popia">
+          POPIA
+        </ion-segment-button>
+      </ion-segment>
+    </div>
 
     @if (activeView === 'terms') {
       <article class="legal-card" aria-label="Terms of Service">

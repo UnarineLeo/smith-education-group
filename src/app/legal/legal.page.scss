@@ -42,6 +42,24 @@ ion-content {
   padding: 24px 20px 40px;
 }
 
+.legal-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.legal-back-btn {
+  border: 1px solid #dbe4ef;
+  background: #ffffff;
+  color: #1e3a5f;
+  border-radius: 10px;
+  min-height: 40px;
+  padding: 0 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .legal-tabs {
   width: 100%;
   max-width: 560px;
@@ -49,7 +67,7 @@ ion-content {
   border-radius: 12px;
   background: #ffffff;
   padding: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
 
   --background: transparent;
   --indicator-color: rgba(30, 64, 175, 0.16);
@@ -115,6 +133,15 @@ ion-content {
 
   .legal-shell {
     padding: 18px 14px 30px;
+  }
+
+  .legal-tabs-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .legal-back-btn {
+    width: fit-content;
   }
 
   .legal-card {
