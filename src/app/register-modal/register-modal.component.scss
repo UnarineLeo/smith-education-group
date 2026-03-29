@@ -120,6 +120,18 @@
   font-size: 16px;
 }
 
+.password-rule {
+  margin: -2px 2px 14px;
+  padding: 10px 12px;
+  border: 1px solid #d3e6df;
+  border-left: 4px solid #0f766e;
+  border-radius: 10px;
+  background: rgba(15, 118, 110, 0.08);
+  color: #31524a;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
 .primary-btn {
   --background: linear-gradient(140deg, var(--modal-accent), var(--modal-accent-deep));
   --background-hover: linear-gradient(140deg, #11857b, #0d5f59);

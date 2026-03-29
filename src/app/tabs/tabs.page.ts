@@ -42,6 +42,15 @@ export class TabsPage {
     this.menuOpen = false;
   }
 
+  private hasRequiredPasswordComplexity(password: string): boolean {
+    const hasMinimumLength = password.length >= 6;
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasSpecialCharacter = /[^A-Za-z0-9]/.test(password);
+
+    return hasMinimumLength && hasUppercase && hasLowercase && hasSpecialCharacter;
+  }
+
   async handleLoginDismiss(event: { action: string; payload?: { email?: string; password?: string } } | null) {
     if (!event) {
       this.loginModalOpen = false;
@@ -116,6 +125,11 @@ export class TabsPage {
         const payload = event.payload;
         if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
           await this.authService.presentToast('Please complete all required fields');
+          return;
+        }
+
+        if (!this.hasRequiredPasswordComplexity(payload.password)) {
+          await this.authService.presentToast('Use at least 6 characters, including 1 uppercase letter, 1 lowercase letter, and 1 special character.');
           return;
         }
 

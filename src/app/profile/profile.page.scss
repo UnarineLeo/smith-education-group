@@ -182,6 +182,17 @@
 			color: #64748b;
 			cursor: not-allowed;
 		}
+
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active {
+			-webkit-text-fill-color: #1e293b;
+			caret-color: #1e293b;
+			-webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+			box-shadow: 0 0 0 1000px #ffffff inset;
+			transition: background-color 9999s ease-out 0s;
+		}
 	}
 
 	select {
