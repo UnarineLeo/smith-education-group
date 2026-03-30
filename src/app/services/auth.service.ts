@@ -364,14 +364,13 @@ export class AuthService {
         expiryDate: "",
         apsScore: 0,
         lastSignIn: serverTimestamp(),
-        subjects: [],
         studyAreas: []
       });
     }
   }
 
   // update
-  async updateUser(uid: string, updatedInfo: [string, boolean, number, string[], string[]]): Promise<void> {
+  async updateUser(uid: string, updatedInfo: [string, boolean, number, string[]]): Promise<void> {
     const userRef = doc(this.db, 'users', uid);
     const userDoc = await getDoc(userRef);
     const existingData = userDoc.data();
@@ -388,12 +387,8 @@ export class AuthService {
       updatedInfo[2] = existingData?.['apsScore'];
     }
 
-    if ((!updatedInfo[3] || updatedInfo[3].length === 0) && Array.isArray(existingData?.['subjects'])) {
-      updatedInfo[3] = existingData?.['subjects'];
-    }
-
-    if ((!updatedInfo[4] || updatedInfo[4].length === 0) && Array.isArray(existingData?.['studyAreas'])) {
-      updatedInfo[4] = existingData?.['studyAreas'];
+    if ((!updatedInfo[3] || updatedInfo[3].length === 0) && Array.isArray(existingData?.['studyAreas'])) {
+      updatedInfo[3] = existingData?.['studyAreas'];
     }
 
     if(userDoc.exists()) 
@@ -402,8 +397,7 @@ export class AuthService {
         expiryDate: updatedInfo[0],
         isSubscribed: updatedInfo[1],
         apsScore: updatedInfo[2],
-        subjects: updatedInfo[3],
-        studyAreas: updatedInfo[4]
+        studyAreas: updatedInfo[3]
       }, { merge: true });
     }
   }

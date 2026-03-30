@@ -60,6 +60,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   minimumSubjects = 7;
   isSavingProfile = false;
   isSavingSubjects = false;
+  isSavingAcademicInfo = false;
   isUploadingDocuments = false;
   isUpdatingPassword = false;
   isDeletingAccount = false;
@@ -216,6 +217,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     'isiNdebele',
     'isiXhosa',
     'isiZulu',
+    'Life Orientation',
     'Life Sciences',
     'Mathematical Literacy',
     'Mathematics',
@@ -346,8 +348,54 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return this.getMissingMandatoryProfileFields().length === 0 && this.hasValidSaIdNumber();
   }
 
+  async saveAcademicInformation() {
+    if (!this.userUid) {
+      await this.authService.presentToast('Please sign in to save your academic information.');
+      return;
+    }
+
+    if (!this.hasRequiredAcademicInformation()) {
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT.');
+      return;
+    }
+
+    this.isSavingAcademicInfo = true;
+
+    try {
+      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+        currentOrLastSchool: this.academicInformation.currentOrLastSchool,
+        currentLevel: this.academicInformation.currentLevel,
+        schoolProvince: this.academicInformation.schoolProvince,
+        matricYear: this.academicInformation.matricYear,
+        hasWrittenNbt: this.academicInformation.hasWrittenNbt
+      }, { merge: true });
+
+      await this.authService.presentToast('School background saved successfully.');
+    } catch {
+      await this.authService.presentToast('Could not save academic information right now. Please try again.');
+    } finally {
+      this.isSavingAcademicInfo = false;
+    }
+  }
+
   async saveInterests() {
-    await this.saveViaUpdateUser('Interests saved successfully.');
+    if (!this.userUid) {
+      await this.authService.presentToast('Please sign in to save changes.');
+      return;
+    }
+
+    this.isSavingProfile = true;
+
+    try {
+      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+        studyAreas: this.selectedInterests
+      }, { merge: true });
+      await this.authService.presentToast('Interests saved successfully.');
+    } catch {
+      await this.authService.presentToast('Could not save right now. Please try again.');
+    } finally {
+      this.isSavingProfile = false;
+    }
   }
 
   async logoutFromAccountSettings() {
@@ -620,9 +668,18 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    const completedEntries = this.subjectEntries.filter((entry) =>
-      entry.subject.trim() !== '' && entry.mark !== null && entry.mark >= 0 && entry.mark <= 100
-    );
+    const completedEntries = this.subjectEntries
+      .map((entry) => ({
+        subject: entry.subject.trim(),
+        mark: entry.mark
+      }))
+      .filter((entry) =>
+        entry.subject !== ''
+        && this.highSchoolSubjectOptions.includes(entry.subject)
+        && entry.mark !== null
+        && entry.mark >= 0
+        && entry.mark <= 100
+      );
 
     if (completedEntries.length < this.minimumSubjects) {
       await this.authService.presentToast('Add at least 7 subjects with marks before saving.');
@@ -821,28 +878,6 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return 1;
   }
 
-  private parseSavedSubject(value: string): SubjectMarkEntry | null {
-    const match = value.match(/^(.*)\s-\s(\d{1,3})$/);
-    if (!match) {
-      return null;
-    }
-
-    const subject = match[1].trim();
-    const mark = Number(match[2]);
-    if (!this.highSchoolSubjectOptions.includes(subject)) {
-      return null;
-    }
-
-    if (!Number.isFinite(mark) || mark < 0 || mark > 100) {
-      return null;
-    }
-
-    return {
-      subject,
-      mark
-    };
-  }
-
   private async loadSavedSubjects(uid: string) {
     try {
       const userData = await this.authService.getUser(uid) as {
@@ -860,7 +895,6 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         nationality?: string;
         race?: string;
         disabilityStatus?: string;
-        subjects?: string[];
         highSchoolSubjects?: SubjectMarkEntry[];
         studyAreas?: string[];
         academicInformation?: Partial<AcademicInformation>;
@@ -921,25 +955,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         this.uploadedDocumentNames = { ...userData.documentFileNames };
       }
 
-      const savedHighSchoolSubjects = Array.isArray(userData.highSchoolSubjects)
-        ? userData.highSchoolSubjects
-            .filter((entry): entry is SubjectMarkEntry =>
-              Boolean(entry)
-              && typeof entry.subject === 'string'
-              && typeof entry.mark === 'number'
-              && entry.mark >= 0
-              && entry.mark <= 100
-            )
-            .map((entry) => ({ subject: entry.subject, mark: entry.mark }))
+      const savedHighSchoolSubjects: SubjectMarkEntry[] = Array.isArray(userData.highSchoolSubjects)
+        ? userData.highSchoolSubjects.reduce<SubjectMarkEntry[]>((accumulator, entry) => {
+            const parsedEntry = this.parseHighSchoolSubjectEntry(entry);
+            if (parsedEntry) {
+              accumulator.push(parsedEntry);
+            }
+            return accumulator;
+          }, [])
         : [];
 
-      const parsedSubjects = savedHighSchoolSubjects.length > 0
-        ? savedHighSchoolSubjects
-        : (Array.isArray(userData.subjects)
-            ? userData.subjects
-                .map((subject) => this.parseSavedSubject(subject))
-                .filter((subject): subject is SubjectMarkEntry => subject !== null)
-            : []);
+      const parsedSubjects = savedHighSchoolSubjects;
 
       if (parsedSubjects.length === 0) {
         this.subjectEntries = this.createInitialSubjectRows();
@@ -1034,46 +1060,6 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     await this.loadSavedSubjects(user.uid);
-  }
-
-  private getCompletedSubjectEntries(): SubjectMarkEntry[] {
-    return this.subjectEntries.filter((entry) =>
-      entry.subject.trim() !== '' && entry.mark !== null && entry.mark >= 0 && entry.mark <= 100
-    );
-  }
-
-  private buildUpdatedUserPayload(): [string, boolean, number, string[], string[]] {
-    const completedEntries = this.getCompletedSubjectEntries();
-    const serializedSubjects = completedEntries.map((entry) => `${entry.subject} - ${entry.mark}`);
-    const apsScore = completedEntries
-      .map((entry) => this.toApsPoints(entry.mark as number))
-      .reduce((total, points) => total + points, 0);
-
-    return [
-      '',
-      false,
-      apsScore,
-      serializedSubjects,
-      this.selectedInterests
-    ];
-  }
-
-  private async saveViaUpdateUser(successMessage: string) {
-    if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to save changes.');
-      return;
-    }
-
-    this.isSavingProfile = true;
-
-    try {
-      await this.authService.updateUser(this.userUid, this.buildUpdatedUserPayload());
-      await this.authService.presentToast(successMessage);
-    } catch {
-      await this.authService.presentToast('Could not save right now. Please try again.');
-    } finally {
-      this.isSavingProfile = false;
-    }
   }
 
   private async initializeStreetAddressAutocomplete(): Promise<boolean> {
@@ -1240,6 +1226,62 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       && this.academicInformation.schoolProvince.trim() !== ''
       && this.academicInformation.matricYear.trim() !== ''
       && this.academicInformation.hasWrittenNbt.trim() !== '';
+  }
+
+  private resolveSubjectOption(subject: string): string {
+    const normalizedSubject = subject.trim().toLowerCase();
+    const matchedSubject = this.highSchoolSubjectOptions.find(
+      (option) => option.trim().toLowerCase() === normalizedSubject
+    );
+
+    return matchedSubject ?? '';
+  }
+
+  private parseHighSchoolSubjectEntry(entry: unknown): SubjectMarkEntry | null {
+    if (!entry) {
+      return null;
+    }
+
+    if (typeof entry === 'string') {
+      const match = entry.match(/^(.*)\s-\s(\d{1,3})$/);
+      if (!match) {
+        return null;
+      }
+
+      const matchedSubject = this.resolveSubjectOption(match[1]);
+      const parsedMark = Number(match[2]);
+      if (!matchedSubject || !Number.isFinite(parsedMark) || parsedMark < 0 || parsedMark > 100) {
+        return null;
+      }
+
+      return {
+        subject: matchedSubject,
+        mark: parsedMark
+      };
+    }
+
+    if (typeof entry === 'object') {
+      const recordEntry = entry as Record<string, unknown>;
+      const subjectRaw = recordEntry['subject'] ?? recordEntry['name'] ?? recordEntry['title'];
+      const markRaw = recordEntry['mark'] ?? recordEntry['score'] ?? recordEntry['value'];
+
+      if (typeof subjectRaw !== 'string') {
+        return null;
+      }
+
+      const matchedSubject = this.resolveSubjectOption(subjectRaw);
+      const parsedMark = typeof markRaw === 'number' ? markRaw : Number(markRaw);
+      if (!matchedSubject || !Number.isFinite(parsedMark) || parsedMark < 0 || parsedMark > 100) {
+        return null;
+      }
+
+      return {
+        subject: matchedSubject,
+        mark: parsedMark
+      };
+    }
+
+    return null;
   }
 
   private getMissingMandatoryProfileFields(): string[] {

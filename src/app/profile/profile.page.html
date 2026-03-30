@@ -473,6 +473,16 @@
             </label>
           </div>
 
+          <div class="actions">
+            <button
+              type="button"
+              class="btn primary"
+              [disabled]="isSavingAcademicInfo"
+              (click)="saveAcademicInformation()">
+              {{ isSavingAcademicInfo ? 'Saving...' : 'Save School Background' }}
+            </button>
+          </div>
+
           <p class="panel-subtitle subjects-subtitle">
             Add at least 7 high school subjects with marks.
           </p>
