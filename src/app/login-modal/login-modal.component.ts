@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText, IonIcon } from '@ionic/angular/standalone';
+import { IonButton, IonItem, IonLabel, IonInput, IonText, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonText, IonIcon, FormsModule]
+  imports: [IonButton, IonItem, IonLabel, IonInput, IonText, IonIcon, FormsModule]
 })
 export class LoginModalComponent {
   @Output() dismissed = new EventEmitter<{

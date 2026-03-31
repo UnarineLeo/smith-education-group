@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon } from '@ionic/angular/standalone';
+import {  IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon } from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
 import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
 
@@ -10,7 +10,7 @@ import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
   templateUrl: './register-modal.component.html',
   styleUrls: ['./register-modal.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon, FormsModule]
+  imports: [CommonModule, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon, FormsModule]
 })
 export class RegisterModalComponent {
   @Output() dismissed = new EventEmitter<{
