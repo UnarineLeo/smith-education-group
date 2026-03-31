@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon } from '@ionic/angular/standalone';
+import { AlertController } from '@ionic/angular';
 import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
 
 @Component({
@@ -36,11 +37,22 @@ export class RegisterModalComponent {
   studyLevels = STUDY_LEVELS;
   interestOptions = INTEREST_OPTIONS;
 
+  constructor(private alertController: AlertController) {}
+
   close() {
     this.dismissed.emit(null);
   }
 
-  register() {
+  async register() {
+    if (!this.hasRequiredFields()) {
+      return;
+    }
+
+    if (!this.hasRequiredPasswordComplexity(this.password)) {
+      await this.presentPasswordStandardAlert();
+      return;
+    }
+
     this.dismissed.emit({
       action: 'register',
       payload: {
@@ -61,5 +73,34 @@ export class RegisterModalComponent {
 
   openLogin() {
     this.dismissed.emit({ action: 'open-login' });
+  }
+
+  canSubmitRegistration(): boolean {
+    return this.hasRequiredFields();
+  }
+
+  private hasRequiredFields(): boolean {
+    return this.firstName.trim() !== ''
+      && this.surname.trim() !== ''
+      && this.email.trim() !== ''
+      && this.password.trim() !== ''
+      && this.confirmPassword.trim() !== ''
+      && this.currentStudyLevel.trim() !== ''
+      && this.interests.length > 0;
+  }
+
+  private hasRequiredPasswordComplexity(password: string): boolean {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/.test(password);
+  }
+
+  private async presentPasswordStandardAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'password-standard-alert',
+      header: 'Password Requirements',
+      message: 'Use at least 6 characters, including 1 uppercase letter, 1 lowercase letter, and 1 special character.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }

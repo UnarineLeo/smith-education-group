@@ -16,6 +16,35 @@
   </section>
 
   <section class="profile-shell">
+    @if (shouldShowEmailVerificationBanner()) {
+      <section class="email-verification-banner" role="status" aria-live="polite">
+        <div class="banner-copy">
+          <h2>Verify Your Email Address</h2>
+          <p>
+            Your account was created with email and password. Please verify your email to secure your profile and unlock full access.
+          </p>
+        </div>
+
+        <div class="banner-actions">
+          <button
+            type="button"
+            class="btn secondary"
+            [disabled]="isSendingVerificationEmail"
+            (click)="resendVerificationEmail()">
+            {{ isSendingVerificationEmail ? 'Sending...' : 'Resend Verification Email' }}
+          </button>
+
+          <button
+            type="button"
+            class="btn primary"
+            [disabled]="isCheckingVerificationStatus"
+            (click)="refreshEmailVerificationStatus()">
+            {{ isCheckingVerificationStatus ? 'Checking...' : 'I Have Verified' }}
+          </button>
+        </div>
+      </section>
+    }
+
     <aside class="tab-nav" aria-label="Profile sections">
       <button
         type="button"
@@ -360,6 +389,25 @@
           <h2>Change Password</h2>
           <p class="panel-subtitle">Use a strong password that you do not reuse elsewhere.</p>
 
+          <section class="password-policy-card" aria-live="polite">
+            <h3>Password Policy</h3>
+            <p>Your new password must include all of the following:</p>
+            <ul>
+              <li [class.met]="passwordPolicyStatus.minLength">
+                At least 6 characters
+              </li>
+              <li [class.met]="passwordPolicyStatus.hasUppercase">
+                At least 1 uppercase letter
+              </li>
+              <li [class.met]="passwordPolicyStatus.hasLowercase">
+                At least 1 lowercase letter
+              </li>
+              <li [class.met]="passwordPolicyStatus.hasSpecialCharacter">
+                At least 1 special character
+              </li>
+            </ul>
+          </section>
+
           <div class="form-grid one-column">
             <label class="field full">
               <span>Current Password</span>
@@ -394,7 +442,7 @@
             <button
               type="button"
               class="btn primary"
-              [disabled]="isUpdatingPassword"
+              [disabled]="isUpdatingPassword || !canUpdatePassword()"
               (click)="updatePasswordFromForm()">
               {{ isUpdatingPassword ? 'Updating...' : 'Update Password' }}
             </button>
@@ -477,7 +525,7 @@
             <button
               type="button"
               class="btn primary"
-              [disabled]="isSavingAcademicInfo"
+              [disabled]="isSavingAcademicInfo || !canSaveAcademicInformation()"
               (click)="saveAcademicInformation()">
               {{ isSavingAcademicInfo ? 'Saving...' : 'Save School Background' }}
             </button>
@@ -579,7 +627,7 @@
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary" [disabled]="isUploadingDocuments" (click)="uploadRequiredDocuments()">
+            <button type="button" class="btn primary" [disabled]="isUploadingDocuments || !canUploadRequiredDocuments()" (click)="uploadRequiredDocuments()">
               {{ isUploadingDocuments ? 'Uploading...' : 'Upload Documents' }}
             </button>
           </div>

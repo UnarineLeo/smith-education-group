@@ -24,7 +24,7 @@
     </ion-button>
   </div>
 
-  <ion-button expand="block" class="primary-btn" (click)="login()">
+  <ion-button expand="block" class="primary-btn" [disabled]="!canSubmitLogin()" (click)="login()">
     Sign In
   </ion-button>
 

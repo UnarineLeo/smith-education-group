@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, updatePassword, User } from 'firebase/auth';
+import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, reload, sendEmailVerification, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
@@ -64,6 +64,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isUploadingDocuments = false;
   isUpdatingPassword = false;
   isDeletingAccount = false;
+  isEmailVerified = false;
+  isSendingVerificationEmail = false;
+  isCheckingVerificationStatus = false;
   userUid = '';
 
   private readonly requiredProfileFieldLabels: Record<keyof typeof this.profile, string> = {
@@ -348,6 +351,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return this.getMissingMandatoryProfileFields().length === 0 && this.hasValidSaIdNumber();
   }
 
+  canSaveAcademicInformation(): boolean {
+    return this.hasRequiredAcademicInformation();
+  }
+
   async saveAcademicInformation() {
     if (!this.userUid) {
       await this.authService.presentToast('Please sign in to save your academic information.');
@@ -395,6 +402,66 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await this.authService.presentToast('Could not save right now. Please try again.');
     } finally {
       this.isSavingProfile = false;
+    }
+  }
+
+  shouldShowEmailVerificationBanner(): boolean {
+    return !this.isGoogleUser && this.userUid !== '' && !this.isEmailVerified;
+  }
+
+  async resendVerificationEmail() {
+    const currentUser = getAuth().currentUser;
+    if (!currentUser) {
+      await this.authService.presentToast('Please sign in to resend the verification email.');
+      return;
+    }
+
+    if (currentUser.emailVerified) {
+      this.isEmailVerified = true;
+      await this.authService.presentToast('Your email is already verified.');
+      return;
+    }
+
+    this.isSendingVerificationEmail = true;
+
+    try {
+      await sendEmailVerification(currentUser);
+      await this.authService.presentToast('Verification email sent. Check your inbox and spam folder.');
+    } catch {
+      await this.authService.presentToast('Could not send verification email right now. Please try again.');
+    } finally {
+      this.isSendingVerificationEmail = false;
+    }
+  }
+
+  async refreshEmailVerificationStatus() {
+    const currentUser = getAuth().currentUser;
+    if (!currentUser) {
+      await this.authService.presentToast('Please sign in to check verification status.');
+      return;
+    }
+
+    this.isCheckingVerificationStatus = true;
+
+    try {
+      await reload(currentUser);
+      this.isEmailVerified = currentUser.emailVerified;
+
+      if (this.userUid) {
+        await setDoc(doc(this.authService.db, 'users', this.userUid), {
+          emailVerified: this.isEmailVerified
+        }, { merge: true });
+      }
+
+      if (this.isEmailVerified) {
+        await this.authService.presentToast('Email verified successfully.');
+      } else {
+        await this.authService.presentToast('Email not verified yet. Please verify from your inbox and try again.');
+      }
+    } catch {
+      await this.authService.presentToast('Could not refresh verification status right now. Please try again.');
+    } finally {
+      this.isCheckingVerificationStatus = false;
     }
   }
 
@@ -453,6 +520,35 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     };
   }
 
+  get passwordPolicyStatus() {
+    const password = this.passwordForm.newPassword;
+
+    return {
+      minLength: password.length >= 6,
+      hasUppercase: /[A-Z]/.test(password),
+      hasLowercase: /[a-z]/.test(password),
+      hasSpecialCharacter: /[^A-Za-z0-9]/.test(password)
+    };
+  }
+
+  isNewPasswordPolicyCompliant(): boolean {
+    const policy = this.passwordPolicyStatus;
+    return policy.minLength && policy.hasUppercase && policy.hasLowercase && policy.hasSpecialCharacter;
+  }
+
+  canUpdatePassword(): boolean {
+    const currentPassword = this.passwordForm.currentPassword.trim();
+    const newPassword = this.passwordForm.newPassword.trim();
+    const confirmNewPassword = this.passwordForm.confirmNewPassword.trim();
+
+    return currentPassword !== ''
+      && newPassword !== ''
+      && confirmNewPassword !== ''
+      && this.isNewPasswordPolicyCompliant()
+      && newPassword === confirmNewPassword
+      && currentPassword !== newPassword;
+  }
+
   async updatePasswordFromForm() {
     const currentPassword = this.passwordForm.currentPassword.trim();
     const newPassword = this.passwordForm.newPassword.trim();
@@ -463,8 +559,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    if (newPassword.length < 8) {
-      await this.authService.presentToast('New password must be at least 8 characters.');
+    if (!this.isNewPasswordPolicyCompliant()) {
+      await this.authService.presentToast('Password must be at least 6 characters and include uppercase, lowercase, and a special character.');
       return;
     }
 
@@ -534,6 +630,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       if (currentIndex !== index) {
         return entry;
       }
+      console.log('Selected subject:', value);
 
       return {
         ...entry,
@@ -732,6 +829,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     );
 
     return completedEntries.length >= this.minimumSubjects;
+  }
+
+  canUploadRequiredDocuments(): boolean {
+    return Boolean(this.selectedDocumentFiles[this.requiredDocumentKey] || this.uploadedDocumentUrls[this.requiredDocumentKey]);
   }
 
   onDocumentFileChange(key: RequiredDocumentKey, event: Event) {
@@ -987,6 +1088,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     if (!user) {
       this.userUid = '';
       this.isGoogleUser = false;
+      this.isEmailVerified = false;
       this.profile = {
         firstName: 'User',
         lastName: '',
@@ -1022,6 +1124,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.userUid = user.uid;
 
     this.isGoogleUser = user.providerData.some((provider) => provider.providerId === 'google.com');
+  this.isEmailVerified = user.emailVerified ?? false;
 
     const displayName = user.displayName?.trim() ?? '';
     const [firstName = 'User', ...rest] = displayName ? displayName.split(/\s+/) : ['User'];

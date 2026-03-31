@@ -210,8 +210,8 @@ export class AuthService {
           })
           .then(async () => 
           {
-            if (!res.user?.emailVerified.isVerified) {
-              sendEmailVerification(res.user)
+            if (!res.user?.emailVerified) {
+              await sendEmailVerification(res.user)
             }
 
             this.isLoggedIn = true
@@ -331,6 +331,7 @@ export class AuthService {
 
   async presentToast(msg: any) {
     const toast = await this.toastController.create({
+      cssClass: 'app-toast',
       message: msg,
       duration: 1300,
       position: 'bottom',

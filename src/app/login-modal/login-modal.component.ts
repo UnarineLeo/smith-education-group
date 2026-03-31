@@ -43,4 +43,8 @@ export class LoginModalComponent {
   openRegister() {
     this.dismissed.emit({ action: 'open-register' });
   }
+
+  canSubmitLogin(): boolean {
+    return this.email.trim() !== '' && this.password.trim() !== '';
+  }
 }

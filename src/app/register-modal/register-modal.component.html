@@ -72,7 +72,7 @@
     </ion-select>
   </ion-item>
 
-  <ion-button expand="block" class="primary-btn" (click)="register()">
+  <ion-button expand="block" class="primary-btn" [disabled]="!canSubmitRegistration()" (click)="register()">
     Create Account
   </ion-button>
 
