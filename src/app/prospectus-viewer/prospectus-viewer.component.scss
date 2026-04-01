@@ -182,9 +182,35 @@ ion-content {
   max-width: 460px;
 }
 
+.mobile-fallback {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #334155;
+}
+
+.mobile-fallback h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.mobile-fallback p {
+  margin: 0;
+  max-width: 560px;
+}
+
 @media (max-width: 768px) {
   .viewer-panel {
     height: calc(100vh - 300px);
     min-height: 460px;
+  }
+
+  .mobile-fallback {
+    padding: 20px;
   }
 }

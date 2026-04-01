@@ -52,7 +52,19 @@
     </section>
 
     <section class="viewer-panel">
-      @if (safePdfUrl) {
+      @if (isPhoneDevice && openLink) {
+        <div class="mobile-fallback">
+          <h2>Open the prospectus on your phone</h2>
+          <p>
+            Mobile browsers and in-app webviews often block embedded PDF viewers.
+            Use the button below to open the document directly.
+          </p>
+          <ion-button [href]="openLink" target="_blank" rel="noopener noreferrer" color="dark" size="large">
+            <ion-icon slot="start" name="open-outline"></ion-icon>
+            Open Prospectus
+          </ion-button>
+        </div>
+      } @else if (safePdfUrl) {
         <iframe
           class="pdf-frame"
           [src]="safePdfUrl"
