@@ -1,6 +1,9 @@
 export const environment = {
   production: true,
   googleMapsApiKey: '',
+  supabaseUrl: '',
+  supabaseAnonKey: '',
+  supabaseStorageBucket: 'documents',
 
   firebaseConfig: {
     apiKey: "AIzaSyDfhH4XNXjdaVpRR__RBDnUtUGna1l21eI",

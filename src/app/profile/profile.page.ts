@@ -4,7 +4,7 @@ import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthentic
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
-import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+import { SupabaseStorageService } from '../services/supabase-storage.service';
 
 type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
 
@@ -240,7 +240,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   subjectEntries: SubjectMarkEntry[] = this.createInitialSubjectRows();
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private supabaseStorageService: SupabaseStorageService) {
     this.unsubscribeAuth = onAuthStateChanged(getAuth(), async (user) => {
       await this.applyUserProfile(user);
     });
@@ -630,7 +630,6 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       if (currentIndex !== index) {
         return entry;
       }
-      console.log('Selected subject:', value);
 
       return {
         ...entry,
@@ -806,6 +805,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         apsScore
       }, { merge: true });
 
+      // Rehydrate from persisted payload so selects keep saved default values.
+      this.subjectEntries = this.buildSubjectEntriesFromSavedData(completedEntries);
+
       await this.authService.presentToast('Academic information saved successfully.');
     } catch {
       await this.authService.presentToast('Could not save subjects right now. Please try again.');
@@ -896,7 +898,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isUploadingDocuments = true;
 
     try {
-      const storage = getStorage();
+      if (!this.supabaseStorageService.isConfigured()) {
+        await this.authService.presentToast('Supabase is not configured yet. Add supabaseUrl and supabaseAnonKey in environment files.');
+        return;
+      }
+
       const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentUrls };
       const nextDocumentNames: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentNames };
 
@@ -906,14 +912,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           continue;
         }
 
-        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-        const storagePath = `users/${this.userUid}/documents/${requirement.key}-${Date.now()}-${safeName}`;
-        const storageRef = ref(storage, storagePath);
+        const { publicUrl } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
 
-        await uploadBytes(storageRef, file);
-        const downloadUrl = await getDownloadURL(storageRef);
-
-        nextDocumentUrls[requirement.key] = downloadUrl;
+        nextDocumentUrls[requirement.key] = publicUrl;
         nextDocumentNames[requirement.key] = file.name;
       }
 
@@ -949,6 +950,27 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private createInitialSubjectRows(): SubjectMarkEntry[] {
     return Array.from({ length: this.minimumSubjects }, () => ({ subject: '', mark: null }));
+  }
+
+  private buildSubjectEntriesFromSavedData(entries: SubjectMarkEntry[]): SubjectMarkEntry[] {
+    if (!entries.length) {
+      return this.createInitialSubjectRows();
+    }
+
+    const normalizedEntries = entries
+      .map((entry) => this.parseHighSchoolSubjectEntry(entry))
+      .filter((entry): entry is SubjectMarkEntry => entry !== null);
+
+    if (!normalizedEntries.length) {
+      return this.createInitialSubjectRows();
+    }
+
+    const paddedSubjects = [...normalizedEntries];
+    while (paddedSubjects.length < this.minimumSubjects) {
+      paddedSubjects.push({ subject: '', mark: null });
+    }
+
+    return paddedSubjects;
   }
 
   private toApsPoints(mark: number): number {
@@ -1066,19 +1088,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           }, [])
         : [];
 
-      const parsedSubjects = savedHighSchoolSubjects;
-
-      if (parsedSubjects.length === 0) {
-        this.subjectEntries = this.createInitialSubjectRows();
-        return;
-      }
-
-      const paddedSubjects = [...parsedSubjects];
-      while (paddedSubjects.length < this.minimumSubjects) {
-        paddedSubjects.push({ subject: '', mark: null });
-      }
-
-      this.subjectEntries = paddedSubjects;
+      this.subjectEntries = this.buildSubjectEntriesFromSavedData(savedHighSchoolSubjects);
     } catch {
       this.subjectEntries = this.createInitialSubjectRows();
     }

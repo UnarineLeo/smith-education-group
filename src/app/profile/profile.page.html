@@ -542,8 +542,16 @@
                   <span>Subject {{ i + 1 }}</span>
                   <select [value]="entry.subject" (change)="onSubjectChange(i, $event)">
                     <option value="">Select subject</option>
+                    @if (entry.subject && !highSchoolSubjectOptions.includes(entry.subject)) {
+                      <option [value]="entry.subject" selected>
+                        {{ entry.subject }}
+                      </option>
+                    }
                     @for (subject of highSchoolSubjectOptions; track subject) {
-                      <option [value]="subject" [disabled]="isSubjectDisabled(subject, i)">
+                      <option
+                        [value]="subject"
+                        [selected]="entry.subject === subject"
+                        [disabled]="isSubjectDisabled(subject, i)">
                         {{ subject }}
                       </option>
                     }
