@@ -54,9 +54,35 @@
     <section class="viewer-panel">
       @if (isPhoneDevice && mobilePdfUrl && !mobilePdfLoadFailed) {
         <div class="mobile-pdfjs">
+          <div class="mobile-pdf-controls">
+            <ion-button
+              fill="outline"
+              color="dark"
+              size="small"
+              (click)="zoomOutMobilePdf()"
+              [disabled]="mobilePdfZoom <= mobilePdfMinZoom">
+              -
+            </ion-button>
+            <ion-button
+              fill="outline"
+              color="medium"
+              size="small"
+              (click)="resetMobilePdfZoom()">
+              {{ (mobilePdfZoom * 100).toFixed(0) }}%
+            </ion-button>
+            <ion-button
+              fill="outline"
+              color="dark"
+              size="small"
+              (click)="zoomInMobilePdf()"
+              [disabled]="mobilePdfZoom >= mobilePdfMaxZoom">
+              +
+            </ion-button>
+          </div>
           <pdf-viewer
             class="mobile-pdfjs-viewer"
             [src]="mobilePdfUrl"
+            [zoom]="mobilePdfZoom"
             [original-size]="false"
             [show-all]="true"
             [fit-to-page]="true"

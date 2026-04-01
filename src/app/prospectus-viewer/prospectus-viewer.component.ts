@@ -38,6 +38,10 @@ export class ProspectusViewerComponent implements OnInit {
   openLink: string | null = null;
   mobilePdfUrl: string | null = null;
   mobilePdfLoadFailed = false;
+  mobilePdfZoom = 1;
+  readonly mobilePdfMinZoom = 0.6;
+  readonly mobilePdfMaxZoom = 2.2;
+  readonly mobilePdfZoomStep = 0.2;
   isPhoneDevice = false;
 
   constructor(
@@ -57,6 +61,7 @@ export class ProspectusViewerComponent implements OnInit {
       this.openLink = this.getOpenLink(this.university);
       this.mobilePdfUrl = this.getMobilePdfLink(this.university);
       this.mobilePdfLoadFailed = false;
+      this.mobilePdfZoom = 1;
       this.safePdfUrl = this.viewerLink
         ? this.sanitizer.bypassSecurityTrustResourceUrl(this.viewerLink)
         : null;
@@ -65,6 +70,20 @@ export class ProspectusViewerComponent implements OnInit {
 
   onMobilePdfError(): void {
     this.mobilePdfLoadFailed = true;
+  }
+
+  zoomOutMobilePdf(): void {
+    const nextZoom = this.mobilePdfZoom - this.mobilePdfZoomStep;
+    this.mobilePdfZoom = Math.max(this.mobilePdfMinZoom, Number(nextZoom.toFixed(2)));
+  }
+
+  zoomInMobilePdf(): void {
+    const nextZoom = this.mobilePdfZoom + this.mobilePdfZoomStep;
+    this.mobilePdfZoom = Math.min(this.mobilePdfMaxZoom, Number(nextZoom.toFixed(2)));
+  }
+
+  resetMobilePdfZoom(): void {
+    this.mobilePdfZoom = 1;
   }
 
   getApplyLink(): string {

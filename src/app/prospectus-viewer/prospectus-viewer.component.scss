@@ -167,6 +167,19 @@ ion-content {
   background: #f8fafc;
 }
 
+.mobile-pdf-controls {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(248, 250, 252, 0.92);
+  border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(4px);
+}
+
 .mobile-pdfjs-viewer {
   display: block;
   width: 100%;
