@@ -160,6 +160,19 @@ ion-content {
   display: block;
 }
 
+.mobile-pdfjs {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #f8fafc;
+}
+
+.mobile-pdfjs-viewer {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+}
+
 .no-pdf {
   display: flex;
   flex-direction: column;

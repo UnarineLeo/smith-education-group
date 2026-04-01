@@ -52,12 +52,24 @@
     </section>
 
     <section class="viewer-panel">
-      @if (isPhoneDevice && openLink) {
+      @if (isPhoneDevice && mobilePdfUrl && !mobilePdfLoadFailed) {
+        <div class="mobile-pdfjs">
+          <pdf-viewer
+            class="mobile-pdfjs-viewer"
+            [src]="mobilePdfUrl"
+            [original-size]="false"
+            [show-all]="true"
+            [fit-to-page]="true"
+            [render-text]="true"
+            (error)="onMobilePdfError()">
+          </pdf-viewer>
+        </div>
+      } @else if (isPhoneDevice && openLink) {
         <div class="mobile-fallback">
-          <h2>Open the prospectus on your phone</h2>
+          <h2>Unable to embed this PDF on your phone</h2>
           <p>
-            Mobile browsers and in-app webviews often block embedded PDF viewers.
-            Use the button below to open the document directly.
+            This document cannot be rendered in the in-app viewer.
+            Use the button below to open it directly.
           </p>
           <ion-button [href]="openLink" target="_blank" rel="noopener noreferrer" color="dark" size="large">
             <ion-icon slot="start" name="open-outline"></ion-icon>

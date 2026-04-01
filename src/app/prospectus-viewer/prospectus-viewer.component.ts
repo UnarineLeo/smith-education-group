@@ -5,6 +5,7 @@ import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonCon
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline } from 'ionicons/icons';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { University } from '../shared/app-data';
 import universitiesData from '../university-list/university-list.json';
 
@@ -25,7 +26,8 @@ import universitiesData from '../university-list/university-list.json';
     IonBackButton,
     IonChip,
     IonLabel,
-    RouterLink
+    RouterLink,
+    PdfViewerModule
   ],
 })
 export class ProspectusViewerComponent implements OnInit {
@@ -34,6 +36,8 @@ export class ProspectusViewerComponent implements OnInit {
   safePdfUrl: SafeResourceUrl | null = null;
   viewerLink: string | null = null;
   openLink: string | null = null;
+  mobilePdfUrl: string | null = null;
+  mobilePdfLoadFailed = false;
   isPhoneDevice = false;
 
   constructor(
@@ -51,10 +55,16 @@ export class ProspectusViewerComponent implements OnInit {
       this.university = universities.find((uni) => uni.id === id) ?? null;
       this.viewerLink = this.buildViewerLink(this.university);
       this.openLink = this.getOpenLink(this.university);
+      this.mobilePdfUrl = this.getMobilePdfLink(this.university);
+      this.mobilePdfLoadFailed = false;
       this.safePdfUrl = this.viewerLink
         ? this.sanitizer.bypassSecurityTrustResourceUrl(this.viewerLink)
         : null;
     });
+  }
+
+  onMobilePdfError(): void {
+    this.mobilePdfLoadFailed = true;
   }
 
   getApplyLink(): string {
@@ -144,6 +154,14 @@ export class ProspectusViewerComponent implements OnInit {
 
     if (this.isPhoneDevice) {
       return university.brochure_link || this.toAbsoluteUrl(university.brochure_asset) || null;
+    }
+
+    return this.toAbsoluteUrl(university.brochure_asset) || university.brochure_link || null;
+  }
+
+  private getMobilePdfLink(university: University | null): string | null {
+    if (!university) {
+      return null;
     }
 
     return this.toAbsoluteUrl(university.brochure_asset) || university.brochure_link || null;
