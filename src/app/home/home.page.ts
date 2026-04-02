@@ -133,12 +133,13 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   startApplication() {
-    console.log('Starting application');
-    // Navigate to application page
+    this.router.navigate(['/tabs/universities']);
   }
 
   exploreUniversities() {
-    this.router.navigate(['/tabs/universities']);
+    this.router.navigate(['/tabs/home'], {
+      fragment: 'universities'
+    });
   }
 
   openProspectus(uni: University) {

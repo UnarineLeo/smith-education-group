@@ -882,6 +882,23 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return this.uploadedDocumentUrls[key] ?? '';
   }
 
+  async refreshUploadedDocumentUrls() {
+    const documentEntries = Object.entries(this.uploadedDocumentUrls) as Array<[RequiredDocumentKey, string]>;
+
+    if (!documentEntries.length) {
+      return;
+    }
+
+    const resolvedUrls = await Promise.all(
+      documentEntries.map(async ([key, storedValue]) => [key, await this.supabaseStorageService.createSignedDocumentUrl(storedValue)] as const)
+    );
+
+    this.uploadedDocumentUrls = resolvedUrls.reduce<Partial<Record<RequiredDocumentKey, string>>>((accumulator, [key, signedUrl]) => {
+      accumulator[key] = signedUrl;
+      return accumulator;
+    }, {});
+  }
+
   async uploadRequiredDocuments() {
     if (!this.userUid) {
       await this.authService.presentToast('Please sign in to upload documents.');
@@ -912,9 +929,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           continue;
         }
 
-        const { publicUrl } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
+        const { path } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
 
-        nextDocumentUrls[requirement.key] = publicUrl;
+        nextDocumentUrls[requirement.key] = path;
         nextDocumentNames[requirement.key] = file.name;
       }
 
@@ -925,6 +942,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       this.uploadedDocumentUrls = nextDocumentUrls;
       this.uploadedDocumentNames = nextDocumentNames;
+      await this.refreshUploadedDocumentUrls();
       this.selectedDocumentFiles = {
         idDocument: null,
         matricCertificate: null,
@@ -937,6 +955,23 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await this.authService.presentToast('Could not upload documents right now. Please try again.');
     } finally {
       this.isUploadingDocuments = false;
+    }
+  }
+
+  async debugSupabaseConnection() {
+    try {
+      console.log('Supabase config:', {
+        url: environment.supabaseUrl,
+        bucket: environment.supabaseStorageBucket
+      });
+
+      const buckets = await this.supabaseStorageService.getExistingBuckets();
+      console.log('Supabase buckets from debug action:', buckets);
+
+      await this.authService.presentToast('Supabase connection check complete. See the console for details.');
+    } catch (error) {
+      console.error('Supabase connection check failed:', error);
+      await this.authService.presentToast('Supabase connection check failed. See the console for details.');
     }
   }
 
@@ -1072,6 +1107,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       if (userData.documents && typeof userData.documents === 'object') {
         this.uploadedDocumentUrls = { ...userData.documents };
+        await this.refreshUploadedDocumentUrls();
       }
 
       if (userData.documentFileNames && typeof userData.documentFileNames === 'object') {

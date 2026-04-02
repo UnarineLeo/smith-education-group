@@ -639,6 +639,12 @@
               {{ isUploadingDocuments ? 'Uploading...' : 'Upload Documents' }}
             </button>
           </div>
+
+          <div class="actions">
+            <button type="button" class="btn secondary" (click)="debugSupabaseConnection()">
+              Log Supabase Buckets
+            </button>
+          </div>
         </section>
       }
 
