@@ -89,13 +89,12 @@ Deno.serve(async (request) => {
       return jsonResponse(403, { error: 'User id mismatch.' });
     }
 
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-    const path = `users/${firebaseUid}/${documentKey}-${Date.now()}-${safeName}`;
+    const path = `users/${firebaseUid}/${documentKey}`;
 
     const adminClient = createClient(supabaseUrl, supabaseServiceRoleKey);
     const { error } = await adminClient.storage.from(supabaseStorageBucket).upload(path, file, {
       contentType: file.type || undefined,
-      upsert: false
+      upsert: true
     });
 
     if (error) {
