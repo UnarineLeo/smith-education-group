@@ -62,6 +62,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isSavingSubjects = false;
   isSavingAcademicInfo = false;
   isUploadingDocuments = false;
+  isFinalizingDocumentUpload = false;
   isUpdatingPassword = false;
   isDeletingAccount = false;
   isEmailVerified = false;
@@ -889,14 +890,26 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    const resolvedUrls = await Promise.all(
+    const resolvedEntries = await Promise.allSettled(
       documentEntries.map(async ([key, storedValue]) => [key, await this.supabaseStorageService.createSignedDocumentUrl(storedValue)] as const)
     );
 
-    this.uploadedDocumentUrls = resolvedUrls.reduce<Partial<Record<RequiredDocumentKey, string>>>((accumulator, [key, signedUrl]) => {
-      accumulator[key] = signedUrl;
-      return accumulator;
-    }, {});
+    const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = {};
+
+    resolvedEntries.forEach((result: PromiseSettledResult<readonly [RequiredDocumentKey, string]>, index: number) => {
+      const [key, storedValue] = documentEntries[index];
+
+      if (result.status === 'fulfilled') {
+        nextDocumentUrls[key] = result.value[1];
+        return;
+      }
+
+      // Keep stored path/URL when signed URL generation fails so upload flow does not get stuck.
+      console.warn(`Could not refresh signed URL for ${key}:`, result.reason);
+      nextDocumentUrls[key] = storedValue;
+    });
+
+    this.uploadedDocumentUrls = nextDocumentUrls;
   }
 
   async uploadRequiredDocuments() {
@@ -913,6 +926,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     this.isUploadingDocuments = true;
+    this.isFinalizingDocumentUpload = false;
 
     try {
       if (!this.supabaseStorageService.isConfigured()) {
@@ -935,6 +949,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         nextDocumentNames[requirement.key] = file.name;
       }
 
+      this.isFinalizingDocumentUpload = true;
+
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
         documents: nextDocumentUrls,
         documentFileNames: nextDocumentNames
@@ -942,7 +958,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       this.uploadedDocumentUrls = nextDocumentUrls;
       this.uploadedDocumentNames = nextDocumentNames;
-      await this.refreshUploadedDocumentUrls();
+
+      try {
+        await this.refreshUploadedDocumentUrls();
+      } catch (error) {
+        console.warn('Documents uploaded, but signed URL refresh failed:', error);
+      }
+
       this.selectedDocumentFiles = {
         idDocument: null,
         matricCertificate: null,
@@ -954,6 +976,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     } catch {
       await this.authService.presentToast('Could not upload documents right now. Please try again.');
     } finally {
+      this.isFinalizingDocumentUpload = false;
       this.isUploadingDocuments = false;
     }
   }

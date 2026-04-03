@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, 
  IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { FooterComponent } from '../footer/footer.component';
 import universitiesData from '../university-list/university-list.json';
 import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
@@ -15,7 +16,7 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonCardTitle, IonCardHeader,
+    IonButton, IonCardTitle, IonCardHeader, RouterLink,
     FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -50,19 +51,39 @@ export class HomePage implements OnInit, OnDestroy {
   // Provinces Array
   provinces = PROVINCES;
 
+  private fragmentSubscription: Subscription | null = null;
+
   constructor(
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.animateCounters();
+    this.subscribeToFragmentChanges();
   }
 
   ngOnDestroy() {
     if (this.animationInterval) {
       clearInterval(this.animationInterval);
     }
+    if (this.fragmentSubscription) {
+      this.fragmentSubscription.unsubscribe();
+    }
+  }
+
+  private subscribeToFragmentChanges() {
+    this.fragmentSubscription = this.activatedRoute.fragment.subscribe((fragment: string | null) => {
+      if (fragment) {
+        setTimeout(() => {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    });
   }
 
   animateCounters() {

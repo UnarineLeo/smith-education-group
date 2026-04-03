@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SupabaseStorageService {
   private client: SupabaseClient | null = null;
+  private readonly requestTimeoutMs = 20000;
 
   isConfigured(): boolean {
     return Boolean(
@@ -39,14 +40,19 @@ export class SupabaseStorageService {
     formData.append('documentKey', documentKey);
     formData.append('userUid', userUid);
 
-    const response = await fetch(environment.supabaseDocumentUploadFunctionUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${idToken}`,
-        apikey: environment.supabaseAnonKey
+    const response = await this.fetchWithTimeout(
+      environment.supabaseDocumentUploadFunctionUrl,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          apikey: environment.supabaseAnonKey
+        },
+        body: formData
       },
-      body: formData
-    });
+      this.requestTimeoutMs,
+      'Document upload request timed out.'
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -71,15 +77,20 @@ export class SupabaseStorageService {
     }
 
     const idToken = await this.getFirebaseIdToken();
-    const response = await fetch(environment.supabaseDocumentSignUrlFunctionUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${idToken}`,
-        apikey: environment.supabaseAnonKey,
-        'Content-Type': 'application/json'
+    const response = await this.fetchWithTimeout(
+      environment.supabaseDocumentSignUrlFunctionUrl,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          apikey: environment.supabaseAnonKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ path, expiresInSeconds })
       },
-      body: JSON.stringify({ path, expiresInSeconds })
-    });
+      this.requestTimeoutMs,
+      'Signed URL request timed out.'
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -101,6 +112,31 @@ export class SupabaseStorageService {
     }
 
     return user.getIdToken();
+  }
+
+  private async fetchWithTimeout(
+    url: string,
+    init: RequestInit,
+    timeoutMs: number,
+    timeoutMessage: string
+  ): Promise<Response> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      return await fetch(url, {
+        ...init,
+        signal: controller.signal
+      });
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        throw new Error(timeoutMessage);
+      }
+
+      throw error;
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }
 
   private getClient(): SupabaseClient {

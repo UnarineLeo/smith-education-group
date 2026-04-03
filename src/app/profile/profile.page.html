@@ -636,15 +636,15 @@
 
           <div class="actions">
             <button type="button" class="btn primary" [disabled]="isUploadingDocuments || !canUploadRequiredDocuments()" (click)="uploadRequiredDocuments()">
-              {{ isUploadingDocuments ? 'Uploading...' : 'Upload Documents' }}
+              {{ isUploadingDocuments ? (isFinalizingDocumentUpload ? 'Finalizing...' : 'Uploading...') : 'Upload Documents' }}
             </button>
           </div>
 
-          <div class="actions">
+          <!-- <div class="actions">
             <button type="button" class="btn secondary" (click)="debugSupabaseConnection()">
               Log Supabase Buckets
             </button>
-          </div>
+          </div> -->
         </section>
       }
 
