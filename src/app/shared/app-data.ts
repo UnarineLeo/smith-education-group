@@ -16,10 +16,19 @@ export interface University {
   brochure_asset?: string;
 }
 
+import universityList from '../university-list/university-list.json';
+
 export interface SelectOption {
   value: string;
   label: string;
 }
+
+const UNIVERSITY_DATA = universityList as University[];
+
+export const UNIVERSITY_OPTIONS: SelectOption[] = UNIVERSITY_DATA.map((university) => ({
+  value: university.name,
+  label: university.name
+}));
 
 export const STUDY_FIELDS: SelectOption[] = [
   { value: '', label: 'All Fields' },

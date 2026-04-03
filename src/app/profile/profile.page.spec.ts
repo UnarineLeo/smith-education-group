@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { getApps, initializeApp } from 'firebase/app';
 
 import { ProfilePage } from './profile.page';
 import { AuthService } from '../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 describe('ProfilePage', () => {
   let component: ProfilePage;
@@ -14,6 +16,10 @@ describe('ProfilePage', () => {
   };
 
   beforeEach(async () => {
+    if (!getApps().length) {
+      initializeApp(environment.firebaseConfig);
+    }
+
     await TestBed.configureTestingModule({
       imports: [ProfilePage],
       providers: [

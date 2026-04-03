@@ -5,6 +5,9 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { getApp, getApps, initializeApp } from 'firebase/app';
+
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
@@ -21,4 +24,19 @@ bootstrapApplication(AppComponent, {
       AngularFirestoreModule,
     ),
   ],
+}).then(() => {
+  const recaptchaSiteKey = environment.appCheckReCaptchaSiteKey?.trim();
+
+  if (!recaptchaSiteKey || typeof window === 'undefined') {
+    return;
+  }
+
+  const firebaseApp = getApps().length ? getApp() : initializeApp(environment.firebaseConfig);
+
+  initializeAppCheck(firebaseApp, {
+    provider: new ReCaptchaV3Provider(recaptchaSiteKey),
+    isTokenAutoRefreshEnabled: true
+  });
 });
+
+

@@ -534,6 +534,20 @@
               </select>
             </label>
 
+            <label class="field full">
+              <span>APS University <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.apsUniversityName"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('apsUniversityName', $event)">
+                <option value="">Select university</option>
+                @for (university of universityOptions; track university.value) {
+                  <option [value]="university.value">{{ university.label }}</option>
+                }
+              </select>
+            </label>
+
             <label class="field">
               <span>Course Choice 1 <span class="required">*</span></span>
               <input
@@ -650,6 +664,30 @@
               {{ isSavingSubjects ? 'Saving...' : 'Save Subjects' }}
             </button>
           </div>
+
+          @if (savedApsResult) {
+            <section class="aps-summary-card" aria-live="polite">
+              <div class="aps-summary-copy">
+                <p class="aps-summary-kicker">Saved APS</p>
+                <h3>{{ savedApsResult.universityName || 'University not selected' }}</h3>
+                <p>
+                  This score is calculated from the subjects you saved for the selected university.
+                </p>
+              </div>
+
+              <div class="aps-chip-row">
+                <ion-chip color="primary" class="aps-chip aps-chip-score">
+                  APS {{ savedApsResult.score }}
+                </ion-chip>
+                <ion-chip class="aps-chip">
+                  University: {{ savedApsResult.universityName || 'Not selected' }}
+                </ion-chip>
+                <ion-chip class="aps-chip">
+                  Rule: {{ savedApsResult.rule }}
+                </ion-chip>
+              </div>
+            </section>
+          }
         </section>
       }
 

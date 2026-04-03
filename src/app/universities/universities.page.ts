@@ -31,7 +31,7 @@ export class Universities {
     { label: 'Free', value: 'free' },
     { label: 'R100', value: 'r100' },
     { label: 'R200', value: 'r200' },
-    { label: 'R300+', value: 'r300' }
+    { label: 'R300', value: 'r300' }
   ];
 
   // Provinces Array

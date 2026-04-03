@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonChip } from '@ionic/angular/standalone';
 import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, reload, sendEmailVerification, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { SupabaseStorageService } from '../services/supabase-storage.service';
+import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
+import { UNIVERSITY_OPTIONS } from '../shared/app-data';
 
 type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
 
@@ -33,6 +35,7 @@ interface AcademicInformation {
   matricYear: string;
   hasWrittenNbt: string;
   interest: string;
+  apsUniversityName: string;
   courseChoice1: string;
   courseChoice2: string;
   courseChoice3: string;
@@ -55,7 +58,7 @@ interface PasswordForm {
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonChip],
 })
 export class ProfilePage implements OnDestroy, AfterViewInit {
   @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;
@@ -164,11 +167,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     matricYear: '',
     hasWrittenNbt: '',
     interest: '',
+    apsUniversityName: '',
     courseChoice1: '',
     courseChoice2: '',
     courseChoice3: '',
     courseChoice4: ''
   };
+
+  universityOptions = UNIVERSITY_OPTIONS;
 
   requiredDocuments: RequiredDocumentRequirement[] = [
     {
@@ -207,6 +213,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   uploadedDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = {};
   uploadedDocumentNames: Partial<Record<RequiredDocumentKey, string>> = {};
   readonly requiredDocumentKey: RequiredDocumentKey = 'idDocument';
+
+  savedApsResult: ApsCalculationResult | null = null;
 
   highSchoolSubjectOptions = [
     'Accounting',
@@ -251,7 +259,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   subjectEntries: SubjectMarkEntry[] = this.createInitialSubjectRows();
 
-  constructor(private authService: AuthService, private supabaseStorageService: SupabaseStorageService) {
+  constructor(
+    private authService: AuthService,
+    private supabaseStorageService: SupabaseStorageService,
+    private apsCalculationService: ApsCalculationService
+  ) {
     this.unsubscribeAuth = onAuthStateChanged(getAuth(), async (user) => {
       await this.applyUserProfile(user);
     });
@@ -387,6 +399,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         matricYear: this.academicInformation.matricYear,
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
         studyAreas: [this.academicInformation.interest],
+        apsUniversityName: this.academicInformation.apsUniversityName,
         courseChoices: [
           this.academicInformation.courseChoice1,
           this.academicInformation.courseChoice2,
@@ -809,9 +822,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isSavingSubjects = true;
 
     try {
-      const apsScore = completedEntries
-        .map((entry) => this.toApsPoints(entry.mark as number))
-        .reduce((total, points) => total + points, 0);
+      const apsResult = this.calculateSavedApsResult(completedEntries);
+      if (!apsResult) {
+        throw new Error('APS calculation failed.');
+      }
 
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
@@ -820,6 +834,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         matricYear: this.academicInformation.matricYear,
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
         studyAreas: [this.academicInformation.interest],
+        apsUniversityName: this.academicInformation.apsUniversityName,
         courseChoices: [
           this.academicInformation.courseChoice1,
           this.academicInformation.courseChoice2,
@@ -827,11 +842,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           this.academicInformation.courseChoice4
         ],
         highSchoolSubjects: completedEntries,
-        apsScore
+        apsScore: apsResult.score,
+        apsRule: apsResult.rule
       }, { merge: true });
 
       // Rehydrate from persisted payload so selects keep saved default values.
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(completedEntries);
+      this.savedApsResult = apsResult;
 
       await this.authService.presentToast('Academic information saved successfully.');
     } catch {
@@ -1101,6 +1118,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         race?: string;
         disabilityStatus?: string;
         highSchoolSubjects?: SubjectMarkEntry[];
+        apsScore?: number;
+        apsRule?: string;
+        apsUniversityName?: string;
         studyAreas?: string[];
         courseChoices?: string[];
         academicInformation?: Partial<AcademicInformation>;
@@ -1139,6 +1159,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           matricYear: userData.academicInformation.matricYear ?? '',
           hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? '',
           interest: userData.academicInformation.interest ?? '',
+          apsUniversityName: userData.academicInformation.apsUniversityName ?? '',
           courseChoice1: userData.academicInformation.courseChoice1 ?? '',
           courseChoice2: userData.academicInformation.courseChoice2 ?? '',
           courseChoice3: userData.academicInformation.courseChoice3 ?? '',
@@ -1152,6 +1173,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           matricYear: userData.matricYear ?? '',
           hasWrittenNbt: userData.hasWrittenNbt ?? '',
           interest: Array.isArray(userData.studyAreas) ? (userData.studyAreas[0] ?? '') : '',
+          apsUniversityName: userData.apsUniversityName ?? '',
           courseChoice1: Array.isArray(userData.courseChoices) ? (userData.courseChoices[0] ?? '') : '',
           courseChoice2: Array.isArray(userData.courseChoices) ? (userData.courseChoices[1] ?? '') : '',
           courseChoice3: Array.isArray(userData.courseChoices) ? (userData.courseChoices[2] ?? '') : '',
@@ -1183,8 +1205,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         : [];
 
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(savedHighSchoolSubjects);
+      this.savedApsResult = this.calculateSavedApsResult(savedHighSchoolSubjects);
     } catch {
       this.subjectEntries = this.createInitialSubjectRows();
+      this.savedApsResult = null;
     }
   }
 
@@ -1216,6 +1240,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         matricYear: '',
         hasWrittenNbt: '',
         interest: '',
+        apsUniversityName: '',
         courseChoice1: '',
         courseChoice2: '',
         courseChoice3: '',
@@ -1227,6 +1252,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         confirmNewPassword: ''
       };
       this.subjectEntries = this.createInitialSubjectRows();
+    this.savedApsResult = null;
       return;
     }
 
@@ -1261,6 +1287,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       matricYear: '',
       hasWrittenNbt: '',
       interest: '',
+      apsUniversityName: '',
       courseChoice1: '',
       courseChoice2: '',
       courseChoice3: '',
@@ -1276,7 +1303,43 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.activeTab = 'personal';
     }
 
+    this.savedApsResult = null;
+
     await this.loadSavedSubjects(user.uid);
+  }
+
+  getApsChipLabel(): string {
+    if (!this.savedApsResult) {
+      return '';
+    }
+
+    if (this.savedApsResult.universityName.trim()) {
+      return `${this.savedApsResult.universityName}`;
+    }
+
+    return 'Saved APS';
+  }
+
+  private calculateSavedApsResult(entries: SubjectMarkEntry[]): ApsCalculationResult | null {
+    const completedEntries: ApsSubjectInput[] = entries
+      .map((entry) => ({
+        subject: entry.subject.trim(),
+        mark: entry.mark
+      }))
+      .filter((entry): entry is ApsSubjectInput => entry.subject !== '' && entry.mark !== null && entry.mark >= 0 && entry.mark <= 100)
+      .map((entry) => ({
+        subject: entry.subject,
+        mark: entry.mark as number
+      }));
+
+    if (!completedEntries.length) {
+      return null;
+    }
+
+    const universityContext = this.academicInformation.apsUniversityName.trim();
+    const calculationTarget = universityContext !== '' ? universityContext : 'Saved APS';
+
+    return this.apsCalculationService.calculateForUniversity(calculationTarget, completedEntries);
   }
 
   private async initializeStreetAddressAutocomplete(): Promise<boolean> {
