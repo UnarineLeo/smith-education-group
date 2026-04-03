@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PROVINCES, University } from '../shared/app-data';
 import { FooterComponent } from '../footer/footer.component';
 
+type ApplicationFeeFilter = 'free' | 'r100' | 'r200' | 'r300';
+
 @Component({
   selector: 'app-universities',
   templateUrl: 'universities.page.html',
@@ -23,6 +25,14 @@ export class Universities {
 
   searchQuery: string = '';
   selectedProvince: string = '';
+  selectedApplicationFeeFilters: ApplicationFeeFilter[] = [];
+
+  applicationFeeFilters: Array<{ label: string; value: ApplicationFeeFilter }> = [
+    { label: 'Free', value: 'free' },
+    { label: 'R100', value: 'r100' },
+    { label: 'R200', value: 'r200' },
+    { label: 'R300+', value: 'r300' }
+  ];
 
   // Provinces Array
   provinces = PROVINCES;
@@ -35,6 +45,11 @@ export class Universities {
     this.route.queryParamMap.subscribe((params) => {
       this.searchQuery = params.get('q') ?? '';
       this.selectedProvince = params.get('province') ?? '';
+      const feesParam = params.get('fees') ?? '';
+      this.selectedApplicationFeeFilters = feesParam
+        .split(',')
+        .map((value) => value.trim())
+        .filter((value): value is ApplicationFeeFilter => this.isApplicationFeeFilter(value));
       this.applyFilters();
     });
   }
@@ -45,14 +60,15 @@ export class Universities {
 
     searchUniversities() {
     // Validate that at least one search criteria is provided
-    if (!this.searchQuery && !this.selectedProvince) {
+      if (!this.searchQuery && !this.selectedProvince && this.selectedApplicationFeeFilters.length === 0) {
       this.showAlert('Please enter a search term or select filters');
       return;
     }
 
     console.log('Searching universities:', {
       query: this.searchQuery,
-      province: this.selectedProvince
+      province: this.selectedProvince,
+      applicationFeeFilters: this.selectedApplicationFeeFilters
     });
 
     this.applyFilters();
@@ -81,18 +97,21 @@ export class Universities {
   clearFilters() {
     this.searchQuery = '';
     this.selectedProvince = '';
+    this.selectedApplicationFeeFilters = [];
     this.applyFilters();
   }
 
   private applyFilters(): void {
     const query = this.searchQuery.trim().toLowerCase();
     const selectedProvince = this.selectedProvince.trim().toLowerCase();
+    const selectedFeeFilters = new Set(this.selectedApplicationFeeFilters);
 
     this.featuredUniversities = this.allUniversities.filter((uni) => {
       const matchesProvince = !selectedProvince || this.toSlug(uni.province) === selectedProvince;
+      const matchesApplicationFee = this.matchesApplicationFeeFilters(uni, selectedFeeFilters);
 
       if (!query) {
-        return matchesProvince;
+        return matchesProvince && matchesApplicationFee;
       }
 
       const searchText = [
@@ -104,8 +123,36 @@ export class Universities {
         .toLowerCase();
 
       const matchesQuery = searchText.includes(query);
-      return matchesQuery && matchesProvince;
+      return matchesQuery && matchesProvince && matchesApplicationFee;
     });
+  }
+
+  private matchesApplicationFeeFilters(uni: University, selectedFeeFilters: Set<ApplicationFeeFilter>): boolean {
+    if (!selectedFeeFilters.size) {
+      return true;
+    }
+
+    const fee = Number(uni.application_fee ?? 0);
+
+    return Array.from(selectedFeeFilters).some((filter) => {
+      if (filter === 'free') {
+        return fee <= 0;
+      }
+
+      if (filter === 'r100') {
+        return fee >= 100 && fee < 200;
+      }
+
+      if (filter === 'r200') {
+        return fee >= 200 && fee < 300;
+      }
+
+      return fee >= 300;
+    });
+  }
+
+  private isApplicationFeeFilter(value: string): value is ApplicationFeeFilter {
+    return value === 'free' || value === 'r100' || value === 'r200' || value === 'r300';
   }
 
   private toSlug(value: string): string {

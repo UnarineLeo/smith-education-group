@@ -163,6 +163,10 @@ export class HomePage implements OnInit, OnDestroy {
     });
   }
 
+  exploreMoreUniversities(){
+    this.router.navigate(['/tabs/universities']);
+  }
+
   openProspectus(uni: University) {
     this.router.navigate(['/tabs/prospectus', uni.id]);
   }

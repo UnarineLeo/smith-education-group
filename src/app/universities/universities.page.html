@@ -68,6 +68,21 @@
                 </ion-select-option>
               </ion-select>
             </div>
+
+            <div class="select-wrapper">
+              <ion-select
+                placeholder="Application Fee"
+                [(ngModel)]="selectedApplicationFeeFilters"
+                [multiple]="true"
+                interface="popover"
+                class="custom-select">
+                <ion-select-option
+                  *ngFor="let feeFilter of applicationFeeFilters"
+                  [value]="feeFilter.value">
+                  {{ feeFilter.label }}
+                </ion-select-option>
+              </ion-select>
+            </div>
           </div>
 
           <div class="button-row">
@@ -91,7 +106,7 @@
               fill="clear"
               class="clear-button"
               (click)="clearFilters()"
-              *ngIf="searchQuery || selectedProvince">
+              *ngIf="searchQuery || selectedProvince || selectedApplicationFeeFilters.length">
               <ion-icon slot="start" name="close-circle-outline"></ion-icon>
               Clear
             </ion-button>
