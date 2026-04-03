@@ -22,7 +22,8 @@ export class RegisterModalComponent {
       password?: string;
       confirmPassword?: string;
       currentStudyLevel?: string;
-      interests?: string[];
+      interest?: string;
+      courseChoices?: string[];
     };
   } | null>();
 
@@ -32,7 +33,8 @@ export class RegisterModalComponent {
   password = '';
   confirmPassword = '';
   currentStudyLevel = '';
-  interests: string[] = [];
+  interest = '';
+  courseChoices: string[] = ['', '', '', ''];
 
   studyLevels = STUDY_LEVELS;
   interestOptions = INTEREST_OPTIONS;
@@ -62,7 +64,8 @@ export class RegisterModalComponent {
         password: this.password,
         confirmPassword: this.confirmPassword,
         currentStudyLevel: this.currentStudyLevel,
-        interests: this.interests
+        interest: this.interest,
+        courseChoices: this.courseChoices.map((choice) => choice.trim())
       }
     });
   }
@@ -80,13 +83,16 @@ export class RegisterModalComponent {
   }
 
   private hasRequiredFields(): boolean {
+    const hasAllCourseChoices = this.courseChoices.every((choice) => choice.trim() !== '');
+
     return this.firstName.trim() !== ''
       && this.surname.trim() !== ''
       && this.email.trim() !== ''
       && this.password.trim() !== ''
       && this.confirmPassword.trim() !== ''
       && this.currentStudyLevel.trim() !== ''
-      && this.interests.length > 0;
+      && this.interest.trim() !== ''
+      && hasAllCourseChoices;
   }
 
   private hasRequiredPasswordComplexity(password: string): boolean {

@@ -32,6 +32,11 @@ interface AcademicInformation {
   schoolProvince: string;
   matricYear: string;
   hasWrittenNbt: string;
+  interest: string;
+  courseChoice1: string;
+  courseChoice2: string;
+  courseChoice3: string;
+  courseChoice4: string;
 }
 
 interface StreetAddressSuggestion {
@@ -157,7 +162,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     currentLevel: '',
     schoolProvince: '',
     matricYear: '',
-    hasWrittenNbt: ''
+    hasWrittenNbt: '',
+    interest: '',
+    courseChoice1: '',
+    courseChoice2: '',
+    courseChoice3: '',
+    courseChoice4: ''
   };
 
   requiredDocuments: RequiredDocumentRequirement[] = [
@@ -363,7 +373,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT.');
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and all 4 course choices.');
       return;
     }
 
@@ -375,7 +385,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
         matricYear: this.academicInformation.matricYear,
-        hasWrittenNbt: this.academicInformation.hasWrittenNbt
+        hasWrittenNbt: this.academicInformation.hasWrittenNbt,
+        studyAreas: [this.academicInformation.interest],
+        courseChoices: [
+          this.academicInformation.courseChoice1,
+          this.academicInformation.courseChoice2,
+          this.academicInformation.courseChoice3,
+          this.academicInformation.courseChoice4
+        ]
       }, { merge: true });
 
       await this.authService.presentToast('School background saved successfully.');
@@ -802,6 +819,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         schoolProvince: this.academicInformation.schoolProvince,
         matricYear: this.academicInformation.matricYear,
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
+        studyAreas: [this.academicInformation.interest],
+        courseChoices: [
+          this.academicInformation.courseChoice1,
+          this.academicInformation.courseChoice2,
+          this.academicInformation.courseChoice3,
+          this.academicInformation.courseChoice4
+        ],
         highSchoolSubjects: completedEntries,
         apsScore
       }, { merge: true });
@@ -1078,6 +1102,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         disabilityStatus?: string;
         highSchoolSubjects?: SubjectMarkEntry[];
         studyAreas?: string[];
+        courseChoices?: string[];
         academicInformation?: Partial<AcademicInformation>;
         currentOrLastSchool?: string;
         currentLevel?: string;
@@ -1112,7 +1137,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           currentLevel: userData.academicInformation.currentLevel ?? '',
           schoolProvince: userData.academicInformation.schoolProvince ?? '',
           matricYear: userData.academicInformation.matricYear ?? '',
-          hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? ''
+          hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? '',
+          interest: userData.academicInformation.interest ?? '',
+          courseChoice1: userData.academicInformation.courseChoice1 ?? '',
+          courseChoice2: userData.academicInformation.courseChoice2 ?? '',
+          courseChoice3: userData.academicInformation.courseChoice3 ?? '',
+          courseChoice4: userData.academicInformation.courseChoice4 ?? ''
         };
       } else {
         this.academicInformation = {
@@ -1120,7 +1150,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           currentLevel: userData.currentLevel ?? '',
           schoolProvince: userData.schoolProvince ?? '',
           matricYear: userData.matricYear ?? '',
-          hasWrittenNbt: userData.hasWrittenNbt ?? ''
+          hasWrittenNbt: userData.hasWrittenNbt ?? '',
+          interest: Array.isArray(userData.studyAreas) ? (userData.studyAreas[0] ?? '') : '',
+          courseChoice1: Array.isArray(userData.courseChoices) ? (userData.courseChoices[0] ?? '') : '',
+          courseChoice2: Array.isArray(userData.courseChoices) ? (userData.courseChoices[1] ?? '') : '',
+          courseChoice3: Array.isArray(userData.courseChoices) ? (userData.courseChoices[2] ?? '') : '',
+          courseChoice4: Array.isArray(userData.courseChoices) ? (userData.courseChoices[3] ?? '') : ''
         };
       }
 
@@ -1179,7 +1214,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         currentLevel: '',
         schoolProvince: '',
         matricYear: '',
-        hasWrittenNbt: ''
+        hasWrittenNbt: '',
+        interest: '',
+        courseChoice1: '',
+        courseChoice2: '',
+        courseChoice3: '',
+        courseChoice4: ''
       };
       this.passwordForm = {
         currentPassword: '',
@@ -1219,7 +1259,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       currentLevel: '',
       schoolProvince: '',
       matricYear: '',
-      hasWrittenNbt: ''
+      hasWrittenNbt: '',
+      interest: '',
+      courseChoice1: '',
+      courseChoice2: '',
+      courseChoice3: '',
+      courseChoice4: ''
     };
     this.passwordForm = {
       currentPassword: '',
@@ -1397,7 +1442,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       && this.academicInformation.currentLevel.trim() !== ''
       && this.academicInformation.schoolProvince.trim() !== ''
       && this.academicInformation.matricYear.trim() !== ''
-      && this.academicInformation.hasWrittenNbt.trim() !== '';
+      && this.academicInformation.hasWrittenNbt.trim() !== ''
+      && this.academicInformation.interest.trim() !== ''
+      && this.academicInformation.courseChoice1.trim() !== ''
+      && this.academicInformation.courseChoice2.trim() !== ''
+      && this.academicInformation.courseChoice3.trim() !== ''
+      && this.academicInformation.courseChoice4.trim() !== '';
   }
 
   private resolveSubjectOption(subject: string): string {

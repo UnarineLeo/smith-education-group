@@ -58,12 +58,11 @@
 
   <ion-item lines="none" class="field-item">
     <ion-icon slot="start" name="sparkles-outline" aria-hidden="true" class="field-icon"></ion-icon>
-    <ion-label position="stacked">Interests</ion-label>
+    <ion-label position="stacked">Interest</ion-label>
     <ion-select
-      [(ngModel)]="interests"
+      [(ngModel)]="interest"
       interface="popover"
-      [multiple]="true"
-      placeholder="Select your interests">
+      placeholder="Select your primary interest">
       @for (interest of interestOptions; track interest.value) {
         <ion-select-option [value]="interest.value">
           {{ interest.label }}
@@ -71,6 +70,32 @@
       }
     </ion-select>
   </ion-item>
+
+  <div class="grid-two">
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Course Choice 1</ion-label>
+      <ion-input type="text" [(ngModel)]="courseChoices[0]" placeholder="e.g. BSc Computer Science"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Course Choice 2</ion-label>
+      <ion-input type="text" [(ngModel)]="courseChoices[1]" placeholder="e.g. BCom Accounting"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Course Choice 3</ion-label>
+      <ion-input type="text" [(ngModel)]="courseChoices[2]" placeholder="e.g. BA Psychology"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
+      <ion-label position="stacked">Course Choice 4</ion-label>
+      <ion-input type="text" [(ngModel)]="courseChoices[3]" placeholder="e.g. LLB Law"></ion-input>
+    </ion-item>
+  </div>
 
   <ion-button expand="block" class="primary-btn" [disabled]="!canSubmitRegistration()" (click)="register()">
     Create Account

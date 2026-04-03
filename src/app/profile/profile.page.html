@@ -519,6 +519,64 @@
                 <option value="no">No</option>
               </select>
             </label>
+
+            <label class="field">
+              <span>Interest <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.interest"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('interest', $event)">
+                <option value="">Select interest</option>
+                @for (interest of interests; track interest) {
+                  <option [value]="interest">{{ interest }}</option>
+                }
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Course Choice 1 <span class="required">*</span></span>
+              <input
+                type="text"
+                placeholder="Enter your 1st course choice"
+                [value]="academicInformation.courseChoice1"
+                required
+                aria-required="true"
+                (input)="onAcademicInformationInputChange('courseChoice1', $event)" />
+            </label>
+
+            <label class="field">
+              <span>Course Choice 2 <span class="required">*</span></span>
+              <input
+                type="text"
+                placeholder="Enter your 2nd course choice"
+                [value]="academicInformation.courseChoice2"
+                required
+                aria-required="true"
+                (input)="onAcademicInformationInputChange('courseChoice2', $event)" />
+            </label>
+
+            <label class="field">
+              <span>Course Choice 3 <span class="required">*</span></span>
+              <input
+                type="text"
+                placeholder="Enter your 3rd course choice"
+                [value]="academicInformation.courseChoice3"
+                required
+                aria-required="true"
+                (input)="onAcademicInformationInputChange('courseChoice3', $event)" />
+            </label>
+
+            <label class="field">
+              <span>Course Choice 4 <span class="required">*</span></span>
+              <input
+                type="text"
+                placeholder="Enter your 4th course choice"
+                [value]="academicInformation.courseChoice4"
+                required
+                aria-required="true"
+                (input)="onAcademicInformationInputChange('courseChoice4', $event)" />
+            </label>
           </div>
 
           <div class="actions">

@@ -227,7 +227,22 @@ export class AuthService {
             this.router.navigate(['/tabs/profile'])
             this.presentToast('Successfully registered, please check your email to verify your account')
 
-            this.addUser(res.user)
+            const registrationInterest = typeof value.interest === 'string'
+              ? value.interest.trim()
+              : '';
+
+            const registrationCourseChoices = Array.isArray(value.courseChoices)
+              ? value.courseChoices
+                  .map((choice: unknown) => typeof choice === 'string' ? choice.trim() : '')
+                  .filter((choice: string) => choice !== '')
+                  .slice(0, 4)
+              : [];
+
+            this.addUser(res.user, {
+              currentStudyLevel: value.currentStudyLevel,
+              interest: registrationInterest,
+              courseChoices: registrationCourseChoices
+            })
 
           })
           .catch((error) => 
@@ -342,17 +357,37 @@ export class AuthService {
 
   // Add user to firestore
 
-  async addUser(user: any): Promise<void> {
+  async addUser(user: any, extraProfile?: {
+    currentStudyLevel?: string;
+    interest?: string;
+    courseChoices?: string[];
+  }): Promise<void> {
     const userRef = doc(this.db, 'users', user.uid);
     const userDoc = await getDoc(userRef);
+    const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
+
     if (userDoc.exists()) 
     {
-      await setDoc(userRef, {
+      const mergePayload: Record<string, unknown> = {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
         lastSignIn: serverTimestamp()
-      }, { merge: true });
+      };
+
+      if (typeof extraProfile?.currentStudyLevel === 'string') {
+        mergePayload['currentStudyLevel'] = extraProfile.currentStudyLevel;
+      }
+
+      if (extraProfile?.interest) {
+        mergePayload['studyAreas'] = studyAreas;
+      }
+
+      if (Array.isArray(extraProfile?.courseChoices) && extraProfile.courseChoices.length > 0) {
+        mergePayload['courseChoices'] = extraProfile.courseChoices;
+      }
+
+      await setDoc(userRef, mergePayload, { merge: true });
     } 
     else 
     {
@@ -365,7 +400,9 @@ export class AuthService {
         expiryDate: "",
         apsScore: 0,
         lastSignIn: serverTimestamp(),
-        studyAreas: []
+        currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
+        studyAreas,
+        courseChoices: extraProfile?.courseChoices ?? []
       });
     }
   }

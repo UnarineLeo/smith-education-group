@@ -104,7 +104,8 @@ export class TabsPage {
       password?: string;
       confirmPassword?: string;
       currentStudyLevel?: string;
-      interests?: string[];
+      interest?: string;
+      courseChoices?: string[];
     };
   } | null) {
     if (!event) {
@@ -144,7 +145,8 @@ export class TabsPage {
             email: payload.email,
             password: payload.password,
             currentStudyLevel: payload.currentStudyLevel,
-            interests: payload.interests ?? []
+            interest: payload.interest ?? '',
+            courseChoices: payload.courseChoices ?? []
           });
           this.registerModalOpen = false;
         } catch {
