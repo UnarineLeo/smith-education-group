@@ -15,7 +15,18 @@
   <ion-item lines="none" class="field-item">
     <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true" class="field-icon"></ion-icon>
     <ion-label position="stacked">Password</ion-label>
-    <ion-input type="password" [(ngModel)]="password" placeholder="Enter your password"></ion-input>
+    <div class="password-row">
+      <ion-input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" placeholder="Enter your password"></ion-input>
+      <ion-button
+        fill="clear"
+        size="small"
+        class="password-toggle-btn"
+        type="button"
+        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+        (click)="togglePasswordVisibility()">
+        <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </div>
   </ion-item>
 
   <div class="row-end">

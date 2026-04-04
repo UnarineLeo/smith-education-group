@@ -17,6 +17,7 @@ export class LoginModalComponent {
 
   email = '';
   password = '';
+  showPassword = false;
 
   close() {
     this.dismissed.emit(null);
@@ -42,6 +43,10 @@ export class LoginModalComponent {
 
   openRegister() {
     this.dismissed.emit({ action: 'open-register' });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   canSubmitLogin(): boolean {

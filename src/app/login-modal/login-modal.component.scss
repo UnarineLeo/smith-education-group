@@ -93,10 +93,11 @@
 }
 
 .field-icon {
-  color: #4f7d74;
-  font-size: 1.05rem;
+  align-self: center;
+  color: #0f766e;
+  font-size: 1.08rem;
   margin-right: 6px;
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .field-item ion-label {
@@ -111,6 +112,42 @@
   --placeholder-color: #8aa19a;
   --placeholder-opacity: 1;
   font-size: 16px;
+}
+
+.password-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.password-row ion-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.password-toggle-btn {
+  --padding-start: 0;
+  --padding-end: 0;
+  --background: rgba(15, 118, 110, 0.08);
+  --box-shadow: none;
+  --color: #0f766e;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  min-width: 32px;
+  margin: 0;
+  flex: 0 0 32px;
+  border-radius: 999px;
+}
+
+.password-toggle-btn ion-icon {
+  font-size: 0.98rem;
+}
+
+.password-toggle-btn:hover {
+  --background: rgba(15, 118, 110, 0.14);
 }
 
 .row-end {

@@ -32,6 +32,8 @@ export class RegisterModalComponent {
   email = '';
   password = '';
   confirmPassword = '';
+  showPassword = false;
+  showConfirmPassword = false;
   currentStudyLevel = '';
   interest = '';
   courseChoices: string[] = ['', '', '', ''];
@@ -76,6 +78,14 @@ export class RegisterModalComponent {
 
   openLogin() {
     this.dismissed.emit({ action: 'open-login' });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility() {
+    this.showConfirmPassword = !this.showConfirmPassword;
   }
 
   canSubmitRegistration(): boolean {

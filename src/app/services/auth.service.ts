@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/compat/app';
+import { getApp, getApps, initializeApp } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, signOut, updateProfile, sendEmailVerification,
@@ -17,6 +17,8 @@ import { setDoc, getDoc, doc, getFirestore, serverTimestamp } from "firebase/fir
   providedIn: 'root'
 })
 export class AuthService {
+
+  private readonly firebaseApp = getApps().length ? getApp() : initializeApp(environment.firebaseConfig);
 
   constructor(public auth: AngularFireAuth, private router: Router,
     private toastController: ToastController, private firestore: AngularFirestore,
@@ -37,10 +39,10 @@ export class AuthService {
   userId: string = ''
   loadProfile = false
 
-  db = getFirestore(firebase.initializeApp(environment.firebaseConfig))
+  db = getFirestore(this.firebaseApp)
 
   private async initializeAuth() {
-    const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
+    const authInstance = getAuth(this.firebaseApp);
     await setPersistence(authInstance, browserLocalPersistence);
 
     this.auth.onAuthStateChanged(async (user) => {
@@ -55,7 +57,7 @@ export class AuthService {
 
   async isAuthenticated(): Promise<boolean> 
   {
-    const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
+    const authInstance = getAuth(this.firebaseApp);
     await setPersistence(authInstance, browserLocalPersistence);
     await new Promise(resolve => setTimeout(resolve, 500));
     const user = authInstance.currentUser;
@@ -87,10 +89,10 @@ export class AuthService {
 
   googleSignIn()
   {
-    const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
+    const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
 
-    return signInWithPopup(getAuth(firebase.initializeApp(environment.firebaseConfig)), new GoogleAuthProvider).then(
+    return signInWithPopup(authInstance, new GoogleAuthProvider).then(
      (res: any) =>
      {
       this.updateUserState(res.user)
@@ -123,12 +125,12 @@ export class AuthService {
     });
     loading.present();
 
-    const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
+    const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
 
     return new Promise<any>((resolve, reject) =>
     {
-      signInWithEmailAndPassword(getAuth(firebase.initializeApp(environment.firebaseConfig)), value.email, value.password).then(
+      signInWithEmailAndPassword(authInstance, value.email, value.password).then(
         (res: any) => 
         {
           resolve(res)
@@ -193,12 +195,12 @@ export class AuthService {
     });
     loading.present();
 
-    const authInstance = getAuth(firebase.initializeApp(environment.firebaseConfig));
+    const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
 
     return new Promise<any>((resolve, reject) =>
     {  
-      createUserWithEmailAndPassword(getAuth(firebase.initializeApp(environment.firebaseConfig)),value.email, value.password).then(
+      createUserWithEmailAndPassword(authInstance,value.email, value.password).then(
         (res: any) => 
         {
           resolve(res)
@@ -263,7 +265,7 @@ export class AuthService {
         (error: any) => 
         {
           reject(error)
-          if(error.code === 'auth/email-already-in-use' || 'auth/email-already-exists')
+          if (error.code === 'auth/email-already-in-use' || error.code === 'auth/email-already-exists')
           {
             loading.dismiss();
             this.presentToast('Email already in use')
@@ -287,7 +289,7 @@ export class AuthService {
   // forgot password
   forgotPassword(email: any)
   {
-    sendPasswordResetEmail(getAuth(firebase.initializeApp(environment.firebaseConfig)), email)
+    sendPasswordResetEmail(getAuth(this.firebaseApp), email)
     .then(() => {
       this.presentToast('Password reset email sent, check your inbox')
     })
@@ -315,7 +317,7 @@ export class AuthService {
 
   async logOut(options?: { toastMessage?: string; redirectTo?: string; forceReload?: boolean }) {
     try {
-      await signOut(getAuth(firebase.initializeApp(environment.firebaseConfig)))
+      await signOut(getAuth(this.firebaseApp))
 
       sessionStorage.clear()
       this.isLoggedIn = false
