@@ -1509,8 +1509,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       && this.academicInformation.interest.trim() !== ''
       && this.academicInformation.courseChoice1.trim() !== ''
       && this.academicInformation.courseChoice2.trim() !== ''
-      && this.academicInformation.courseChoice3.trim() !== ''
-      && this.academicInformation.courseChoice4.trim() !== '';
+      && this.academicInformation.courseChoice3.trim() !== '';
   }
 
   private resolveSubjectOption(subject: string): string {

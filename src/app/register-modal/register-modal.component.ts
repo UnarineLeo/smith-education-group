@@ -93,7 +93,7 @@ export class RegisterModalComponent {
   }
 
   private hasRequiredFields(): boolean {
-    const hasAllCourseChoices = this.courseChoices.every((choice) => choice.trim() !== '');
+    const hasAllCourseChoices = this.courseChoices.slice(0, 3).every((choice) => choice.trim() !== '');
 
     return this.firstName.trim() !== ''
       && this.surname.trim() !== ''
