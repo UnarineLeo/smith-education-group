@@ -8,11 +8,16 @@ export interface ApsSubjectInput {
 
 export type UniversityApsRule =
   | 'best-six-excluding-lo'
-  | 'uct-fps-adjusted'
-  | 'ukzn-max-48'
+  | 'best-six-including-lo'
+  | 'best-six-eight-level-excluding-lo'
+  | 'best-six-eight-level-including-lo'
+  | 'best-six-eight-level-including-lo-capped'
+  | 'sum-best-six-percent-excluding-lo'
+  | 'divide-by-10-best-six-percent-excluding-lo'
+  | 'average-best-six-percent-excluding-lo'
   | 'ump-seven-with-half-lo'
   | 'wits-custom'
-  | 'aggregate-excluding-lo';
+  | 'uwc-weighted-seven-subject';
 
 export interface ApsCalculationBreakdown {
   subject: string;
@@ -37,28 +42,28 @@ export interface ApsCalculationResult {
 })
 export class ApsCalculationService {
   private readonly universityRulesById: Record<number, UniversityApsRule> = {
-    1: 'best-six-excluding-lo',
-    2: 'best-six-excluding-lo',
-    3: 'best-six-excluding-lo',
-    4: 'best-six-excluding-lo',
-    5: 'best-six-excluding-lo',
+    1: 'divide-by-10-best-six-percent-excluding-lo',
+    2: 'best-six-eight-level-including-lo-capped',
+    3: 'best-six-eight-level-excluding-lo',
+    4: 'best-six-eight-level-excluding-lo',
+    5: 'sum-best-six-percent-excluding-lo',
     6: 'best-six-excluding-lo',
-    7: 'best-six-excluding-lo',
-    8: 'best-six-excluding-lo',
-    9: 'best-six-excluding-lo',
-    10: 'aggregate-excluding-lo',
-    11: 'best-six-excluding-lo',
-    12: 'uct-fps-adjusted',
+    7: 'divide-by-10-best-six-percent-excluding-lo',
+    8: 'best-six-including-lo',
+    9: 'best-six-eight-level-excluding-lo',
+    10: 'average-best-six-percent-excluding-lo',
+    11: 'best-six-eight-level-excluding-lo',
+    12: 'sum-best-six-percent-excluding-lo',
     13: 'best-six-excluding-lo',
-    14: 'best-six-excluding-lo',
+    14: 'best-six-eight-level-including-lo-capped',
     15: 'best-six-excluding-lo',
-    16: 'ukzn-max-48',
+    16: 'best-six-excluding-lo',
     17: 'best-six-excluding-lo',
     18: 'ump-seven-with-half-lo',
     19: 'best-six-excluding-lo',
-    20: 'best-six-excluding-lo',
+    20: 'best-six-including-lo',
     21: 'best-six-excluding-lo',
-    22: 'best-six-excluding-lo',
+    22: 'uwc-weighted-seven-subject',
     23: 'wits-custom',
     24: 'best-six-excluding-lo',
     25: 'best-six-excluding-lo',
@@ -66,28 +71,28 @@ export class ApsCalculationService {
   };
 
   private readonly universityRulesByName: Record<string, UniversityApsRule> = {
-    'cape peninsula university of technology': 'best-six-excluding-lo',
-    'central university of technology': 'best-six-excluding-lo',
-    'durban university of technology': 'best-six-excluding-lo',
-    'mangosuthu university of technology': 'best-six-excluding-lo',
-    'nelson mandela university': 'best-six-excluding-lo',
+    'cape peninsula university of technology': 'divide-by-10-best-six-percent-excluding-lo',
+    'central university of technology': 'best-six-eight-level-including-lo-capped',
+    'durban university of technology': 'best-six-eight-level-excluding-lo',
+    'mangosuthu university of technology': 'best-six-eight-level-excluding-lo',
+    'nelson mandela university': 'sum-best-six-percent-excluding-lo',
     'north-west university': 'best-six-excluding-lo',
-    'rhodes university': 'best-six-excluding-lo',
-    'sefako makgatho health sciences university': 'best-six-excluding-lo',
-    'sol plaatje university': 'best-six-excluding-lo',
-    'stellenbosch university': 'aggregate-excluding-lo',
-    'tshwane university of technology': 'best-six-excluding-lo',
-    'university of cape town': 'uct-fps-adjusted',
+    'rhodes university': 'divide-by-10-best-six-percent-excluding-lo',
+    'sefako makgatho health sciences university': 'best-six-including-lo',
+    'sol plaatje university': 'best-six-eight-level-excluding-lo',
+    'stellenbosch university': 'average-best-six-percent-excluding-lo',
+    'tshwane university of technology': 'best-six-eight-level-excluding-lo',
+    'university of cape town': 'sum-best-six-percent-excluding-lo',
     'university of fort hare': 'best-six-excluding-lo',
-    'university of the free state': 'best-six-excluding-lo',
+    'university of the free state': 'best-six-eight-level-including-lo-capped',
     'university of johannesburg': 'best-six-excluding-lo',
-    'university of kwazulu-natal': 'ukzn-max-48',
+    'university of kwazulu-natal': 'best-six-excluding-lo',
     'university of limpopo': 'best-six-excluding-lo',
     'university of mpumalanga': 'ump-seven-with-half-lo',
     'university of pretoria': 'best-six-excluding-lo',
-    'university of south africa': 'best-six-excluding-lo',
+    'university of south africa': 'best-six-including-lo',
     'university of venda': 'best-six-excluding-lo',
-    'university of the western cape': 'best-six-excluding-lo',
+    'university of the western cape': 'uwc-weighted-seven-subject',
     'university of the witwatersrand': 'wits-custom',
     'university of zululand': 'best-six-excluding-lo',
     'vaal university of technology': 'best-six-excluding-lo',
@@ -101,16 +106,26 @@ export class ApsCalculationService {
     switch (details.rule) {
       case 'best-six-excluding-lo':
         return this.calculateBestSixExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
-      case 'uct-fps-adjusted':
-        return this.calculateUctFpsAdjusted(details.id, details.name, normalizedSubjects);
-      case 'ukzn-max-48':
-        return this.calculateUkzn(details.id, details.name, normalizedSubjects);
+      case 'best-six-including-lo':
+        return this.calculateBestSixIncludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'best-six-eight-level-excluding-lo':
+        return this.calculateBestSixEightLevelExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'best-six-eight-level-including-lo':
+        return this.calculateBestSixEightLevelIncludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'best-six-eight-level-including-lo-capped':
+        return this.calculateBestSixEightLevelIncludingLifeOrientationCapped(details.id, details.name, normalizedSubjects);
+      case 'sum-best-six-percent-excluding-lo':
+        return this.calculateSumBestSixPercentExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'divide-by-10-best-six-percent-excluding-lo':
+        return this.calculateDivideByTenBestSixPercentExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'average-best-six-percent-excluding-lo':
+        return this.calculateAverageBestSixPercentExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
       case 'ump-seven-with-half-lo':
         return this.calculateUmp(details.id, details.name, normalizedSubjects);
       case 'wits-custom':
         return this.calculateWits(details.id, details.name, normalizedSubjects);
-      case 'aggregate-excluding-lo':
-        return this.calculateAggregateExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
+      case 'uwc-weighted-seven-subject':
+        return this.calculateUwcWeightedSevenSubject(details.id, details.name, normalizedSubjects);
       default:
         return this.calculateBestSixExcludingLifeOrientation(details.id, details.name, normalizedSubjects);
     }
@@ -179,48 +194,273 @@ export class ApsCalculationService {
     };
   }
 
-  private calculateUctFpsAdjusted(
+  private calculateBestSixIncludingLifeOrientation(
     universityId: number | null,
     universityName: string,
     subjects: ApsSubjectInput[]
   ): ApsCalculationResult {
-    const bestSix = this.calculateBestSixExcludingLifeOrientation(universityId, universityName, subjects);
+    const scored = this.scoreSubjectsWithNscScale(subjects);
+    const selected = scored
+      .sort((a, b) => b.points - a.points)
+      .slice(0, 6)
+      .map((subject) => subject.subject);
 
-    const english = subjects
-      .filter((subject) => this.isEnglish(subject.subject) && !this.isLifeOrientation(subject.subject))
-      .sort((a, b) => b.mark - a.mark)[0];
-
-    const otherSubjects = subjects
-      .filter((subject) => !this.isLifeOrientation(subject.subject) && (!english || subject.subject !== english.subject))
-      .sort((a, b) => b.mark - a.mark)
-      .slice(0, 5);
-
-    const fpsProxy = english ? english.mark + otherSubjects.reduce((sum, subject) => sum + subject.mark, 0) : null;
+    const breakdown = scored.map((subject) => ({
+      ...subject,
+      used: selected.includes(subject.subject)
+    }));
 
     return {
-      ...bestSix,
-      rule: 'uct-fps-adjusted',
+      universityId,
+      universityName,
+      rule: 'best-six-including-lo',
+      score: breakdown.filter((subject) => subject.used).reduce((sum, subject) => sum + subject.points, 0),
+      maxScore: 42,
+      breakdown,
       notes: [
-        `Baseline APS (best 6 excluding LO): ${bestSix.score ?? 'N/A'}`,
-        `FPS proxy (English + best 5 others, % total out of 600): ${fpsProxy ?? 'N/A'}`,
-        'Final UCT FPS/WPS depends on faculty-specific adjustments and NBT/disadvantage factors.'
+        'Calculated with NSC 7-point levels using the best 6 subjects (Life Orientation may be included).'
       ]
     };
   }
 
-  private calculateUkzn(
+  private calculateBestSixEightLevelExcludingLifeOrientation(
     universityId: number | null,
     universityName: string,
     subjects: ApsSubjectInput[]
   ): ApsCalculationResult {
     const scored = this.scoreSubjectsWithEightLevelScale(subjects);
-    const pool = scored.filter((subject) => !this.isLifeOrientation(subject.subject));
+    const selected = scored
+      .filter((subject) => !this.isLifeOrientation(subject.subject))
+      .sort((a, b) => b.points - a.points)
+      .slice(0, 6)
+      .map((subject) => subject.subject);
 
-    const english = this.pickBest(pool, (subject) => this.isEnglish(subject.subject));
-    const maths = this.pickBest(pool, (subject) => this.isMaths(subject.subject));
+    const breakdown = scored.map((subject) => ({
+      ...subject,
+      used: selected.includes(subject.subject),
+      note: this.isLifeOrientation(subject.subject) ? 'Excluded: Life Orientation' : undefined
+    }));
 
-    const usedKeys = new Set<string>();
+    return {
+      universityId,
+      universityName,
+      rule: 'best-six-eight-level-excluding-lo',
+      score: breakdown.filter((subject) => subject.used).reduce((sum, subject) => sum + subject.points, 0),
+      maxScore: 48,
+      breakdown,
+      notes: [
+        'Calculated with an 8-level APS scale using the best 6 subjects excluding Life Orientation.'
+      ]
+    };
+  }
+
+  private calculateBestSixEightLevelIncludingLifeOrientation(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const scored = this.scoreSubjectsWithEightLevelScale(subjects);
+    const selected = scored
+      .sort((a, b) => b.points - a.points)
+      .slice(0, 6)
+      .map((subject) => subject.subject);
+
+    const breakdown = scored.map((subject) => ({
+      ...subject,
+      used: selected.includes(subject.subject)
+    }));
+
+    return {
+      universityId,
+      universityName,
+      rule: 'best-six-eight-level-including-lo',
+      score: breakdown.filter((subject) => subject.used).reduce((sum, subject) => sum + subject.points, 0),
+      maxScore: 48,
+      breakdown,
+      notes: [
+        'Calculated with an 8-level APS scale using the best 6 subjects (Life Orientation may be included).'
+      ]
+    };
+  }
+
+  private calculateBestSixEightLevelIncludingLifeOrientationCapped(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const isFreeState = this.subjectKey(universityName) === 'university of the free state';
+    const minimumLoMark = isFreeState ? 60 : 50;
+
+    const scored = subjects.map((subject) => {
+      const base = this.toEightLevelPoints(subject.mark);
+
+      if (!this.isLifeOrientation(subject.subject)) {
+        return {
+          subject: subject.subject,
+          mark: subject.mark,
+          points: base,
+          used: false,
+          note: undefined as string | undefined
+        };
+      }
+
+      const loQualified = subject.mark >= minimumLoMark;
+      return {
+        subject: subject.subject,
+        mark: subject.mark,
+        points: loQualified ? 1 : 0,
+        used: false,
+        note: loQualified
+          ? `Life Orientation is capped at 1 point for ${isFreeState ? 'UFS' : 'CUT'}.`
+          : `Life Orientation below ${minimumLoMark}% contributes 0 points for ${isFreeState ? 'UFS' : 'CUT'}.`
+      };
+    });
+
+    const selected = scored
+      .sort((a, b) => b.points - a.points)
+      .slice(0, 6)
+      .map((subject) => subject.subject);
+
+    const breakdown = scored.map((subject) => ({
+      ...subject,
+      used: selected.includes(subject.subject)
+    }));
+
+    return {
+      universityId,
+      universityName,
+      rule: 'best-six-eight-level-including-lo-capped',
+      score: breakdown.filter((subject) => subject.used).reduce((sum, subject) => sum + subject.points, 0),
+      maxScore: 48,
+      breakdown,
+      notes: [
+        `Calculated with an 8-level APS scale using best 6 subjects including Life Orientation. LO is capped at 1 point and requires at least ${minimumLoMark}%.`
+      ]
+    };
+  }
+
+  private calculateSumBestSixPercentExcludingLifeOrientation(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const selected = subjects
+      .filter((subject) => !this.isLifeOrientation(subject.subject))
+      .sort((a, b) => b.mark - a.mark)
+      .slice(0, 6);
+
+    const breakdown = subjects.map((subject) => ({
+      subject: subject.subject,
+      mark: subject.mark,
+      points: subject.mark,
+      used: selected.some((item) => this.subjectKey(item.subject) === this.subjectKey(subject.subject)),
+      note: this.isLifeOrientation(subject.subject) ? 'Excluded: Life Orientation' : undefined
+    }));
+
+    return {
+      universityId,
+      universityName,
+      rule: 'sum-best-six-percent-excluding-lo',
+      score: selected.reduce((sum, subject) => sum + subject.mark, 0),
+      maxScore: 600,
+      breakdown,
+      notes: [
+        'Calculated as the sum of the best 6 subject percentages excluding Life Orientation.'
+      ]
+    };
+  }
+
+  private calculateDivideByTenBestSixPercentExcludingLifeOrientation(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const sumResult = this.calculateSumBestSixPercentExcludingLifeOrientation(universityId, universityName, subjects);
+    const dividedScore = sumResult.score === null ? null : Number((sumResult.score / 10).toFixed(1));
+
+    return {
+      ...sumResult,
+      rule: 'divide-by-10-best-six-percent-excluding-lo',
+      score: dividedScore,
+      maxScore: 60,
+      notes: [
+        'Calculated as the sum of best 6 subject percentages excluding Life Orientation, divided by 10.'
+      ]
+    };
+  }
+
+  private calculateAverageBestSixPercentExcludingLifeOrientation(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const selected = subjects
+      .filter((subject) => !this.isLifeOrientation(subject.subject))
+      .sort((a, b) => b.mark - a.mark)
+      .slice(0, 6);
+
+    const average = selected.length
+      ? Number((selected.reduce((sum, subject) => sum + subject.mark, 0) / selected.length).toFixed(2))
+      : null;
+
+    const breakdown = subjects.map((subject) => ({
+      subject: subject.subject,
+      mark: subject.mark,
+      points: subject.mark,
+      used: selected.some((item) => this.subjectKey(item.subject) === this.subjectKey(subject.subject)),
+      note: this.isLifeOrientation(subject.subject) ? 'Excluded: Life Orientation' : undefined
+    }));
+
+    return {
+      universityId,
+      universityName,
+      rule: 'average-best-six-percent-excluding-lo',
+      score: average,
+      maxScore: 100,
+      breakdown,
+      notes: [
+        'Calculated as the average percentage across the best 6 subjects excluding Life Orientation.'
+      ]
+    };
+  }
+
+  private calculateUwcWeightedSevenSubject(
+    universityId: number | null,
+    universityName: string,
+    subjects: ApsSubjectInput[]
+  ): ApsCalculationResult {
+    const scored = subjects.map((subject) => {
+      if (this.isLifeOrientation(subject.subject)) {
+        return {
+          subject: subject.subject,
+          mark: subject.mark,
+          points: this.toUwcLifeOrientationPoints(subject.mark),
+          note: 'UWC weighting: Life Orientation scale'
+        };
+      }
+
+      if (this.isEnglish(subject.subject) || this.isMaths(subject.subject)) {
+        return {
+          subject: subject.subject,
+          mark: subject.mark,
+          points: this.toUwcCorePoints(subject.mark),
+          note: 'UWC weighting: Core subject scale for English/Mathematics'
+        };
+      }
+
+      return {
+        subject: subject.subject,
+        mark: subject.mark,
+        points: this.toUwcOtherPoints(subject.mark)
+      };
+    });
+
+    const english = this.pickBest(scored, (subject) => this.isEnglish(subject.subject));
+    const maths = this.pickBest(scored, (subject) => this.isMaths(subject.subject));
+    const lo = this.pickBest(scored, (subject) => this.isLifeOrientation(subject.subject));
+
     const selected: Array<typeof scored[number]> = [];
+    const usedKeys = new Set<string>();
 
     if (english) {
       selected.push(english);
@@ -232,31 +472,125 @@ export class ApsCalculationService {
       usedKeys.add(this.subjectKey(maths.subject));
     }
 
-    const others = pool
+    if (lo && !usedKeys.has(this.subjectKey(lo.subject))) {
+      selected.push(lo);
+      usedKeys.add(this.subjectKey(lo.subject));
+    }
+
+    const remaining = scored
       .filter((subject) => !usedKeys.has(this.subjectKey(subject.subject)))
       .sort((a, b) => b.points - a.points)
-      .slice(0, 6 - selected.length);
+      .slice(0, Math.max(0, 7 - selected.length));
 
-    selected.push(...others);
+    selected.push(...remaining);
 
     const breakdown = scored.map((subject) => ({
-      ...subject,
+      subject: subject.subject,
+      mark: subject.mark,
+      points: subject.points,
       used: selected.some((item) => this.subjectKey(item.subject) === this.subjectKey(subject.subject)),
-      note: this.isLifeOrientation(subject.subject) ? 'Excluded: Life Orientation' : undefined
+      note: subject.note
     }));
 
     return {
       universityId,
       universityName,
-      rule: 'ukzn-max-48',
+      rule: 'uwc-weighted-seven-subject',
       score: selected.reduce((sum, subject) => sum + subject.points, 0),
-      maxScore: 48,
+      maxScore: 65,
       breakdown,
       notes: [
-        'Calculated on UKZN 8-level scale (max 48).',
-        'Rule applied: English + Mathematics/Maths Literacy + best remaining subjects, excluding LO.'
+        'Calculated using UWC weighted 7-subject scale (English/Mathematics weighted, Life Orientation included).'
       ]
     };
+  }
+
+  private toUwcCorePoints(mark: number): number {
+    if (mark >= 90) {
+      return 15;
+    }
+
+    if (mark >= 80) {
+      return 13;
+    }
+
+    if (mark >= 70) {
+      return 11;
+    }
+
+    if (mark >= 60) {
+      return 9;
+    }
+
+    if (mark >= 50) {
+      return 7;
+    }
+
+    if (mark >= 40) {
+      return 5;
+    }
+
+    if (mark >= 30) {
+      return 3;
+    }
+
+    if (mark >= 20) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  private toUwcOtherPoints(mark: number): number {
+    if (mark >= 90) {
+      return 8;
+    }
+
+    if (mark >= 80) {
+      return 7;
+    }
+
+    if (mark >= 70) {
+      return 6;
+    }
+
+    if (mark >= 60) {
+      return 5;
+    }
+
+    if (mark >= 50) {
+      return 4;
+    }
+
+    if (mark >= 40) {
+      return 3;
+    }
+
+    if (mark >= 30) {
+      return 2;
+    }
+
+    if (mark >= 20) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  private toUwcLifeOrientationPoints(mark: number): number {
+    if (mark >= 80) {
+      return 3;
+    }
+
+    if (mark >= 50) {
+      return 2;
+    }
+
+    if (mark >= 20) {
+      return 1;
+    }
+
+    return 0;
   }
 
   private calculateUmp(
@@ -368,39 +702,6 @@ export class ApsCalculationService {
     };
   }
 
-  private calculateAggregateExcludingLifeOrientation(
-    universityId: number | null,
-    universityName: string,
-    subjects: ApsSubjectInput[]
-  ): ApsCalculationResult {
-    const pool = subjects
-      .filter((subject) => !this.isLifeOrientation(subject.subject))
-      .sort((a, b) => b.mark - a.mark)
-      .slice(0, 6);
-
-    const sum = pool.reduce((total, subject) => total + subject.mark, 0);
-    const aggregate = pool.length ? Number((sum / pool.length).toFixed(2)) : null;
-
-    const breakdown = subjects.map((subject) => ({
-      subject: subject.subject,
-      mark: subject.mark,
-      points: subject.mark,
-      used: pool.some((item) => this.subjectKey(item.subject) === this.subjectKey(subject.subject)),
-      note: this.isLifeOrientation(subject.subject) ? 'Excluded: Life Orientation' : undefined
-    }));
-
-    return {
-      universityId,
-      universityName,
-      rule: 'aggregate-excluding-lo',
-      score: aggregate,
-      maxScore: 100,
-      breakdown,
-      notes: [
-        'Aggregate percentage based on best 6 subjects excluding LO.'
-      ]
-    };
-  }
 
   private normalizeSubjects(subjects: ApsSubjectInput[]): ApsSubjectInput[] {
     return subjects

@@ -29,7 +29,7 @@ describe('ApsCalculationService', () => {
   });
 
   it('should calculate best-six-excluding-lo rule', () => {
-    const result = service.calculateForUniversity(1, subjects);
+    const result = service.calculateForUniversity(6, subjects);
 
     expect(result.rule).toBe('best-six-excluding-lo');
     expect(result.score).toBe(33);
@@ -40,22 +40,21 @@ describe('ApsCalculationService', () => {
     expect(lo?.note).toContain('Excluded');
   });
 
-  it('should calculate uct-fps-adjusted rule', () => {
+  it('should calculate sum-best-six-percent-excluding-lo rule for UCT', () => {
     const result = service.calculateForUniversity(12, subjects);
 
-    expect(result.rule).toBe('uct-fps-adjusted');
-    expect(result.score).toBe(33);
-    expect(result.notes[0]).toContain('Baseline APS (best 6 excluding LO): 33');
-    expect(result.notes[1]).toContain('FPS proxy');
-    expect(result.notes[1]).toContain('430');
+    expect(result.rule).toBe('sum-best-six-percent-excluding-lo');
+    expect(result.score).toBe(430);
+    expect(result.maxScore).toBe(600);
+    expect(result.notes[0]).toContain('sum of the best 6 subject percentages excluding Life Orientation');
   });
 
-  it('should calculate ukzn-max-48 rule', () => {
+  it('should calculate best-six-excluding-lo rule for UKZN', () => {
     const result = service.calculateForUniversity(16, subjects);
 
-    expect(result.rule).toBe('ukzn-max-48');
+    expect(result.rule).toBe('best-six-excluding-lo');
     expect(result.score).toBe(33);
-    expect(result.maxScore).toBe(48);
+    expect(result.maxScore).toBe(42);
 
     const lo = result.breakdown.find((item) => item.subject === 'Life Orientation');
     expect(lo?.used).toBeFalse();
@@ -89,10 +88,10 @@ describe('ApsCalculationService', () => {
     expect(lo?.points).toBe(4);
   });
 
-  it('should calculate aggregate-excluding-lo rule', () => {
+  it('should calculate average-best-six-percent-excluding-lo rule for Stellenbosch', () => {
     const result = service.calculateForUniversity(10, subjects);
 
-    expect(result.rule).toBe('aggregate-excluding-lo');
+    expect(result.rule).toBe('average-best-six-percent-excluding-lo');
     expect(result.score).toBe(71.67);
     expect(result.maxScore).toBe(100);
 
@@ -100,11 +99,35 @@ describe('ApsCalculationService', () => {
     expect(lo?.used).toBeFalse();
   });
 
-  it('should calculate best-six-excluding-lo for unknown universities', () => {
+  it('should calculate CUT capped LO 8-level rule', () => {
     const result = service.calculateForUniversity(2, subjects);
 
-    expect(result.rule).toBe('best-six-excluding-lo');
+    expect(result.rule).toBe('best-six-eight-level-including-lo-capped');
     expect(result.score).toBe(33);
-    expect(result.notes[0]).toContain('Calculated with NSC 7-point levels');
+    expect(result.notes[0]).toContain('LO is capped at 1 point');
+  });
+
+  it('should calculate divide-by-10-best-six-percent-excluding-lo rule for CPUT', () => {
+    const result = service.calculateForUniversity(1, subjects);
+
+    expect(result.rule).toBe('divide-by-10-best-six-percent-excluding-lo');
+    expect(result.score).toBe(43);
+    expect(result.maxScore).toBe(60);
+  });
+
+  it('should calculate uwc-weighted-seven-subject rule', () => {
+    const result = service.calculateForUniversity(22, subjects);
+
+    expect(result.rule).toBe('uwc-weighted-seven-subject');
+    expect(result.score).toBe(47);
+    expect(result.maxScore).toBe(65);
+
+    const english = result.breakdown.find((item) => item.subject === 'English HL');
+    const maths = result.breakdown.find((item) => item.subject === 'Mathematics');
+    const lo = result.breakdown.find((item) => item.subject === 'Life Orientation');
+
+    expect(english?.points).toBe(13);
+    expect(maths?.points).toBe(11);
+    expect(lo?.points).toBe(3);
   });
 });

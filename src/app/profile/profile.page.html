@@ -534,20 +534,6 @@
               </select>
             </label>
 
-            <label class="field full">
-              <span>APS University <span class="required">*</span></span>
-              <select
-                [value]="academicInformation.apsUniversityName"
-                required
-                aria-required="true"
-                (change)="onAcademicInformationInputChange('apsUniversityName', $event)">
-                <option value="">Select university</option>
-                @for (university of universityOptions; track university.value) {
-                  <option [value]="university.value">{{ university.label }}</option>
-                }
-              </select>
-            </label>
-
             <label class="field">
               <span>Course Choice 1 <span class="required">*</span></span>
               <input
@@ -587,8 +573,6 @@
                 type="text"
                 placeholder="e.g. BCom Accounting"
                 [value]="academicInformation.courseChoice4"
-                required
-                aria-required="true"
                 (input)="onAcademicInformationInputChange('courseChoice4', $event)" />
             </label>
           </div>
@@ -665,27 +649,52 @@
             </button>
           </div>
 
-          @if (savedApsResult) {
+          @if (hasAutomaticApsResults) {
             <section class="aps-summary-card" aria-live="polite">
               <div class="aps-summary-copy">
-                <p class="aps-summary-kicker">Saved APS</p>
-                <h3>{{ savedApsResult.universityName || 'University not selected' }}</h3>
+                <p class="aps-summary-kicker">Automatic APS</p>
+                <h3>APS Scores Across All Universities</h3>
                 <p>
-                  This score is calculated from the subjects you saved for the selected university.
+                  We calculate these scores automatically from your saved marks so you can compare universities instantly.
                 </p>
               </div>
 
-              <div class="aps-chip-row">
-                <ion-chip color="primary" class="aps-chip aps-chip-score">
-                  APS {{ savedApsResult.score }}
-                </ion-chip>
-                <ion-chip class="aps-chip">
-                  University: {{ savedApsResult.universityName || 'Not selected' }}
-                </ion-chip>
-                <ion-chip class="aps-chip">
-                  Rule: {{ savedApsResult.rule }}
-                </ion-chip>
+              <div class="aps-categories-grid">
+                @for (group of groupedAutomaticApsResults; track group.key) {
+                  <article class="aps-category-card">
+                    <div class="aps-category-header">
+                      <h4>{{ group.label }}</h4>
+                      <ion-chip color="primary" class="aps-chip aps-chip-score">
+                        APS {{ formatCategoryApsScore(group) }}
+                      </ion-chip>
+                    </div>
+                    <p>{{ group.description }}</p>
+
+                    <p class="aps-category-university-count">{{ group.results.length }} universities</p>
+
+                    <div class="aps-category-university-list">
+                      @for (result of group.results; track result.universityName) {
+                        <article class="aps-category-university-item">
+                          <span class="aps-university-name">{{ result.universityName }}</span>
+                        </article>
+                      }
+                    </div>
+                  </article>
+                }
               </div>
+            </section>
+          } @else {
+            <section class="aps-empty-state" aria-live="polite">
+              <h3>Your APS comparison will appear automatically</h3>
+              <p>
+                Add your subjects and marks, then save once. We will instantly calculate APS scores for every university for you.
+              </p>
+              <p class="aps-empty-hint">
+                Progress: {{ completedSubjectCountForAps }}/{{ minimumSubjects }} subjects with valid marks.
+                @if (remainingSubjectsForApsCalculation > 0) {
+                  Add {{ remainingSubjectsForApsCalculation }} more to unlock automatic APS results.
+                }
+              </p>
             </section>
           }
         </section>

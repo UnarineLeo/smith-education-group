@@ -134,6 +134,28 @@ ion-content {
   border-color: #fecaca;
 }
 
+.aps-chip {
+  font-weight: 700;
+}
+
+.aps-chip-ready {
+  --background: #e8f5ff;
+  --color: #0b4a6f;
+  border-color: #b7dcf4;
+}
+
+.aps-chip-prompt {
+  --background: #fff7ed;
+  --color: #9a3412;
+  border-color: #fed7aa;
+}
+
+.aps-chip-register {
+  --background: #eef2ff;
+  --color: #3730a3;
+  border-color: #c7d2fe;
+}
+
 .hero-actions {
   margin-top: 14px;
   display: flex;

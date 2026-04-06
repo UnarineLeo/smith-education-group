@@ -54,6 +54,13 @@ interface PasswordForm {
   confirmNewPassword: string;
 }
 
+interface ApsCategoryGroup {
+  key: string;
+  label: string;
+  description: string;
+  results: ApsCalculationResult[];
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
@@ -174,7 +181,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     courseChoice4: ''
   };
 
-  universityOptions = UNIVERSITY_OPTIONS;
+  private readonly apsUniversities = UNIVERSITY_OPTIONS.map((university) => university.value);
 
   requiredDocuments: RequiredDocumentRequirement[] = [
     {
@@ -214,7 +221,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   uploadedDocumentNames: Partial<Record<RequiredDocumentKey, string>> = {};
   readonly requiredDocumentKey: RequiredDocumentKey = 'idDocument';
 
-  savedApsResult: ApsCalculationResult | null = null;
+  allUniversityApsResults: ApsCalculationResult[] = [];
 
   highSchoolSubjectOptions = [
     'Accounting',
@@ -385,7 +392,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and all 4 course choices.');
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and course choices 1 to 3.');
       return;
     }
 
@@ -667,6 +674,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         subject: value
       };
     });
+
+    this.refreshApsResultsFromCurrentEntries();
   }
 
   onMarkChange(index: number, event: Event) {
@@ -694,6 +703,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         mark: sanitizedMark
       };
     });
+
+    this.refreshApsResultsFromCurrentEntries();
   }
 
   onAcademicInformationInputChange(field: keyof AcademicInformation, event: Event) {
@@ -795,12 +806,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    const completedEntries = this.subjectEntries
+    const completedEntries: ApsSubjectInput[] = this.subjectEntries
       .map((entry) => ({
         subject: entry.subject.trim(),
         mark: entry.mark
       }))
-      .filter((entry) =>
+      .filter((entry): entry is { subject: string; mark: number } =>
         entry.subject !== ''
         && this.highSchoolSubjectOptions.includes(entry.subject)
         && entry.mark !== null
@@ -822,10 +833,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isSavingSubjects = true;
 
     try {
-      const apsResult = this.calculateSavedApsResult(completedEntries);
-      if (!apsResult) {
+      const apsResults = this.calculateAllUniversityApsResults(completedEntries);
+      if (!apsResults.length) {
         throw new Error('APS calculation failed.');
       }
+
+      const primaryApsScore = this.resolvePrimaryApsScore(apsResults);
 
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
@@ -842,13 +855,19 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           this.academicInformation.courseChoice4
         ],
         highSchoolSubjects: completedEntries,
-        apsScore: apsResult.score,
-        apsRule: apsResult.rule
+        apsScore: primaryApsScore,
+        apsRule: 'multi-university-auto',
+        apsScoresByUniversity: apsResults.map((result) => ({
+          universityName: result.universityName,
+          score: result.score,
+          maxScore: result.maxScore,
+          rule: result.rule
+        }))
       }, { merge: true });
 
       // Rehydrate from persisted payload so selects keep saved default values.
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(completedEntries);
-      this.savedApsResult = apsResult;
+      this.allUniversityApsResults = apsResults;
 
       await this.authService.presentToast('Academic information saved successfully.');
     } catch {
@@ -1205,10 +1224,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         : [];
 
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(savedHighSchoolSubjects);
-      this.savedApsResult = this.calculateSavedApsResult(savedHighSchoolSubjects);
+      this.refreshApsResultsFromCurrentEntries();
     } catch {
       this.subjectEntries = this.createInitialSubjectRows();
-      this.savedApsResult = null;
+      this.allUniversityApsResults = [];
     }
   }
 
@@ -1252,7 +1271,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         confirmNewPassword: ''
       };
       this.subjectEntries = this.createInitialSubjectRows();
-    this.savedApsResult = null;
+      this.allUniversityApsResults = [];
       return;
     }
 
@@ -1303,25 +1322,83 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.activeTab = 'personal';
     }
 
-    this.savedApsResult = null;
+    this.allUniversityApsResults = [];
 
     await this.loadSavedSubjects(user.uid);
   }
 
-  getApsChipLabel(): string {
-    if (!this.savedApsResult) {
-      return '';
-    }
-
-    if (this.savedApsResult.universityName.trim()) {
-      return `${this.savedApsResult.universityName}`;
-    }
-
-    return 'Saved APS';
+  get hasAutomaticApsResults(): boolean {
+    return this.allUniversityApsResults.length > 0;
   }
 
-  private calculateSavedApsResult(entries: SubjectMarkEntry[]): ApsCalculationResult | null {
-    const completedEntries: ApsSubjectInput[] = entries
+  get groupedAutomaticApsResults(): ApsCategoryGroup[] {
+    const grouped = this.allUniversityApsResults.reduce<Record<string, ApsCalculationResult[]>>((accumulator, result) => {
+      if (!accumulator[result.rule]) {
+        accumulator[result.rule] = [];
+      }
+
+      accumulator[result.rule].push(result);
+      return accumulator;
+    }, {});
+
+    return Object.entries(grouped)
+      .map(([rule, results]) => {
+        const meta = this.getApsCategoryMeta(rule);
+        return {
+          key: rule,
+          label: meta.label,
+          description: meta.description,
+          results: [...results].sort((a, b) => a.universityName.localeCompare(b.universityName))
+        };
+      })
+      .sort((a, b) => {
+        if (b.results.length !== a.results.length) {
+          return b.results.length - a.results.length;
+        }
+
+        return a.label.localeCompare(b.label);
+      });
+  }
+
+  formatApsScore(result: ApsCalculationResult): string {
+    if (result.score === null || !Number.isFinite(result.score)) {
+      return 'N/A';
+    }
+
+    const score = Number.isInteger(result.score)
+      ? result.score.toString()
+      : result.score.toFixed(2).replace(/\.00$/, '');
+
+    return result.maxScore ? `${score}/${result.maxScore}` : score;
+  }
+
+  formatCategoryApsScore(group: ApsCategoryGroup): string {
+    const uniqueScores = Array.from(new Set(group.results.map((result) => this.formatApsScore(result))));
+
+    if (!uniqueScores.length) {
+      return 'N/A';
+    }
+
+    return uniqueScores.length === 1
+      ? uniqueScores[0]
+      : 'Varies by university';
+  }
+
+  get completedSubjectCountForAps(): number {
+    return this.toCompletedApsInputs(this.subjectEntries).length;
+  }
+
+  get remainingSubjectsForApsCalculation(): number {
+    return Math.max(0, this.minimumSubjects - this.completedSubjectCountForAps);
+  }
+
+  private refreshApsResultsFromCurrentEntries() {
+    const completedEntries = this.toCompletedApsInputs(this.subjectEntries);
+    this.allUniversityApsResults = this.calculateAllUniversityApsResults(completedEntries);
+  }
+
+  private toCompletedApsInputs(entries: SubjectMarkEntry[]): ApsSubjectInput[] {
+    return entries
       .map((entry) => ({
         subject: entry.subject.trim(),
         mark: entry.mark
@@ -1331,15 +1408,98 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         subject: entry.subject,
         mark: entry.mark as number
       }));
+  }
 
-    if (!completedEntries.length) {
-      return null;
+  private calculateAllUniversityApsResults(entries: ApsSubjectInput[]): ApsCalculationResult[] {
+    if (entries.length < this.minimumSubjects) {
+      return [];
     }
 
-    const universityContext = this.academicInformation.apsUniversityName.trim();
-    const calculationTarget = universityContext !== '' ? universityContext : 'Saved APS';
+    const uniqueSubjects = new Set(entries.map((entry) => entry.subject.trim().toLowerCase()));
+    if (uniqueSubjects.size < this.minimumSubjects) {
+      return [];
+    }
 
-    return this.apsCalculationService.calculateForUniversity(calculationTarget, completedEntries);
+    return this.apsUniversities
+      .map((universityName) => this.apsCalculationService.calculateForUniversity(universityName, entries))
+      .sort((a, b) => a.universityName.localeCompare(b.universityName));
+  }
+
+  private resolvePrimaryApsScore(results: ApsCalculationResult[]): number {
+    const numericScores = results
+      .map((result) => result.score)
+      .filter((score): score is number => typeof score === 'number' && Number.isFinite(score));
+
+    if (!numericScores.length) {
+      return 0;
+    }
+
+    return Math.max(...numericScores);
+  }
+
+  private getApsCategoryMeta(rule: string): { label: string; description: string } {
+    switch (rule) {
+      case 'best-six-excluding-lo':
+        return {
+          label: 'Best 6 Excluding Life Orientation (NSC 7-point)',
+          description: 'Uses NSC levels for the top 6 subjects, excluding Life Orientation.'
+        };
+      case 'best-six-including-lo':
+        return {
+          label: 'Best 6 Including Life Orientation (NSC 7-point)',
+          description: 'Uses NSC levels for the top 6 subjects, and Life Orientation can contribute.'
+        };
+      case 'best-six-eight-level-excluding-lo':
+        return {
+          label: 'Best 6 Excluding Life Orientation (8-level)',
+          description: 'Uses an 8-level conversion for the top 6 subjects, excluding Life Orientation.'
+        };
+      case 'best-six-eight-level-including-lo':
+        return {
+          label: 'Best 6 Including Life Orientation (8-level)',
+          description: 'Uses an 8-level conversion for the top 6 subjects, including Life Orientation.'
+        };
+      case 'best-six-eight-level-including-lo-capped':
+        return {
+          label: 'Best 6 Including Life Orientation (LO Capped)',
+          description: 'Uses an 8-level conversion where Life Orientation is capped according to university policy.'
+        };
+      case 'sum-best-six-percent-excluding-lo':
+        return {
+          label: 'Sum of Best 6 Percentages (Out of 600)',
+          description: 'Adds percentage marks for the best 6 subjects, excluding Life Orientation.'
+        };
+      case 'divide-by-10-best-six-percent-excluding-lo':
+        return {
+          label: 'Best 6 Percentages Divided by 10',
+          description: 'Adds best 6 percentages excluding Life Orientation, then divides by 10.'
+        };
+      case 'average-best-six-percent-excluding-lo':
+        return {
+          label: 'Average of Best 6 Percentages',
+          description: 'Calculates the average percentage across the best 6 subjects excluding Life Orientation.'
+        };
+      case 'ump-seven-with-half-lo':
+        return {
+          label: '7 Subjects with 50% Life Orientation Weight',
+          description: 'Uses 7 subjects and counts Life Orientation at half value.'
+        };
+      case 'wits-custom':
+        return {
+          label: 'Wits Weighted 7-Subject Model',
+          description: 'Applies additional weighting for English/Mathematics and a custom Life Orientation scale.'
+        };
+      case 'uwc-weighted-seven-subject':
+        return {
+          label: 'UWC Weighted 7-Subject Model',
+          description: 'Uses weighted points for English/Mathematics and includes Life Orientation.'
+        };
+      default:
+        return {
+          label: 'APS Calculation Category',
+          description: 'Universities grouped by the same APS calculation approach.'
+        };
+    }
   }
 
   private async initializeStreetAddressAutocomplete(): Promise<boolean> {

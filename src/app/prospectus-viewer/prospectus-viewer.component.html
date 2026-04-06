@@ -36,6 +36,24 @@
         <ion-chip class="status-chip" [class.open]="isApplicationOpen()" [class.closed]="!isApplicationOpen()">
           <ion-label>{{ getApplicationStatusDisplay() }}</ion-label>
         </ion-chip>
+
+        @if (hasUniversityApsScore) {
+          <ion-chip class="aps-chip aps-chip-ready">
+            <ion-icon name="calculator-outline"></ion-icon>
+            <ion-label>{{ universityApsDisplay }}</ion-label>
+          </ion-chip>
+        } @else if (shouldShowAddMarksPrompt) {
+          <ion-chip class="aps-chip aps-chip-prompt">
+            <ion-icon name="calculator-outline"></ion-icon>
+            <ion-label>Add your marks in Profile for automatic APS</ion-label>
+          </ion-chip>
+        } @else if (shouldShowRegisterApsPrompt) {
+          <ion-chip class="aps-chip aps-chip-register">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <ion-label>Register to unlock automatic APS calculation</ion-label>
+          </ion-chip>
+        }
+
         <ion-button
           class="viewer-apply-btn"
           color="primary"

@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline } from 'ionicons/icons';
+import { getAuth, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
+import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline, calculatorOutline, personAddOutline } from 'ionicons/icons';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { University } from '../shared/app-data';
 import universitiesData from '../university-list/university-list.json';
+import { AuthService } from '../services/auth.service';
+import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 
 @Component({
   selector: 'app-prospectus-viewer',
@@ -30,7 +33,7 @@ import universitiesData from '../university-list/university-list.json';
     PdfViewerModule
   ],
 })
-export class ProspectusViewerComponent implements OnInit {
+export class ProspectusViewerComponent implements OnInit, OnDestroy {
   university: University | null = null;
 
   safePdfUrl: SafeResourceUrl | null = null;
@@ -43,16 +46,26 @@ export class ProspectusViewerComponent implements OnInit {
   readonly mobilePdfMaxZoom = 2.2;
   readonly mobilePdfZoomStep = 0.2;
   isPhoneDevice = false;
+  isLoggedIn = false;
+  currentUniversityApsResult: ApsCalculationResult | null = null;
+
+  private authUnsubscribe?: Unsubscribe;
 
   constructor(
     private sanitizer: DomSanitizer,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private apsCalculationService: ApsCalculationService
   ) {
-    addIcons({openOutline,arrowBackOutline,calendarOutline,cashOutline,rocketOutline});
+    addIcons({openOutline,arrowBackOutline,calendarOutline,cashOutline,rocketOutline,calculatorOutline,personAddOutline});
     this.isPhoneDevice = this.detectPhoneDevice();
   }
 
   ngOnInit(): void {
+    this.authUnsubscribe = onAuthStateChanged(getAuth(), () => {
+      void this.refreshApsChipState();
+    });
+
     this.route.paramMap.subscribe((params) => {
       const id = Number.parseInt(params.get('id') ?? '', 10);
       const universities = universitiesData as University[];
@@ -65,7 +78,36 @@ export class ProspectusViewerComponent implements OnInit {
       this.safePdfUrl = this.viewerLink
         ? this.sanitizer.bypassSecurityTrustResourceUrl(this.viewerLink)
         : null;
+
+      void this.refreshApsChipState();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.authUnsubscribe?.();
+  }
+
+  get hasUniversityApsScore(): boolean {
+    return this.currentUniversityApsResult?.score !== null && this.currentUniversityApsResult?.score !== undefined;
+  }
+
+  get shouldShowRegisterApsPrompt(): boolean {
+    return !this.isLoggedIn;
+  }
+
+  get shouldShowAddMarksPrompt(): boolean {
+    return this.isLoggedIn && !this.hasUniversityApsScore;
+  }
+
+  get universityApsDisplay(): string {
+    if (!this.currentUniversityApsResult || this.currentUniversityApsResult.score === null || this.currentUniversityApsResult.score === undefined) {
+      return 'APS N/A';
+    }
+
+    const score = this.currentUniversityApsResult.score;
+    const formattedScore = Number.isInteger(score) ? score.toString() : score.toFixed(2).replace(/\.00$/, '');
+    const suffix = this.currentUniversityApsResult.maxScore ? `/${this.currentUniversityApsResult.maxScore}` : '';
+    return `APS ${formattedScore}${suffix}`;
   }
 
   onMobilePdfError(): void {
@@ -211,5 +253,43 @@ export class ProspectusViewerComponent implements OnInit {
 
     const normalized = url.startsWith('/') ? url : `/${url}`;
     return `${window.location.origin}${normalized}`;
+  }
+
+  private async refreshApsChipState(): Promise<void> {
+    const currentUser = getAuth().currentUser;
+    this.isLoggedIn = Boolean(currentUser);
+    this.currentUniversityApsResult = null;
+
+    if (!currentUser || !this.university) {
+      return;
+    }
+
+    try {
+      const userData = await this.authService.getUser(currentUser.uid) as {
+        highSchoolSubjects?: Array<{ subject?: string; mark?: number }>;
+      };
+
+      const subjects = Array.isArray(userData?.highSchoolSubjects)
+        ? userData.highSchoolSubjects
+            .map((subject) => ({
+              subject: (subject.subject ?? '').trim(),
+              mark: Number(subject.mark)
+            }))
+            .filter((subject): subject is ApsSubjectInput =>
+              subject.subject !== ''
+              && Number.isFinite(subject.mark)
+              && subject.mark >= 0
+              && subject.mark <= 100
+            )
+        : [];
+
+      if (subjects.length < 7) {
+        return;
+      }
+
+      this.currentUniversityApsResult = this.apsCalculationService.calculateForUniversity(this.university.name, subjects);
+    } catch {
+      this.currentUniversityApsResult = null;
+    }
   }
 }

@@ -325,7 +325,8 @@
     "application_fee": 0,
     "link": "https://www.uwc.ac.za/admission-and-financial-aid/undergraduate-admission/application-information",
     "brochure_link": "https://www.uwc.ac.za/admission-and-financial-aid/undergraduate-admission",
-    "webscrap_link": "https://www.uwc.ac.za"
+    "webscrap_link": "https://www.uwc.ac.za",
+    "brochure_asset": "assets/prospectus/uwc_prospectus.pdf"
   },
   {
     "id": 23,
