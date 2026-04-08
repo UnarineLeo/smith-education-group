@@ -140,6 +140,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   private streetAddressSuggestDebounce?: number;
   private latestStreetAddressQuery = '';
   private hasShownAddressAutocompleteUnavailableToast = false;
+  private hasHydratedDocumentSignedUrls = false;
+  private isHydratingDocumentSignedUrls = false;
   private readonly allowedDocumentMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png']);
   private readonly allowedDocumentExtensions = new Set(['pdf', 'jpg', 'jpeg', 'png']);
 
@@ -281,6 +283,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     if (tab === 'personal') {
       void this.initializeStreetAddressAutocomplete();
+    }
+
+    if (tab === 'documents') {
+      void this.hydrateDocumentSignedUrlsIfNeeded();
     }
   }
 
@@ -1021,6 +1027,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       try {
         await this.refreshUploadedDocumentUrls();
+        this.hasHydratedDocumentSignedUrls = true;
       } catch (error) {
         console.warn('Documents uploaded, but signed URL refresh failed:', error);
       }
@@ -1206,7 +1213,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       if (userData.documents && typeof userData.documents === 'object') {
         this.uploadedDocumentUrls = { ...userData.documents };
-        await this.refreshUploadedDocumentUrls();
+        this.hasHydratedDocumentSignedUrls = false;
+
+        // Keep profile/academic actions fast and hydrate signed URLs only for document interactions.
+        if (this.activeTab === 'documents') {
+          void this.hydrateDocumentSignedUrlsIfNeeded();
+        }
       }
 
       if (userData.documentFileNames && typeof userData.documentFileNames === 'object') {
@@ -1736,5 +1748,32 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private hasValidSaIdNumber(): boolean {
     return /^\d{13}$/.test(this.profile.saIdNumber.trim());
+  }
+
+  private async hydrateDocumentSignedUrlsIfNeeded() {
+    if (this.isHydratingDocumentSignedUrls || this.hasHydratedDocumentSignedUrls) {
+      return;
+    }
+
+    const hasStoredPaths = Object.values(this.uploadedDocumentUrls).some((value) => {
+      const normalizedValue = typeof value === 'string' ? value.trim() : '';
+      return normalizedValue !== '' && !/^https?:\/\//i.test(normalizedValue);
+    });
+
+    if (!hasStoredPaths) {
+      this.hasHydratedDocumentSignedUrls = true;
+      return;
+    }
+
+    this.isHydratingDocumentSignedUrls = true;
+
+    try {
+      await this.refreshUploadedDocumentUrls();
+      this.hasHydratedDocumentSignedUrls = true;
+    } catch (error) {
+      console.warn('Could not hydrate signed document URLs:', error);
+    } finally {
+      this.isHydratingDocumentSignedUrls = false;
+    }
   }
 }
