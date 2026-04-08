@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LoadingController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { setDoc, getDoc, doc, getFirestore, serverTimestamp } from "firebase/firestore";
 
 @Injectable({
