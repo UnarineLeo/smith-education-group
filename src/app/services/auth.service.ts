@@ -443,12 +443,10 @@ export class AuthService {
   }
 
   // Get user from firestore
-  async getUser(uid: string) : Promise<JSON>
-  {
+  async getUser(uid: string): Promise<Record<string, unknown> | null> {
     const userRef = doc(this.db, 'users', uid);
     const userDoc = await getDoc(userRef);
-    var userId = JSON.stringify(userDoc.data())
-    return JSON.parse(userId)
+    return userDoc.data() ?? null;
   }
 
 }

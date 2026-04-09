@@ -1003,17 +1003,28 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentUrls };
       const nextDocumentNames: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentNames };
 
-      for (const requirement of this.requiredDocuments) {
-        const file = this.selectedDocumentFiles[requirement.key];
-        if (!file) {
-          continue;
-        }
+      const uploads = this.requiredDocuments
+        .map((requirement) => ({
+          requirement,
+          file: this.selectedDocumentFiles[requirement.key]
+        }))
+        .filter((item): item is { requirement: RequiredDocumentRequirement; file: File } => item.file !== null);
 
-        const { path } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
+      const uploadedDocuments = await Promise.all(
+        uploads.map(async ({ requirement, file }) => {
+          const { path } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
+          return {
+            key: requirement.key,
+            path,
+            name: file.name
+          };
+        })
+      );
 
-        nextDocumentUrls[requirement.key] = path;
-        nextDocumentNames[requirement.key] = file.name;
-      }
+      uploadedDocuments.forEach((document) => {
+        nextDocumentUrls[document.key] = document.path;
+        nextDocumentNames[document.key] = document.name;
+      });
 
       this.isFinalizingDocumentUpload = true;
 
