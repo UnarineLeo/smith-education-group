@@ -70,6 +70,8 @@ interface ApsCategoryGroup {
 export class ProfilePage implements OnDestroy, AfterViewInit {
   @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;
 
+  private readonly saveToastDelayMs = 5000;
+
   activeTab: ProfileTab = 'personal';
   isGoogleUser = false;
   minimumSubjects = 7;
@@ -339,19 +341,21 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveProfileChanges() {
+    const saveStartedAt = Date.now();
+
     if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to save changes.');
+      await this.showSaveToastAfterDelay('Please sign in to save changes.', saveStartedAt);
       return;
     }
 
     const missingMandatoryFields = this.getMissingMandatoryProfileFields();
     if (missingMandatoryFields.length > 0) {
-      await this.authService.presentToast(`Please fill in all mandatory fields: ${missingMandatoryFields.join(', ')}.`);
+      await this.showSaveToastAfterDelay(`Please fill in all mandatory fields: ${missingMandatoryFields.join(', ')}.`, saveStartedAt);
       return;
     }
 
     if (!this.hasValidSaIdNumber()) {
-      await this.authService.presentToast('SA ID Number or Passport Number must be between 10 and 13 digits.');
+      await this.showSaveToastAfterDelay('SA ID Number or Passport Number must be between 10 and 13 digits.', saveStartedAt);
       return;
     }
 
@@ -375,9 +379,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         disabilityStatus: this.profile.disabilityStatus
       }, { merge: true });
 
-      await this.authService.presentToast('Profile changes saved successfully.');
+      await this.showSaveToastAfterDelay('Profile changes saved successfully.', saveStartedAt);
     } catch {
-      await this.authService.presentToast('Could not save right now. Please try again.');
+      await this.showSaveToastAfterDelay('Could not save right now. Please try again.', saveStartedAt);
     } finally {
       this.isSavingProfile = false;
     }
@@ -392,13 +396,15 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveAcademicInformation() {
+    const saveStartedAt = Date.now();
+
     if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to save your academic information.');
+      await this.showSaveToastAfterDelay('Please sign in to save your academic information.', saveStartedAt);
       return;
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and course choices 1 to 3.');
+      await this.showSaveToastAfterDelay('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and course choices 1 to 3.', saveStartedAt);
       return;
     }
 
@@ -421,17 +427,19 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         ]
       }, { merge: true });
 
-      await this.authService.presentToast('School background saved successfully.');
+      await this.showSaveToastAfterDelay('School background saved successfully.', saveStartedAt);
     } catch {
-      await this.authService.presentToast('Could not save academic information right now. Please try again.');
+      await this.showSaveToastAfterDelay('Could not save academic information right now. Please try again.', saveStartedAt);
     } finally {
       this.isSavingAcademicInfo = false;
     }
   }
 
   async saveInterests() {
+    const saveStartedAt = Date.now();
+
     if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to save changes.');
+      await this.showSaveToastAfterDelay('Please sign in to save changes.', saveStartedAt);
       return;
     }
 
@@ -441,9 +449,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await setDoc(doc(this.authService.db, 'users', this.userUid), {
         studyAreas: this.selectedInterests
       }, { merge: true });
-      await this.authService.presentToast('Interests saved successfully.');
+      await this.showSaveToastAfterDelay('Interests saved successfully.', saveStartedAt);
     } catch {
-      await this.authService.presentToast('Could not save right now. Please try again.');
+      await this.showSaveToastAfterDelay('Could not save right now. Please try again.', saveStartedAt);
     } finally {
       this.isSavingProfile = false;
     }
@@ -796,19 +804,21 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveHighSchoolSubjects() {
+    const saveStartedAt = Date.now();
+
     if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to save your subjects.');
+      await this.showSaveToastAfterDelay('Please sign in to save your subjects.', saveStartedAt);
       return;
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT before saving.');
+      await this.showSaveToastAfterDelay('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT before saving.', saveStartedAt);
       return;
     }
 
     const hasInvalidMark = this.subjectEntries.some((entry) => entry.mark !== null && (entry.mark < 0 || entry.mark > 100));
     if (hasInvalidMark) {
-      await this.authService.presentToast('Each mark must be between 0 and 100.');
+      await this.showSaveToastAfterDelay('Each mark must be between 0 and 100.', saveStartedAt);
       return;
     }
 
@@ -826,13 +836,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       );
 
     if (completedEntries.length < this.minimumSubjects) {
-      await this.authService.presentToast('Add at least 7 subjects with marks before saving.');
+      await this.showSaveToastAfterDelay('Add at least 7 subjects with marks before saving.', saveStartedAt);
       return;
     }
 
     const uniqueSubjects = new Set(completedEntries.map((entry) => entry.subject));
     if (uniqueSubjects.size !== completedEntries.length) {
-      await this.authService.presentToast('Each subject can only be selected once.');
+      await this.showSaveToastAfterDelay('Each subject can only be selected once.', saveStartedAt);
       return;
     }
 
@@ -875,9 +885,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(completedEntries);
       this.allUniversityApsResults = apsResults;
 
-      await this.authService.presentToast('Academic information saved successfully.');
+      await this.showSaveToastAfterDelay('Academic information saved successfully.', saveStartedAt);
     } catch {
-      await this.authService.presentToast('Could not save subjects right now. Please try again.');
+      await this.showSaveToastAfterDelay('Could not save subjects right now. Please try again.', saveStartedAt);
     } finally {
       this.isSavingSubjects = false;
     }
@@ -979,15 +989,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async uploadRequiredDocuments() {
+    const saveStartedAt = Date.now();
+
     if (!this.userUid) {
-      await this.authService.presentToast('Please sign in to upload documents.');
+      await this.showSaveToastAfterDelay('Please sign in to upload documents.', saveStartedAt);
       return;
     }
 
     const hasIdDocument = Boolean(this.selectedDocumentFiles[this.requiredDocumentKey] || this.uploadedDocumentUrls[this.requiredDocumentKey]);
 
     if (!hasIdDocument) {
-      await this.authService.presentToast('Please upload your ID document before submitting.');
+      await this.showSaveToastAfterDelay('Please upload your ID document before submitting.', saveStartedAt);
       return;
     }
 
@@ -996,7 +1008,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     try {
       if (!this.supabaseStorageService.isConfigured()) {
-        await this.authService.presentToast('Supabase is not configured yet. Add supabaseUrl and supabaseAnonKey in environment files.');
+        await this.showSaveToastAfterDelay('Supabase is not configured yet. Add supabaseUrl and supabaseAnonKey in environment files.', saveStartedAt);
         return;
       }
 
@@ -1050,9 +1062,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         grade12MidYearResults: null
       };
 
-      await this.authService.presentToast('Documents uploaded successfully.');
+      await this.showSaveToastAfterDelay('Documents uploaded successfully.', saveStartedAt);
     } catch {
-      await this.authService.presentToast('Could not upload documents right now. Please try again.');
+      await this.showSaveToastAfterDelay('Could not upload documents right now. Please try again.', saveStartedAt);
     } finally {
       this.isFinalizingDocumentUpload = false;
       this.isUploadingDocuments = false;
@@ -1759,6 +1771,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private hasValidSaIdNumber(): boolean {
     return /^\d{13}$/.test(this.profile.saIdNumber.trim());
+  }
+
+  private async showSaveToastAfterDelay(message: string, saveStartedAt: number) {
+    const elapsed = Date.now() - saveStartedAt;
+    const remainingDelay = Math.max(0, this.saveToastDelayMs - elapsed);
+
+    if (remainingDelay > 0) {
+      await new Promise<void>((resolve) => window.setTimeout(resolve, remainingDelay));
+    }
+
+    await this.authService.presentToast(message);
   }
 
   private async hydrateDocumentSignedUrlsIfNeeded() {
