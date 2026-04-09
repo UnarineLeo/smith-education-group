@@ -378,7 +378,7 @@
               class="btn primary"
               [disabled]="isSavingProfile || !canSaveProfile()"
               (click)="saveProfileChanges()">
-              {{ isSavingProfile ? 'Saving...' : 'Save Changes' }}
+              {{ getProfileSaveButtonLabel() }}
             </button>
           </div>
         </section>
@@ -444,7 +444,7 @@
               class="btn primary"
               [disabled]="isUpdatingPassword || !canUpdatePassword()"
               (click)="updatePasswordFromForm()">
-              {{ isUpdatingPassword ? 'Updating...' : 'Update Password' }}
+              {{ getPasswordSaveButtonLabel() }}
             </button>
           </div>
         </section>
@@ -583,7 +583,7 @@
               class="btn primary"
               [disabled]="isSavingAcademicInfo || !canSaveAcademicInformation()"
               (click)="saveAcademicInformation()">
-              {{ isSavingAcademicInfo ? 'Saving...' : 'Save School Background' }}
+              {{ getAcademicSaveButtonLabel() }}
             </button>
           </div>
 
@@ -645,7 +645,7 @@
               class="btn primary"
               [disabled]="isSavingSubjects || !canSaveHighSchoolSubjects()"
               (click)="saveHighSchoolSubjects()">
-              {{ isSavingSubjects ? 'Saving...' : 'Save Subjects' }}
+              {{ getSubjectsSaveButtonLabel() }}
             </button>
           </div>
 
@@ -741,7 +741,7 @@
 
           <div class="actions">
             <button type="button" class="btn primary" [disabled]="isUploadingDocuments || !canUploadRequiredDocuments()" (click)="uploadRequiredDocuments()">
-              {{ isUploadingDocuments ? (isFinalizingDocumentUpload ? 'Finalizing...' : 'Uploading...') : 'Upload Documents' }}
+              {{ getDocumentsSaveButtonLabel() }}
             </button>
           </div>
 
