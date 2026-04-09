@@ -1765,7 +1765,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return defaultLabel;
     }
 
-    return countdown > 0 ? `Saving ${countdown}s...` : fallbackSavingLabel;
+    return 'Saving...';
   }
 
   private startTimedSave(
@@ -1778,31 +1778,22 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     this.setSavingState(action, true, this.saveCountdownSeconds);
 
-    let saveErrorMessage: string | null = null;
-    const savePromise = Promise.resolve()
+    let toastMessage = successMessage;
+    void Promise.resolve()
       .then(saveTask)
       .catch((error) => {
-        saveErrorMessage = errorMessageResolver
+        toastMessage = errorMessageResolver
           ? errorMessageResolver(error)
           : 'Could not save right now. Please try again.';
       });
 
-    const timerId = window.setInterval(() => {
-      const currentCountdown = this.getCountdownState(action);
-      if (currentCountdown <= 1) {
-        window.clearInterval(timerId);
-        this.setSaveTimer(action, undefined);
-        this.setSavingState(action, false, 0);
-        void this.authService.presentToast(saveErrorMessage ?? successMessage);
-        return;
-      }
-
-      this.setCountdownState(action, currentCountdown - 1);
-    }, 1000);
+    const timerId = window.setTimeout(() => {
+      this.setSaveTimer(action, undefined);
+      this.setSavingState(action, false, 0);
+      void this.authService.presentToast(toastMessage);
+    }, this.saveToastDelayMs);
 
     this.setSaveTimer(action, timerId);
-
-    void savePromise;
   }
 
   private clearSaveTimer(action: 'profile' | 'academic' | 'subjects' | 'documents' | 'password') {
