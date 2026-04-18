@@ -6,7 +6,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPasswor
   applyActionCode, sendPasswordResetEmail, setPersistence, browserLocalPersistence}
   from "firebase/auth";
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular/standalone';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LoadingController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';

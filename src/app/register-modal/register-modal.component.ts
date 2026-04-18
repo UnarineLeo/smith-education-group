@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {  IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonText, IonIcon } from '@ionic/angular/standalone';
-import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular/standalone';
 import { INTEREST_OPTIONS, STUDY_LEVELS } from '../shared/app-data';
 
 @Component({

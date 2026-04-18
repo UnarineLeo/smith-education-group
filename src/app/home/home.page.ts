@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, 
  IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular/standalone';
 import { Subscription } from 'rxjs';
 import { FooterComponent } from '../footer/footer.component';
 import universitiesData from '../university-list/university-list.json';
