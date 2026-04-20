@@ -123,6 +123,7 @@ export class TabsPage {
         this.registerModalOpen = false;
         break;
       case 'register': {
+        console.log("handling registration dismissal with payload:", event.payload);
         const payload = event.payload;
         if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
           await this.authService.presentToast('Please complete all required fields');
@@ -140,6 +141,7 @@ export class TabsPage {
         }
 
         try {
+          console.log("attempting registration with payload:", payload);
           await this.authService.userRegistration({
             displayName: `${payload.firstName} ${payload.surname}`.trim(),
             email: payload.email,
@@ -149,8 +151,9 @@ export class TabsPage {
             courseChoices: payload.courseChoices ?? []
           });
           this.registerModalOpen = false;
-        } catch {
+        } catch (error) {
           // AuthService handles error toasts; keep modal open for correction.
+          console.error("Error occurred while registering user:", error);
         }
         break;
       }

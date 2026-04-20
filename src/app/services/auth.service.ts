@@ -120,10 +120,10 @@ export class AuthService {
 
   async loginFireAuth(value: any)
   {
-    const loading = await this.loader.create({
-      cssClass: 'transparent-loader'
-    });
-    loading.present();
+    // const loading = await this.loader.create({
+    //   cssClass: 'transparent-loader'
+    // });
+    // loading.present();
 
     const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
@@ -141,7 +141,7 @@ export class AuthService {
             this.userEmail = res.user.email
             this.regVerification = false
 
-            loading.dismiss();
+            // loading.dismiss();
             this.router.navigate(['/tabs/profile'])
             this.presentToast('Successfully logged in')
 
@@ -150,7 +150,7 @@ export class AuthService {
           }
           else
           {
-            loading.dismiss()
+            // loading.dismiss()
             this.regVerification = true
             this.logOut()
             sendEmailVerification(res.user)
@@ -163,22 +163,22 @@ export class AuthService {
           reject(error)
           if(error.code === 'auth/user-not-found')
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Email doesn\'t exist, please register first')
           }
           else if(error.code === 'auth/wrong-password')
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Incorrect password, please try again')
           }
           else if(error.code === 'auth/internal-error')
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Problem from our end, please try again later')
           }
           else
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast(error.code)
           }
         }
@@ -190,11 +190,11 @@ export class AuthService {
 
   async userRegistration(value: any)
   {
-    const loading = await this.loader.create({
-      cssClass: 'transparent-loader'
-    });
-    loading.present();
-
+    // const loading = await this.loader.create({
+    //   cssClass: 'transparent-loader'
+    // });
+    // loading.present();
+    console.log("inside registration service")
     const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
 
@@ -206,6 +206,7 @@ export class AuthService {
           resolve(res)
           // localStorage.setItem('token', JSON.stringify(res.user?.uid))
 
+          console.log("user created, now updating profile")
           updateProfile(
             res.user,{
             displayName: value.displayName, 
@@ -224,7 +225,7 @@ export class AuthService {
             this.userPassword = res.user.password
             this.regVerification = true
 
-            loading.dismiss()
+            // loading.dismiss()
 
             this.router.navigate(['/tabs/profile'])
             this.presentToast('Successfully registered, please check your email to verify your account')
@@ -252,12 +253,12 @@ export class AuthService {
             reject(error);
             if(error.code === 'auth/internal-error')
             {
-              loading.dismiss();
+              // loading.dismiss();
               this.presentToast('Problem from our end, please try again later')
             }
             else
             {
-              loading.dismiss();
+              // loading.dismiss();
               this.presentToast(error.code)
             }
           });
@@ -267,17 +268,17 @@ export class AuthService {
           reject(error)
           if (error.code === 'auth/email-already-in-use' || error.code === 'auth/email-already-exists')
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Email already in use')
           }
           else if(error.code === 'auth/internal-error')
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Problem from our end, please try again later')
           }
           else
           {
-            loading.dismiss();
+            // loading.dismiss();
             this.presentToast('Error signing up, please try again or contact support')
           }
 
