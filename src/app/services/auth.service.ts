@@ -194,7 +194,6 @@ export class AuthService {
     //   cssClass: 'transparent-loader'
     // });
     // loading.present();
-    console.log("inside registration service")
     const authInstance = getAuth(this.firebaseApp);
     setPersistence(authInstance, browserLocalPersistence);
 
@@ -206,7 +205,6 @@ export class AuthService {
           resolve(res)
           // localStorage.setItem('token', JSON.stringify(res.user?.uid))
 
-          console.log("user created, now updating profile")
           updateProfile(
             res.user,{
             displayName: value.displayName, 
