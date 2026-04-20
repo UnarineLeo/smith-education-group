@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   googleMapsApiKey: '',
-  enableAppCheck: false,
+  enableAppCheck: true,
   appCheckAllowedHosts: ['localhost', 'unipply.co.za'],
   appCheckDebugToken: true,
   appCheckReCaptchaSiteKey: '6LfXB6UsAAAAAF8DNiIz92upLrq5qs_Fi5ru272Z',
