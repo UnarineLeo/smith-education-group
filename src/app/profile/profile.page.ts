@@ -1116,9 +1116,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return 1;
   }
 
-  private async loadSavedSubjects(uid: string) {
+  private async loadSavedSubjects(userEmail: string, userId?: string) {
     try {
-      const userData = await this.authService.getUser(uid) as {
+      const userData = await this.authService.getUser(userEmail, userId) as {
         firstName?: string;
         lastName?: string;
         email?: string;
@@ -1326,7 +1326,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     this.allUniversityApsResults = [];
 
-    await this.loadSavedSubjects(user.uid);
+    await this.loadSavedSubjects(user.email ?? '', user.uid);
   }
 
   get hasAutomaticApsResults(): boolean {

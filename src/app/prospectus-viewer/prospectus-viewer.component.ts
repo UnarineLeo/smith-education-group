@@ -265,7 +265,7 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
     }
 
     try {
-      const userData = await this.authService.getUser(currentUser.uid) as {
+      const userData = await this.authService.getUser(currentUser.email ?? '', currentUser.uid) as {
         highSchoolSubjects?: Array<{ subject?: string; mark?: number }>;
       };
 

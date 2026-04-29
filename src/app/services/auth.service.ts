@@ -363,7 +363,12 @@ export class AuthService {
     interest?: string;
     courseChoices?: string[];
   }): Promise<void> {
-    const userRef = doc(this.db, 'users', user.uid);
+    const userEmail = typeof user?.email === 'string' ? user.email.trim().toLowerCase() : '';
+    if (!userEmail) {
+      return;
+    }
+
+    const userRef = doc(this.db, 'users', userEmail);
     const userDoc = await getDoc(userRef);
     const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
 
@@ -409,8 +414,13 @@ export class AuthService {
   }
 
   // update
-  async updateUser(uid: string, updatedInfo: [string, boolean, number, string[]]): Promise<void> {
-    const userRef = doc(this.db, 'users', uid);
+  async updateUser(userEmail: string, updatedInfo: [string, boolean, number, string[]]): Promise<void> {
+    const normalizedEmail = userEmail.trim().toLowerCase();
+    if (!normalizedEmail) {
+      return;
+    }
+
+    const userRef = doc(this.db, 'users', normalizedEmail);
     const userDoc = await getDoc(userRef);
     const existingData = userDoc.data();
 
@@ -442,10 +452,25 @@ export class AuthService {
   }
 
   // Get user from firestore
-  async getUser(uid: string): Promise<Record<string, unknown> | null> {
-    const userRef = doc(this.db, 'users', uid);
-    const userDoc = await getDoc(userRef);
-    return userDoc.data() ?? null;
+  async getUser(userEmail: string, userId?: string): Promise<Record<string, unknown> | null> {
+    const normalizedEmail = userEmail.trim().toLowerCase();
+    const normalizedUserId = typeof userId === 'string' ? userId.trim() : '';
+
+    if (normalizedEmail) {
+      const emailRef = doc(this.db, 'users', normalizedEmail);
+      const emailDoc = await getDoc(emailRef);
+      if (emailDoc.exists()) {
+        return emailDoc.data() ?? null;
+      }
+    }
+
+    if (normalizedUserId) {
+      const uidRef = doc(this.db, 'users', normalizedUserId);
+      const uidDoc = await getDoc(uidRef);
+      return uidDoc.data() ?? null;
+    }
+
+    return null;
   }
 
 }
