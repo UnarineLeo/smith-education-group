@@ -48,10 +48,6 @@ bootstrapApplication(AppComponent, {
     return;
   }
 
-  if (environment.appCheckDebugToken) {
-    (self as unknown as { FIREBASE_APPCHECK_DEBUG_TOKEN?: string | boolean }).FIREBASE_APPCHECK_DEBUG_TOKEN = environment.appCheckDebugToken;
-  }
-
   const firebaseApp = getApps().length ? getApp() : initializeApp(environment.firebaseConfig);
 
   try {

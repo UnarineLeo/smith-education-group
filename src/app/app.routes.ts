@@ -6,6 +6,14 @@ export const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
   {
+    path: 'admin-login',
+    loadComponent: () => import('./admin-login/admin-login.page').then((m) => m.AdminLoginPage)
+  },
+  {
+    path: 'admin-portal',
+    loadComponent: () => import('./admin-portal/admin-portal.page').then((m) => m.AdminPortalPage)
+  },
+  {
     path: 'contact',
     loadComponent: () => import('./contact-us/contact-us.page').then((m) => m.ContactUsPage)
   },

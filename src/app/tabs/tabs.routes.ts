@@ -32,6 +32,16 @@ export const routes: Routes = [
           import('../profile/profile.page').then((m) => m.ProfilePage),
       },
       {
+        path: 'admin-login',
+        loadComponent: () =>
+          import('../admin-login/admin-login.page').then((m) => m.AdminLoginPage),
+      },
+      {
+        path: 'admin-portal',
+        loadComponent: () =>
+          import('../admin-portal/admin-portal.page').then((m) => m.AdminPortalPage),
+      },
+      {
         path: 'contact-us',
         loadComponent: () =>
           import('../contact-us/contact-us.page').then((m) => m.ContactUsPage),

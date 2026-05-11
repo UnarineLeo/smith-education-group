@@ -38,6 +38,7 @@ export class AuthService {
   userPassword: string = ''
   userId: string = ''
   loadProfile = false
+  userRole: string = 'user';
 
   db = getFirestore(this.firebaseApp)
 
@@ -378,7 +379,8 @@ export class AuthService {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
-        lastSignIn: serverTimestamp()
+        lastSignIn: serverTimestamp(),
+        userRole: 'user'
       };
 
       if (typeof extraProfile?.currentStudyLevel === 'string') {
@@ -404,50 +406,12 @@ export class AuthService {
         emailVerified: user.emailVerified,
         isSubscribed: false,
         expiryDate: "",
-        apsScore: 0,
         lastSignIn: serverTimestamp(),
         currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
         studyAreas,
-        courseChoices: extraProfile?.courseChoices ?? []
+        courseChoices: extraProfile?.courseChoices ?? [],
+        userRole: 'user'
       });
-    }
-  }
-
-  // update
-  async updateUser(userEmail: string, updatedInfo: [string, boolean, number, string[]]): Promise<void> {
-    const normalizedEmail = userEmail.trim().toLowerCase();
-    if (!normalizedEmail) {
-      return;
-    }
-
-    const userRef = doc(this.db, 'users', normalizedEmail);
-    const userDoc = await getDoc(userRef);
-    const existingData = userDoc.data();
-
-    if (updatedInfo[0] === "") {
-      updatedInfo[0] = existingData?.['expiryDate'] ?? "";
-    }
-
-    if (existingData?.['isSubscribed'] === true) {
-      updatedInfo[1] = true;
-    }
-
-    if ((existingData?.['apsScore'] ?? 0) > updatedInfo[2]) {
-      updatedInfo[2] = existingData?.['apsScore'];
-    }
-
-    if ((!updatedInfo[3] || updatedInfo[3].length === 0) && Array.isArray(existingData?.['studyAreas'])) {
-      updatedInfo[3] = existingData?.['studyAreas'];
-    }
-
-    if(userDoc.exists()) 
-    {
-      await setDoc(userRef, {
-        expiryDate: updatedInfo[0],
-        isSubscribed: updatedInfo[1],
-        apsScore: updatedInfo[2],
-        studyAreas: updatedInfo[3]
-      }, { merge: true });
     }
   }
 
@@ -471,6 +435,44 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  private getEmailDocId(email: string | null | undefined): string | null {
+    const normalized = email?.trim().toLowerCase();
+    return normalized && normalized.length > 0 ? normalized : null;
+  }
+
+  async getCurrentUserRole(): Promise<string | null> {
+    const authInstance = getAuth(this.firebaseApp);
+    const user = authInstance.currentUser;
+
+    if (!user) {
+      this.userRole = 'user';
+      return null;
+    }
+
+    const emailDocId = this.getEmailDocId(user.email);
+    const emailRef = emailDocId ? doc(this.db, 'users', emailDocId) : null;
+    const uidRef = doc(this.db, 'users', user.uid);
+
+    const byEmailDoc = emailRef ? await getDoc(emailRef) : null;
+    const userDoc = byEmailDoc?.exists() ? byEmailDoc : await getDoc(uidRef);
+
+    if (!userDoc.exists()) {
+      this.userRole = 'user';
+      return 'user';
+    }
+
+    const role = (userDoc.data()?.['role'] as string | undefined) ?? 'user';
+    this.userRole = role;
+    this.userId = user.uid;
+    this.userEmail = user.email || 'not signed in';
+    return role;
+  }
+
+  async isCurrentUserAdmin(): Promise<boolean> {
+    const role = await this.getCurrentUserRole();
+    return role === 'admin';
   }
 
 }

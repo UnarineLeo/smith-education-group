@@ -4,7 +4,7 @@ import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthentic
 import { AuthService } from '../services/auth.service';
 import { environment } from 'src/environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
-import { SupabaseStorageService } from '../services/supabase-storage.service';
+import { getApp, getApps } from 'firebase/app';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 import { UNIVERSITY_OPTIONS } from '../shared/app-data';
 
@@ -21,6 +21,14 @@ interface RequiredDocumentRequirement {
   label: string;
   helperText: string;
   accept: string;
+  isMandatory?: boolean;
+}
+
+interface DocumentData {
+  fileName: string;
+  mimeType: string;
+  uploadedAt: number;
+  data: string; // base64-encoded file content
 }
 
 interface SubjectMarkEntry {
@@ -96,7 +104,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isEmailVerified = false;
   isSendingVerificationEmail = false;
   isCheckingVerificationStatus = false;
-  userUid = '';
+  userEmail = '';
 
   private readonly requiredProfileFieldLabels: Record<keyof typeof this.profile, string> = {
     firstName: 'First Name',
@@ -203,25 +211,29 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       key: 'idDocument',
       label: 'ID Document',
       helperText: 'Upload a clear scan or photo of your South African ID.',
-      accept: '.pdf,.jpg,.jpeg,.png'
+      accept: '.pdf,.jpg,.jpeg,.png',
+      isMandatory: true
     },
     {
       key: 'matricCertificate',
       label: 'Matric Certificate',
       helperText: 'Upload your official Grade 12 certificate.',
-      accept: '.pdf,.jpg,.jpeg,.png'
+      accept: '.pdf,.jpg,.jpeg,.png',
+      isMandatory: false
     },
     {
       key: 'grade11Transcript',
       label: 'Grade 11 Transcript',
       helperText: 'Upload your final Grade 11 report/transcript.',
-      accept: '.pdf,.jpg,.jpeg,.png'
+      accept: '.pdf,.jpg,.jpeg,.png',
+      isMandatory: false
     },
     {
       key: 'grade12MidYearResults',
       label: 'Grade 12 Mid-Year Results',
       helperText: 'Upload your latest Grade 12 mid-year results.',
-      accept: '.pdf,.jpg,.jpeg,.png'
+      accept: '.pdf,.jpg,.jpeg,.png',
+      isMandatory: false
     }
   ];
 
@@ -232,6 +244,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     grade12MidYearResults: null
   };
 
+  uploadedDocumentData: Partial<Record<RequiredDocumentKey, DocumentData>> = {};
   uploadedDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = {};
   uploadedDocumentNames: Partial<Record<RequiredDocumentKey, string>> = {};
   readonly requiredDocumentKey: RequiredDocumentKey = 'idDocument';
@@ -283,7 +296,6 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   constructor(
     private authService: AuthService,
-    private supabaseStorageService: SupabaseStorageService,
     private apsCalculationService: ApsCalculationService
   ) {
     this.unsubscribeAuth = onAuthStateChanged(getAuth(), async (user) => {
@@ -352,7 +364,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveProfileChanges() {
-    if (!this.userUid) {
+    if (!this.userEmail) {
       await this.authService.presentToast('Please sign in to save changes.');
       return;
     }
@@ -369,7 +381,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     void this.startTimedSave('profile', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
         firstName: this.profile.firstName,
         lastName: this.profile.lastName,
         email: this.profile.email,
@@ -397,7 +409,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveAcademicInformation() {
-    if (!this.userUid) {
+    if (!this.userEmail) {
       await this.authService.presentToast('Please sign in to save your academic information.');
       return;
     }
@@ -408,7 +420,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     void this.startTimedSave('academic', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
         currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
@@ -427,20 +439,20 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveInterests() {
-    if (!this.userUid) {
+    if (!this.userEmail) {
       await this.authService.presentToast('Please sign in to save changes.');
       return;
     }
 
     void this.startTimedSave('profile', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
         studyAreas: this.selectedInterests
       }, { merge: true });
     }, 'Interests saved successfully.');
   }
 
   shouldShowEmailVerificationBanner(): boolean {
-    return !this.isGoogleUser && this.userUid !== '' && !this.isEmailVerified;
+    return !this.isGoogleUser && this.userEmail !== '' && !this.isEmailVerified;
   }
 
   async resendVerificationEmail() {
@@ -481,8 +493,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await reload(currentUser);
       this.isEmailVerified = currentUser.emailVerified;
 
-      if (this.userUid) {
-        await setDoc(doc(this.authService.db, 'users', this.userUid), {
+      if (this.userEmail) {
+        await setDoc(doc(this.authService.db, 'users', this.userEmail), {
           emailVerified: this.isEmailVerified
         }, { merge: true });
       }
@@ -512,7 +524,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     const currentUser = getAuth().currentUser;
-    if (!currentUser || !this.userUid) {
+    if (!currentUser || !this.userEmail) {
       await this.authService.presentToast('Please sign in again to delete your account.');
       return;
     }
@@ -525,7 +537,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isDeletingAccount = true;
 
     try {
-      await deleteDoc(doc(this.authService.db, 'users', this.userUid));
+      await deleteDoc(doc(this.authService.db, 'users', this.userEmail));
       await deleteUser(currentUser);
       await this.authService.logOut({
         toastMessage: 'Account deleted successfully.',
@@ -787,7 +799,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveHighSchoolSubjects() {
-    if (!this.userUid) {
+    if (!this.userEmail) {
       await this.authService.presentToast('Please sign in to save your subjects.');
       return;
     }
@@ -836,7 +848,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     const primaryApsScore = this.resolvePrimaryApsScore(apsResults);
 
     void this.startTimedSave('subjects', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userUid), {
+      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
         currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
@@ -934,53 +946,46 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async refreshUploadedDocumentUrls() {
-    const documentEntries = Object.entries(this.uploadedDocumentUrls) as Array<[RequiredDocumentKey, string]>;
+    const documentEntries = Object.entries(this.uploadedDocumentData) as Array<[RequiredDocumentKey, DocumentData]>;
 
     if (!documentEntries.length) {
       return;
     }
 
     const resolvedEntries = await Promise.allSettled(
-      documentEntries.map(async ([key, storedValue]) => [key, await this.supabaseStorageService.createSignedDocumentUrl(storedValue)] as const)
+      documentEntries.map(async ([key, documentData]) => [key, await this.resolveDocumentUrl(documentData)] as const)
     );
 
     const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = {};
 
     resolvedEntries.forEach((result: PromiseSettledResult<readonly [RequiredDocumentKey, string]>, index: number) => {
-      const [key, storedValue] = documentEntries[index];
+      const [key] = documentEntries[index];
 
       if (result.status === 'fulfilled') {
         nextDocumentUrls[key] = result.value[1];
         return;
       }
 
-      // Keep stored path/URL when signed URL generation fails so upload flow does not get stuck.
-      console.warn(`Could not refresh signed URL for ${key}:`, result.reason);
-      nextDocumentUrls[key] = storedValue;
+      console.warn(`Could not create blob URL for ${key}:`, result.reason);
     });
 
     this.uploadedDocumentUrls = nextDocumentUrls;
   }
 
   async uploadRequiredDocuments() {
-    if (!this.userUid) {
+    if (!this.userEmail) {
       await this.authService.presentToast('Please sign in to upload documents.');
       return;
     }
 
-    const hasIdDocument = Boolean(this.selectedDocumentFiles[this.requiredDocumentKey] || this.uploadedDocumentUrls[this.requiredDocumentKey]);
+    const hasIdDocument = Boolean(this.selectedDocumentFiles[this.requiredDocumentKey] || this.uploadedDocumentData[this.requiredDocumentKey]);
 
     if (!hasIdDocument) {
       await this.authService.presentToast('Please upload your ID document before submitting.');
       return;
     }
 
-    if (!this.supabaseStorageService.isConfigured()) {
-      await this.authService.presentToast('Supabase is not configured yet. Add supabaseUrl and supabaseAnonKey in environment files.');
-      return;
-    }
-
-    const nextDocumentUrls: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentUrls };
+    const nextDocumentData: Partial<Record<RequiredDocumentKey, DocumentData>> = { ...this.uploadedDocumentData };
     const nextDocumentNames: Partial<Record<RequiredDocumentKey, string>> = { ...this.uploadedDocumentNames };
 
     const uploads = this.requiredDocuments
@@ -992,36 +997,36 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     const uploadedDocuments = await Promise.all(
       uploads.map(async ({ requirement, file }) => {
-        const { path } = await this.supabaseStorageService.uploadUserDocument(this.userUid, requirement.key, file);
+        const documentData = await this.uploadUserDocumentToFirebase(this.userEmail, requirement.key, file);
         return {
           key: requirement.key,
-          path,
+          documentData,
           name: file.name
         };
       })
     );
 
     uploadedDocuments.forEach((document) => {
-      nextDocumentUrls[document.key] = document.path;
+      nextDocumentData[document.key] = document.documentData;
       nextDocumentNames[document.key] = document.name;
     });
 
     void this.startTimedSave('documents', async () => {
       this.isFinalizingDocumentUpload = true;
 
-      await setDoc(doc(this.authService.db, 'users', this.userUid), {
-        documents: nextDocumentUrls,
+      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+        documents: nextDocumentData,
         documentFileNames: nextDocumentNames
       }, { merge: true });
 
-      this.uploadedDocumentUrls = nextDocumentUrls;
+      this.uploadedDocumentData = nextDocumentData;
       this.uploadedDocumentNames = nextDocumentNames;
 
       try {
         await this.refreshUploadedDocumentUrls();
         this.hasHydratedDocumentSignedUrls = true;
       } catch (error) {
-        console.warn('Documents uploaded, but signed URL refresh failed:', error);
+        console.warn('Documents uploaded, but could not create blob URLs:', error);
       }
 
       this.selectedDocumentFiles = {
@@ -1033,20 +1038,22 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }, 'Documents uploaded successfully.');
   }
 
-  async debugSupabaseConnection() {
+  async debugFirebaseStorageConnection() {
     try {
-      console.log('Supabase config:', {
-        url: environment.supabaseUrl,
-        bucket: environment.supabaseStorageBucket
-      });
+      const testData: DocumentData = {
+        fileName: 'test.txt',
+        mimeType: 'text/plain',
+        uploadedAt: Date.now(),
+        data: btoa('Firestore document storage test successful!')
+      };
 
-      const buckets = await this.supabaseStorageService.getExistingBuckets();
-      console.log('Supabase buckets from debug action:', buckets);
+      const blobUrl = await this.resolveDocumentUrl(testData);
+      console.log('Firestore document storage test - Blob URL:', blobUrl);
 
-      await this.authService.presentToast('Supabase connection check complete. See the console for details.');
+      await this.authService.presentToast('Firestore document storage check complete. See the console for details.');
     } catch (error) {
-      console.error('Supabase connection check failed:', error);
-      await this.authService.presentToast('Supabase connection check failed. See the console for details.');
+      console.error('Firestore document storage check failed:', error);
+      await this.authService.presentToast('Firestore document storage check failed. See the console for details.');
     }
   }
 
@@ -1116,9 +1123,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return 1;
   }
 
-  private async loadSavedSubjects(userEmail: string, userId?: string) {
+  private async loadSavedSubjects(userEmail: string) {
     try {
-      const userData = await this.authService.getUser(userEmail, userId) as {
+      const userData = await this.authService.getUser(userEmail) as {
         firstName?: string;
         lastName?: string;
         email?: string;
@@ -1145,7 +1152,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         schoolProvince?: string;
         matricYear?: string;
         hasWrittenNbt?: string;
-        documents?: Partial<Record<RequiredDocumentKey, string>>;
+        documents?: Partial<Record<RequiredDocumentKey, DocumentData>>;
         documentFileNames?: Partial<Record<RequiredDocumentKey, string>>;
       };
 
@@ -1202,10 +1209,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       }
 
       if (userData.documents && typeof userData.documents === 'object') {
-        this.uploadedDocumentUrls = { ...userData.documents };
+        this.uploadedDocumentData = { ...userData.documents };
         this.hasHydratedDocumentSignedUrls = false;
 
-        // Keep profile/academic actions fast and hydrate signed URLs only for document interactions.
+        // Keep profile/academic actions fast and hydrate blob URLs only for document interactions.
         if (this.activeTab === 'documents') {
           void this.hydrateDocumentSignedUrlsIfNeeded();
         }
@@ -1235,7 +1242,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private async applyUserProfile(user: User | null) {
     if (!user) {
-      this.userUid = '';
+      this.userEmail = '';
       this.isGoogleUser = false;
       this.isEmailVerified = false;
       this.profile = {
@@ -1277,10 +1284,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    this.userUid = user.uid;
+    this.userEmail = user.email ?? '';
 
     this.isGoogleUser = user.providerData.some((provider) => provider.providerId === 'google.com');
-  this.isEmailVerified = user.emailVerified ?? false;
+    this.isEmailVerified = user.emailVerified ?? false;
 
     const displayName = user.displayName?.trim() ?? '';
     const [firstName = 'User', ...rest] = displayName ? displayName.split(/\s+/) : ['User'];
@@ -1326,7 +1333,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     this.allUniversityApsResults = [];
 
-    await this.loadSavedSubjects(user.email ?? '', user.uid);
+    await this.loadSavedSubjects(user.email ?? '');
   }
 
   get hasAutomaticApsResults(): boolean {
@@ -1662,6 +1669,53 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     return this.allowedDocumentMimeTypes.has(file.type) || this.allowedDocumentExtensions.has(extension);
   }
 
+  private async fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        resolve(result.split(',')[1] || ''); // Extract base64 part
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  private base64ToBlob(base64: string, mimeType: string): Blob {
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: mimeType });
+  }
+
+  private async uploadUserDocumentToFirebase(userEmail: string, key: RequiredDocumentKey, file: File): Promise<DocumentData> {
+    const base64Data = await this.fileToBase64(file);
+    
+    return {
+      fileName: file.name,
+      mimeType: file.type || 'application/octet-stream',
+      uploadedAt: Date.now(),
+      data: base64Data
+    };
+  }
+
+  private async resolveDocumentUrl(documentData: DocumentData): Promise<string> {
+    if (!documentData?.data) {
+      return '';
+    }
+
+    try {
+      const blob = this.base64ToBlob(documentData.data, documentData.mimeType);
+      return URL.createObjectURL(blob);
+    } catch (error) {
+      console.warn('Could not create blob URL from document data:', error);
+      return '';
+    }
+  }
+
   private hasRequiredAcademicInformation(): boolean {
     return this.academicInformation.currentOrLastSchool.trim() !== ''
       && this.academicInformation.currentLevel.trim() !== ''
@@ -1902,12 +1956,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    const hasStoredPaths = Object.values(this.uploadedDocumentUrls).some((value) => {
-      const normalizedValue = typeof value === 'string' ? value.trim() : '';
-      return normalizedValue !== '' && !/^https?:\/\//i.test(normalizedValue);
+    const hasStoredDocuments = Object.values(this.uploadedDocumentData).some((value) => {
+      return value?.data ? true : false;
     });
 
-    if (!hasStoredPaths) {
+    if (!hasStoredDocuments) {
       this.hasHydratedDocumentSignedUrls = true;
       return;
     }
@@ -1918,7 +1971,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await this.refreshUploadedDocumentUrls();
       this.hasHydratedDocumentSignedUrls = true;
     } catch (error) {
-      console.warn('Could not hydrate signed document URLs:', error);
+      console.warn('Could not hydrate document blob URLs:', error);
     } finally {
       this.isHydratingDocumentSignedUrls = false;
     }

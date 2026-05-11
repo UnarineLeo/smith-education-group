@@ -1,0 +1,102 @@
+<ion-content [fullscreen]="true">
+  <section class="admin-hero">
+    <div class="admin-hero-inner">
+      <p class="eyebrow">Admin</p>
+      <h1>Firestore Users</h1>
+      <p class="hero-subtitle">View every users document in Firestore, grouped into cards for quick review.</p>
+    </div>
+  </section>
+
+  <section class="admin-shell single-column-shell">
+    <ion-card class="admin-card panel users-summary-card">
+      <ion-card-header>
+        <div class="section-head">
+          <ion-card-title>Users Collection</ion-card-title>
+          <p class="section-subtitle">Each card represents one document from the <strong>users</strong> collection.</p>
+        </div>
+        <div class="summary-actions">
+          <ion-chip color="primary">{{ users.length }} documents</ion-chip>
+          <ion-button size="small" fill="outline" (click)="refreshUsers()">Refresh</ion-button>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content>
+        @if (isLoadingUsers) {
+          <p class="empty-state">Loading Firestore users...</p>
+        } @else if (loadUsersError) {
+          <p class="empty-state error-state">{{ loadUsersError }}</p>
+        } @else if (users.length === 0) {
+          <p class="empty-state">No Firestore users documents found yet.</p>
+        } @else {
+          <div class="users-grid">
+            @for (user of users; track user.id) {
+              <article class="user-card">
+                <header class="user-card-header">
+                  <div>
+                    <p class="user-card-eyebrow">Document ID</p>
+                    <h3>{{ user.id }}</h3>
+                  </div>
+                  <ion-chip color="medium">{{ getUserStatusLabel(user) }}</ion-chip>
+                </header>
+
+                <div class="detail-card-grid">
+                  <section class="detail-card">
+                    <h4>Identity</h4>
+                    <p><strong>Name:</strong> {{ getUserDisplayName(user) }}</p>
+                    <p><strong>Email:</strong> {{ user.email || 'N/A' }}</p>
+                    <p><strong>Verified:</strong> {{ formatBoolean(user.emailVerified) }}</p>
+                    <p><strong>Role:</strong> {{ user.userRole || 'user' }}</p>
+                  </section>
+
+                  <section class="detail-card">
+                    <h4>Profile</h4>
+                    <p><strong>Phone:</strong> {{ user.phone || 'N/A' }}</p>
+                    <p><strong>SA ID:</strong> {{ user.saIdNumber || 'N/A' }}</p>
+                    <p><strong>Address:</strong> {{ user.streetAddress || 'N/A' }}</p>
+                    <p><strong>City/Town:</strong> {{ user.cityTown || 'N/A' }}</p>
+                    <p><strong>Province:</strong> {{ user.provinceAddress || 'N/A' }}</p>
+                    <p><strong>Postal Code:</strong> {{ user.postalCode || 'N/A' }}</p>
+                  </section>
+
+                  <section class="detail-card">
+                    <h4>Study</h4>
+                    <p><strong>Current Level:</strong> {{ user.currentStudyLevel || 'N/A' }}</p>
+                    <p><strong>Study Areas:</strong> {{ formatList(user.studyAreas) }}</p>
+                    <p><strong>Course Choices:</strong> {{ formatList(user.courseChoices) }}</p>
+                    <p><strong>Expiry Date:</strong> {{ user.expiryDate || 'N/A' }}</p>
+                    <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
+                  </section>
+
+                  <section class="detail-card full-span">
+                    <h4>Documents</h4>
+                    @if (getUserDocuments(user).length === 0) {
+                      <p>No documents stored in this Firestore document yet.</p>
+                    } @else {
+                      <div class="document-grid">
+                        @for (document of getUserDocuments(user); track document.key) {
+                          <article class="document-card">
+                            <h5>{{ document.key }}</h5>
+                            <p><strong>File:</strong> {{ document.fileName }}</p>
+                            <p><strong>MIME:</strong> {{ document.mimeType }}</p>
+                            <p><strong>Uploaded:</strong> {{ document.uploadedAt }}</p>
+                          </article>
+                        }
+                      </div>
+                    }
+                  </section>
+
+                  <section class="detail-card full-span">
+                    <h4>Raw Document Summary</h4>
+                    <p class="raw-summary">Firestore timestamp: {{ formatFirestoreDate(user.lastSignIn) }}</p>
+                  </section>
+                </div>
+              </article>
+            }
+          </div>
+        }
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <app-footer></app-footer>
+</ion-content>
