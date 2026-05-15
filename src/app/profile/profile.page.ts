@@ -364,7 +364,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveProfileChanges() {
-    if (!this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
       await this.authService.presentToast('Please sign in to save changes.');
       return;
     }
@@ -381,7 +382,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     void this.startTimedSave('profile', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
         firstName: this.profile.firstName,
         lastName: this.profile.lastName,
         email: this.profile.email,
@@ -409,7 +410,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveAcademicInformation() {
-    if (!this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
       await this.authService.presentToast('Please sign in to save your academic information.');
       return;
     }
@@ -420,7 +422,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     void this.startTimedSave('academic', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
         currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
@@ -439,13 +441,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveInterests() {
-    if (!this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
       await this.authService.presentToast('Please sign in to save changes.');
       return;
     }
 
     void this.startTimedSave('profile', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
         studyAreas: this.selectedInterests
       }, { merge: true });
     }, 'Interests saved successfully.');
@@ -494,9 +497,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.isEmailVerified = currentUser.emailVerified;
 
       if (this.userEmail) {
-        await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+        const userDocId = this.getUserDocId();
+        if (userDocId) {
+          await setDoc(doc(this.authService.db, 'users', userDocId), {
           emailVerified: this.isEmailVerified
-        }, { merge: true });
+          }, { merge: true });
+        }
       }
 
       if (this.isEmailVerified) {
@@ -524,7 +530,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     const currentUser = getAuth().currentUser;
-    if (!currentUser || !this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!currentUser || !userDocId) {
       await this.authService.presentToast('Please sign in again to delete your account.');
       return;
     }
@@ -537,7 +544,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.isDeletingAccount = true;
 
     try {
-      await deleteDoc(doc(this.authService.db, 'users', this.userEmail));
+      await deleteDoc(doc(this.authService.db, 'users', userDocId));
       await deleteUser(currentUser);
       await this.authService.logOut({
         toastMessage: 'Account deleted successfully.',
@@ -799,7 +806,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async saveHighSchoolSubjects() {
-    if (!this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
       await this.authService.presentToast('Please sign in to save your subjects.');
       return;
     }
@@ -848,7 +856,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     const primaryApsScore = this.resolvePrimaryApsScore(apsResults);
 
     void this.startTimedSave('subjects', async () => {
-      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
         currentOrLastSchool: this.academicInformation.currentOrLastSchool,
         currentLevel: this.academicInformation.currentLevel,
         schoolProvince: this.academicInformation.schoolProvince,
@@ -973,7 +981,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   async uploadRequiredDocuments() {
-    if (!this.userEmail) {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
       await this.authService.presentToast('Please sign in to upload documents.');
       return;
     }
@@ -1014,7 +1023,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     void this.startTimedSave('documents', async () => {
       this.isFinalizingDocumentUpload = true;
 
-      await setDoc(doc(this.authService.db, 'users', this.userEmail), {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
         documents: nextDocumentData,
         documentFileNames: nextDocumentNames
       }, { merge: true });
@@ -1284,7 +1293,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    this.userEmail = user.email ?? '';
+    this.userEmail = (user.email ?? '').trim().toLowerCase();
 
     this.isGoogleUser = user.providerData.some((provider) => provider.providerId === 'google.com');
     this.isEmailVerified = user.emailVerified ?? false;
@@ -1333,7 +1342,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     this.allUniversityApsResults = [];
 
-    await this.loadSavedSubjects(user.email ?? '');
+    await this.loadSavedSubjects(this.userEmail);
   }
 
   get hasAutomaticApsResults(): boolean {
@@ -1792,6 +1801,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private hasValidSaIdNumber(): boolean {
     return /^\d{13}$/.test(this.profile.saIdNumber.trim());
+  }
+
+  private getUserDocId(): string | null {
+    const normalized = (this.userEmail ?? '').trim().toLowerCase();
+    return normalized.length > 0 ? normalized : null;
   }
 
   getProfileSaveButtonLabel(): string {
