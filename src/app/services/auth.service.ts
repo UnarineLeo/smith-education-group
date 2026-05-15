@@ -3,7 +3,7 @@ import { getApp, getApps, initializeApp } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, signOut, updateProfile, sendEmailVerification,
-  applyActionCode, sendPasswordResetEmail, setPersistence, browserLocalPersistence}
+  sendPasswordResetEmail, setPersistence, browserLocalPersistence}
   from "firebase/auth";
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular/standalone';
@@ -81,7 +81,7 @@ export class AuthService {
     this.isLoggedIn = true;
     this.authState.next(true);
     this.userName = user.displayName || 'Guest';
-    this.userEmail = user.email || 'not signed in';
+    this.userEmail = (user.email ?? '').trim().toLowerCase() || 'not signed in';
     this.isVerified = user.emailVerified ?? false;
     this.userId = user.uid || '';
   }
@@ -139,7 +139,7 @@ export class AuthService {
           {
             this.isLoggedIn = true
             this.authState.next(true)
-            this.userEmail = res.user.email
+            this.userEmail = (res.user.email ?? '').trim().toLowerCase()
             this.regVerification = false
 
             // loading.dismiss();
@@ -220,7 +220,7 @@ export class AuthService {
             this.authState.next(true)
             this.userName = value.displayName
             this.isVerified = res.user.emailVerified
-            this.userEmail = res.user.email
+            this.userEmail = (res.user.email ?? '').trim().toLowerCase()
             this.userPassword = res.user.password
             this.regVerification = true
 
@@ -466,7 +466,7 @@ export class AuthService {
     const role = (userDoc.data()?.['role'] as string | undefined) ?? 'user';
     this.userRole = role;
     this.userId = user.uid;
-    this.userEmail = user.email || 'not signed in';
+    this.userEmail = (user.email ?? '').trim().toLowerCase() || 'not signed in';
     return role;
   }
 
