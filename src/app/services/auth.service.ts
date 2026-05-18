@@ -380,6 +380,7 @@ export class AuthService {
         displayName: user.displayName,
         emailVerified: user.emailVerified,
         lastSignIn: serverTimestamp(),
+        role: 'user',
         userRole: 'user'
       };
 
@@ -410,6 +411,7 @@ export class AuthService {
         currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
         studyAreas,
         courseChoices: extraProfile?.courseChoices ?? [],
+        role: 'user',
         userRole: 'user'
       });
     }
@@ -463,7 +465,9 @@ export class AuthService {
       return 'user';
     }
 
-    const role = (userDoc.data()?.['role'] as string | undefined) ?? 'user';
+    const role = (userDoc.data()?.['role'] as string | undefined)
+      ?? (userDoc.data()?.['userRole'] as string | undefined)
+      ?? 'user';
     this.userRole = role;
     this.userId = user.uid;
     this.userEmail = (user.email ?? '').trim().toLowerCase() || 'not signed in';

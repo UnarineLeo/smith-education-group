@@ -22,14 +22,20 @@ service cloud.firestore {
     function isAdminFromUidDoc() {
       return isSignedIn()
         && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+        && (
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.userRole == 'admin'
+        );
     }
 
     function isAdminFromEmailDoc() {
       return isSignedIn()
         && request.auth.token.email != null
         && exists(/databases/$(database)/documents/users/$(authEmailDocId()))
-        && get(/databases/$(database)/documents/users/$(authEmailDocId())).data.role == 'admin';
+        && (
+          get(/databases/$(database)/documents/users/$(authEmailDocId())).data.role == 'admin'
+          || get(/databases/$(database)/documents/users/$(authEmailDocId())).data.userRole == 'admin'
+        );
     }
 
     function isAdmin() {
@@ -37,7 +43,8 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      allow read, write: if isUserOwner(userId);
+      allow read: if isUserOwner(userId) || isAdmin();
+      allow write: if isUserOwner(userId);
     }
 
   }
