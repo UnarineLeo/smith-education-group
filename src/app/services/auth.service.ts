@@ -373,54 +373,25 @@ export class AuthService {
 
     const userRef = doc(this.db, 'users', userEmail);
     console.log('User document reference:', userRef.path);
-    const userDoc = await getDoc(userRef);
-    console.log('User document exists:', userDoc.exists());
     const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
 
-    if (userDoc.exists()) 
-    {
-      console.log('User document already exists, merging data with existing document');
-      const mergePayload: Record<string, unknown> = {
-        email: user.email,
-        displayName: user.displayName,
-        emailVerified: user.emailVerified,
-        lastSignIn: serverTimestamp(),
-        role: 'user'
-      };
+    const payload: Record<string, unknown> = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      emailVerified: user.emailVerified,
+      isSubscribed: false,
+      expiryDate: '',
+      lastSignIn: serverTimestamp(),
+      currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
+      studyAreas,
+      courseChoices: extraProfile?.courseChoices ?? [],
+      role: 'user'
+    };
 
-      // if (typeof extraProfile?.currentStudyLevel === 'string') {
-      //   mergePayload['currentStudyLevel'] = extraProfile.currentStudyLevel;
-      // }
+    console.log('Upserting user data with payload:', payload);
 
-      // if (extraProfile?.interest) {
-      //   mergePayload['studyAreas'] = studyAreas;
-      // }
-
-      // if (Array.isArray(extraProfile?.courseChoices) && extraProfile.courseChoices.length > 0) {
-      //   mergePayload['courseChoices'] = extraProfile.courseChoices;
-      // }
-
-      console.log('Merging user data with payload:', mergePayload);
-
-      await setDoc(userRef, mergePayload, { merge: true });
-    } 
-    else 
-    {
-      console.log('Creating new user document with data:');
-      await setDoc(userRef, {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        emailVerified: user.emailVerified,
-        isSubscribed: false,
-        expiryDate: "",
-        lastSignIn: serverTimestamp(),
-        currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
-        studyAreas,
-        courseChoices: extraProfile?.courseChoices ?? [],
-        role: 'user'
-      });
-    }
+    await setDoc(userRef, payload, { merge: true });
   }
 
   // Get user from firestore
