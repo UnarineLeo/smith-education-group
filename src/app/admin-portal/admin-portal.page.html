@@ -45,7 +45,7 @@
                     <p><strong>Name:</strong> {{ getUserDisplayName(user) }}</p>
                     <p><strong>Email:</strong> {{ user.email || 'N/A' }}</p>
                     <p><strong>Verified:</strong> {{ formatBoolean(user.emailVerified) }}</p>
-                    <p><strong>Role:</strong> {{ user.userRole || 'user' }}</p>
+                    <p><strong>Role:</strong> {{ user.role || 'user' }}</p>
                   </section>
 
                   <section class="detail-card">

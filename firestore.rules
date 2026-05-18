@@ -22,20 +22,14 @@ service cloud.firestore {
     function isAdminFromUidDoc() {
       return isSignedIn()
         && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && (
-          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
-          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.userRole == 'admin'
-        );
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
     function isAdminFromEmailDoc() {
       return isSignedIn()
         && request.auth.token.email != null
         && exists(/databases/$(database)/documents/users/$(authEmailDocId()))
-        && (
-          get(/databases/$(database)/documents/users/$(authEmailDocId())).data.role == 'admin'
-          || get(/databases/$(database)/documents/users/$(authEmailDocId())).data.userRole == 'admin'
-        );
+        && get(/databases/$(database)/documents/users/$(authEmailDocId())).data.role == 'admin';
     }
 
     function isAdmin() {

@@ -38,7 +38,7 @@ export class AuthService {
   userPassword: string = ''
   userId: string = ''
   loadProfile = false
-  userRole: string = 'user';
+  role: string = 'user';
 
   db = getFirestore(this.firebaseApp)
 
@@ -369,6 +369,8 @@ export class AuthService {
       return;
     }
 
+    console.log('Adding/updating user in Firestore with email:', userEmail);
+
     const userRef = doc(this.db, 'users', userEmail);
     const userDoc = await getDoc(userRef);
     const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
@@ -380,8 +382,7 @@ export class AuthService {
         displayName: user.displayName,
         emailVerified: user.emailVerified,
         lastSignIn: serverTimestamp(),
-        role: 'user',
-        userRole: 'user'
+        role: 'user'
       };
 
       if (typeof extraProfile?.currentStudyLevel === 'string') {
@@ -396,10 +397,13 @@ export class AuthService {
         mergePayload['courseChoices'] = extraProfile.courseChoices;
       }
 
+      console.log('Merging user data with payload:', mergePayload);
+
       await setDoc(userRef, mergePayload, { merge: true });
     } 
     else 
     {
+      console.log('Creating new user document with data:');
       await setDoc(userRef, {
         uid: user.uid,
         email: user.email,
@@ -411,8 +415,7 @@ export class AuthService {
         currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
         studyAreas,
         courseChoices: extraProfile?.courseChoices ?? [],
-        role: 'user',
-        userRole: 'user'
+        role: 'user'
       });
     }
   }
@@ -444,12 +447,12 @@ export class AuthService {
     return normalized && normalized.length > 0 ? normalized : null;
   }
 
-  async getCurrentUserRole(): Promise<string | null> {
+  async getCurrentRole(): Promise<string | null> {
     const authInstance = getAuth(this.firebaseApp);
     const user = authInstance.currentUser;
 
     if (!user) {
-      this.userRole = 'user';
+      this.role = 'user';
       return null;
     }
 
@@ -461,21 +464,19 @@ export class AuthService {
     const userDoc = byEmailDoc?.exists() ? byEmailDoc : await getDoc(uidRef);
 
     if (!userDoc.exists()) {
-      this.userRole = 'user';
+      this.role = 'user';
       return 'user';
     }
 
-    const role = (userDoc.data()?.['role'] as string | undefined)
-      ?? (userDoc.data()?.['userRole'] as string | undefined)
-      ?? 'user';
-    this.userRole = role;
+    const role = (userDoc.data()?.['role'] as string | undefined) ?? 'user';
+    this.role = role;
     this.userId = user.uid;
     this.userEmail = (user.email ?? '').trim().toLowerCase() || 'not signed in';
     return role;
   }
 
   async isCurrentUserAdmin(): Promise<boolean> {
-    const role = await this.getCurrentUserRole();
+    const role = await this.getCurrentRole();
     return role === 'admin';
   }
 
