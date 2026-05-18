@@ -372,11 +372,14 @@ export class AuthService {
     console.log('Adding/updating user in Firestore with email:', userEmail);
 
     const userRef = doc(this.db, 'users', userEmail);
+    console.log('User document reference:', userRef.path);
     const userDoc = await getDoc(userRef);
+    console.log('User document exists:', userDoc.exists());
     const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
 
     if (userDoc.exists()) 
     {
+      console.log('User document already exists, merging data with existing document');
       const mergePayload: Record<string, unknown> = {
         email: user.email,
         displayName: user.displayName,
