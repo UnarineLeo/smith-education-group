@@ -200,7 +200,7 @@ export class AdminPortalPage implements OnInit {
   }
 
   getUserStatusLabel(user: AdminUserDocument): string {
-    const role = user.userRole?.trim() || (user.role as string | undefined)?.trim() || 'user';
+    const role = user.userRole?.trim() || (user['role'] as string | undefined)?.trim() || 'user';
     const verified = user.emailVerified === true ? 'verified' : 'unverified';
     return `${role} · ${verified}`;
   }
