@@ -385,17 +385,17 @@ export class AuthService {
         role: 'user'
       };
 
-      if (typeof extraProfile?.currentStudyLevel === 'string') {
-        mergePayload['currentStudyLevel'] = extraProfile.currentStudyLevel;
-      }
+      // if (typeof extraProfile?.currentStudyLevel === 'string') {
+      //   mergePayload['currentStudyLevel'] = extraProfile.currentStudyLevel;
+      // }
 
-      if (extraProfile?.interest) {
-        mergePayload['studyAreas'] = studyAreas;
-      }
+      // if (extraProfile?.interest) {
+      //   mergePayload['studyAreas'] = studyAreas;
+      // }
 
-      if (Array.isArray(extraProfile?.courseChoices) && extraProfile.courseChoices.length > 0) {
-        mergePayload['courseChoices'] = extraProfile.courseChoices;
-      }
+      // if (Array.isArray(extraProfile?.courseChoices) && extraProfile.courseChoices.length > 0) {
+      //   mergePayload['courseChoices'] = extraProfile.courseChoices;
+      // }
 
       console.log('Merging user data with payload:', mergePayload);
 
