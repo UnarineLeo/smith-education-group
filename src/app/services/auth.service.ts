@@ -263,11 +263,13 @@ export class AuthService {
                   .slice(0, 4)
               : [];
 
-            this.addUser(res.user, {
-              currentStudyLevel: value.currentStudyLevel,
-              interest: registrationInterest,
-              courseChoices: registrationCourseChoices
-            })
+            this.addUser(res.user
+            //   {
+            //   currentStudyLevel: value.currentStudyLevel,
+            //   interest: registrationInterest,
+            //   courseChoices: registrationCourseChoices
+            // }
+          )
 
           })
           .catch((error) => 
@@ -382,39 +384,67 @@ export class AuthService {
 
   // Add user to firestore
 
-  async addUser(user: any, extraProfile?: {
-    currentStudyLevel?: string;
-    interest?: string;
-    courseChoices?: string[];
-  }): Promise<void> {
-    const userEmail = typeof user?.email === 'string' ? user.email.trim().toLowerCase() : '';
-    if (!userEmail) {
-      return;
+  // async addUser(user: any, extraProfile?: {
+  //   currentStudyLevel?: string;
+  //   interest?: string;
+  //   courseChoices?: string[];
+  // }): Promise<void> {
+  //   const userEmail = typeof user?.email === 'string' ? user.email.trim().toLowerCase() : '';
+  //   if (!userEmail) {
+  //     return;
+  //   }
+
+  //   console.log('Adding/updating user in Firestore with email:', userEmail);
+
+  //   const userRef = doc(this.db, 'users', userEmail);
+  //   console.log('User document reference:', userRef.path);
+  //   const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
+
+  //   const payload: Record<string, unknown> = {
+  //     uid: user.uid,
+  //     email: user.email,
+  //     displayName: user.displayName,
+  //     emailVerified: user.emailVerified,
+  //     isSubscribed: false,
+  //     expiryDate: '',
+  //     lastSignIn: serverTimestamp(),
+  //     currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
+  //     studyAreas,
+  //     courseChoices: extraProfile?.courseChoices ?? [],
+  //     role: 'user'
+  //   };
+
+  //   console.log('Upserting user data with payload:', payload);
+
+  //   await setDoc(userRef, payload, { merge: true });
+  // }
+
+  async addUser(user: any): Promise<void> {
+    const userRef = doc(this.db, 'users', user.uid);
+    const userDoc = await getDoc(userRef);
+    if (userDoc.exists()) 
+    {
+      await setDoc(userRef, {
+        email: user.email,
+        displayName: user.displayName,
+        emailVerified: user.emailVerified,
+        lastSignIn: serverTimestamp()
+      }, { merge: true });
+    } 
+    else 
+    {
+      await setDoc(userRef, {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        emailVerified: user.emailVerified,
+        hasMini: false,
+        expiryDate: "",
+        points: 0,
+        lastSignIn: serverTimestamp(),
+        currentPlan: ""
+      });
     }
-
-    console.log('Adding/updating user in Firestore with email:', userEmail);
-
-    const userRef = doc(this.db, 'users', userEmail);
-    console.log('User document reference:', userRef.path);
-    const studyAreas = extraProfile?.interest ? [extraProfile.interest] : [];
-
-    const payload: Record<string, unknown> = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      emailVerified: user.emailVerified,
-      isSubscribed: false,
-      expiryDate: '',
-      lastSignIn: serverTimestamp(),
-      currentStudyLevel: extraProfile?.currentStudyLevel ?? '',
-      studyAreas,
-      courseChoices: extraProfile?.courseChoices ?? [],
-      role: 'user'
-    };
-
-    console.log('Upserting user data with payload:', payload);
-
-    await setDoc(userRef, payload, { merge: true });
   }
 
   
