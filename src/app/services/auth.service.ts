@@ -394,27 +394,7 @@ export class AuthService {
     await setDoc(userRef, payload, { merge: true });
   }
 
-  // Get user from firestore
-  async getUser(userEmail: string, userId?: string): Promise<Record<string, unknown> | null> {
-    const normalizedEmail = userEmail.trim().toLowerCase();
-    const normalizedUserId = typeof userId === 'string' ? userId.trim() : '';
-
-    if (normalizedEmail) {
-      const emailRef = doc(this.db, 'users', normalizedEmail);
-      const emailDoc = await getDoc(emailRef);
-      if (emailDoc.exists()) {
-        return emailDoc.data() ?? null;
-      }
-    }
-
-    if (normalizedUserId) {
-      const uidRef = doc(this.db, 'users', normalizedUserId);
-      const uidDoc = await getDoc(uidRef);
-      return uidDoc.data() ?? null;
-    }
-
-    return null;
-  }
+  
 
   private getEmailDocId(email: string | null | undefined): string | null {
     const normalized = email?.trim().toLowerCase();
