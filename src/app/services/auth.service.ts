@@ -340,7 +340,8 @@ export class AuthService {
 
   //  Logout
 
-  async logOut(options?: { toastMessage?: string; redirectTo?: string; forceReload?: boolean }) {
+  async logOut(options?: { toastMessage?: string; redirectTo?: string; forceReload?: boolean }) 
+  {
     try {
       await signOut(getAuth(this.firebaseApp))
 
@@ -419,11 +420,16 @@ export class AuthService {
   //   await setDoc(userRef, payload, { merge: true });
   // }
 
-  async addUser(user: any): Promise<void> {
+  async addUser(user: any): Promise<void> 
+  {
+    console.log('Adding/updating user in Firestore with email:', user.email);
     const userRef = doc(this.db, 'users', user.uid);
+    console.log('User document reference:', userRef.path);
     const userDoc = await getDoc(userRef);
+    console.log('Existing user document:', userDoc.exists() ? userDoc.data() : 'No document found');
     if (userDoc.exists()) 
     {
+      console.log('User already exists, updating lastSignIn timestamp');
       await setDoc(userRef, {
         email: user.email,
         displayName: user.displayName,
@@ -433,6 +439,7 @@ export class AuthService {
     } 
     else 
     {
+      console.log('Creating new user document');
       await setDoc(userRef, {
         uid: user.uid,
         email: user.email,
