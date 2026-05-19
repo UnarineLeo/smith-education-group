@@ -20,38 +20,6 @@ export class AuthService {
 
   private readonly firebaseApp = getApps().length ? getApp() : initializeApp(environment.firebaseConfig);
 
-  constructor(public auth: AngularFireAuth, private router: Router,
-    private toastController: ToastController, private firestore: AngularFirestore,
-    public loader: LoadingController) 
-  {
-
-    this.initializeAuth()
-    
-  }
-
-
-    // Get user from firestore
-    async getUser(userEmail: string, userId?: string): Promise<Record<string, unknown> | null> {
-      const normalizedEmail = userEmail.trim().toLowerCase();
-      const normalizedUserId = typeof userId === 'string' ? userId.trim() : '';
-
-      if (normalizedEmail) {
-        const emailRef = doc(this.db, 'users', normalizedEmail);
-        const emailDoc = await getDoc(emailRef);
-        if (emailDoc.exists()) {
-          return emailDoc.data() ?? null;
-        }
-      }
-
-      if (normalizedUserId) {
-        const uidRef = doc(this.db, 'users', normalizedUserId);
-        const uidDoc = await getDoc(uidRef);
-        return uidDoc.data() ?? null;
-      }
-
-      return null;
-    }
-
   isLoggedIn = false;
   userName = `Guest`;
   isVerified = false;
@@ -64,6 +32,34 @@ export class AuthService {
   role: string = 'user';
 
   db = getFirestore(this.firebaseApp)
+
+  constructor(public auth: AngularFireAuth, private router: Router, private toastController: ToastController, private firestore: AngularFirestore,
+    public loader: LoadingController) 
+  {
+    this.initializeAuth()
+  }
+  
+  // Get user from firestore
+  async getUser(userEmail: string, userId?: string): Promise<Record<string, unknown> | null> {
+    const normalizedEmail = userEmail.trim().toLowerCase();
+    const normalizedUserId = typeof userId === 'string' ? userId.trim() : '';
+
+    if (normalizedEmail) {
+      const emailRef = doc(this.db, 'users', normalizedEmail);
+      const emailDoc = await getDoc(emailRef);
+      if (emailDoc.exists()) {
+        return emailDoc.data() ?? null;
+      }
+    }
+
+    if (normalizedUserId) {
+      const uidRef = doc(this.db, 'users', normalizedUserId);
+      const uidDoc = await getDoc(uidRef);
+      return uidDoc.data() ?? null;
+    }
+
+    return null;
+  }
 
   private async initializeAuth() {
     const authInstance = getAuth(this.firebaseApp);
@@ -422,7 +418,7 @@ export class AuthService {
 
   async addUser(user: any): Promise<void> 
   {
-    console.log('Adding/updating user in Firestore with email:', user.email);
+    console.log('User is logged in', getAuth().currentUser);
     const userRef = doc(this.db, 'users', user.uid);
     console.log('User document reference:', userRef.path);
     const userDoc = await getDoc(userRef);
