@@ -419,7 +419,7 @@ export class AuthService {
   async addUser(user: any): Promise<void> 
   {
     console.log('User is logged in', getAuth().currentUser);
-    const userRef = doc(this.db, 'users', user.uid);
+    const userRef = doc(this.db, 'admin', user.uid);
     console.log('User document reference:', userRef.path);
     const userDoc = await getDoc(userRef);
     console.log('Existing user document:', userDoc.exists() ? userDoc.data() : 'No document found');
@@ -449,8 +449,6 @@ export class AuthService {
       });
     }
   }
-
-  
 
   private getEmailDocId(email: string | null | undefined): string | null {
     const normalized = email?.trim().toLowerCase();
