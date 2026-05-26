@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel, IonModal } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { getAuth, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
@@ -10,6 +10,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { University } from '../shared/app-data';
 import universitiesData from '../university-list/university-list.json';
 import { AuthService } from '../services/auth.service';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 
 @Component({
@@ -29,6 +31,9 @@ import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '..
     IonBackButton,
     IonChip,
     IonLabel,
+    IonModal,
+    LoginModalComponent,
+    RegisterModalComponent,
     RouterLink,
     PdfViewerModule
   ],
@@ -48,6 +53,10 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
   isPhoneDevice = false;
   isLoggedIn = false;
   currentUniversityApsResult: ApsCalculationResult | null = null;
+
+  // Modal controls
+  loginModalOpen = false;
+  registerModalOpen = false;
 
   private authUnsubscribe?: Unsubscribe;
 
@@ -85,6 +94,119 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authUnsubscribe?.();
+  }
+
+  openLoginModal() {
+    this.loginModalOpen = true;
+  }
+
+  openRegisterModal() {
+    this.registerModalOpen = true;
+  }
+
+  async handleLoginDismiss(event: { action: string; payload?: { email?: string; password?: string } } | null) {
+    if (!event) {
+      this.loginModalOpen = false;
+      return;
+    }
+
+    switch (event.action) {
+      case 'open-register':
+        this.loginModalOpen = false;
+        this.registerModalOpen = true;
+        break;
+      case 'google-login':
+        await this.authService.googleSignIn();
+        this.loginModalOpen = false;
+        break;
+      case 'forgot-password':
+        if (event.payload?.email) {
+          this.authService.forgotPassword(event.payload.email);
+        } else {
+          await this.authService.presentToast('Enter your email first');
+        }
+        break;
+      case 'login':
+        if (!event.payload?.email || !event.payload?.password) {
+          await this.authService.presentToast('Email and password are required');
+          return;
+        }
+
+        try {
+          await this.authService.loginFireAuth({
+            email: event.payload.email,
+            password: event.payload.password
+          });
+          this.loginModalOpen = false;
+        } catch {
+          // AuthService handles error toasts; keep modal open for correction.
+        }
+        break;
+      default:
+        this.loginModalOpen = false;
+        break;
+    }
+  }
+
+  async handleRegisterDismiss(event: {
+    action: string;
+    payload?: {
+      firstName?: string;
+      surname?: string;
+      email?: string;
+      password?: string;
+      confirmPassword?: string;
+      currentStudyLevel?: string;
+      interest?: string;
+      courseChoices?: string[];
+    };
+  } | null) {
+    if (!event) {
+      this.registerModalOpen = false;
+      return;
+    }
+
+    switch (event.action) {
+      case 'open-login':
+        this.registerModalOpen = false;
+        this.loginModalOpen = true;
+        break;
+      case 'google-register':
+        await this.authService.googleSignIn();
+        this.registerModalOpen = false;
+        break;
+      case 'register': {
+        const payload = event.payload;
+
+        if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
+          await this.authService.presentToast('Please complete all required fields');
+          return;
+        }
+
+        if (payload.password !== payload.confirmPassword) {
+          await this.authService.presentToast('Passwords do not match');
+          return;
+        }
+
+        try {
+          await this.authService.userRegistration({
+            displayName: `${payload.firstName} ${payload.surname}`.trim(),
+            email: payload.email,
+            password: payload.password,
+            currentStudyLevel: payload.currentStudyLevel,
+            interest: payload.interest ?? '',
+            courseChoices: payload.courseChoices ?? []
+          });
+          this.registerModalOpen = false;
+        } catch {
+          // AuthService handles error toasts; keep modal open for correction.
+        }
+        break;
+      }
+      default:
+        this.registerModalOpen = false;
+        break;
+    }
   }
 
   get hasUniversityApsScore(): boolean {
