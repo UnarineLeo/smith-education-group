@@ -147,5 +147,64 @@
     }
   </div>
 
+  <ion-modal
+    [isOpen]="registrationPromptOpen"
+    cssClass="registration-promo-modal"
+    [backdropDismiss]="true"
+    (didDismiss)="dismissRegistrationPrompt()">
+    <ng-template>
+      <div class="registration-promo-shell">
+        <div class="registration-promo-head">
+          <p class="registration-promo-kicker">Unlock more with Unipply</p>
+          <ion-button fill="clear" size="small" class="promo-close-btn" (click)="dismissRegistrationPrompt()">
+            Close
+          </ion-button>
+        </div>
+
+        <h2 class="registration-promo-title">Register to get personalized application support</h2>
+        <p class="registration-promo-text">
+          Create your account to calculate APS scores across universities, receive deadline updates,
+          and track the applications that matter to you.
+        </p>
+
+        <div class="registration-benefits">
+          <div class="registration-benefit">
+            <ion-icon name="calculator-outline" aria-hidden="true"></ion-icon>
+            <span>APS calculations for all universities</span>
+          </div>
+          <div class="registration-benefit">
+            <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
+            <span>Deadline reminders and updates</span>
+          </div>
+          <div class="registration-benefit">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+            <span>Smarter tracking of open and closing dates</span>
+          </div>
+        </div>
+
+        <div class="registration-promo-actions">
+          <ion-button expand="block" class="register-now-btn" (click)="openRegisterModal()">
+            Register Now
+          </ion-button>
+          <ion-button expand="block" fill="outline" class="login-cta-btn" (click)="openLoginModal()">
+            I Already Have an Account
+          </ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
+    <ng-template>
+      <app-login-modal (dismissed)="handleLoginDismiss($event)"></app-login-modal>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
+    <ng-template>
+      <app-register-modal (dismissed)="handleRegisterDismiss($event)"></app-register-modal>
+    </ng-template>
+  </ion-modal>
+
   <app-footer></app-footer>
 </ion-content>

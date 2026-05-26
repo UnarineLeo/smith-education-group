@@ -2,13 +2,17 @@ import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, 
- IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+ IonCardTitle, IonCardHeader, IonModal } from '@ionic/angular/standalone';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular/standalone';
 import { Subscription } from 'rxjs';
 import { FooterComponent } from '../footer/footer.component';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { RegisterModalComponent } from '../register-modal/register-modal.component';
+import { AuthService } from '../services/auth.service';
 import universitiesData from '../university-list/university-list.json';
 import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
+import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +20,8 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonCardTitle, IonCardHeader, RouterLink,
-    FooterComponent],
+    IonButton, IonCardTitle, IonCardHeader, IonModal, RouterLink,
+    FooterComponent, LoginModalComponent, RegisterModalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit, OnDestroy {
@@ -44,6 +48,10 @@ export class HomePage implements OnInit, OnDestroy {
   searchQuery: string = '';
   selectedField: string = '';
   selectedProvince: string = '';
+  isLoggedIn = false;
+  registrationPromptOpen = false;
+  loginModalOpen = false;
+  registerModalOpen = false;
 
   // Study Fields Array
   studyFields = STUDY_FIELDS;
@@ -52,16 +60,22 @@ export class HomePage implements OnInit, OnDestroy {
   provinces = PROVINCES;
 
   private fragmentSubscription: Subscription | null = null;
+  private authSubscription: Subscription | null = null;
+  private registrationPromptTimeout: ReturnType<typeof setTimeout> | null = null;
+  private hasShownRegistrationPrompt = false;
 
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
     this.animateCounters();
     this.subscribeToFragmentChanges();
+    this.subscribeToAuthState();
+    this.scheduleRegistrationPrompt();
   }
 
   ngOnDestroy() {
@@ -70,6 +84,153 @@ export class HomePage implements OnInit, OnDestroy {
     }
     if (this.fragmentSubscription) {
       this.fragmentSubscription.unsubscribe();
+    }
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
+    if (this.registrationPromptTimeout) {
+      clearTimeout(this.registrationPromptTimeout);
+    }
+  }
+
+  private subscribeToAuthState() {
+    this.authSubscription = this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+
+      if (isLoggedIn) {
+        this.dismissRegistrationPrompt();
+      }
+    });
+  }
+
+  private scheduleRegistrationPrompt() {
+    this.registrationPromptTimeout = setTimeout(() => {
+      if (this.shouldShowRegistrationPrompt()) {
+        this.registrationPromptOpen = true;
+        this.hasShownRegistrationPrompt = true;
+      }
+    }, 10000);
+  }
+
+  private shouldShowRegistrationPrompt(): boolean {
+    return !this.isLoggedIn && !this.hasShownRegistrationPrompt && !getAuth().currentUser;
+  }
+
+  dismissRegistrationPrompt() {
+    this.registrationPromptOpen = false;
+  }
+
+  openRegisterModal() {
+    this.registrationPromptOpen = false;
+    this.registerModalOpen = true;
+  }
+
+  openLoginModal() {
+    this.registrationPromptOpen = false;
+    this.loginModalOpen = true;
+  }
+
+  async handleLoginDismiss(event: { action: string; payload?: { email?: string; password?: string } } | null) {
+    if (!event) {
+      this.loginModalOpen = false;
+      return;
+    }
+
+    switch (event.action) {
+      case 'open-register':
+        this.loginModalOpen = false;
+        this.registerModalOpen = true;
+        break;
+      case 'google-login':
+        await this.authService.googleSignIn();
+        this.loginModalOpen = false;
+        break;
+      case 'forgot-password':
+        if (event.payload?.email) {
+          this.authService.forgotPassword(event.payload.email);
+        } else {
+          await this.authService.presentToast('Enter your email first');
+        }
+        break;
+      case 'login':
+        if (!event.payload?.email || !event.payload?.password) {
+          await this.authService.presentToast('Email and password are required');
+          return;
+        }
+
+        try {
+          await this.authService.loginFireAuth({
+            email: event.payload.email,
+            password: event.payload.password
+          });
+          this.loginModalOpen = false;
+        } catch {
+          // AuthService handles error toasts; keep modal open for correction.
+        }
+        break;
+      default:
+        this.loginModalOpen = false;
+        break;
+    }
+  }
+
+  async handleRegisterDismiss(event: {
+    action: string;
+    payload?: {
+      firstName?: string;
+      surname?: string;
+      email?: string;
+      password?: string;
+      confirmPassword?: string;
+      currentStudyLevel?: string;
+      interest?: string;
+      courseChoices?: string[];
+    };
+  } | null) {
+    if (!event) {
+      this.registerModalOpen = false;
+      return;
+    }
+
+    switch (event.action) {
+      case 'open-login':
+        this.registerModalOpen = false;
+        this.loginModalOpen = true;
+        break;
+      case 'google-register':
+        await this.authService.googleSignIn();
+        this.registerModalOpen = false;
+        break;
+      case 'register': {
+        const payload = event.payload;
+        if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
+          await this.authService.presentToast('Please complete all required fields');
+          return;
+        }
+
+        if (payload.password !== payload.confirmPassword) {
+          await this.authService.presentToast('Passwords do not match');
+          return;
+        }
+
+        try {
+          await this.authService.userRegistration({
+            displayName: `${payload.firstName} ${payload.surname}`.trim(),
+            email: payload.email,
+            password: payload.password,
+            currentStudyLevel: payload.currentStudyLevel,
+            interest: payload.interest ?? '',
+            courseChoices: payload.courseChoices ?? []
+          });
+          this.registerModalOpen = false;
+        } catch {
+          // AuthService handles error toasts; keep modal open for correction.
+        }
+        break;
+      }
+      default:
+        this.registerModalOpen = false;
+        break;
     }
   }
 
