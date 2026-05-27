@@ -418,24 +418,20 @@ export class AuthService {
 
   async addUser(user: any): Promise<void> 
   {
-    console.log('User is logged in', getAuth().currentUser);
     const userRef = doc(this.db, 'admin', user.uid);
-    console.log('User document reference:', userRef.path);
     const userDoc = await getDoc(userRef);
-    console.log('Existing user document:', userDoc.exists() ? userDoc.data() : 'No document found');
     if (userDoc.exists()) 
     {
-      console.log('User already exists, updating lastSignIn timestamp');
       await setDoc(userRef, {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
-        lastSignIn: serverTimestamp()
+        lastSignIn: serverTimestamp(),
+        userRole: 'user'
       }, { merge: true });
     } 
     else 
     {
-      console.log('Creating new user document');
       await setDoc(userRef, {
         uid: user.uid,
         email: user.email,
@@ -445,7 +441,8 @@ export class AuthService {
         expiryDate: "",
         points: 0,
         lastSignIn: serverTimestamp(),
-        currentPlan: ""
+        currentPlan: "",
+        userRole: 'user'
       });
     }
   }

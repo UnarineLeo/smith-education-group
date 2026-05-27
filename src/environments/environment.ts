@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   googleMapsApiKey: '',
-  enableAppCheck: true,
+  enableAppCheck: false,
   appCheckAllowedHosts: ['unipply-ae61a.web.app', 'unipply-ae61a.firebaseapp.com', 'localhost', 'unipply.co.za'],
   appCheckReCaptchaSiteKey: '6LfXB6UsAAAAAF8DNiIz92upLrq5qs_Fi5ru272Z',
   firebaseConfig: {
