@@ -127,6 +127,34 @@
 
   <div class="search-section">
     <div class="search-container">
+      <h2 class="section-title">Upcoming Deadlines</h2>
+      <p class="section-subtitle">
+        Stay ahead with the next six university application deadlines from today.
+      </p>
+    </div>
+  </div>
+
+  <div class="deadlines-grid" id="deadlines">
+    @for (deadline of upcomingDeadlines; track deadline.universityId) {
+      <ion-card class="deadline-card">
+        <ion-card-content>
+          <p class="deadline-kicker">Application Deadline</p>
+          <h3 class="deadline-uni">{{ deadline.universityName }}</h3>
+          <p class="deadline-date">{{ deadline.formattedDate }}</p>
+          <span class="deadline-pill">{{ getDeadlineCountdownLabel(deadline.daysLeft) }}</span>
+
+          <div class="deadline-actions">
+            <ion-button class="deadline-apply-btn" (click)="openDeadlineProspectus(deadline.universityId)">
+              View Prospectus
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
+
+  <div class="search-section">
+    <div class="search-container">
       <h2 class="section-title">Why Choose Unipply?</h2>
       <p class="section-subtitle">
         We've revolutionized the university application process in South Africa, making it easier

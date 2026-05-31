@@ -35,6 +35,13 @@ export class HomePage implements OnInit, OnDestroy {
   ];
 
   featuredUniversities: University[] = this.getFeaturedUniversities();
+  upcomingDeadlines: {
+    universityId: number;
+    universityName: string;
+    date: Date;
+    formattedDate: string;
+    daysLeft: number;
+  }[] = [];
   // Counter properties
   currentUniversities: number = 0;
   currentStudents: number = 0;
@@ -72,6 +79,7 @@ export class HomePage implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.upcomingDeadlines = this.getUpcomingDeadlines(6);
     this.animateCounters();
     this.subscribeToFragmentChanges();
     this.subscribeToAuthState();
@@ -367,6 +375,11 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   private parseDate(dateString: string): Date | null {
+    const currentYear = new Date().getFullYear();
+    return this.parseDateForYear(dateString, currentYear);
+  }
+
+  private parseDateForYear(dateString: string, year: number): Date | null {
     if (!dateString) return null;
 
     const [dayPart, monthPart] = dateString.split('/');
@@ -377,8 +390,80 @@ export class HomePage implements OnInit, OnDestroy {
       return null;
     }
 
-    const currentYear = new Date().getFullYear();
-    return new Date(currentYear, month - 1, day);
+    const date = new Date(year, month - 1, day);
+    if (date.getMonth() !== month - 1 || date.getDate() !== day) {
+      return null;
+    }
+
+    return date;
+  }
+
+  private getNextOccurrenceDate(dateString: string, fromDate: Date): Date | null {
+    const currentYearDate = this.parseDateForYear(dateString, fromDate.getFullYear());
+    if (!currentYearDate) {
+      return null;
+    }
+
+    if (currentYearDate >= fromDate) {
+      return currentYearDate;
+    }
+
+    return this.parseDateForYear(dateString, fromDate.getFullYear() + 1);
+  }
+
+  private getUpcomingDeadlines(limit: number): {
+    universityId: number;
+    universityName: string;
+    date: Date;
+    formattedDate: string;
+    daysLeft: number;
+  }[] {
+    const allUniversities = universitiesData as University[];
+    const today = this.getTodayDateOnly();
+    const dayMs = 24 * 60 * 60 * 1000;
+
+    return allUniversities
+      .map((uni) => {
+        const upcomingDate = this.getNextOccurrenceDate(uni.closingDate, today);
+        if (!upcomingDate) {
+          return null;
+        }
+
+        const daysLeft = Math.round((upcomingDate.getTime() - today.getTime()) / dayMs);
+
+        return {
+          universityId: uni.id,
+          universityName: uni.name,
+          date: upcomingDate,
+          formattedDate: this.formatDate(upcomingDate),
+          daysLeft
+        };
+      })
+      .filter((item): item is {
+        universityId: number;
+        universityName: string;
+        date: Date;
+        formattedDate: string;
+        daysLeft: number;
+      } => !!item)
+      .sort((a, b) => a.date.getTime() - b.date.getTime())
+      .slice(0, limit);
+  }
+
+  openDeadlineProspectus(universityId: number): void {
+    this.router.navigate(['/tabs/prospectus', universityId]);
+  }
+
+  getDeadlineCountdownLabel(daysLeft: number): string {
+    if (daysLeft <= 0) {
+      return 'Today';
+    }
+
+    if (daysLeft === 1) {
+      return 'Tomorrow';
+    }
+
+    return `In ${daysLeft} days`;
   }
 
   private formatDate(date: Date | null): string {
