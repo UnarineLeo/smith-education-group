@@ -16,10 +16,38 @@ ion-content {
   padding: 40px 20px;
 
   @media (max-width: 768px) {
-    min-height: 100vh;
+    /* Reduce height on tablets/phones so hero doesn't take full screen */
+    min-height: 60vh;
     background-attachment: scroll;
-    padding: 60px 20px 40px;
+    padding: 28px 18px 28px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    /* smaller hero area on small phones */
+    min-height: 50vh;
+    padding: 20px 14px 22px;
+  }
+
+  .hero-lottie {
+    height: 160px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-buttons ion-button {
+    height: 44px;
+    font-size: 0.95rem;
   }
 }
 
@@ -354,6 +382,11 @@ ion-content {
   text-transform: none;
   width: auto;
   min-width: 260px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 .university-spotlight-card {
@@ -373,6 +406,9 @@ ion-content {
   height: 190px;
   object-fit: cover;
   display: block;
+  @media (max-width: 480px) {
+    height: 140px;
+  }
 }
 
 .card-header-row {
@@ -409,6 +445,15 @@ ion-content {
   display: grid;
   gap: 12px;
   margin-bottom: 20px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .metric {
@@ -441,6 +486,13 @@ ion-content {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .learn-more-btn {
@@ -820,8 +872,38 @@ ion-modal.registration-promo-modal {
   --box-shadow: 0 24px 70px rgba(15, 23, 42, 0.32);
 }
 
+@media (max-width: 480px) {
+  ion-modal.registration-promo-modal {
+    --width: 96vw;
+    --max-width: 96vw;
+    --border-radius: 18px;
+  }
+
+  .registration-promo-actions ion-button {
+    height: 48px;
+  }
+}
+
 ion-modal.registration-promo-modal::part(content) {
   background: transparent;
+}
+
+@media (max-width: 480px) {
+  /* Center the modal content vertically and horizontally on small screens */
+  ion-modal.registration-promo-modal::part(content) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* let inner shell control spacing */
+    height: 100vh; /* ensure full viewport so centering works */
+  }
+
+  /* Make the shell use full width but bounded by modal width vars */
+  .registration-promo-shell {
+    width: 100%;
+    max-width: 560px;
+    box-sizing: border-box;
+  }
 }
 
 .registration-promo-shell {
@@ -929,5 +1011,10 @@ ion-modal.registration-promo-modal::part(content) {
   .registration-benefit {
     padding: 12px 14px;
     font-size: 0.96rem;
+  }
+
+  /* Hide longer promo copy on very small screens to keep the modal compact */
+  .registration-promo-text {
+    display: none !important;
   }
 }
