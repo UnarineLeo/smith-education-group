@@ -25,6 +25,13 @@ interface AdminDocumentEntry {
   data?: string;
 }
 
+interface AdminApsScoreEntry {
+  universityName: string;
+  score?: number | null;
+  maxScore?: number | null;
+  rule?: string;
+}
+
 interface AdminUserDocument {
   id: string;
   email?: string;
@@ -47,6 +54,7 @@ interface AdminUserDocument {
     uploadedAt?: number;
     data?: string;
   }>;
+  apsScoresByUniversity?: AdminApsScoreEntry[];
   lastSignIn?: unknown;
   expiryDate?: string;
   isSubscribed?: boolean;
@@ -145,6 +153,32 @@ export class AdminPortalPage implements OnInit {
         lastSignIn: this.formatFirestoreDate(user.lastSignIn),
       })));
 
+      const apsRows = this.users.flatMap((user) => {
+        const apsScores = this.getUserApsScores(user);
+
+        if (!apsScores.length) {
+          return [{
+            documentId: user.id,
+            userEmail: user.email ?? '',
+            lastSignIn: this.formatFirestoreDate(user.lastSignIn),
+            universityName: '',
+            score: '',
+            maxScore: '',
+            rule: '',
+          }];
+        }
+
+        return apsScores.map((score) => ({
+          documentId: user.id,
+          userEmail: user.email ?? '',
+          lastSignIn: this.formatFirestoreDate(user.lastSignIn),
+          universityName: score.universityName,
+          score: this.formatApsScoreValue(score),
+          maxScore: score.maxScore ?? '',
+          rule: score.rule ?? '',
+        }));
+      });
+
       const documentsRows = this.users.flatMap((user) => {
         const documents = this.getUserDocuments(user);
 
@@ -152,6 +186,7 @@ export class AdminPortalPage implements OnInit {
           return [{
             documentId: user.id,
             userEmail: user.email ?? '',
+            lastSignIn: this.formatFirestoreDate(user.lastSignIn),
             documentKey: '',
             fileName: '',
             mimeType: '',
@@ -163,6 +198,7 @@ export class AdminPortalPage implements OnInit {
         return documents.map((document) => ({
           documentId: user.id,
           userEmail: user.email ?? '',
+          lastSignIn: this.formatFirestoreDate(user.lastSignIn),
           documentKey: document.key,
           fileName: document.fileName,
           mimeType: document.mimeType,
@@ -171,9 +207,11 @@ export class AdminPortalPage implements OnInit {
         }));
       });
 
+      const apsSheet = XLSX.utils.json_to_sheet(apsRows);
       const documentsSheet = XLSX.utils.json_to_sheet(documentsRows);
 
       XLSX.utils.book_append_sheet(workbook, usersSheet, 'Users');
+      XLSX.utils.book_append_sheet(workbook, apsSheet, 'APS Scores');
       XLSX.utils.book_append_sheet(workbook, documentsSheet, 'Documents');
 
       const sheetBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
@@ -243,6 +281,33 @@ export class AdminPortalPage implements OnInit {
       uploadedAt: this.formatFirestoreDate(document?.uploadedAt),
       data: document?.data,
     }));
+  }
+
+  getUserApsScores(user: AdminUserDocument): AdminApsScoreEntry[] {
+    const apsScores = user.apsScoresByUniversity ?? [];
+
+    return apsScores
+      .map((entry) => ({
+        universityName: entry?.universityName?.trim() || 'Unknown university',
+        score: typeof entry?.score === 'number' ? entry.score : null,
+        maxScore: typeof entry?.maxScore === 'number' ? entry.maxScore : null,
+        rule: entry?.rule?.trim() || 'N/A',
+      }))
+      .sort((a, b) => a.universityName.localeCompare(b.universityName));
+  }
+
+  formatApsScoreValue(entry: AdminApsScoreEntry): string {
+    const score = entry.score;
+
+    if (score === null || !Number.isFinite(score)) {
+      return 'N/A';
+    }
+
+    if (entry.maxScore === null || !Number.isFinite(entry.maxScore)) {
+      return `${score}`;
+    }
+
+    return `${score} / ${entry.maxScore}`;
   }
 
   canDownloadDocument(document: AdminDocumentEntry): boolean {

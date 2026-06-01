@@ -50,13 +50,14 @@
                     <p class="user-card-eyebrow">Document ID</p>
                     <h3>{{ user.id }}</h3>
                     <p class="user-card-summary">{{ getUserDisplayName(user) }} · {{ user.email || 'N/A' }}</p>
+                    <p class="user-card-activity">Last sign in: {{ formatFirestoreDate(user.lastSignIn) }}</p>
                   </div>
 
                   <div class="user-card-header-meta">
                     <ion-chip color="medium">{{ getUserStatusLabel(user) }}</ion-chip>
-                    <ion-button size="small" fill="clear">
+                    <span class="user-card-toggle">
                       {{ isUserExpanded(user) ? 'Collapse' : 'Expand' }}
-                    </ion-button>
+                    </span>
                   </div>
                 </button>
 
@@ -85,9 +86,34 @@
                         <h4>Study</h4>
                         <p><strong>Current Level:</strong> {{ user.currentStudyLevel || 'N/A' }}</p>
                         <p><strong>Study Areas:</strong> {{ formatList(user.studyAreas) }}</p>
-                        <p><strong>Course Choices:</strong> {{ formatList(user.courseChoices) }}</p>
-                        <p><strong>Expiry Date:</strong> {{ user.expiryDate || 'N/A' }}</p>
-                        <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
+                        <p><strong>Course Choice 1:</strong> {{ user.courseChoices?.[0] || 'N/A' }}</p>
+                        <p><strong>Course Choice 2:</strong> {{ user.courseChoices?.[1] || 'N/A' }}</p>
+                        <p><strong>Course Choice 3:</strong> {{ user.courseChoices?.[2] || 'N/A' }}</p>
+                        @if (user.expiryDate) {
+                          <p><strong>Expiry Date:</strong> {{ user.expiryDate }}</p>
+                        }
+                        @if (user.isSubscribed !== null && user.isSubscribed !== undefined) {
+                          <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
+                        }
+                      </section>
+
+                      <section class="detail-card full-span">
+                        <h4>APS by University</h4>
+                        @if (getUserApsScores(user).length === 0) {
+                          <p>No APS scores stored in this Firestore document yet.</p>
+                        } @else {
+                          <div class="aps-grid">
+                            @for (aps of getUserApsScores(user); track aps.universityName) {
+                              <article class="aps-card">
+                                <div class="aps-card-header">
+                                  <h5>{{ aps.universityName }}</h5>
+                                  <span class="aps-score">{{ formatApsScoreValue(aps) }}</span>
+                                </div>
+                                <p><strong>Rule:</strong> {{ aps.rule }}</p>
+                              </article>
+                            }
+                          </div>
+                        }
                       </section>
 
                       <section class="detail-card full-span">
@@ -114,8 +140,8 @@
                       </section>
 
                       <section class="detail-card full-span">
-                        <h4>Raw Document Summary</h4>
-                        <p class="raw-summary">Firestore timestamp: {{ formatFirestoreDate(user.lastSignIn) }}</p>
+                        <h4>Account Activity</h4>
+                        <p class="raw-summary"><strong>Last Sign In:</strong> {{ formatFirestoreDate(user.lastSignIn) }}</p>
                       </section>
                     </div>
                   </div>

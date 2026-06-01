@@ -7,26 +7,31 @@ ion-content {
 }
 
 .admin-hero {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 55%, #3d7a8f 100%);
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.28), transparent 32%),
+    radial-gradient(circle at 90% 20%, rgba(14, 165, 233, 0.18), transparent 26%),
+    linear-gradient(135deg, #10263f 0%, #17385b 46%, #1f5b7a 100%);
   color: #ffffff;
-  padding: 56px 20px 44px;
+  padding: 64px 20px 48px;
 }
 
 .admin-hero-inner {
-
   max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  gap: 12px;
 
   h1 {
     margin: 0;
-    font-size: 2.4rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.2rem, 4vw, 3.45rem);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    max-width: 11ch;
   }
 }
 
 .eyebrow {
-  margin: 50px 10px 8px 8px;
+  margin: 0;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -35,10 +40,11 @@ ion-content {
 }
 
 .hero-subtitle {
-  margin: 10px 0 0;
+  margin: 0;
   max-width: 760px;
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.7;
+  font-size: 1.02rem;
 }
 
 .section-head {
@@ -56,7 +62,7 @@ ion-content {
 .admin-shell {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 20px 40px;
+  padding: 24px 20px 48px;
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 20px;
@@ -84,7 +90,7 @@ ion-content {
 
 .users-grid {
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .user-card {
@@ -92,8 +98,15 @@ ion-content {
   border: 1px solid #dbe4ef;
   border-radius: 16px;
   padding: 0;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: #c6d2e3;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+  }
 }
 
 .user-card-header {
@@ -102,22 +115,16 @@ ion-content {
   justify-content: space-between;
   gap: 16px;
   align-items: center;
-  padding: 16px;
+  padding: 18px 18px 17px;
   border: 0;
   background: transparent;
   text-align: left;
   cursor: pointer;
+  transition: background 0.2s ease;
 
   &:focus-visible {
     outline: 2px solid #1e40af;
     outline-offset: -2px;
-  }
-
-  ion-button {
-    --padding-start: 0;
-    --padding-end: 0;
-    --color: #1e40af;
-    min-height: 32px;
   }
 
   ion-chip {
@@ -134,7 +141,7 @@ ion-content {
 
 .user-card-header-main {
   display: grid;
-  gap: 4px;
+  gap: 5px;
   min-width: 0;
 }
 
@@ -144,6 +151,20 @@ ion-content {
   align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.user-card-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(30, 64, 175, 0.08);
+  color: #1e40af;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .user-card-eyebrow {
@@ -162,35 +183,47 @@ ion-content {
   word-break: break-word;
 }
 
+.user-card-activity {
+  margin: 0;
+  color: #0f3d7a;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+}
+
 .user-card-body {
-  padding: 0 16px 16px;
+  padding: 0 18px 18px;
 }
 
 .user-card.is-expanded {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  border-color: #b9c9df;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.11);
 }
 
 .user-card.is-expanded .user-card-header {
   border-bottom: 1px solid #dbe4ef;
-  background: rgba(30, 64, 175, 0.03);
+  background: linear-gradient(180deg, rgba(30, 64, 175, 0.05) 0%, rgba(30, 64, 175, 0.02) 100%);
 }
 
 .detail-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .detail-card {
   border: 1px solid #dbe4ef;
-  border-radius: 14px;
-  padding: 14px;
+  border-radius: 16px;
+  padding: 16px;
   background: #ffffff;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
 
   h4 {
     margin: 0 0 10px;
     color: #0f172a;
-    font-size: 0.96rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
   }
 
   p {
@@ -211,15 +244,67 @@ ion-content {
 
 .document-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.aps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.aps-card {
+  border: 1px solid #dbe4ef;
+  border-radius: 14px;
+  padding: 14px;
+  background: linear-gradient(180deg, #f9fbff 0%, #ffffff 100%);
+  display: grid;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+}
+
+.aps-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+
+  h5 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+}
+
+.aps-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(30, 64, 175, 0.08);
+  color: #1e40af;
+  font-size: 0.83rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .document-card {
   border: 1px solid #dbe4ef;
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 14px;
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  display: grid;
+  gap: 8px;
 
   h5 {
     margin: 0 0 8px;
@@ -237,6 +322,33 @@ ion-content {
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  ion-button {
+    margin-top: 2px;
+    justify-self: start;
+  }
+}
+
+.summary-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+  ion-button {
+    --border-radius: 999px;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  ion-button[fill='solid'] {
+    --background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    --background-hover: linear-gradient(135deg, #1d4ed8 0%, #1d4ed8 100%);
+    --color: #ffffff;
   }
 }
 

@@ -436,11 +436,7 @@ export class AuthService {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
-        hasMini: false,
-        expiryDate: "",
-        points: 0,
         lastSignIn: serverTimestamp(),
-        currentPlan: "",
         userRole: 'user'
       });
     }
