@@ -445,15 +445,6 @@ ion-content {
   display: grid;
   gap: 12px;
   margin-bottom: 20px;
-  grid-template-columns: repeat(3, 1fr);
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .metric {
@@ -963,8 +954,8 @@ ion-modal.registration-promo-modal {
 
 @media (max-width: 480px) {
   ion-modal.registration-promo-modal {
-    --width: 96vw;
-    --max-width: 96vw;
+    --width: min(88vw, 340px);
+    --max-width: 340px;
     --border-radius: 18px;
   }
 
@@ -983,14 +974,15 @@ ion-modal.registration-promo-modal::part(content) {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* let inner shell control spacing */
-    height: 100vh; /* ensure full viewport so centering works */
+    padding: 16px;
+    height: 100vh;
+    box-sizing: border-box;
   }
 
   /* Make the shell use full width but bounded by modal width vars */
   .registration-promo-shell {
     width: 100%;
-    max-width: 560px;
+    max-width: 340px;
     box-sizing: border-box;
   }
 }
