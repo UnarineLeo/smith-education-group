@@ -7,6 +7,7 @@ import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { getApp, getApps } from 'firebase/app';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 import { UNIVERSITY_OPTIONS } from '../shared/app-data';
+import { FooterComponent } from '../footer/footer.component';
 
 type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
 
@@ -73,7 +74,7 @@ interface ApsCategoryGroup {
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonChip],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonChip, FooterComponent],
 })
 export class ProfilePage implements OnDestroy, AfterViewInit {
   @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;

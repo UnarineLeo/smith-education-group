@@ -104,8 +104,6 @@
                 <input
                   type="text"
                   [value]="profile.firstName"
-                  [readOnly]="isGoogleUser"
-                  [class.readonly]="isGoogleUser"
                   (input)="onProfileInputChange('firstName', $event)" />
                 <button
                   type="button"
@@ -122,8 +120,6 @@
                 <input
                   type="text"
                   [value]="profile.lastName"
-                  [readOnly]="isGoogleUser"
-                  [class.readonly]="isGoogleUser"
                   (input)="onProfileInputChange('lastName', $event)" />
                 <button
                   type="button"
@@ -787,4 +783,5 @@
       }
     </div>
   </section>
+  <app-footer></app-footer>
 </ion-content>

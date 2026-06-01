@@ -427,7 +427,6 @@ export class AuthService {
         displayName: user.displayName,
         emailVerified: user.emailVerified,
         lastSignIn: serverTimestamp(),
-        userRole: 'user'
       }, { merge: true });
     } 
     else 
@@ -473,10 +472,12 @@ export class AuthService {
       return 'user';
     }
 
-    const role = (userDoc.data()?.['role'] as string | undefined) ?? 'user';
+    const data = userDoc.data() as Record<string, unknown>;
+    const role = (data['userRole'] as string | undefined) ?? 'user';
     this.role = role;
     this.userId = user.uid;
     this.userEmail = (user.email ?? '').trim().toLowerCase() || 'not signed in';
+    console.log(`Fetched role for user ${user.email}: ${role}`);
     return role;
   }
 

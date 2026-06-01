@@ -15,11 +15,21 @@ import { ToastController } from '@ionic/angular';
 import { FooterComponent } from '../footer/footer.component';
 import { AuthService } from '../services/auth.service';
 import { collection, getDocs } from 'firebase/firestore';
+import * as XLSX from 'xlsx';
+
+interface AdminDocumentEntry {
+  key: string;
+  fileName: string;
+  mimeType: string;
+  uploadedAt: string;
+  data?: string;
+}
 
 interface AdminUserDocument {
   id: string;
   email?: string;
   displayName?: string;
+  userRole?: string;
   role?: string;
   emailVerified?: boolean;
   currentStudyLevel?: string;
@@ -65,7 +75,9 @@ interface AdminUserDocument {
 export class AdminPortalPage implements OnInit {
   users: AdminUserDocument[] = [];
   isLoadingUsers = false;
+  isExportingUsers = false;
   loadUsersError = '';
+  expandedUserId: string | null = null;
 
   constructor(
     private router: Router,
@@ -103,6 +115,98 @@ export class AdminPortalPage implements OnInit {
     await this.refreshIfAuthorized();
   }
 
+  async exportUsersToExcel(): Promise<void> {
+    if (!this.users.length) {
+      await this.presentToast('No users are available to export yet.', 'warning');
+      return;
+    }
+
+    this.isExportingUsers = true;
+
+    try {
+      const workbook = XLSX.utils.book_new();
+      const usersSheet = XLSX.utils.json_to_sheet(this.users.map((user) => ({
+        documentId: user.id,
+        displayName: this.getUserDisplayName(user),
+        email: user.email ?? '',
+        role: this.getUserRole(user),
+        emailVerified: this.formatBoolean(user.emailVerified),
+        phone: user.phone ?? '',
+        saIdNumber: user.saIdNumber ?? '',
+        streetAddress: user.streetAddress ?? '',
+        cityTown: user.cityTown ?? '',
+        provinceAddress: user.provinceAddress ?? '',
+        postalCode: user.postalCode ?? '',
+        currentStudyLevel: user.currentStudyLevel ?? '',
+        studyAreas: this.formatList(user.studyAreas),
+        courseChoices: this.formatList(user.courseChoices),
+        expiryDate: user.expiryDate ?? '',
+        isSubscribed: this.formatBoolean(user.isSubscribed),
+        lastSignIn: this.formatFirestoreDate(user.lastSignIn),
+      })));
+
+      const documentsRows = this.users.flatMap((user) => {
+        const documents = this.getUserDocuments(user);
+
+        if (!documents.length) {
+          return [{
+            documentId: user.id,
+            userEmail: user.email ?? '',
+            documentKey: '',
+            fileName: '',
+            mimeType: '',
+            uploadedAt: '',
+            canDownload: 'No',
+          }];
+        }
+
+        return documents.map((document) => ({
+          documentId: user.id,
+          userEmail: user.email ?? '',
+          documentKey: document.key,
+          fileName: document.fileName,
+          mimeType: document.mimeType,
+          uploadedAt: document.uploadedAt,
+          canDownload: this.formatBoolean(this.canDownloadDocument(document)),
+        }));
+      });
+
+      const documentsSheet = XLSX.utils.json_to_sheet(documentsRows);
+
+      XLSX.utils.book_append_sheet(workbook, usersSheet, 'Users');
+      XLSX.utils.book_append_sheet(workbook, documentsSheet, 'Documents');
+
+      const sheetBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      const downloadBlob = new Blob([sheetBuffer], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+      const downloadUrl = URL.createObjectURL(downloadBlob);
+      const anchor = globalThis.document.createElement('a');
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+
+      anchor.href = downloadUrl;
+      anchor.download = `firestore-users-${timestamp}.xlsx`;
+      anchor.rel = 'noopener';
+      anchor.click();
+
+      URL.revokeObjectURL(downloadUrl);
+      await this.presentToast('Excel export downloaded successfully.', 'success');
+    } catch (error) {
+      console.error('Could not export users to Excel:', error);
+      await this.presentToast('Could not export users to Excel right now.', 'danger');
+    } finally {
+      this.isExportingUsers = false;
+    }
+  }
+
+  isUserExpanded(user: AdminUserDocument): boolean {
+    return this.expandedUserId === user.id;
+  }
+
+  toggleUserExpanded(user: AdminUserDocument): void {
+    this.expandedUserId = this.isUserExpanded(user) ? null : user.id;
+  }
+
   private async loadFirestoreUsers(): Promise<void> {
     this.isLoadingUsers = true;
     this.loadUsersError = '';
@@ -115,24 +219,68 @@ export class AdminPortalPage implements OnInit {
           ...(userDoc.data() as Record<string, unknown>)
         } as AdminUserDocument))
         .sort((a, b) => (a.email || a.id).localeCompare(b.email || b.id));
+
+      if (this.expandedUserId && !this.users.some((user) => user.id === this.expandedUserId)) {
+        this.expandedUserId = null;
+      }
     } catch (error) {
       console.error('Could not load Firestore users:', error);
       this.loadUsersError = 'Could not load Firestore users right now. Please try again.';
       this.users = [];
+      this.expandedUserId = null;
     } finally {
       this.isLoadingUsers = false;
     }
   }
 
-  getUserDocuments(user: AdminUserDocument): Array<{ key: string; fileName: string; mimeType: string; uploadedAt: string }> {
+  getUserDocuments(user: AdminUserDocument): AdminDocumentEntry[] {
     const documents = user.documents ?? {};
 
     return Object.entries(documents).map(([key, document]) => ({
       key,
       fileName: document?.fileName ?? 'Untitled document',
       mimeType: document?.mimeType ?? 'unknown',
-      uploadedAt: this.formatFirestoreDate(document?.uploadedAt)
+      uploadedAt: this.formatFirestoreDate(document?.uploadedAt),
+      data: document?.data,
     }));
+  }
+
+  canDownloadDocument(document: AdminDocumentEntry): boolean {
+    return document.mimeType === 'application/pdf' && Boolean(document.data);
+  }
+
+  async downloadDocument(entry: AdminDocumentEntry): Promise<void> {
+    if (!this.canDownloadDocument(entry)) {
+      await this.presentToast('This document is not available for download.', 'warning');
+      return;
+    }
+
+    try {
+      const blob = this.base64ToBlob(entry.data ?? '', entry.mimeType);
+      const downloadUrl = URL.createObjectURL(blob);
+      const anchor = globalThis.document.createElement('a');
+
+      anchor.href = downloadUrl;
+      anchor.download = entry.fileName?.trim() || `${entry.key}.pdf`;
+      anchor.rel = 'noopener';
+      anchor.click();
+
+      URL.revokeObjectURL(downloadUrl);
+    } catch (error) {
+      console.error('Could not download document:', error);
+      await this.presentToast('Could not download the document right now.', 'danger');
+    }
+  }
+
+  private base64ToBlob(base64: string, mimeType: string): Blob {
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let index = 0; index < byteCharacters.length; index++) {
+      byteNumbers[index] = byteCharacters.charCodeAt(index);
+    }
+
+    return new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
   }
 
   formatFirestoreDate(value: unknown): string {
@@ -199,8 +347,12 @@ export class AdminPortalPage implements OnInit {
     return user.displayName?.trim() || user.email?.trim() || user.id;
   }
 
+  getUserRole(user: AdminUserDocument): string {
+    return user.userRole?.trim() || user.role?.trim() || 'user';
+  }
+
   getUserStatusLabel(user: AdminUserDocument): string {
-    const role = user.role?.trim() || 'user';
+    const role = this.getUserRole(user);
     const verified = user.emailVerified === true ? 'verified' : 'unverified';
     return `${role} · ${verified}`;
   }
