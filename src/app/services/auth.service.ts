@@ -418,7 +418,7 @@ export class AuthService {
 
   async addUser(user: any): Promise<void> 
   {
-    const userRef = doc(this.db, 'admin', user.uid);
+    const userRef = doc(this.db, 'users', user.uid);
     const userDoc = await getDoc(userRef);
     if (userDoc.exists()) 
     {
