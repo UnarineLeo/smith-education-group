@@ -46,6 +46,10 @@ interface AcademicInformation {
   hasWrittenNbt: string;
   interest: string;
   apsUniversityName: string;
+  universityChoice1: string;
+  universityChoice2: string;
+  universityChoice3: string;
+  universityChoice4: string;
   courseChoice1: string;
   courseChoice2: string;
   courseChoice3: string;
@@ -201,13 +205,17 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     hasWrittenNbt: '',
     interest: '',
     apsUniversityName: '',
+    universityChoice1: '',
+    universityChoice2: '',
+    universityChoice3: '',
+    universityChoice4: '',
     courseChoice1: '',
     courseChoice2: '',
     courseChoice3: '',
     courseChoice4: ''
   };
 
-  private readonly apsUniversities = UNIVERSITY_OPTIONS.map((university) => university.value);
+  readonly apsUniversities = UNIVERSITY_OPTIONS.map((university) => university.value);
 
   requiredDocuments: RequiredDocumentRequirement[] = [
     {
@@ -421,7 +429,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, and course choices 1 to 3.');
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, Interest, university choices 1 to 3, and course choices 1 to 3.');
       return;
     }
 
@@ -434,6 +442,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
         studyAreas: [this.academicInformation.interest],
         apsUniversityName: this.academicInformation.apsUniversityName,
+        universityChoice1: this.academicInformation.universityChoice1,
+        universityChoice2: this.academicInformation.universityChoice2,
+        universityChoice3: this.academicInformation.universityChoice3,
+        universityChoice4: this.academicInformation.universityChoice4,
         courseChoices: [
           this.academicInformation.courseChoice1,
           this.academicInformation.courseChoice2,
@@ -825,7 +837,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     if (!this.hasRequiredAcademicInformation()) {
-      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, and NBT before saving.');
+      await this.authService.presentToast('Please complete Current/Last School, Current Level, School Province, Matric Year, NBT, university choices 1 to 3, and course choices 1 to 3 before saving.');
       return;
     }
 
@@ -876,6 +888,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         hasWrittenNbt: this.academicInformation.hasWrittenNbt,
         studyAreas: [this.academicInformation.interest],
         apsUniversityName: this.academicInformation.apsUniversityName,
+        universityChoice1: this.academicInformation.universityChoice1,
+        universityChoice2: this.academicInformation.universityChoice2,
+        universityChoice3: this.academicInformation.universityChoice3,
+        universityChoice4: this.academicInformation.universityChoice4,
         courseChoices: [
           this.academicInformation.courseChoice1,
           this.academicInformation.courseChoice2,
@@ -1165,6 +1181,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         apsScore?: number;
         apsRule?: string;
         apsUniversityName?: string;
+        universityChoice1?: string;
+        universityChoice2?: string;
+        universityChoice3?: string;
+        universityChoice4?: string;
         studyAreas?: string[];
         courseChoices?: string[];
         academicInformation?: Partial<AcademicInformation>;
@@ -1204,6 +1224,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? '',
           interest: userData.academicInformation.interest ?? '',
           apsUniversityName: userData.academicInformation.apsUniversityName ?? '',
+          universityChoice1: userData.academicInformation.universityChoice1 ?? '',
+          universityChoice2: userData.academicInformation.universityChoice2 ?? '',
+          universityChoice3: userData.academicInformation.universityChoice3 ?? '',
+          universityChoice4: userData.academicInformation.universityChoice4 ?? '',
           courseChoice1: userData.academicInformation.courseChoice1 ?? '',
           courseChoice2: userData.academicInformation.courseChoice2 ?? '',
           courseChoice3: userData.academicInformation.courseChoice3 ?? '',
@@ -1218,6 +1242,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           hasWrittenNbt: userData.hasWrittenNbt ?? '',
           interest: Array.isArray(userData.studyAreas) ? (userData.studyAreas[0] ?? '') : '',
           apsUniversityName: userData.apsUniversityName ?? '',
+          universityChoice1: userData.universityChoice1 ?? '',
+          universityChoice2: userData.universityChoice2 ?? '',
+          universityChoice3: userData.universityChoice3 ?? '',
+          universityChoice4: userData.universityChoice4 ?? '',
           courseChoice1: Array.isArray(userData.courseChoices) ? (userData.courseChoices[0] ?? '') : '',
           courseChoice2: Array.isArray(userData.courseChoices) ? (userData.courseChoices[1] ?? '') : '',
           courseChoice3: Array.isArray(userData.courseChoices) ? (userData.courseChoices[2] ?? '') : '',
@@ -1291,6 +1319,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         hasWrittenNbt: '',
         interest: '',
         apsUniversityName: '',
+        universityChoice1: '',
+        universityChoice2: '',
+        universityChoice3: '',
+        universityChoice4: '',
         courseChoice1: '',
         courseChoice2: '',
         courseChoice3: '',
@@ -1343,6 +1375,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       hasWrittenNbt: '',
       interest: '',
       apsUniversityName: '',
+      universityChoice1: '',
+      universityChoice2: '',
+      universityChoice3: '',
+      universityChoice4: '',
       courseChoice1: '',
       courseChoice2: '',
       courseChoice3: '',
@@ -1750,6 +1786,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       && this.academicInformation.matricYear.trim() !== ''
       && this.academicInformation.hasWrittenNbt.trim() !== ''
       && this.academicInformation.interest.trim() !== ''
+      && this.academicInformation.universityChoice1.trim() !== ''
+      && this.academicInformation.universityChoice2.trim() !== ''
+      && this.academicInformation.universityChoice3.trim() !== ''
       && this.academicInformation.courseChoice1.trim() !== ''
       && this.academicInformation.courseChoice2.trim() !== ''
       && this.academicInformation.courseChoice3.trim() !== '';

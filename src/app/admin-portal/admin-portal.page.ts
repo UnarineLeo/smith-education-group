@@ -45,6 +45,16 @@ interface AdminUserDocument {
   currentStudyLevel?: string;
   studyAreas?: string[];
   courseChoices?: string[];
+  universityChoice1?: string;
+  universityChoice2?: string;
+  universityChoice3?: string;
+  universityChoice4?: string;
+  academicInformation?: Partial<{
+    universityChoice1: string;
+    universityChoice2: string;
+    universityChoice3: string;
+    universityChoice4: string;
+  }>;
   phone?: string;
   saIdNumber?: string;
   streetAddress?: string;
@@ -300,6 +310,17 @@ export class AdminPortalPage implements OnInit {
         rule: entry?.rule?.trim() || 'N/A',
       }))
       .sort((a, b) => a.universityName.localeCompare(b.universityName));
+  }
+
+  getUserUniversityChoices(user: AdminUserDocument): Array<{ label: string; value: string }> {
+    const academicInformation = user.academicInformation ?? {};
+
+    return [
+      { label: 'University Choice 1', value: user.universityChoice1 ?? academicInformation.universityChoice1 ?? '' },
+      { label: 'University Choice 2', value: user.universityChoice2 ?? academicInformation.universityChoice2 ?? '' },
+      { label: 'University Choice 3', value: user.universityChoice3 ?? academicInformation.universityChoice3 ?? '' },
+      { label: 'University Choice 4', value: user.universityChoice4 ?? academicInformation.universityChoice4 ?? '' },
+    ];
   }
 
   formatApsScoreValue(entry: AdminApsScoreEntry): string {

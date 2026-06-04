@@ -548,6 +548,60 @@
             </label>
 
             <label class="field">
+              <span>University Choice 1 <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.universityChoice1"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('universityChoice1', $event)">
+                <option value="">Select university</option>
+                @for (university of apsUniversities; track university) {
+                  <option [value]="university">{{ university }}</option>
+                }
+              </select>
+            </label>
+
+            <label class="field">
+              <span>University Choice 2 <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.universityChoice2"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('universityChoice2', $event)">
+                <option value="">Select university</option>
+                @for (university of apsUniversities; track university) {
+                  <option [value]="university">{{ university }}</option>
+                }
+              </select>
+            </label>
+
+            <label class="field">
+              <span>University Choice 3 <span class="required">*</span></span>
+              <select
+                [value]="academicInformation.universityChoice3"
+                required
+                aria-required="true"
+                (change)="onAcademicInformationInputChange('universityChoice3', $event)">
+                <option value="">Select university</option>
+                @for (university of apsUniversities; track university) {
+                  <option [value]="university">{{ university }}</option>
+                }
+              </select>
+            </label>
+
+            <label class="field">
+              <span>University Choice 4</span>
+              <select
+                [value]="academicInformation.universityChoice4"
+                (change)="onAcademicInformationInputChange('universityChoice4', $event)">
+                <option value="">Select university</option>
+                @for (university of apsUniversities; track university) {
+                  <option [value]="university">{{ university }}</option>
+                }
+              </select>
+            </label>
+
+            <label class="field">
               <span>Course Choice 1 <span class="required">*</span></span>
               <input
                 type="text"
