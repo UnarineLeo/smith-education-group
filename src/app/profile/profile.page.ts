@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonChip } from '@ionic/angular/standalone';
 import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, reload, sendEmailVerification, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
@@ -89,6 +90,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   activeTab: ProfileTab = 'personal';
   isGoogleUser = false;
+  isAdminUser = false;
   minimumSubjects = 7;
   isSavingProfile = false;
   profileSaveCountdown = 0;
@@ -297,7 +299,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   constructor(
     private authService: AuthService,
-    private apsCalculationService: ApsCalculationService
+    private apsCalculationService: ApsCalculationService,
+    private router: Router
   ) {
     this.unsubscribeAuth = onAuthStateChanged(getAuth(), async (user) => {
       await this.applyUserProfile(user);
@@ -457,6 +460,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   shouldShowEmailVerificationBanner(): boolean {
     return !this.isGoogleUser && this.userEmail !== '' && !this.isEmailVerified;
+  }
+
+  shouldShowAdminPortalBanner(): boolean {
+    return this.isAdminUser;
+  }
+
+  async goToAdminPortal(): Promise<void> {
+    await this.router.navigate(['/tabs/admin-portal']);
   }
 
   async resendVerificationEmail() {
@@ -1255,6 +1266,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.userEmail = '';
       this.isGoogleUser = false;
       this.isEmailVerified = false;
+      this.isAdminUser = false;
       this.profile = {
         firstName: 'User',
         lastName: '',
@@ -1298,6 +1310,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     this.isGoogleUser = user.providerData.some((provider) => provider.providerId === 'google.com');
     this.isEmailVerified = user.emailVerified ?? false;
+    try {
+      this.isAdminUser = await this.authService.isCurrentUserAdmin();
+    } catch {
+      this.isAdminUser = false;
+    }
 
     const displayName = user.displayName?.trim() ?? '';
     const [firstName = 'User', ...rest] = displayName ? displayName.split(/\s+/) : ['User'];

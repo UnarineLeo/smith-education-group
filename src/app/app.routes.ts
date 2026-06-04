@@ -11,7 +11,8 @@ export const routes: Routes = [
   },
   {
     path: 'admin-portal',
-    loadComponent: () => import('./admin-portal/admin-portal.page').then((m) => m.AdminPortalPage)
+    redirectTo: '/tabs/admin-portal',
+    pathMatch: 'full'
   },
   {
     path: 'contact',

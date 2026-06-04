@@ -10,6 +10,9 @@ import {
   IonCardTitle,
   IonCardContent,
   IonChip,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
 } from '@ionic/angular/standalone';
 import { ToastController } from '@ionic/angular';
 import { FooterComponent } from '../footer/footer.component';
@@ -78,6 +81,9 @@ interface AdminUserDocument {
     IonCardContent,
     IonChip,
     FooterComponent,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
   ],
 })
 export class AdminPortalPage implements OnInit {

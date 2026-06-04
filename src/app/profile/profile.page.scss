@@ -119,6 +119,19 @@
 	box-shadow: 0 6px 18px rgba(217, 119, 6, 0.12);
 }
 
+.admin-portal-banner {
+	grid-column: 1 / -1;
+	background: linear-gradient(125deg, #e8f1ff 0%, #dcecff 55%, #c8ddff 100%);
+	border: 1px solid #9cc2f7;
+	border-radius: 14px;
+	padding: 18px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
 .banner-copy {
 	h2 {
 		margin: 0;
@@ -963,6 +976,12 @@
 	}
 
 	.email-verification-banner {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 16px;
+	}
+
+	.admin-portal-banner {
 		flex-direction: column;
 		align-items: flex-start;
 		padding: 16px;

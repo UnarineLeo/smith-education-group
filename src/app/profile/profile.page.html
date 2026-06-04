@@ -16,6 +16,23 @@
   </section>
 
   <section class="profile-shell">
+    @if (shouldShowAdminPortalBanner()) {
+      <section class="admin-portal-banner" role="status" aria-live="polite">
+        <div class="banner-copy">
+          <h2>Admin Access Available</h2>
+          <p>
+            You are signed in as an admin. Open the admin portal to manage users, applications, and university data.
+          </p>
+        </div>
+
+        <div class="banner-actions">
+          <button type="button" class="btn primary" (click)="goToAdminPortal()">
+            Open Admin Portal
+          </button>
+        </div>
+      </section>
+    }
+
     @if (shouldShowEmailVerificationBanner()) {
       <section class="email-verification-banner" role="status" aria-live="polite">
         <div class="banner-copy">
