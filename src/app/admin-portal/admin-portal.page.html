@@ -1,168 +1,397 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Legal</ion-title>
+    <ion-title>Admin Portal</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <!-- ── HERO ── -->
   <section class="admin-hero">
     <div class="admin-hero-inner">
-      <p class="eyebrow">Admin</p>
+      <p class="eyebrow">Admin Dashboard</p>
       <h1>Firestore Users</h1>
-      <p class="hero-subtitle">View every users document in Firestore, grouped into cards for quick review.</p>
+      <p class="hero-subtitle">
+        Monitor every user document in real time — browse the full list or explore data-driven insights across APS scores, study levels, course choices, and university selections.
+      </p>
     </div>
   </section>
 
-  <section class="admin-shell single-column-shell">
-    <ion-card class="admin-card panel users-summary-card">
-      <ion-card-header>
-        <div class="section-head">
-          <ion-card-title>Users Collection</ion-card-title>
-          <p class="section-subtitle">Each card represents one document from the <strong>users</strong> collection.</p>
-        </div>
-        <div class="summary-actions">
-          <ion-chip color="primary">{{ users.length }} documents</ion-chip>
-          <ion-button size="small" fill="outline" (click)="refreshUsers()">Refresh</ion-button>
-          <ion-button
-            size="small"
-            fill="solid"
-            (click)="exportUsersToExcel()"
-            [disabled]="isLoadingUsers || isExportingUsers || users.length === 0"
-          >
-            {{ isExportingUsers ? 'Exporting...' : 'Export Excel' }}
-          </ion-button>
-        </div>
-      </ion-card-header>
+  <!-- ── TOP TAB BAR ── -->
+  <div class="top-tab-bar">
+    <div class="top-tab-bar-inner">
+      <button
+        type="button"
+        class="top-tab-btn"
+        [class.active]="activeTab === 'list'"
+        (click)="activeTab = 'list'"
+      >
+        <span class="tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+        </span>
+        List
+      </button>
 
-      <ion-card-content>
-        @if (isLoadingUsers) {
-          <p class="empty-state">Loading Firestore users...</p>
-        } @else if (loadUsersError) {
-          <p class="empty-state error-state">{{ loadUsersError }}</p>
-        } @else if (users.length === 0) {
-          <p class="empty-state">No Firestore users documents found yet.</p>
-        } @else {
-          <div class="users-grid">
-            @for (user of users; track user.id) {
-              <article class="user-card" [class.is-expanded]="isUserExpanded(user)">
-                <button
-                  type="button"
-                  class="user-card-header"
-                  (click)="toggleUserExpanded(user)"
-                  [attr.aria-expanded]="isUserExpanded(user)"
-                  [attr.aria-controls]="'user-details-' + user.id"
-                >
-                  <div class="user-card-header-main">
-                    <p class="user-card-eyebrow">Document ID</p>
-                    <h3>{{ user.id }}</h3>
-                    <p class="user-card-summary">{{ getUserDisplayName(user) }} · {{ user.email || 'N/A' }}</p>
-                    <p class="user-card-activity">Last sign in: {{ formatFirestoreDate(user.lastSignIn) }}</p>
-                  </div>
+      <button
+        type="button"
+        class="top-tab-btn"
+        [class.active]="activeTab === 'insights'"
+        (click)="activeTab = 'insights'"
+      >
+        <span class="tab-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </span>
+        Insights
+      </button>
 
-                  <div class="user-card-header-meta">
-                    <ion-chip color="medium">{{ getUserStatusLabel(user) }}</ion-chip>
-                    <span class="user-card-toggle">
-                      {{ isUserExpanded(user) ? 'Collapse' : 'Expand' }}
-                    </span>
-                  </div>
-                </button>
+      <div class="tab-indicator-track">
+        <div class="tab-indicator" [class.at-insights]="activeTab === 'insights'"></div>
+      </div>
+    </div>
+  </div>
 
-                @if (isUserExpanded(user)) {
-                  <div class="user-card-body" [id]="'user-details-' + user.id">
-                    <div class="detail-card-grid">
-                      <section class="detail-card">
-                        <h4>Identity</h4>
-                        <p><strong>Name:</strong> {{ getUserDisplayName(user) }}</p>
-                        <p><strong>Email:</strong> {{ user.email || 'N/A' }}</p>
-                        <p><strong>Verified:</strong> {{ formatBoolean(user.emailVerified) }}</p>
-                        <p><strong>Role:</strong> {{ getUserRole(user) }}</p>
-                      </section>
+  <!-- ══════════════════════════════════════
+       TAB: LIST
+  ══════════════════════════════════════ -->
+  @if (activeTab === 'list') {
+    <section class="admin-shell single-column-shell tab-panel">
+      <ion-card class="panel users-summary-card">
+        <ion-card-header>
+          <div class="section-head">
+            <ion-card-title>Users Collection</ion-card-title>
+            <p class="section-subtitle">Each card represents one document from the <strong>users</strong> collection.</p>
+          </div>
+          <div class="summary-actions">
+            <ion-chip color="primary">{{ users.length }} documents</ion-chip>
+            <ion-button size="small" fill="outline" (click)="refreshUsers()">Refresh</ion-button>
+            <ion-button
+              size="small"
+              fill="solid"
+              (click)="exportUsersToExcel()"
+              [disabled]="isLoadingUsers || isExportingUsers || users.length === 0"
+            >
+              {{ isExportingUsers ? 'Exporting...' : 'Export Excel' }}
+            </ion-button>
+          </div>
+        </ion-card-header>
 
-                      <section class="detail-card">
-                        <h4>Profile</h4>
-                        <p><strong>Phone:</strong> {{ user.phone || 'N/A' }}</p>
-                        <p><strong>SA ID:</strong> {{ user.saIdNumber || 'N/A' }}</p>
-                        <p><strong>Address:</strong> {{ user.streetAddress || 'N/A' }}</p>
-                        <p><strong>City/Town:</strong> {{ user.cityTown || 'N/A' }}</p>
-                        <p><strong>Province:</strong> {{ user.provinceAddress || 'N/A' }}</p>
-                        <p><strong>Postal Code:</strong> {{ user.postalCode || 'N/A' }}</p>
-                      </section>
-
-                      <section class="detail-card">
-                        <h4>Study</h4>
-                        <p><strong>Current Level:</strong> {{ user.currentStudyLevel || 'N/A' }}</p>
-                        <p><strong>Study Areas:</strong> {{ formatList(user.studyAreas) }}</p>
-                        <p><strong>University Choice 1:</strong> {{ getUserUniversityChoices(user)[0].value || 'N/A' }}</p>
-                        <p><strong>University Choice 2:</strong> {{ getUserUniversityChoices(user)[1].value || 'N/A' }}</p>
-                        <p><strong>University Choice 3:</strong> {{ getUserUniversityChoices(user)[2].value || 'N/A' }}</p>
-                        <p><strong>University Choice 4:</strong> {{ getUserUniversityChoices(user)[3].value || 'N/A' }}</p>
-                        <p><strong>Course Choice 1:</strong> {{ user.courseChoices?.[0] || 'N/A' }}</p>
-                        <p><strong>Course Choice 2:</strong> {{ user.courseChoices?.[1] || 'N/A' }}</p>
-                        <p><strong>Course Choice 3:</strong> {{ user.courseChoices?.[2] || 'N/A' }}</p>
-                        @if (user.expiryDate) {
-                          <p><strong>Expiry Date:</strong> {{ user.expiryDate }}</p>
-                        }
-                        @if (user.isSubscribed !== null && user.isSubscribed !== undefined) {
-                          <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
-                        }
-                      </section>
-
-                      <section class="detail-card full-span">
-                        <h4>APS by University</h4>
-                        @if (getUserApsScores(user).length === 0) {
-                          <p>No APS scores stored in this Firestore document yet.</p>
-                        } @else {
-                          <div class="aps-grid">
-                            @for (aps of getUserApsScores(user); track aps.universityName) {
-                              <article class="aps-card">
-                                <div class="aps-card-header">
-                                  <h5>{{ aps.universityName }}</h5>
-                                  <span class="aps-score">{{ formatApsScoreValue(aps) }}</span>
-                                </div>
-                                <p><strong>Rule:</strong> {{ aps.rule }}</p>
-                              </article>
-                            }
-                          </div>
-                        }
-                      </section>
-
-                      <section class="detail-card full-span">
-                        <h4>Documents</h4>
-                        @if (getUserDocuments(user).length === 0) {
-                          <p>No documents stored in this Firestore document yet.</p>
-                        } @else {
-                          <div class="document-grid">
-                            @for (document of getUserDocuments(user); track document.key) {
-                              <article class="document-card">
-                                <h5>{{ document.key }}</h5>
-                                <p><strong>File:</strong> {{ document.fileName }}</p>
-                                <p><strong>MIME:</strong> {{ document.mimeType }}</p>
-                                <p><strong>Uploaded:</strong> {{ document.uploadedAt }}</p>
-                                @if (canDownloadDocument(document)) {
-                                  <ion-button size="small" fill="outline" (click)="downloadDocument(document)">
-                                    Download PDF
-                                  </ion-button>
-                                }
-                              </article>
-                            }
-                          </div>
-                        }
-                      </section>
-
-                      <section class="detail-card full-span">
-                        <h4>Account Activity</h4>
-                        <p class="raw-summary"><strong>Last Sign In:</strong> {{ formatFirestoreDate(user.lastSignIn) }}</p>
-                      </section>
+        <ion-card-content>
+          @if (isLoadingUsers) {
+            <div class="loading-state">
+              <div class="loading-spinner"></div>
+              <p>Loading Firestore users…</p>
+            </div>
+          } @else if (loadUsersError) {
+            <p class="empty-state error-state">{{ loadUsersError }}</p>
+          } @else if (users.length === 0) {
+            <p class="empty-state">No Firestore user documents found yet.</p>
+          } @else {
+            <div class="users-grid">
+              @for (user of users; track user.id) {
+                <article class="user-card" [class.is-expanded]="isUserExpanded(user)">
+                  <button
+                    type="button"
+                    class="user-card-header"
+                    (click)="toggleUserExpanded(user)"
+                    [attr.aria-expanded]="isUserExpanded(user)"
+                    [attr.aria-controls]="'user-details-' + user.id"
+                  >
+                    <div class="user-avatar-wrap">
+                      <div class="user-avatar">{{ getInitials(user) }}</div>
                     </div>
-                  </div>
-                }
-              </article>
+
+                    <div class="user-card-header-main">
+                      <p class="user-card-eyebrow">Document ID</p>
+                      <h3>{{ user.id }}</h3>
+                      <p class="user-card-summary">{{ getUserDisplayName(user) }} · {{ user.email || 'N/A' }}</p>
+                      <p class="user-card-activity">Last sign in: {{ formatFirestoreDate(user.lastSignIn) }}</p>
+                    </div>
+
+                    <div class="user-card-header-meta">
+                      <ion-chip color="medium">{{ getUserStatusLabel(user) }}</ion-chip>
+                      <span class="user-card-toggle" [class.expanded]="isUserExpanded(user)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </button>
+
+                  @if (isUserExpanded(user)) {
+                    <div class="user-card-body" [id]="'user-details-' + user.id">
+                      <div class="detail-card-grid">
+
+                        <section class="detail-card">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon identity-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </span>
+                            <h4>Identity</h4>
+                          </div>
+                          <p><strong>Name:</strong> {{ getUserDisplayName(user) }}</p>
+                          <p><strong>Email:</strong> {{ user.email || 'N/A' }}</p>
+                          <p><strong>Verified:</strong> {{ formatBoolean(user.emailVerified) }}</p>
+                          <p><strong>Role:</strong> {{ getUserRole(user) }}</p>
+                        </section>
+
+                        <section class="detail-card">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon profile-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </span>
+                            <h4>Profile</h4>
+                          </div>
+                          <p><strong>Phone:</strong> {{ user.phone || 'N/A' }}</p>
+                          <p><strong>SA ID:</strong> {{ user.saIdNumber || 'N/A' }}</p>
+                          <p><strong>Address:</strong> {{ user.streetAddress || 'N/A' }}</p>
+                          <p><strong>City/Town:</strong> {{ user.cityTown || 'N/A' }}</p>
+                          <p><strong>Province:</strong> {{ user.provinceAddress || 'N/A' }}</p>
+                          <p><strong>Postal Code:</strong> {{ user.postalCode || 'N/A' }}</p>
+                        </section>
+
+                        <section class="detail-card">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon study-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </span>
+                            <h4>Study</h4>
+                          </div>
+                          <p><strong>Current Level:</strong> {{ user.currentStudyLevel || 'N/A' }}</p>
+                          <p><strong>Study Areas:</strong> {{ formatList(user.studyAreas) }}</p>
+                          <p><strong>University Choice 1:</strong> {{ getUserUniversityChoices(user)[0].value || 'N/A' }}</p>
+                          <p><strong>University Choice 2:</strong> {{ getUserUniversityChoices(user)[1].value || 'N/A' }}</p>
+                          <p><strong>University Choice 3:</strong> {{ getUserUniversityChoices(user)[2].value || 'N/A' }}</p>
+                          <p><strong>University Choice 4:</strong> {{ getUserUniversityChoices(user)[3].value || 'N/A' }}</p>
+                          <p><strong>Course Choice 1:</strong> {{ user.courseChoices?.[0] || 'N/A' }}</p>
+                          <p><strong>Course Choice 2:</strong> {{ user.courseChoices?.[1] || 'N/A' }}</p>
+                          <p><strong>Course Choice 3:</strong> {{ user.courseChoices?.[2] || 'N/A' }}</p>
+                          @if (user.expiryDate) {
+                            <p><strong>Expiry Date:</strong> {{ user.expiryDate }}</p>
+                          }
+                          @if (user.isSubscribed !== null && user.isSubscribed !== undefined) {
+                            <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
+                          }
+                        </section>
+
+                        <section class="detail-card full-span">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon aps-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </span>
+                            <h4>APS by University</h4>
+                          </div>
+                          @if (getUserApsScores(user).length === 0) {
+                            <p>No APS scores stored yet.</p>
+                          } @else {
+                            <div class="aps-grid">
+                              @for (aps of getUserApsScores(user); track aps.universityName) {
+                                <article class="aps-card">
+                                  <div class="aps-card-header">
+                                    <h5>{{ aps.universityName }}</h5>
+                                    <span class="aps-score">{{ formatApsScoreValue(aps) }}</span>
+                                  </div>
+                                  <p><strong>Rule:</strong> {{ aps.rule }}</p>
+                                </article>
+                              }
+                            </div>
+                          }
+                        </section>
+
+                        <section class="detail-card full-span">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon docs-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <h4>Documents</h4>
+                          </div>
+                          @if (getUserDocuments(user).length === 0) {
+                            <p>No documents stored yet.</p>
+                          } @else {
+                            <div class="document-grid">
+                              @for (document of getUserDocuments(user); track document.key) {
+                                <article class="document-card">
+                                  <h5>{{ document.key }}</h5>
+                                  <p><strong>File:</strong> {{ document.fileName }}</p>
+                                  <p><strong>MIME:</strong> {{ document.mimeType }}</p>
+                                  <p><strong>Uploaded:</strong> {{ document.uploadedAt }}</p>
+                                  @if (canDownloadDocument(document)) {
+                                    <ion-button size="small" fill="outline" (click)="downloadDocument(document)">
+                                      Download PDF
+                                    </ion-button>
+                                  }
+                                </article>
+                              }
+                            </div>
+                          }
+                        </section>
+
+                        <section class="detail-card full-span">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon activity-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </span>
+                            <h4>Account Activity</h4>
+                          </div>
+                          <p><strong>Last Sign In:</strong> {{ formatFirestoreDate(user.lastSignIn) }}</p>
+                        </section>
+
+                      </div>
+                    </div>
+                  }
+                </article>
+              }
+            </div>
+          }
+        </ion-card-content>
+      </ion-card>
+    </section>
+  }
+
+  <!-- ══════════════════════════════════════
+       TAB: INSIGHTS
+  ══════════════════════════════════════ -->
+  @if (activeTab === 'insights') {
+    <section class="admin-shell single-column-shell tab-panel">
+
+      <!-- KPI row -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <span class="kpi-label">Total Users</span>
+          <span class="kpi-value">{{ users.length }}</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Verified Emails</span>
+          <span class="kpi-value">{{ getVerifiedCount() }}</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Subscribed</span>
+          <span class="kpi-value">{{ getSubscribedCount() }}</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Avg APS Score</span>
+          <span class="kpi-value">{{ getOverallAvgAps() }}</span>
+        </div>
+      </div>
+
+      <!-- Charts row 1: Study Level + Course Choices -->
+      <div class="chart-row-2col">
+
+        <!-- Study Level: horizontal bar -->
+        <div class="chart-panel">
+          <div class="chart-panel-head">
+            <h3>Current Study Level</h3>
+            <p>Distribution across all users</p>
+          </div>
+          <div class="bar-chart-wrap">
+            @for (item of getStudyLevelDistribution(); track item.label) {
+              <div class="bar-row">
+                <span class="bar-label">{{ item.label }}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" [style.width.%]="item.pct" [style.background]="item.color"></div>
+                </div>
+                <span class="bar-count">{{ item.count }}</span>
+              </div>
             }
           </div>
-        }
-      </ion-card-content>
-    </ion-card>
-  </section>
+        </div>
+
+        <!-- Course Choices: donut-style pill chart -->
+        <div class="chart-panel">
+          <div class="chart-panel-head">
+            <h3>Top Course Choices</h3>
+            <p>Most popular courses selected</p>
+          </div>
+          <div class="pill-chart-wrap">
+            @for (item of getTopCourseChoices(); track item.label) {
+              <div class="pill-row">
+                <span class="pill-label">{{ item.label }}</span>
+                <div class="pill-track">
+                  <div class="pill-fill" [style.width.%]="item.pct"></div>
+                </div>
+                <span class="pill-pct">{{ item.pct | number:'1.0-0' }}%</span>
+              </div>
+            }
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts row 2: Avg APS per University (full-width bar chart) -->
+      <div class="chart-panel chart-panel-full">
+        <div class="chart-panel-head">
+          <h3>Average APS Score by University</h3>
+          <p>Mean score across all users who have APS data for each institution</p>
+        </div>
+        <div class="vertical-bar-chart">
+          @for (item of getAvgApsByUniversity(); track item.label) {
+            <div class="v-bar-col">
+              <span class="v-bar-value">{{ item.avg | number:'1.0-1' }}</span>
+              <div class="v-bar-track">
+                <div class="v-bar-fill" [style.height.%]="item.pct"></div>
+              </div>
+              <span class="v-bar-label">{{ item.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Charts row 3: University Choices popularity + Sign-in timeline -->
+      <div class="chart-row-2col">
+
+        <!-- University Choices: ranked list -->
+        <div class="chart-panel">
+          <div class="chart-panel-head">
+            <h3>University Popularity</h3>
+            <p>How often each university appears across all 4 choice slots</p>
+          </div>
+          <div class="rank-list">
+            @for (item of getUniversityPopularity(); track item.label; let i = $index) {
+              <div class="rank-row">
+                <span class="rank-num">#{{ i + 1 }}</span>
+                <span class="rank-label">{{ item.label }}</span>
+                <div class="rank-track">
+                  <div class="rank-fill" [style.width.%]="item.pct"></div>
+                </div>
+                <span class="rank-count">{{ item.count }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Sign-ins sparkline: monthly sign-in activity -->
+        <div class="chart-panel">
+          <div class="chart-panel-head">
+            <h3>Sign-in Activity</h3>
+            <p>Monthly last-sign-in distribution</p>
+          </div>
+          <div class="sparkline-wrap">
+            <svg class="sparkline-svg" viewBox="0 0 300 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0.04"/>
+                </linearGradient>
+              </defs>
+              <path [attr.d]="getSparklineFillPath()" fill="url(#sparkGrad)"/>
+              <path [attr.d]="getSparklinePath()" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="sparkline-labels">
+              @for (m of getSignInMonths(); track m.label) {
+                <span>{{ m.label }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  }
 
   <app-footer></app-footer>
 </ion-content>
