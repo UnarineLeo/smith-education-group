@@ -1,0 +1,157 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Programmes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="programmes-content">
+
+  <div class="programmes-intro">
+    <h1 class="page-title">Find a Programme</h1>
+    <p class="page-subtitle">
+      Search and filter programmes across universities by faculty, qualification type, and APS score.
+    </p>
+  </div>
+
+  <ion-card class="filter-card">
+    <ion-card-content>
+      <div class="search-row">
+        <div class="search-input-wrapper">
+          <ion-icon name="search-outline" class="search-icon"></ion-icon>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by programme, university, faculty or subject..."
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="applyFilters()" />
+        </div>
+
+        <div class="aps-input-wrapper">
+          <ion-icon name="calculator-outline" class="aps-icon"></ion-icon>
+          <input
+            type="number"
+            class="aps-input"
+            placeholder="Your APS"
+            min="0"
+            max="50"
+            [(ngModel)]="myAps"
+            (ngModelChange)="applyFilters()" />
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <div class="select-wrapper">
+          <ion-select
+            placeholder="University"
+            [(ngModel)]="selectedUniversities"
+            [multiple]="true"
+            interface="popover"
+            class="custom-select"
+            (ionChange)="applyFilters()">
+            <ion-select-option *ngFor="let uni of universityOptions" [value]="uni">{{ uni }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="select-wrapper">
+          <ion-select
+            placeholder="Faculty"
+            [(ngModel)]="selectedFaculties"
+            [multiple]="true"
+            interface="popover"
+            class="custom-select"
+            (ionChange)="applyFilters()">
+            <ion-select-option *ngFor="let faculty of facultyOptions" [value]="faculty">{{ faculty }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="select-wrapper">
+          <ion-select
+            placeholder="Qualification"
+            [(ngModel)]="selectedQualificationTypes"
+            [multiple]="true"
+            interface="popover"
+            class="custom-select"
+            (ionChange)="applyFilters()">
+            <ion-select-option *ngFor="let q of qualificationTypeOptions" [value]="q">{{ q }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <ion-button
+          fill="clear"
+          class="clear-button"
+          (click)="clearFilters()"
+          *ngIf="hasActiveFilters()">
+          <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+          Clear
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="results-meta">
+    <span>{{ filteredProgrammes.length }} programme{{ filteredProgrammes.length === 1 ? '' : 's' }} found</span>
+    @if (hasApsInput()) {
+      <span class="aps-meta">Comparing against an APS of {{ myAps }}</span>
+    }
+  </div>
+
+  <div class="programme-cards">
+    @for (programme of filteredProgrammes; track programme.id) {
+      <ion-card class="programme-card">
+        <ion-card-content>
+          <div class="programme-header">
+            <h3 class="programme-name">{{ programme.name }}</h3>
+            <span class="qualification-badge">{{ programme.qualificationType }}</span>
+          </div>
+
+          <p class="university-line">
+            <ion-icon name="school-outline"></ion-icon>
+            {{ programme.universityName }}
+          </p>
+
+          <div class="chip-row">
+            <ion-chip class="faculty-chip">
+              <ion-label>{{ programme.faculty }}</ion-label>
+            </ion-chip>
+            <ion-chip class="duration-chip">
+              <ion-icon name="time-outline"></ion-icon>
+              <ion-label>{{ programme.duration }}</ion-label>
+            </ion-chip>
+            <ion-chip
+              class="aps-chip"
+              [class.aps-met]="meetsAps(programme)"
+              [class.aps-unmet]="hasApsInput() && !meetsAps(programme)">
+              <ion-icon [name]="hasApsInput() ? (meetsAps(programme) ? 'checkmark-circle-outline' : 'close-circle-outline') : 'calculator-outline'"></ion-icon>
+              <ion-label>APS {{ programme.apsScore }}</ion-label>
+            </ion-chip>
+          </div>
+
+          <p class="programme-description">{{ truncate(programme.description) }}</p>
+
+          <div class="requirements-block">
+            <p class="requirements-label">Subject Requirements</p>
+            <div class="requirement-chips">
+              @for (req of programme.subjectRequirements; track req.subject) {
+                <span class="requirement-chip" [class.compulsory]="req.compulsory">
+                  {{ req.subject }} · {{ getLevelLabel(req.level) }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <ion-button fill="outline" class="view-university-btn" (click)="viewUniversity(programme)">
+            <ion-icon slot="start" name="open-outline"></ion-icon>
+            View University
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    } @empty {
+      <div class="empty-state">
+        <ion-icon name="search-outline"></ion-icon>
+        <h2>No programmes match your filters</h2>
+        <p>Try widening your search or clearing some filters.</p>
+        <ion-button color="dark" (click)="clearFilters()">Clear Filters</ion-button>
+      </div>
+    }
+  </div>
+</ion-content>

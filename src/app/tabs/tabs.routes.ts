@@ -22,6 +22,10 @@ export const routes: Routes = [
           import('../prospectus-viewer/prospectus-viewer.component').then((m) => m.ProspectusViewerComponent),
       },
       {
+        path: 'programmes',
+        loadComponent: () => import('../programmes/programmes.page').then(m => m.Programmes)
+      },
+      {
         path: 'our-story',
         loadComponent: () =>
           import('../our-story/our-story.page').then((m) => m.OurStoryPage),

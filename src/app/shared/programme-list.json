@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "universityId": 1,
+    "universityName": "University of Pretoria",
+    "name": "BSc Computer Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "Covers software development, algorithms, and systems design, with electives in data science and artificial intelligence in later years.",
+    "campus": "Hatfield Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "Physical Sciences", "level": 5, "compulsory": false },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 2,
+    "universityId": 2,
+    "universityName": "University of the Witwatersrand",
+    "name": "BEng Mechanical Engineering",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 36,
+    "description": "Trains engineers in mechanical design, thermodynamics, and manufacturing, with a strong emphasis on practical workshop and lab experience.",
+    "campus": "Braamfontein Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 7, "compulsory": true },
+      { "subject": "Physical Sciences", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 3,
+    "universityId": 3,
+    "universityName": "University of Cape Town",
+    "name": "MBChB Medicine & Surgery",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "6 years",
+    "apsScore": 40,
+    "description": "A clinically-focused programme combining biomedical science with early patient contact, leading to registration as a medical practitioner.",
+    "campus": "Health Sciences Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "Physical Sciences", "level": 6, "compulsory": true },
+      { "subject": "Life Sciences", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 4,
+    "universityId": 4,
+    "universityName": "Stellenbosch University",
+    "name": "BCom Accounting",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "A foundation for chartered accountancy, blending financial and management accounting with auditing, tax, and business law.",
+    "campus": "Stellenbosch Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "Accounting", "level": 5, "compulsory": false },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 5,
+    "universityId": 5,
+    "universityName": "University of Johannesburg",
+    "name": "LLB Law",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Builds a grounding in South African and comparative law, including constitutional, criminal, and contract law, with moot court practice.",
+    "campus": "Auckland Park Kingsway Campus",
+    "subjectRequirements": [
+      { "subject": "English", "level": 5, "compulsory": true },
+      { "subject": "Additional Language", "level": 4, "compulsory": false }
+    ]
+  },
+  {
+    "id": 6,
+    "universityId": 6,
+    "universityName": "University of KwaZulu-Natal",
+    "name": "BA Psychology",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "Introduces the study of human behaviour and cognition, covering developmental, social, and abnormal psychology as a base for postgraduate study.",
+    "campus": "Howard College Campus",
+    "subjectRequirements": [
+      { "subject": "English", "level": 4, "compulsory": true },
+      { "subject": "Life Orientation", "level": 4, "compulsory": false }
+    ]
+  },
+  {
+    "id": 7,
+    "universityId": 1,
+    "universityName": "University of Pretoria",
+    "name": "BEd Foundation Phase Teaching",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 24,
+    "description": "Prepares teachers for Grade R to 3 classrooms, covering literacy and numeracy pedagogy, child development, and classroom practice.",
+    "campus": "Groenkloof Campus",
+    "subjectRequirements": [
+      { "subject": "English", "level": 4, "compulsory": true },
+      { "subject": "Mathematical Literacy", "level": 4, "compulsory": false }
+    ]
+  },
+  {
+    "id": 8,
+    "universityId": 5,
+    "universityName": "University of Johannesburg",
+    "name": "Diploma in Information Technology",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "A practically-oriented qualification covering programming, networking, and systems support, with a focus on workplace readiness.",
+    "campus": "Doornfontein Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 4, "compulsory": true },
+      { "subject": "English", "level": 4, "compulsory": true }
+    ]
+  },
+  {
+    "id": 9,
+    "universityId": 2,
+    "universityName": "University of the Witwatersrand",
+    "name": "BAS Architectural Studies",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 34,
+    "description": "The first stage of the architecture pathway, focusing on design studio work, building technology, and the history of the built environment.",
+    "campus": "East Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 10,
+    "universityId": 6,
+    "universityName": "University of KwaZulu-Natal",
+    "name": "Higher Certificate in Office Administration",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Higher Certificate",
+    "duration": "1 year",
+    "apsScore": 18,
+    "description": "Builds core administrative, communication, and basic bookkeeping skills for entry-level office and support roles.",
+    "campus": "Pietermaritzburg Campus",
+    "subjectRequirements": [
+      { "subject": "English", "level": 3, "compulsory": true },
+      { "subject": "Mathematical Literacy", "level": 3, "compulsory": false }
+    ]
+  },
+  {
+    "id": 11,
+    "universityId": 4,
+    "universityName": "Stellenbosch University",
+    "name": "BEng Civil Engineering",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 35,
+    "description": "Covers structural, geotechnical, and transportation engineering, preparing graduates to design and manage infrastructure projects.",
+    "campus": "Stellenbosch Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 7, "compulsory": true },
+      { "subject": "Physical Sciences", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 12,
+    "universityId": 3,
+    "universityName": "University of Cape Town",
+    "name": "BPharm Pharmacy",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "4 years",
+    "apsScore": 35,
+    "description": "Combines pharmaceutical chemistry, pharmacology, and clinical practice to prepare graduates for registration as pharmacists.",
+    "campus": "Health Sciences Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "Physical Sciences", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 13,
+    "universityId": 1,
+    "universityName": "University of Pretoria",
+    "name": "BCom Economics",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "Explores micro and macroeconomic theory alongside statistics and econometrics, suited to careers in policy, banking, and research.",
+    "campus": "Hatfield Campus",
+    "subjectRequirements": [
+      { "subject": "Mathematics", "level": 6, "compulsory": true },
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  },
+  {
+    "id": 14,
+    "universityId": 2,
+    "universityName": "University of the Witwatersrand",
+    "name": "BA Journalism & Media Studies",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "Develops writing, multimedia, and critical analysis skills for careers across news media, publishing, and digital content.",
+    "campus": "Wits Education Campus",
+    "subjectRequirements": [
+      { "subject": "English", "level": 5, "compulsory": true }
+    ]
+  }
+]
