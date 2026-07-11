@@ -83,6 +83,7 @@ interface ApsCategoryGroup {
 })
 export class ProfilePage implements OnDestroy, AfterViewInit {
   @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;
+  @ViewChild('subjectsOcrInput') subjectsOcrInput?: ElementRef<HTMLInputElement>;
 
   private readonly saveToastDelayMs = 5000;
   private readonly saveCountdownSeconds = 5;
@@ -102,6 +103,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   subjectsSaveCountdown = 0;
   isSavingAcademicInfo = false;
   academicSaveCountdown = 0;
+  isRunningSubjectOcr = false;
   isUploadingDocuments = false;
   documentsSaveCountdown = 0;
   isFinalizingDocumentUpload = false;
@@ -112,6 +114,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isSendingVerificationEmail = false;
   isCheckingVerificationStatus = false;
   userEmail = '';
+  subjectOcrStatus = '';
 
   private readonly requiredProfileFieldLabels: Record<keyof typeof this.profile, string> = {
     firstName: 'First Name',
@@ -694,6 +697,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.subjectEntries = [...this.subjectEntries, { subject: '', mark: null }];
   }
 
+  triggerSubjectsOcrInput() {
+    this.subjectsOcrInput?.nativeElement.click();
+  }
+
   removeSubjectEntry(index: number) {
     if (this.subjectEntries.length <= this.minimumSubjects) {
       return;
@@ -745,6 +752,50 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     });
 
     this.refreshApsResultsFromCurrentEntries();
+  }
+
+  async onSubjectsOcrFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+
+    if (!file) {
+      return;
+    }
+
+    if (!this.isSupportedSubjectsOcrFile(file)) {
+      this.subjectOcrStatus = 'Please upload an image or PDF file for OCR.';
+      input.value = '';
+      return;
+    }
+
+    this.isRunningSubjectOcr = true;
+    this.subjectOcrStatus = 'Preparing OCR scan...';
+
+    try {
+      const recognizedText = this.isPdfFile(file)
+        ? await this.extractTextFromPdfForSubjectOcr(file)
+        : await this.recognizeTextWithOcr(file, 'Scanning results...');
+
+      const recognizedEntries = this.parseSubjectEntriesFromOcrText(recognizedText);
+
+      if (recognizedEntries.length === 0) {
+        this.subjectOcrStatus = 'No supported subjects were detected. Try a clearer image or add subjects manually.';
+        return;
+      }
+
+      this.mergeRecognizedSubjectEntries(recognizedEntries);
+
+      const entriesWithMarks = recognizedEntries.filter((entry) => entry.mark !== null).length;
+      this.subjectOcrStatus = entriesWithMarks > 0
+        ? `OCR added ${recognizedEntries.length} subject${recognizedEntries.length === 1 ? '' : 's'} and ${entriesWithMarks} mark${entriesWithMarks === 1 ? '' : 's'}.`
+        : `OCR added ${recognizedEntries.length} subject${recognizedEntries.length === 1 ? '' : 's'}. Add any missing marks manually.`;
+    } catch (error) {
+      console.error('OCR scan failed:', error);
+      this.subjectOcrStatus = 'OCR failed. Please try again with a clearer image.';
+    } finally {
+      this.isRunningSubjectOcr = false;
+      input.value = '';
+    }
   }
 
   onAcademicInformationInputChange(field: keyof AcademicInformation, event: Event) {
@@ -1130,6 +1181,242 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     return paddedSubjects;
+  }
+
+  private isSupportedSubjectsOcrFile(file: File): boolean {
+    return file.type.startsWith('image/') || this.isPdfFile(file);
+  }
+
+  private isPdfFile(file: File): boolean {
+    return file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+  }
+
+  private async recognizeTextWithOcr(source: Blob | File, statusLabel: string): Promise<string> {
+    const { recognize } = await import('tesseract.js');
+    const result = await recognize(source, 'eng', {
+      logger: (message) => {
+        if (message.status === 'recognizing text' && typeof message.progress === 'number') {
+          const progress = Math.round(message.progress * 100);
+          this.subjectOcrStatus = `${statusLabel} ${progress}%`;
+        }
+      }
+    });
+
+    return result.data.text;
+  }
+
+  private async extractTextFromPdfForSubjectOcr(file: File): Promise<string> {
+    const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs');
+    pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/legacy/build/pdf.worker.mjs', import.meta.url).toString();
+
+    const pdfBuffer = await file.arrayBuffer();
+    const pdfDocument = await pdfjs.getDocument({ data: new Uint8Array(pdfBuffer) }).promise;
+    const pageTexts: string[] = [];
+
+    try {
+      for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber += 1) {
+        const page = await pdfDocument.getPage(pageNumber);
+
+        try {
+          this.subjectOcrStatus = `Reading PDF page ${pageNumber} of ${pdfDocument.numPages}...`;
+
+          const embeddedText = await this.extractEmbeddedTextFromPdfPage(page);
+          const renderedPageBlob = await this.renderPdfPageToBlob(page);
+          const ocrText = renderedPageBlob
+            ? await this.recognizeTextWithOcr(renderedPageBlob, `Scanning PDF page ${pageNumber} of ${pdfDocument.numPages}...`)
+            : '';
+
+          pageTexts.push([embeddedText, ocrText].filter(Boolean).join('\n'));
+        } finally {
+          page.cleanup();
+        }
+      }
+    } finally {
+      await pdfDocument.destroy();
+    }
+
+    return pageTexts.join('\n');
+  }
+
+  private async extractEmbeddedTextFromPdfPage(page: any): Promise<string> {
+    const textContent = await page.getTextContent();
+    return textContent.items
+      .map((item: any) => typeof item?.str === 'string' ? item.str : '')
+      .join(' ');
+  }
+
+  private async renderPdfPageToBlob(page: any): Promise<Blob | null> {
+    const viewport = page.getViewport({ scale: 2 });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+
+    const context = canvas.getContext('2d');
+    if (!context) {
+      return null;
+    }
+
+    await page.render({ canvasContext: context, viewport }).promise;
+
+    const blob = await new Promise<Blob | null>((resolve) => {
+      canvas.toBlob((result) => resolve(result), 'image/png');
+    });
+
+    canvas.width = 0;
+    canvas.height = 0;
+    return blob;
+  }
+
+  private parseSubjectEntriesFromOcrText(text: string): SubjectMarkEntry[] {
+    const detectedEntries = new Map<string, SubjectMarkEntry>();
+    const lines = text
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    for (const [index, line] of lines.entries()) {
+      const subject = this.matchSubjectFromOcrLine(line);
+      if (!subject) {
+        continue;
+      }
+
+      const mark = this.extractMarkFromOcrLine(line)
+        ?? this.extractNearbyMarkFromOcrLines(lines, index);
+      const existingEntry = detectedEntries.get(subject);
+
+      if (!existingEntry || (existingEntry.mark === null && mark !== null)) {
+        detectedEntries.set(subject, { subject, mark });
+      }
+    }
+
+    return Array.from(detectedEntries.values());
+  }
+
+  private mergeRecognizedSubjectEntries(entries: SubjectMarkEntry[]) {
+    const nextEntries = this.subjectEntries.map((entry) => ({ ...entry }));
+
+    for (const entry of entries) {
+      const existingIndex = nextEntries.findIndex((currentEntry) => currentEntry.subject === entry.subject);
+      if (existingIndex >= 0) {
+        nextEntries[existingIndex] = {
+          subject: entry.subject,
+          mark: entry.mark ?? nextEntries[existingIndex].mark
+        };
+        continue;
+      }
+
+      const emptyIndex = nextEntries.findIndex((currentEntry) => currentEntry.subject === '');
+      if (emptyIndex >= 0) {
+        nextEntries[emptyIndex] = entry;
+        continue;
+      }
+
+      nextEntries.push(entry);
+    }
+
+    this.subjectEntries = nextEntries;
+    this.refreshApsResultsFromCurrentEntries();
+  }
+
+  private matchSubjectFromOcrLine(line: string): string {
+    const normalizedLine = this.normalizeOcrText(line);
+    const aliases = this.getSubjectOcrAliases();
+    let bestMatch = '';
+
+    for (const alias of aliases) {
+      if (!normalizedLine.includes(alias.alias)) {
+        continue;
+      }
+
+      if (alias.alias.length > bestMatch.length) {
+        bestMatch = alias.subject;
+      }
+    }
+
+    return bestMatch;
+  }
+
+  private extractMarkFromOcrLine(line: string): number | null {
+    const matches = Array.from(line.matchAll(/(?:^|\s)(\d{1,3})(?:\s*%|$)/g));
+    for (let index = matches.length - 1; index >= 0; index -= 1) {
+      const parsedMark = Number(matches[index][1]);
+      if (Number.isFinite(parsedMark) && parsedMark >= 0 && parsedMark <= 100) {
+        return parsedMark;
+      }
+    }
+
+    return null;
+  }
+
+  private extractNearbyMarkFromOcrLines(lines: string[], subjectIndex: number): number | null {
+    const candidateIndexes = [subjectIndex + 1, subjectIndex - 1, subjectIndex + 2];
+
+    for (const candidateIndex of candidateIndexes) {
+      if (candidateIndex < 0 || candidateIndex >= lines.length) {
+        continue;
+      }
+
+      const candidateLine = lines[candidateIndex];
+      if (this.matchSubjectFromOcrLine(candidateLine)) {
+        continue;
+      }
+
+      const mark = this.extractMarkFromOcrLine(candidateLine);
+      if (mark !== null) {
+        return mark;
+      }
+    }
+
+    return null;
+  }
+
+  private normalizeOcrText(value: string): string {
+    return value
+      .toLowerCase()
+      .replace(/[%_|:;,.()\-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  private getSubjectOcrAliases(): Array<{ alias: string; subject: string }> {
+    const aliasMap = new Map<string, string>();
+
+    const registerAlias = (alias: string, subject: string) => {
+      const normalizedAlias = this.normalizeOcrText(alias);
+      if (!normalizedAlias) {
+        return;
+      }
+
+      aliasMap.set(normalizedAlias, subject);
+    };
+
+    for (const subject of this.highSchoolSubjectOptions) {
+      registerAlias(subject, subject);
+    }
+
+    registerAlias('maths', 'Mathematics');
+    registerAlias('math', 'Mathematics');
+    registerAlias('maths lit', 'Mathematical Literacy');
+    registerAlias('math lit', 'Mathematical Literacy');
+    registerAlias('mathematics lit', 'Mathematical Literacy');
+    registerAlias('eng', 'English');
+    registerAlias('eng hl', 'English');
+    registerAlias('eng fal', 'English');
+    registerAlias('afr', 'Afrikaans');
+    registerAlias('afr hl', 'Afrikaans');
+    registerAlias('afr fal', 'Afrikaans');
+    registerAlias('lo', 'Life Orientation');
+    registerAlias('life ori', 'Life Orientation');
+    registerAlias('physical science', 'Physical Sciences');
+    registerAlias('life science', 'Life Sciences');
+    registerAlias('business study', 'Business Studies');
+    registerAlias('cat', 'Computer Applications Technology');
+    registerAlias('egd', 'Engineering Graphics and Design');
+    registerAlias('it', 'Information Technology');
+
+    return Array.from(aliasMap.entries())
+      .map(([alias, subject]) => ({ alias, subject }))
+      .sort((left, right) => right.alias.length - left.alias.length);
   }
 
   private toApsPoints(mark: number): number {
@@ -1795,12 +2082,21 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   private resolveSubjectOption(subject: string): string {
-    const normalizedSubject = subject.trim().toLowerCase();
-    const matchedSubject = this.highSchoolSubjectOptions.find(
-      (option) => option.trim().toLowerCase() === normalizedSubject
+    const normalizedSubject = this.normalizeOcrText(subject);
+    if (!normalizedSubject) {
+      return '';
+    }
+
+    const directMatch = this.highSchoolSubjectOptions.find(
+      (option) => this.normalizeOcrText(option) === normalizedSubject
     );
 
-    return matchedSubject ?? '';
+    if (directMatch) {
+      return directMatch;
+    }
+
+    const aliasMatch = this.getSubjectOcrAliases().find((alias) => alias.alias === normalizedSubject);
+    return aliasMatch?.subject ?? '';
   }
 
   private parseHighSchoolSubjectEntry(entry: unknown): SubjectMarkEntry | null {

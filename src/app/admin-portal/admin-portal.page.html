@@ -170,11 +170,35 @@
                           <p><strong>Course Choice 1:</strong> {{ user.courseChoices?.[0] || 'N/A' }}</p>
                           <p><strong>Course Choice 2:</strong> {{ user.courseChoices?.[1] || 'N/A' }}</p>
                           <p><strong>Course Choice 3:</strong> {{ user.courseChoices?.[2] || 'N/A' }}</p>
+                          <p><strong>High School Subjects:</strong> {{ formatUserSubjects(user) }}</p>
                           @if (user.expiryDate) {
                             <p><strong>Expiry Date:</strong> {{ user.expiryDate }}</p>
                           }
                           @if (user.isSubscribed !== null && user.isSubscribed !== undefined) {
                             <p><strong>Subscribed:</strong> {{ formatBoolean(user.isSubscribed) }}</p>
+                          }
+                        </section>
+
+                        <section class="detail-card full-span">
+                          <div class="detail-card-icon-head">
+                            <span class="detail-icon study-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18V17c0 2.21 3.13 4 7 4s7-1.79 7-4v-3.82"/></svg>
+                            </span>
+                            <h4>High School Subjects</h4>
+                          </div>
+                          @if (getUserHighSchoolSubjects(user).length === 0) {
+                            <p>No subjects stored yet.</p>
+                          } @else {
+                            <div class="aps-grid">
+                              @for (subject of getUserHighSchoolSubjects(user); track subject.subject + '-' + $index) {
+                                <article class="aps-card">
+                                  <div class="aps-card-header">
+                                    <h5>{{ subject.subject }}</h5>
+                                    <span class="aps-score">{{ subject.mark === null ? 'N/A' : subject.mark + '%' }}</span>
+                                  </div>
+                                </article>
+                              }
+                            </div>
                           }
                         </section>
 

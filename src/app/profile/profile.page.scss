@@ -571,6 +571,33 @@
 	margin-bottom: 12px;
 }
 
+.subjects-ocr-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.subjects-ocr-hint {
+	margin: 0;
+	font-size: 0.92rem;
+	color: #4b5563;
+	max-width: 560px;
+}
+
+.subjects-ocr-input {
+	display: none;
+}
+
+.subjects-ocr-status {
+	margin: 0 0 14px;
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: #1d4ed8;
+}
+
 .academic-panel {
 	background:
 		linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);

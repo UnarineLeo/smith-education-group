@@ -658,6 +658,33 @@
             Add at least 7 high school subjects with marks.
           </p>
 
+          <div class="subjects-ocr-toolbar">
+            <p class="subjects-ocr-hint">
+              Upload a clear screenshot, photo, or PDF of your results to prefill subjects and marks automatically.
+            </p>
+
+            <input
+              #subjectsOcrInput
+              type="file"
+              accept="image/png,image/jpeg,image/jpg,image/webp,application/pdf,.pdf"
+              class="subjects-ocr-input"
+              (change)="onSubjectsOcrFileSelected($event)" />
+
+            <button
+              type="button"
+              class="btn secondary"
+              [disabled]="isRunningSubjectOcr"
+              (click)="triggerSubjectsOcrInput()">
+              {{ isRunningSubjectOcr ? 'Scanning Results...' : 'Scan Results with OCR' }}
+            </button>
+          </div>
+
+          @if (subjectOcrStatus) {
+            <p class="subjects-ocr-status" aria-live="polite">
+              {{ subjectOcrStatus }}
+            </p>
+          }
+
           <div class="subjects-grid">
             @for (entry of subjectEntries; track $index; let i = $index) {
               <div class="subject-row">

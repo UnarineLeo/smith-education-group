@@ -68,10 +68,23 @@ interface AdminUserDocument {
     data?: string;
   }>;
   apsScoresByUniversity?: AdminApsScoreEntry[];
+  highSchoolSubjects?: Array<{
+    subject?: unknown;
+    name?: unknown;
+    title?: unknown;
+    mark?: unknown;
+    score?: unknown;
+    value?: unknown;
+  }>;
   lastSignIn?: unknown;
   expiryDate?: string;
   isSubscribed?: boolean;
   [key: string]: unknown;
+}
+
+interface AdminUserSubjectEntry {
+  subject: string;
+  mark: number | null;
 }
 
 
@@ -169,6 +182,7 @@ export class AdminPortalPage implements OnInit {
         courseChoice2: user.courseChoices?.[1] ?? '',
         courseChoice3: user.courseChoices?.[2] ?? '',
         courseChoice4: user.courseChoices?.[3] ?? '',
+        highSchoolSubjects: this.formatUserSubjects(user),
         universityChoice1: user.universityChoice1 ?? user.academicInformation?.universityChoice1 ?? '',
         universityChoice2: user.universityChoice2 ?? user.academicInformation?.universityChoice2 ?? '',
         universityChoice3: user.universityChoice3 ?? user.academicInformation?.universityChoice3 ?? '',
@@ -232,11 +246,35 @@ export class AdminPortalPage implements OnInit {
         }));
       });
 
+      const subjectsRows = this.users.flatMap((user) => {
+        const subjects = this.getUserHighSchoolSubjects(user);
+
+        if (!subjects.length) {
+          return [{
+            documentId: user.id,
+            userEmail: user.email ?? '',
+            lastSignIn: this.formatFirestoreDate(user.lastSignIn),
+            subject: '',
+            mark: '',
+          }];
+        }
+
+        return subjects.map((subjectEntry) => ({
+          documentId: user.id,
+          userEmail: user.email ?? '',
+          lastSignIn: this.formatFirestoreDate(user.lastSignIn),
+          subject: subjectEntry.subject,
+          mark: subjectEntry.mark ?? '',
+        }));
+      });
+
       const apsSheet = XLSX.utils.json_to_sheet(apsRows);
       const documentsSheet = XLSX.utils.json_to_sheet(documentsRows);
+      const subjectsSheet = XLSX.utils.json_to_sheet(subjectsRows);
 
       XLSX.utils.book_append_sheet(workbook, usersSheet, 'Users');
       XLSX.utils.book_append_sheet(workbook, apsSheet, 'APS Scores');
+      XLSX.utils.book_append_sheet(workbook, subjectsSheet, 'High School Subjects');
       XLSX.utils.book_append_sheet(workbook, documentsSheet, 'Documents');
 
       const sheetBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
@@ -319,6 +357,40 @@ export class AdminPortalPage implements OnInit {
         rule: entry?.rule?.trim() || 'N/A',
       }))
       .sort((a, b) => a.universityName.localeCompare(b.universityName));
+  }
+
+  getUserHighSchoolSubjects(user: AdminUserDocument): AdminUserSubjectEntry[] {
+    if (!Array.isArray(user.highSchoolSubjects)) {
+      return [];
+    }
+
+    return user.highSchoolSubjects.reduce<AdminUserSubjectEntry[]>((accumulator, entry) => {
+      const subjectRaw = entry?.subject ?? entry?.name ?? entry?.title;
+      const markRaw = entry?.mark ?? entry?.score ?? entry?.value;
+      const subject = typeof subjectRaw === 'string' ? subjectRaw.trim() : '';
+
+      if (!subject) {
+        return accumulator;
+      }
+
+      const parsedMark = typeof markRaw === 'number' ? markRaw : Number(markRaw);
+      accumulator.push({
+        subject,
+        mark: Number.isFinite(parsedMark) ? parsedMark : null,
+      });
+      return accumulator;
+    }, []);
+  }
+
+  formatUserSubjects(user: AdminUserDocument): string {
+    const subjects = this.getUserHighSchoolSubjects(user);
+    if (!subjects.length) {
+      return 'N/A';
+    }
+
+    return subjects
+      .map((entry) => entry.mark === null ? entry.subject : `${entry.subject} (${entry.mark}%)`)
+      .join(', ');
   }
 
   getUserUniversityChoices(user: AdminUserDocument): Array<{ label: string; value: string }> {
