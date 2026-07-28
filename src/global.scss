@@ -86,3 +86,49 @@ ion-toast.app-toast {
 	font-weight: 600;
 	letter-spacing: 0.005em;
 }
+
+/* Shared page hero treatment */
+.unipply-page-hero {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 82% 15%, rgba(245, 158, 11, 0.2), transparent 28%),
+		radial-gradient(circle at 12% 85%, rgba(83, 159, 173, 0.24), transparent 30%),
+		linear-gradient(135deg, #172f4f 0%, #255477 58%, #33788b 100%) !important;
+	color: #ffffff;
+}
+
+.unipply-page-hero::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: -120px;
+	right: -90px;
+	width: 310px;
+	height: 310px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 42px rgba(255, 255, 255, 0.025),
+		0 0 0 86px rgba(255, 255, 255, 0.018);
+	pointer-events: none;
+}
+
+.unipply-page-hero > * {
+	position: relative;
+	z-index: 1;
+}
+
+.unipply-page-hero .hero-overlay {
+	background: rgba(23, 47, 79, 0.42);
+	backdrop-filter: blur(1px);
+}
+
+.unipply-page-hero :is(.eyebrow, .auth-kicker, .viewer-kicker, .page-eyebrow) {
+	color: #fbbf24;
+	text-transform: uppercase;
+	letter-spacing: 0.13em;
+	font-size: 0.75rem;
+	font-weight: 800;
+}

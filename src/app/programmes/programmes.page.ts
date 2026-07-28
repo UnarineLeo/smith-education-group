@@ -1,7 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   IonHeader,
   IonToolbar,
@@ -24,7 +24,10 @@ import {
   timeOutline,
   calculatorOutline,
   checkmarkCircleOutline,
-  openOutline
+  openOutline,
+  arrowForwardOutline,
+  bookOutline,
+  ribbonOutline
 } from 'ionicons/icons';
 import programmesData from '../shared/programme-list.json';
 import { FACULTIES, getLevelLabel, Programme, QUALIFICATION_TYPES } from '../shared/programme-data';
@@ -68,7 +71,10 @@ export class Programmes implements OnInit {
   readonly qualificationTypeOptions: string[] = QUALIFICATION_TYPES;
   readonly getLevelLabel = getLevelLabel;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     addIcons({
       searchOutline,
       closeCircleOutline,
@@ -76,12 +82,28 @@ export class Programmes implements OnInit {
       timeOutline,
       calculatorOutline,
       checkmarkCircleOutline,
-      openOutline
+      openOutline,
+      arrowForwardOutline,
+      bookOutline,
+      ribbonOutline
     });
   }
 
   ngOnInit(): void {
-    this.applyFilters();
+    this.route.queryParamMap.subscribe((params) => {
+      const requestedUniversity = params.get('university')?.trim() ?? '';
+      const matchedUniversity = this.universityOptions.find(
+        (university) => university.toLowerCase() === requestedUniversity.toLowerCase()
+      );
+
+      // Keep the requested university as an active filter even when the
+      // programme dataset has no entries for it, rather than showing unrelated
+      // programmes from every institution.
+      this.selectedUniversities = requestedUniversity
+        ? [matchedUniversity ?? requestedUniversity]
+        : [];
+      this.applyFilters();
+    });
   }
 
   applyFilters(): void {

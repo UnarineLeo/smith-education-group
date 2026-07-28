@@ -5,7 +5,7 @@ import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonCon
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { getAuth, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
-import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline, calculatorOutline, personAddOutline } from 'ionicons/icons';
+import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline, calculatorOutline, personAddOutline, schoolOutline } from 'ionicons/icons';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { University } from '../shared/app-data';
 import universitiesData from '../university-list/university-list.json';
@@ -66,7 +66,7 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private apsCalculationService: ApsCalculationService
   ) {
-    addIcons({openOutline,arrowBackOutline,calendarOutline,cashOutline,rocketOutline,calculatorOutline,personAddOutline});
+    addIcons({openOutline,arrowBackOutline,calendarOutline,cashOutline,rocketOutline,calculatorOutline,personAddOutline,schoolOutline});
     this.isPhoneDevice = this.detectPhoneDevice();
   }
 

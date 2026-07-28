@@ -11,10 +11,7 @@
   --modal-muted: #4f6660;
   --modal-surface: rgba(255, 255, 255, 0.9);
   font-family: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
-  background:
-    radial-gradient(circle at 110% -10%, rgba(243, 184, 76, 0.34), transparent 41%),
-    radial-gradient(circle at -10% 108%, rgba(15, 118, 110, 0.26), transparent 42%),
-    linear-gradient(160deg, #e8f4ef 0%, #f6fbf8 54%, #edf5f2 100%);
+  background: #f6f8fa;
 }
 
 .auth-shell {
@@ -22,13 +19,11 @@
   margin: 0 auto;
   min-height: 100dvh;
   padding: max(16px, env(safe-area-inset-top)) clamp(14px, 4vw, 20px) max(28px, env(safe-area-inset-bottom));
-  border: 1px solid rgba(255, 255, 255, 0.96);
+  border: 0;
   border-radius: 0;
   background: var(--modal-surface);
   backdrop-filter: blur(14px);
-  box-shadow:
-    0 20px 44px rgba(9, 46, 40, 0.12),
-    0 2px 8px rgba(9, 46, 40, 0.08);
+  box-shadow: none;
 }
 
 .shell-head {

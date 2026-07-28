@@ -3,18 +3,18 @@ ion-content.programmes-content {
 }
 
 .programmes-intro {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 28px 20px 4px;
+  max-width: none;
+  margin: 0;
+  padding: 64px 20px 58px;
   text-align: center;
 }
 
 .page-title {
-  font-size: 2rem;
+  font-size: clamp(2.25rem, 5vw, 3.35rem);
   font-weight: 700;
-  color: #1f2937;
+  color: #ffffff;
   letter-spacing: -0.02em;
-  margin: 0 0 8px;
+  margin: 10px 0 12px;
 
   @media (max-width: 480px) {
     font-size: 1.6rem;
@@ -23,10 +23,14 @@ ion-content.programmes-content {
 
 .page-subtitle {
   font-size: 1rem;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.92);
   margin: 0 auto;
   max-width: 620px;
   line-height: 1.6;
+}
+
+.page-eyebrow {
+  display: inline-block;
 }
 
 .filter-card {
@@ -158,7 +162,7 @@ ion-content.programmes-content {
   padding: 4px 20px 40px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -171,48 +175,51 @@ ion-content.programmes-content {
 }
 
 .programme-card {
-  border-radius: 16px;
-  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 18px 38px -26px rgba(15, 23, 42, 0.65);
+  border: 1px solid #dbe4ef;
   background: #ffffff;
   margin: 0;
   display: flex;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: #b5c8dd;
+    box-shadow: 0 28px 52px -28px rgba(30, 58, 95, 0.5);
+  }
 
   ion-card-content {
-    padding: 18px 20px 20px;
+    position: relative;
+    padding: 26px 24px 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
     width: 100%;
   }
 }
 
+.programme-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #1e3a5f 0%, #3d7a8f 70%, #f59e0b 100%);
+}
+
 .programme-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
+  padding-top: 2px;
 }
 
 .programme-name {
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-size: 1.24rem;
+  font-weight: 800;
   color: #0f172a;
   margin: 0;
   line-height: 1.3;
-}
-
-.qualification-badge {
-  flex: 0 0 auto;
-  background: rgba(30, 64, 175, 0.1);
-  color: #1e40af;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 5px 9px;
-  border-radius: 999px;
-  white-space: nowrap;
 }
 
 .university-line {
@@ -220,64 +227,128 @@ ion-content.programmes-content {
   align-items: center;
   gap: 6px;
   margin: 0;
-  color: #475569;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #edf1f5;
+  color: #334155;
   font-size: 0.92rem;
+  font-weight: 650;
 
   ion-icon {
     font-size: 16px;
-    color: #94a3b8;
+    color: #1e40af;
   }
 }
 
-.chip-row {
+.programme-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.programme-metric {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
 
-  ion-chip {
-    margin: 0;
-    font-size: 0.78rem;
-    font-weight: 600;
+  ion-icon {
+    flex: 0 0 auto;
+    font-size: 1.2rem;
+    color: #52718e;
+  }
+
+  div {
+    display: grid;
+    min-width: 0;
+  }
+
+  span {
+    color: #64748b;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  strong {
+    margin-top: 2px;
+    color: #172f4f;
+    font-size: 0.9rem;
   }
 }
 
-.faculty-chip {
-  --background: #eef2ff;
-  --color: #3730a3;
+.faculty-metric,
+.qualification-metric {
+  align-items: flex-start;
+
+  strong {
+    line-height: 1.3;
+  }
 }
 
-.duration-chip {
-  --background: #f1f5f9;
-  --color: #334155;
+.faculty-metric ion-icon {
+  color: #39758a;
 }
 
-.aps-chip {
-  --background: #f1f5f9;
-  --color: #334155;
-  border: 1px solid transparent;
+.qualification-metric {
+  border-color: #f3d18d;
+  background: #fffaf0;
+
+  ion-icon,
+  strong {
+    color: #92400e;
+  }
 }
 
-.aps-chip.aps-met {
-  --background: #ecfdf3;
-  --color: #166534;
-  border-color: #86efac;
-}
+.aps-metric {
+  border-color: #c7dcfb;
+  background: #eff6ff;
 
-.aps-chip.aps-unmet {
-  --background: #fef2f2;
-  --color: #991b1b;
-  border-color: #fecaca;
+  ion-icon,
+  strong {
+    color: #1e40af;
+  }
+
+  &.aps-met {
+    border-color: #a7d7c6;
+    background: #ecfdf5;
+
+    ion-icon,
+    strong {
+      color: #047857;
+    }
+  }
+
+  &.aps-unmet {
+    border-color: #fecaca;
+    background: #fef2f2;
+
+    ion-icon,
+    strong {
+      color: #b91c1c;
+    }
+  }
 }
 
 .programme-description {
   margin: 0;
   color: #475569;
   font-size: 0.9rem;
-  line-height: 1.55;
+  line-height: 1.65;
+  min-height: 4.45em;
 }
 
 .requirements-block {
+  flex: 1;
   margin-top: 2px;
+  padding: 13px;
+  border-radius: 12px;
+  background: #f8fafc;
 }
 
 .requirements-label {
@@ -285,7 +356,7 @@ ion-content.programmes-content {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #94a3b8;
+  color: #64748b;
   font-weight: 700;
 }
 
@@ -299,8 +370,8 @@ ion-content.programmes-content {
   font-size: 0.78rem;
   font-weight: 600;
   color: #334155;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border: 1px solid #dbe4ef;
   border-radius: 999px;
   padding: 4px 10px;
 
@@ -312,14 +383,26 @@ ion-content.programmes-content {
 }
 
 .view-university-btn {
-  margin-top: 6px;
-  --border-color: #1e40af;
-  --color: #1e40af;
-  --background-hover: rgba(30, 64, 175, 0.08);
-  height: 42px;
-  font-weight: 600;
+  margin-top: 2px;
+  --background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%);
+  --background-hover: linear-gradient(135deg, #172f4f 0%, #326886 100%);
+  --color: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 8px 18px rgba(30, 58, 95, 0.22);
+  height: 44px;
+  font-weight: 700;
   text-transform: none;
   align-self: stretch;
+}
+
+@media (max-width: 420px) {
+  .programme-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .programme-description {
+    min-height: auto;
+  }
 }
 
 .empty-state {

@@ -4,8 +4,11 @@ ion-content {
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #3d7a8f 100%);
+  min-height: 78vh;
+  background:
+    radial-gradient(circle at 82% 15%, rgba(245, 158, 11, 0.2), transparent 28%),
+    radial-gradient(circle at 12% 85%, rgba(83, 159, 173, 0.24), transparent 30%),
+    linear-gradient(135deg, #172f4f 0%, #255477 58%, #33788b 100%);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -13,7 +16,7 @@ ion-content {
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 40px 20px;
+  padding: 76px 20px 64px;
 
   @media (max-width: 768px) {
     /* Reduce height on tablets/phones so hero doesn't take full screen */
@@ -57,8 +60,8 @@ ion-content {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(30, 58, 95, 0.80);
-  backdrop-filter: blur(2px);
+  background: rgba(23, 47, 79, 0.38);
+  backdrop-filter: blur(1px);
 }
 
 .hero-content {
@@ -68,6 +71,16 @@ ion-content {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #fbbf24;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .hero-title {

@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <section class="profile-hero">
+  <section class="profile-hero unipply-page-hero">
     <div class="profile-hero-inner">
       <p class="eyebrow">Account</p>
       <h1>Manage Your Profile</h1>
@@ -70,6 +70,13 @@
         (click)="setTab('personal')">
         Personal Details
       </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'nextOfKin'"
+        (click)="setTab('nextOfKin')">
+        Next of Kin
+      </button>
       @if (!isGoogleUser) {
         <button
           type="button"
@@ -107,20 +114,18 @@
         <section class="panel">
           <h2>Personal Details</h2>
           <p class="panel-subtitle">
-            @if (isGoogleUser) {
-              These details come from your Google account and cannot be edited here.
-            } @else {
-              Keep your personal information up to date.
-            }
+            Keep your personal information up to date.
           </p>
 
           <div class="form-grid">
             <label class="field">
-              <span>First Name</span>
+              <span>First Name <span class="required">*</span></span>
               <div class="input-with-copy">
                 <input
                   type="text"
                   [value]="profile.firstName"
+                  required
+                  aria-required="true"
                   (input)="onProfileInputChange('firstName', $event)" />
                 <button
                   type="button"
@@ -132,11 +137,30 @@
               </div>
             </label>
             <label class="field">
-              <span>Last Name</span>
+              <span>Middle Name</span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  autocomplete="additional-name"
+                  [value]="profile.middleName"
+                  (input)="onProfileInputChange('middleName', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('middleName', 'Middle name')"
+                  aria-label="Copy middle name"
+                  title="Copy middle name">
+                </button>
+              </div>
+            </label>
+            <label class="field">
+              <span>Last Name <span class="required">*</span></span>
               <div class="input-with-copy">
                 <input
                   type="text"
                   [value]="profile.lastName"
+                  required
+                  aria-required="true"
                   (input)="onProfileInputChange('lastName', $event)" />
                 <button
                   type="button"
@@ -147,14 +171,33 @@
                 </button>
               </div>
             </label>
-            <label class="field full">
+            <label class="field">
+              <span>Initials <span class="required">*</span></span>
+              <div class="input-with-copy">
+                <input
+                  type="text"
+                  maxlength="10"
+                  autocomplete="off"
+                  placeholder="e.g. TKM"
+                  [value]="profile.initials"
+                  required
+                  aria-required="true"
+                  (input)="onProfileInputChange('initials', $event)" />
+                <button
+                  type="button"
+                  class="copy-icon-btn"
+                  (click)="copyProfileField('initials', 'Initials')"
+                  aria-label="Copy initials"
+                  title="Copy initials">
+                </button>
+              </div>
+            </label>
+            <label class="field">
               <span>Email Address</span>
               <div class="input-with-copy">
                 <input
                   type="email"
                   [value]="profile.email"
-                  [readOnly]="isGoogleUser"
-                  [class.readonly]="isGoogleUser"
                   (input)="onProfileInputChange('email', $event)" />
                 <button
                   type="button"
@@ -165,7 +208,7 @@
                 </button>
               </div>
             </label>
-            <label class="field full">
+            <label class="field">
               <span>Cellphone Number <span class="required">*</span></span>
               <div class="input-with-copy">
                 <input
@@ -186,29 +229,42 @@
                 </button>
               </div>
             </label>
-            <label class="field full">
-              <span>SA ID Number/ Passport Number <span class="required">*</span></span>
-              <div class="input-with-copy">
-                <input
-                  type="text"
-                  placeholder="13-digit ID number or passport number"
-                  inputmode="numeric"
-                  maxlength="13"
-                  minlength="10"
-                  pattern="[0-9]{10,13}"
-                  [value]="profile.saIdNumber"
-                  required
-                  aria-required="true"
-                  (input)="onProfileInputChange('saIdNumber', $event)" />
-                <button
-                  type="button"
-                  class="copy-icon-btn"
-                  (click)="copyProfileField('saIdNumber', 'SA ID number')"
-                  aria-label="Copy SA ID number"
-                  title="Copy SA ID number">
-                </button>
+            <div class="field full">
+              <span>Identification <span class="required">*</span></span>
+              <div class="identity-input-row">
+                <select
+                  class="identity-type-select"
+                  aria-label="Identification document type"
+                  [value]="isSaIdNumber ? 'sa-id' : 'passport'"
+                  (change)="onIdentityTypeChange($event)">
+                  <option value="sa-id">SA ID Number</option>
+                  <option value="passport">Passport Number</option>
+                </select>
+                <div class="input-with-copy">
+                  <input
+                    type="text"
+                    [attr.aria-label]="isSaIdNumber ? 'SA ID number' : 'Passport number'"
+                    [placeholder]="isSaIdNumber ? 'Enter your 13-digit SA ID number' : 'Enter your passport number'"
+                    [attr.inputmode]="isSaIdNumber ? 'numeric' : 'text'"
+                    [attr.maxlength]="isSaIdNumber ? 13 : 20"
+                    [attr.pattern]="isSaIdNumber ? '[0-9]{13}' : '[A-Za-z0-9]{5,20}'"
+                    [value]="profile.saIdNumber"
+                    [class.identity-invalid]="getIdentityValidationError()"
+                    [attr.aria-invalid]="getIdentityValidationError() ? 'true' : null"
+                    aria-describedby="identity-validation-error"
+                    required
+                    aria-required="true"
+                    (input)="onProfileInputChange('saIdNumber', $event)" />
+                  <button
+                    type="button"
+                    class="copy-icon-btn"
+                    (click)="copyProfileField('saIdNumber', isSaIdNumber ? 'SA ID number' : 'Passport number')"
+                    [attr.aria-label]="isSaIdNumber ? 'Copy SA ID number' : 'Copy passport number'"
+                    [title]="isSaIdNumber ? 'Copy SA ID number' : 'Copy passport number'">
+                  </button>
+                </div>
               </div>
-            </label>
+            </div>
             <label class="field full">
               <span>Street Address <span class="required">*</span></span>
               <div class="street-address-autocomplete">
@@ -318,12 +374,26 @@
               <input
                 type="date"
                 [value]="profile.dateOfBirth"
+                [max]="maximumAllowedBirthDate"
+                [class.identity-invalid]="getIdentityValidationError()"
+                [attr.aria-invalid]="getIdentityValidationError() ? 'true' : null"
+                aria-describedby="identity-validation-error"
                 required
                 aria-required="true"
                 (click)="openDatePicker($event)"
                 (focus)="openDatePicker($event)"
                 (input)="onProfileInputChange('dateOfBirth', $event)" />
             </label>
+            @if (getIdentityValidationError(); as identityError) {
+              <div
+                id="identity-validation-error"
+                class="identity-validation-error"
+                role="alert"
+                aria-live="polite">
+                <strong>Identity details need attention</strong>
+                <span>{{ identityError }}</span>
+              </div>
+            }
             <label class="field">
               <span>Gender <span class="required">*</span></span>
               <select
@@ -392,6 +462,114 @@
               [disabled]="isSavingProfile || !canSaveProfile()"
               (click)="saveProfileChanges()">
               {{ getProfileSaveButtonLabel() }}
+            </button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'nextOfKin') {
+        <section class="panel">
+          <h2>Next of Kin</h2>
+          <p class="panel-subtitle">
+            Add up to two people we can contact when necessary. Your primary next of kin is mandatory.
+          </p>
+
+          <div class="next-of-kin-list">
+            @for (kin of nextOfKins; track $index; let kinIndex = $index) {
+              <section class="next-of-kin-card">
+                <div class="next-of-kin-heading">
+                  <h3>Next of Kin {{ kinIndex + 1 }}</h3>
+                  @if (kinIndex === 0) {
+                    <span class="required-badge">Required</span>
+                  } @else {
+                    <span class="optional-badge">Optional</span>
+                  }
+                </div>
+
+                <div class="form-grid">
+                  <label class="field">
+                    <span>First Name @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <input
+                      type="text"
+                      autocomplete="given-name"
+                      [value]="kin.firstName"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (input)="onNextOfKinInputChange(kinIndex, 'firstName', $event)" />
+                  </label>
+
+                  <label class="field">
+                    <span>Last Name @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <input
+                      type="text"
+                      autocomplete="family-name"
+                      [value]="kin.lastName"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (input)="onNextOfKinInputChange(kinIndex, 'lastName', $event)" />
+                  </label>
+
+                  <label class="field">
+                    <span>Initials @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <input
+                      type="text"
+                      maxlength="10"
+                      autocomplete="off"
+                      placeholder="e.g. TKM"
+                      [value]="kin.initials"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (input)="onNextOfKinInputChange(kinIndex, 'initials', $event)" />
+                  </label>
+
+                  <label class="field">
+                    <span>Email Address @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <input
+                      type="email"
+                      autocomplete="email"
+                      [value]="kin.email"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (input)="onNextOfKinInputChange(kinIndex, 'email', $event)" />
+                  </label>
+
+                  <label class="field">
+                    <span>Relationship @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <select
+                      [value]="kin.relationship"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (change)="onNextOfKinInputChange(kinIndex, 'relationship', $event)">
+                      <option value="">Select relationship</option>
+                      <option value="parent">Parent</option>
+                      <option value="guardian">Guardian</option>
+                    </select>
+                  </label>
+
+                  <label class="field">
+                    <span>Cellphone Number @if (kinIndex === 0) { <span class="required">*</span> }</span>
+                    <input
+                      type="tel"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      placeholder="e.g. 082 123 4567"
+                      [value]="kin.phone"
+                      [required]="kinIndex === 0"
+                      [attr.aria-required]="kinIndex === 0"
+                      (input)="onNextOfKinInputChange(kinIndex, 'phone', $event)" />
+                  </label>
+                </div>
+              </section>
+            }
+          </div>
+
+          <div class="actions">
+            <button
+              type="button"
+              class="btn primary"
+              [disabled]="isSavingNextOfKin || !canSaveNextOfKin()"
+              (click)="saveNextOfKin()">
+              {{ isSavingNextOfKin ? 'Saving...' : 'Save Next of Kin' }}
             </button>
           </div>
         </section>

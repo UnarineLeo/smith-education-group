@@ -59,14 +59,28 @@ ion-footer {
   gap: 1rem;
   margin-top: 1rem;
 
-  ion-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
+  a {
+    display: inline-grid;
+    place-items: center;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
 
     &:hover {
       color: #4a9eff;
+      transform: translateY(-2px);
     }
+
+    &:focus-visible {
+      outline: 2px solid #4a9eff;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+  }
+
+  ion-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 }
 

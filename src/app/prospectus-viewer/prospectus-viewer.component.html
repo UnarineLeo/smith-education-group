@@ -15,7 +15,7 @@
 
 <ion-content class="viewer-content">
   @if (university) {
-    <section class="viewer-hero">
+    <section class="viewer-hero unipply-page-hero">
       <p class="viewer-kicker">University Prospectus</p>
       <h1 class="viewer-name">{{ university.name }}</h1>
       <p class="viewer-location">{{ university.suburb }}, {{ university.province }}</p>
@@ -53,6 +53,15 @@
             <ion-label>Register to unlock automatic APS calculation</ion-label>
           </ion-chip>
         }
+
+        <ion-button
+          class="viewer-programmes-btn"
+          fill="solid"
+          routerLink="/tabs/programmes"
+          [queryParams]="{ university: university.name }">
+          <ion-icon slot="start" name="school-outline"></ion-icon>
+          View Programmes
+        </ion-button>
 
         <ion-button
           class="viewer-apply-btn"

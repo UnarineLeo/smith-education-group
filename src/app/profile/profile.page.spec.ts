@@ -3,7 +3,7 @@ import { getApps, initializeApp } from 'firebase/app';
 
 import { ProfilePage } from './profile.page';
 import { AuthService } from '../services/auth.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 describe('ProfilePage', () => {
   let component: ProfilePage;

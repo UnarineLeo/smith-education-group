@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unipply – Side Panel</title>
+  <style>
+    :root {
+      --bg:#0d0f14; --surface:#161920; --surface2:#1c2029;
+      --border:#252a35; --accent:#4fffb0; --accent2:#7b61ff;
+      --warn:#f59e0b; --danger:#ff4f6a; --text:#f0f2f7; --muted:#6b7280; --radius:10px;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:13px; }
+
+    .shell { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+
+    /* Top bar */
+    .topbar { padding:12px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+    .logo { display:flex; align-items:center; gap:8px; }
+    .logo-mark { width:26px; height:26px; background:linear-gradient(135deg,var(--accent),var(--accent2)); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:12px; color:#0d0f14; }
+    .logo-name { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; }
+    .logo-name span { color:var(--accent); }
+    .badge { background:rgba(123,97,255,0.15); color:var(--accent2); border:1px solid rgba(123,97,255,0.3); font-size:10px; font-weight:600; padding:2px 8px; border-radius:20px; }
+
+    /* Sync strip */
+    .sync-strip { padding:10px 16px; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(79,255,176,0.06),rgba(123,97,255,0.06)); display:none; align-items:center; gap:10px; flex-shrink:0; }
+    .sync-strip.visible { display:flex; }
+    .sync-strip-text { flex:1; font-size:12px; color:var(--muted); }
+    .sync-strip-text strong { color:var(--accent); display:block; margin-bottom:1px; font-size:12px; }
+    .btn-sync-sm { background:var(--accent); border:none; border-radius:7px; color:#0d0f14; font-family:'Syne',sans-serif; font-weight:700; font-size:11px; padding:7px 14px; cursor:pointer; white-space:nowrap; transition:all 0.15s; flex-shrink:0; }
+    .btn-sync-sm:hover { filter:brightness(1.1); }
+    .btn-sync-sm:disabled { opacity:0.5; cursor:not-allowed; }
+
+    /* Not logged in */
+    .warn-strip { padding:9px 16px; border-bottom:1px solid var(--border); background:rgba(245,158,11,0.06); display:none; font-size:12px; color:var(--warn); flex-shrink:0; }
+    .warn-strip.visible { display:block; }
+
+    /* Profile bar */
+    .profile-bar { padding:10px 16px; border-bottom:1px solid var(--border); display:none; align-items:center; justify-content:space-between; flex-shrink:0; background:var(--surface); }
+    .profile-bar-name { font-size:14px; font-weight:600; }
+    .profile-bar-meta { font-size:11px; color:var(--muted); margin-top:1px; }
+    .unipply-badge { background:rgba(79,255,176,0.1); color:var(--accent); border:1px solid rgba(79,255,176,0.25); font-size:10px; padding:3px 8px; border-radius:10px; white-space:nowrap; }
+
+    /* No profile message */
+    #no-profile-msg { padding:20px 16px; text-align:center; color:var(--muted); font-size:12px; line-height:1.6; border-bottom:1px solid var(--border); flex-shrink:0; }
+    #no-profile-msg strong { display:block; color:var(--text); margin-bottom:4px; }
+
+    /* Search */
+    .search-wrap { padding:10px 16px; border-bottom:1px solid var(--border); flex-shrink:0; }
+    .search-input { width:100%; background:var(--surface); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:12px; padding:8px 12px 8px 32px; outline:none; transition:border-color 0.15s; font-family:'DM Sans',sans-serif;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:10px center; }
+    .search-input:focus { border-color:var(--accent2); }
+
+    /* Group tabs */
+    .group-tabs { display:flex; padding:8px 16px 0; border-bottom:1px solid var(--border); flex-shrink:0; gap:4px; }
+    .group-tab { background:transparent; border:none; border-bottom:2px solid transparent; color:var(--muted); font-size:11px; font-weight:500; padding:5px 10px 7px; cursor:pointer; transition:all 0.15s; text-transform:uppercase; letter-spacing:0.5px; font-family:'DM Sans',sans-serif; }
+    .group-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+    .group-tab:hover:not(.active) { color:var(--text); }
+
+    /* Fields */
+    .fields-scroll { flex:1; overflow-y:auto; padding:10px 12px; }
+    .fields-scroll::-webkit-scrollbar { width:4px; }
+    .fields-scroll::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+
+    .field-card {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:10px 12px;
+      margin-bottom:7px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      transition:border-color 0.15s;
+    }
+    .field-card:hover { border-color:#353d50; }
+    .field-card.copied { border-color:var(--accent); background:rgba(79,255,176,0.05); }
+
+    .field-info { flex:1; min-width:0; }
+    .field-label { font-size:10px; text-transform:uppercase; letter-spacing:0.7px; color:var(--muted); margin-bottom:3px; }
+    .field-value { font-size:13px; color:var(--text); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .field-value.empty { color:var(--muted); font-style:italic; font-weight:300; font-size:12px; }
+
+    /* BIG visible copy button */
+    .copy-btn {
+      background: var(--accent2);
+      border: none;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 6px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.15s;
+      min-width: 72px;
+      text-align: center;
+    }
+    .copy-btn:hover { filter:brightness(1.2); transform:scale(1.03); }
+    .copy-btn:active { transform:scale(0.97); }
+    .copy-btn.done { background:var(--accent); color:#0d0f14; }
+    .copy-btn.disabled, .copy-btn:disabled { background:var(--border); color:var(--muted); cursor:not-allowed; transform:none; }
+
+    /* Subjects section */
+    #subjects-section { display:none; }
+    .group-header { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent2); margin:14px 0 8px 2px; }
+    .subject-card { gap:8px; }
+    .field-mark { min-width:48px; text-align:center; }
+
+    /* Syncing message */
+    .syncing-msg { text-align:center; padding:30px 16px; color:var(--muted); font-size:13px; line-height:1.8; }
+
+    /* No results */
+    .no-results { text-align:center; padding:30px 16px; color:var(--muted); font-size:12px; line-height:1.7; }
+    .no-results strong { display:block; color:var(--text); margin-bottom:6px; font-size:13px; }
+
+    /* Bottom autofill bar */
+    .autofill-bar { padding:12px 16px; border-top:1px solid var(--border); flex-shrink:0; display:flex; gap:8px; align-items:center; }
+    .btn-autofill { flex:1; background:linear-gradient(135deg,var(--accent),#00d4aa); border:none; border-radius:var(--radius); color:#0d0f14; font-family:'Syne',sans-serif; font-weight:700; font-size:13px; padding:11px; cursor:pointer; transition:all 0.2s; }
+    .btn-autofill:hover { filter:brightness(1.1); }
+    .autofill-result { font-size:11px; color:var(--accent); min-width:64px; text-align:center; opacity:0; transition:opacity 0.3s; }
+    .autofill-result.show { opacity:1; }
+
+    /* Toast */
+    .toast { position:fixed; bottom:70px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--surface); border:1px solid var(--accent); color:var(--accent); font-size:11px; padding:7px 14px; border-radius:20px; white-space:nowrap; opacity:0; transition:all 0.2s; pointer-events:none; z-index:999; max-width:90%; overflow:hidden; text-overflow:ellipsis; }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  </style>
+  <link rel="stylesheet" href="src/unipply-theme.css" />
+</head>
+<body>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="logo">
+      <img class="logo-mark" src="icons/icon128.png" alt="" aria-hidden="true" />
+      <span class="logo-name">Uni<span>pply</span></span>
+    </div>
+    <span class="badge">Side Panel</span>
+  </div>
+
+  <!-- Shown when on Unipply + logged in -->
+  <div class="sync-strip" id="sync-strip">
+    <div class="sync-strip-text">
+      <strong>Unipply profile detected</strong>
+      Sync all your profile data now
+    </div>
+    <button class="btn-sync-sm" id="btn-sync">Sync</button>
+  </div>
+
+  <!-- Not logged in -->
+  <div class="warn-strip" id="warn-strip">
+    ⚠️ You need to log in to Unipply before syncing.
+  </div>
+
+  <!-- No profile yet -->
+  <div id="no-profile-msg" style="display:none">
+    <strong>No profile data yet</strong>
+    Open your Unipply profile, then select Sync.
+  </div>
+
+  <!-- Profile identity bar -->
+  <div class="profile-bar" id="profile-bar">
+    <div>
+      <div class="profile-bar-name" id="profile-bar-name">Student</div>
+      <div class="profile-bar-meta" id="profile-bar-meta"></div>
+    </div>
+    <span class="unipply-badge" id="unipply-badge" style="display:none">Unipply ✓</span>
+  </div>
+
+  <div class="search-wrap">
+    <input class="search-input" id="search" type="search" aria-label="Search profile fields" placeholder="Search fields…" />
+  </div>
+
+  <div class="group-tabs" id="group-tabs">
+    <button class="group-tab active" data-group="all">All</button>
+    <button class="group-tab" data-group="personal">Personal</button>
+    <button class="group-tab" data-group="address">Address</button>
+    <button class="group-tab" data-group="academic">Academic</button>
+  </div>
+
+  <div class="fields-scroll">
+    <div id="fields-list"></div>
+    <div id="subjects-section"></div>
+  </div>
+
+  <div class="autofill-bar">
+    <button class="btn-autofill" id="btn-autofill">Autofill active tab</button>
+    <div class="autofill-result" id="autofill-result" role="status"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="src/shared.js"></script>
+<script src="src/sidepanel.js"></script>
+</body>
+</html>

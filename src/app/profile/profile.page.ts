@@ -3,14 +3,25 @@ import { Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonChip } from '@ionic/angular/standalone';
 import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, reload, sendEmailVerification, updatePassword, User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { getApp, getApps } from 'firebase/app';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 import { UNIVERSITY_OPTIONS } from '../shared/app-data';
 import { FooterComponent } from '../footer/footer.component';
 
-type ProfileTab = 'personal' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
+type ProfileTab = 'personal' | 'nextOfKin' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
+
+interface NextOfKin {
+  firstName: string;
+  lastName: string;
+  initials: string;
+  email: string;
+  relationship: 'parent' | 'guardian' | '';
+  phone: string;
+}
+
+type SavedNextOfKin = Partial<NextOfKin> & { fullName?: string };
 
 type RequiredDocumentKey =
   | 'idDocument'
@@ -98,6 +109,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isAdminUser = false;
   minimumSubjects = 7;
   isSavingProfile = false;
+  isSavingNextOfKin = false;
   profileSaveCountdown = 0;
   isSavingSubjects = false;
   subjectsSaveCountdown = 0;
@@ -115,10 +127,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   isCheckingVerificationStatus = false;
   userEmail = '';
   subjectOcrStatus = '';
+  isSaIdNumber = true;
+  readonly maximumAllowedBirthDate = this.formatDateInputValue(this.getMinimumBirthDate());
 
   private readonly requiredProfileFieldLabels: Record<keyof typeof this.profile, string> = {
     firstName: 'First Name',
     lastName: 'Last Name',
+    initials: 'Initials',
+    middleName: 'Middle Name',
     email: 'Email Address',
     phone: 'Cellphone Number',
     saIdNumber: 'SA ID Number',
@@ -134,6 +150,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   };
 
   private readonly mandatoryProfileFields: Array<keyof typeof this.profile> = [
+    'firstName',
+    'lastName',
+    'initials',
     'phone',
     'saIdNumber',
     'streetAddress',
@@ -150,6 +169,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   profile = {
     firstName: 'User',
     lastName: '',
+    initials: '',
+    middleName: '',
     email: '',
     phone: '',
     saIdNumber: '',
@@ -164,13 +185,14 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     disabilityStatus: ''
   };
 
+  nextOfKins: NextOfKin[] = this.createEmptyNextOfKins();
+
   private streetAddressAutocompleteInput?: HTMLInputElement;
   private streetAddressAutocompleteService?: any;
   private streetAddressPlacesService?: any;
   private streetAddressSessionToken?: any;
   private streetAddressSuggestDebounce?: number;
   private latestStreetAddressQuery = '';
-  private hasShownAddressAutocompleteUnavailableToast = false;
   private hasHydratedDocumentSignedUrls = false;
   private isHydratingDocumentSignedUrls = false;
   private readonly allowedDocumentMimeTypes = new Set(['application/pdf', 'image/jpeg', 'image/png']);
@@ -342,7 +364,11 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   onProfileInputChange(field: keyof typeof this.profile, event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
     const value = field === 'saIdNumber'
-      ? inputValue.replace(/\D/g, '').slice(0, 13)
+      ? (
+          this.isSaIdNumber
+            ? inputValue.replace(/\D/g, '').slice(0, 13)
+            : inputValue.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 20)
+        )
       : inputValue;
 
     if (field === 'saIdNumber') {
@@ -353,6 +379,62 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       ...this.profile,
       [field]: value
     };
+  }
+
+  onIdentityTypeChange(event: Event) {
+    this.isSaIdNumber = (event.target as HTMLSelectElement).value === 'sa-id';
+    const normalizedValue = this.isSaIdNumber
+      ? this.profile.saIdNumber.replace(/\D/g, '').slice(0, 13)
+      : this.profile.saIdNumber.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 20);
+
+    this.profile = {
+      ...this.profile,
+      saIdNumber: normalizedValue
+    };
+  }
+
+  onNextOfKinInputChange(index: number, field: keyof NextOfKin, event: Event) {
+    const input = event.target as HTMLInputElement | HTMLSelectElement;
+    const value = field === 'phone'
+      ? input.value.replace(/[^\d+\s()-]/g, '').slice(0, 20)
+      : input.value;
+
+    this.nextOfKins = this.nextOfKins.map((kin, kinIndex) =>
+      kinIndex === index ? { ...kin, [field]: value } : kin
+    );
+  }
+
+  canSaveNextOfKin(): boolean {
+    const primaryComplete = this.isNextOfKinComplete(this.nextOfKins[0]);
+    const secondary = this.nextOfKins[1];
+    const secondaryEmpty = !Object.values(secondary).some((value) => value.trim() !== '');
+    return primaryComplete && (secondaryEmpty || this.isNextOfKinComplete(secondary));
+  }
+
+  async saveNextOfKin() {
+    const userDocId = this.getUserDocId();
+    if (!userDocId) {
+      await this.authService.presentToast('Please sign in to save your next of kin.');
+      return;
+    }
+
+    if (!this.canSaveNextOfKin()) {
+      await this.authService.presentToast('Complete all details for your primary next of kin and any second contact you add.');
+      return;
+    }
+
+    this.isSavingNextOfKin = true;
+    try {
+      await setDoc(doc(this.authService.db, 'users', userDocId), {
+        nextOfKins: this.nextOfKins.map((kin) => ({ ...kin }))
+      }, { merge: true });
+      await this.authService.presentToast('Next of kin details saved successfully.');
+    } catch (error) {
+      console.error('Could not save next of kin details.', error);
+      await this.authService.presentToast('Could not save next of kin details. Please try again.');
+    } finally {
+      this.isSavingNextOfKin = false;
+    }
   }
 
   openDatePicker(event: Event) {
@@ -391,8 +473,18 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       return;
     }
 
-    if (!this.hasValidSaIdNumber()) {
-      await this.authService.presentToast('SA ID Number or Passport Number must be between 10 and 13 digits.');
+    if (!this.hasValidIdentityNumber()) {
+      await this.authService.presentToast(
+        this.isSaIdNumber
+          ? 'Enter a valid 13-digit SA ID number.'
+          : 'Enter a valid passport number.'
+      );
+      return;
+    }
+
+    const identityValidationError = this.getIdentityValidationError();
+    if (identityValidationError) {
+      await this.authService.presentToast(identityValidationError);
       return;
     }
 
@@ -400,9 +492,12 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       await setDoc(doc(this.authService.db, 'users', userDocId), {
         firstName: this.profile.firstName,
         lastName: this.profile.lastName,
+        initials: this.profile.initials,
+        middleName: this.profile.middleName,
         email: this.profile.email,
         phone: this.profile.phone,
         saIdNumber: this.profile.saIdNumber,
+        isSaIdNumber: this.isSaIdNumber,
         streetAddress: this.profile.streetAddress,
         cityTown: this.profile.cityTown,
         provinceAddress: this.profile.provinceAddress,
@@ -417,11 +512,85 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   canSaveProfile(): boolean {
-    return this.getMissingMandatoryProfileFields().length === 0 && this.hasValidSaIdNumber();
+    return this.getMissingMandatoryProfileFields().length === 0
+      && this.hasValidIdentityNumber()
+      && !this.getIdentityValidationError();
+  }
+
+  getIdentityValidationError(): string {
+    const birthDateValue = this.profile.dateOfBirth.trim();
+    if (!birthDateValue) {
+      return '';
+    }
+
+    const birthDate = this.parseDateInputValue(birthDateValue);
+    if (!birthDate) {
+      return 'Enter a valid date of birth.';
+    }
+
+    if (birthDate > this.getMinimumBirthDate()) {
+      return 'You must be at least 16 years old to use Unipply.';
+    }
+
+    const identityNumber = this.profile.saIdNumber.trim();
+    if (!identityNumber) {
+      return '';
+    }
+
+    if (!this.isSaIdNumber) {
+      if (!/^[A-Z0-9]{5,20}$/.test(identityNumber)) {
+        return 'Enter a valid passport number using 5–20 letters or numbers.';
+      }
+      return '';
+    }
+
+    if (!/^\d{13}$/.test(identityNumber)) {
+      return 'Enter a valid 13-digit SA ID number.';
+    }
+
+    const encodedBirthDate = identityNumber.slice(0, 6);
+    const expectedBirthDate = [
+      birthDateValue.slice(2, 4),
+      birthDateValue.slice(5, 7),
+      birthDateValue.slice(8, 10)
+    ].join('');
+
+    if (encodedBirthDate !== expectedBirthDate) {
+      return 'The date of birth does not match the birth date encoded in the SA ID number.';
+    }
+
+    return '';
   }
 
   canSaveAcademicInformation(): boolean {
     return this.hasRequiredAcademicInformation();
+  }
+
+  private getAcademicPersistencePayload() {
+    const academicInformation = { ...this.academicInformation };
+
+    return {
+      // Keep the canonical nested object and the existing top-level fields in
+      // sync while older app versions still read the legacy shape.
+      academicInformation,
+      currentOrLastSchool: academicInformation.currentOrLastSchool,
+      currentLevel: academicInformation.currentLevel,
+      schoolProvince: academicInformation.schoolProvince,
+      matricYear: academicInformation.matricYear,
+      hasWrittenNbt: academicInformation.hasWrittenNbt,
+      studyAreas: academicInformation.interest ? [academicInformation.interest] : [],
+      apsUniversityName: academicInformation.apsUniversityName,
+      universityChoice1: academicInformation.universityChoice1,
+      universityChoice2: academicInformation.universityChoice2,
+      universityChoice3: academicInformation.universityChoice3,
+      universityChoice4: academicInformation.universityChoice4,
+      courseChoices: [
+        academicInformation.courseChoice1,
+        academicInformation.courseChoice2,
+        academicInformation.courseChoice3,
+        academicInformation.courseChoice4
+      ]
+    };
   }
 
   async saveAcademicInformation() {
@@ -438,23 +607,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     void this.startTimedSave('academic', async () => {
       await setDoc(doc(this.authService.db, 'users', userDocId), {
-        currentOrLastSchool: this.academicInformation.currentOrLastSchool,
-        currentLevel: this.academicInformation.currentLevel,
-        schoolProvince: this.academicInformation.schoolProvince,
-        matricYear: this.academicInformation.matricYear,
-        hasWrittenNbt: this.academicInformation.hasWrittenNbt,
-        studyAreas: [this.academicInformation.interest],
-        apsUniversityName: this.academicInformation.apsUniversityName,
-        universityChoice1: this.academicInformation.universityChoice1,
-        universityChoice2: this.academicInformation.universityChoice2,
-        universityChoice3: this.academicInformation.universityChoice3,
-        universityChoice4: this.academicInformation.universityChoice4,
-        courseChoices: [
-          this.academicInformation.courseChoice1,
-          this.academicInformation.courseChoice2,
-          this.academicInformation.courseChoice3,
-          this.academicInformation.courseChoice4
-        ]
+        ...this.getAcademicPersistencePayload()
       }, { merge: true });
     }, 'School background saved successfully.');
   }
@@ -932,23 +1085,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     void this.startTimedSave('subjects', async () => {
       await setDoc(doc(this.authService.db, 'users', userDocId), {
-        currentOrLastSchool: this.academicInformation.currentOrLastSchool,
-        currentLevel: this.academicInformation.currentLevel,
-        schoolProvince: this.academicInformation.schoolProvince,
-        matricYear: this.academicInformation.matricYear,
-        hasWrittenNbt: this.academicInformation.hasWrittenNbt,
-        studyAreas: [this.academicInformation.interest],
-        apsUniversityName: this.academicInformation.apsUniversityName,
-        universityChoice1: this.academicInformation.universityChoice1,
-        universityChoice2: this.academicInformation.universityChoice2,
-        universityChoice3: this.academicInformation.universityChoice3,
-        universityChoice4: this.academicInformation.universityChoice4,
-        courseChoices: [
-          this.academicInformation.courseChoice1,
-          this.academicInformation.courseChoice2,
-          this.academicInformation.courseChoice3,
-          this.academicInformation.courseChoice4
-        ],
+        ...this.getAcademicPersistencePayload(),
         highSchoolSubjects: completedEntries,
         apsScore: primaryApsScore,
         apsRule: 'multi-university-auto',
@@ -1449,12 +1586,15 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private async loadSavedSubjects(userEmail: string) {
     try {
-      const userData = await this.authService.getUser(userEmail) as {
+      const userData = await this.authService.getUser(userEmail) as ({
         firstName?: string;
         lastName?: string;
+        initials?: string;
+        middleName?: string;
         email?: string;
         phone?: string;
         saIdNumber?: string;
+        isSaIdNumber?: boolean;
         streetAddress?: string;
         cityTown?: string;
         provinceAddress?: string;
@@ -1482,12 +1622,20 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         hasWrittenNbt?: string;
         documents?: Partial<Record<RequiredDocumentKey, DocumentData>>;
         documentFileNames?: Partial<Record<RequiredDocumentKey, string>>;
-      };
+        nextOfKins?: SavedNextOfKin[];
+      } | null);
+
+      if (!userData) {
+        console.warn('No Firestore profile document was found for the signed-in user.');
+        return;
+      }
 
       this.profile = {
         ...this.profile,
         firstName: userData.firstName ?? this.profile.firstName,
         lastName: userData.lastName ?? this.profile.lastName,
+        initials: userData.initials ?? this.profile.initials,
+        middleName: userData.middleName ?? this.profile.middleName,
         email: userData.email ?? this.profile.email,
         phone: userData.phone ?? this.profile.phone,
         saIdNumber: userData.saIdNumber ?? this.profile.saIdNumber,
@@ -1501,24 +1649,29 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         race: userData.race ?? this.profile.race,
         disabilityStatus: userData.disabilityStatus ?? this.profile.disabilityStatus
       };
+      this.isSaIdNumber = userData.isSaIdNumber ?? true;
+      this.nextOfKins = this.normalizeNextOfKins(userData.nextOfKins);
 
       if (userData.academicInformation && typeof userData.academicInformation === 'object') {
+        const savedAcademic = userData.academicInformation;
         this.academicInformation = {
-          currentOrLastSchool: userData.academicInformation.currentOrLastSchool ?? '',
-          currentLevel: userData.academicInformation.currentLevel ?? '',
-          schoolProvince: userData.academicInformation.schoolProvince ?? '',
-          matricYear: userData.academicInformation.matricYear ?? '',
-          hasWrittenNbt: userData.academicInformation.hasWrittenNbt ?? '',
-          interest: userData.academicInformation.interest ?? '',
-          apsUniversityName: userData.academicInformation.apsUniversityName ?? '',
-          universityChoice1: userData.academicInformation.universityChoice1 ?? '',
-          universityChoice2: userData.academicInformation.universityChoice2 ?? '',
-          universityChoice3: userData.academicInformation.universityChoice3 ?? '',
-          universityChoice4: userData.academicInformation.universityChoice4 ?? '',
-          courseChoice1: userData.academicInformation.courseChoice1 ?? '',
-          courseChoice2: userData.academicInformation.courseChoice2 ?? '',
-          courseChoice3: userData.academicInformation.courseChoice3 ?? '',
-          courseChoice4: userData.academicInformation.courseChoice4 ?? ''
+          // Top-level fields were the write target in previous releases, so
+          // prefer them during migration and use the nested object as fallback.
+          currentOrLastSchool: userData.currentOrLastSchool || savedAcademic.currentOrLastSchool || '',
+          currentLevel: userData.currentLevel || savedAcademic.currentLevel || '',
+          schoolProvince: userData.schoolProvince || savedAcademic.schoolProvince || '',
+          matricYear: userData.matricYear || savedAcademic.matricYear || '',
+          hasWrittenNbt: userData.hasWrittenNbt || savedAcademic.hasWrittenNbt || '',
+          interest: userData.studyAreas?.[0] || savedAcademic.interest || '',
+          apsUniversityName: userData.apsUniversityName || savedAcademic.apsUniversityName || '',
+          universityChoice1: userData.universityChoice1 || savedAcademic.universityChoice1 || '',
+          universityChoice2: userData.universityChoice2 || savedAcademic.universityChoice2 || '',
+          universityChoice3: userData.universityChoice3 || savedAcademic.universityChoice3 || '',
+          universityChoice4: userData.universityChoice4 || savedAcademic.universityChoice4 || '',
+          courseChoice1: userData.courseChoices?.[0] || savedAcademic.courseChoice1 || '',
+          courseChoice2: userData.courseChoices?.[1] || savedAcademic.courseChoice2 || '',
+          courseChoice3: userData.courseChoices?.[2] || savedAcademic.courseChoice3 || '',
+          courseChoice4: userData.courseChoices?.[3] || savedAcademic.courseChoice4 || ''
         };
       } else {
         this.academicInformation = {
@@ -1570,9 +1723,9 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
       this.subjectEntries = this.buildSubjectEntriesFromSavedData(savedHighSchoolSubjects);
       this.refreshApsResultsFromCurrentEntries();
-    } catch {
-      this.subjectEntries = this.createInitialSubjectRows();
-      this.allUniversityApsResults = [];
+    } catch (error) {
+      console.error('Could not load the saved Firestore profile.', error);
+      await this.authService.presentToast('Could not load your saved profile. Please refresh and try again.');
     }
   }
 
@@ -1582,9 +1735,13 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       this.isGoogleUser = false;
       this.isEmailVerified = false;
       this.isAdminUser = false;
+      this.isSaIdNumber = true;
+      this.nextOfKins = this.createEmptyNextOfKins();
       this.profile = {
         firstName: 'User',
         lastName: '',
+        initials: '',
+        middleName: '',
         email: '',
         phone: '',
         saIdNumber: '',
@@ -1626,6 +1783,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     this.userEmail = (user.email ?? '').trim().toLowerCase();
+    this.isSaIdNumber = true;
+    this.nextOfKins = this.createEmptyNextOfKins();
 
     this.isGoogleUser = user.providerData.some((provider) => provider.providerId === 'google.com');
     this.isEmailVerified = user.emailVerified ?? false;
@@ -1641,6 +1800,8 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     this.profile = {
       firstName,
       lastName: rest.join(' '),
+      initials: '',
+      middleName: '',
       email: user.email ?? '',
       phone: user.phoneNumber ?? '',
       saIdNumber: '',
@@ -1875,10 +2036,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     const googleRef = (window as any).google;
 
     if (!loaded || !googleRef?.maps?.places) {
-      if (!this.hasShownAddressAutocompleteUnavailableToast) {
-        this.hasShownAddressAutocompleteUnavailableToast = true;
-        await this.authService.presentToast('Address autocomplete is unavailable right now. You can still enter your address manually.');
-      }
+      // Autocomplete is optional; manual address entry remains available.
       return false;
     }
 
@@ -2152,8 +2310,91 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       .map((field) => this.requiredProfileFieldLabels[field]);
   }
 
-  private hasValidSaIdNumber(): boolean {
-    return /^\d{13}$/.test(this.profile.saIdNumber.trim());
+  private hasValidIdentityNumber(): boolean {
+    const identityNumber = this.profile.saIdNumber.trim();
+    return this.isSaIdNumber
+      ? /^\d{13}$/.test(identityNumber)
+      : /^[A-Z0-9]{5,20}$/.test(identityNumber);
+  }
+
+  private createEmptyNextOfKins(): NextOfKin[] {
+    return [
+      { firstName: '', lastName: '', initials: '', email: '', relationship: '', phone: '' },
+      { firstName: '', lastName: '', initials: '', email: '', relationship: '', phone: '' }
+    ];
+  }
+
+  private isNextOfKinComplete(kin: NextOfKin): boolean {
+    return kin.firstName.trim() !== ''
+      && kin.lastName.trim() !== ''
+      && kin.initials.trim() !== ''
+      && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(kin.email.trim())
+      && (kin.relationship === 'parent' || kin.relationship === 'guardian')
+      && kin.phone.replace(/\D/g, '').length >= 10;
+  }
+
+  private normalizeNextOfKins(savedKins: SavedNextOfKin[] | undefined): NextOfKin[] {
+    const emptyKins = this.createEmptyNextOfKins();
+    if (!Array.isArray(savedKins)) {
+      return emptyKins;
+    }
+
+    return emptyKins.map((emptyKin, index) => {
+      const saved = savedKins[index];
+      if (!saved) {
+        return emptyKin;
+      }
+
+      const relationship = saved.relationship === 'parent' || saved.relationship === 'guardian'
+        ? saved.relationship
+        : '';
+      const legacyNameParts = typeof saved.fullName === 'string'
+        ? saved.fullName.trim().split(/\s+/).filter(Boolean)
+        : [];
+
+      return {
+        firstName: typeof saved.firstName === 'string' ? saved.firstName : (legacyNameParts[0] ?? ''),
+        lastName: typeof saved.lastName === 'string' ? saved.lastName : legacyNameParts.slice(1).join(' '),
+        initials: typeof saved.initials === 'string' ? saved.initials : '',
+        email: typeof saved.email === 'string' ? saved.email : '',
+        relationship,
+        phone: typeof saved.phone === 'string' ? saved.phone : ''
+      };
+    });
+  }
+
+  private getMinimumBirthDate(): Date {
+    const today = new Date();
+    return new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+  }
+
+  private parseDateInputValue(value: string): Date | null {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    if (!match) {
+      return null;
+    }
+
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const parsed = new Date(year, month - 1, day);
+
+    if (
+      parsed.getFullYear() !== year
+      || parsed.getMonth() !== month - 1
+      || parsed.getDate() !== day
+    ) {
+      return null;
+    }
+
+    return parsed;
+  }
+
+  private formatDateInputValue(value: Date): string {
+    const year = value.getFullYear();
+    const month = String(value.getMonth() + 1).padStart(2, '0');
+    const day = String(value.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   private getUserDocId(): string | null {

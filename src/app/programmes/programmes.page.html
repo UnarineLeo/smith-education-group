@@ -6,12 +6,13 @@
 
 <ion-content [fullscreen]="true" class="programmes-content">
 
-  <div class="programmes-intro">
+  <section class="programmes-intro unipply-page-hero">
+    <span class="page-eyebrow">Explore your options</span>
     <h1 class="page-title">Find a Programme</h1>
     <p class="page-subtitle">
       Search and filter programmes across universities by faculty, qualification type, and APS score.
     </p>
-  </div>
+  </section>
 
   <ion-card class="filter-card">
     <ion-card-content>
@@ -99,9 +100,9 @@
     @for (programme of filteredProgrammes; track programme.id) {
       <ion-card class="programme-card">
         <ion-card-content>
+          <div class="programme-accent"></div>
           <div class="programme-header">
             <h3 class="programme-name">{{ programme.name }}</h3>
-            <span class="qualification-badge">{{ programme.qualificationType }}</span>
           </div>
 
           <p class="university-line">
@@ -109,21 +110,38 @@
             {{ programme.universityName }}
           </p>
 
-          <div class="chip-row">
-            <ion-chip class="faculty-chip">
-              <ion-label>{{ programme.faculty }}</ion-label>
-            </ion-chip>
-            <ion-chip class="duration-chip">
+          <div class="programme-metrics">
+            <div class="programme-metric faculty-metric">
+              <ion-icon name="book-outline"></ion-icon>
+              <div>
+                <span>Faculty</span>
+                <strong>{{ programme.faculty }}</strong>
+              </div>
+            </div>
+            <div class="programme-metric qualification-metric">
+              <ion-icon name="ribbon-outline"></ion-icon>
+              <div>
+                <span>Qualification</span>
+                <strong>{{ programme.qualificationType }}</strong>
+              </div>
+            </div>
+            <div class="programme-metric duration-metric">
               <ion-icon name="time-outline"></ion-icon>
-              <ion-label>{{ programme.duration }}</ion-label>
-            </ion-chip>
-            <ion-chip
-              class="aps-chip"
+              <div>
+                <span>Duration</span>
+                <strong>{{ programme.duration }}</strong>
+              </div>
+            </div>
+            <div
+              class="programme-metric aps-metric"
               [class.aps-met]="meetsAps(programme)"
               [class.aps-unmet]="hasApsInput() && !meetsAps(programme)">
               <ion-icon [name]="hasApsInput() ? (meetsAps(programme) ? 'checkmark-circle-outline' : 'close-circle-outline') : 'calculator-outline'"></ion-icon>
-              <ion-label>APS {{ programme.apsScore }}</ion-label>
-            </ion-chip>
+              <div>
+                <span>Minimum APS</span>
+                <strong>{{ programme.apsScore }}</strong>
+              </div>
+            </div>
           </div>
 
           <p class="programme-description">{{ truncate(programme.description) }}</p>
@@ -139,9 +157,9 @@
             </div>
           </div>
 
-          <ion-button fill="outline" class="view-university-btn" (click)="viewUniversity(programme)">
-            <ion-icon slot="start" name="open-outline"></ion-icon>
-            View University
+          <ion-button class="view-university-btn" (click)="viewUniversity(programme)">
+            View University & Prospectus
+            <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
           </ion-button>
         </ion-card-content>
       </ion-card>

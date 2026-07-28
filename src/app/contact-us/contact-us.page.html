@@ -5,39 +5,80 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <section class="contact-hero">
+  <section class="contact-hero unipply-page-hero">
     <div class="contact-hero-inner">
-      <h1>We're here to help</h1>
+      <span class="hero-eyebrow">Unipply Support</span>
+      <h1>Let’s get you the help you need</h1>
       <p>
-        Reach out through one of the channels below. To reduce spam and protect our team,
-        we do not use a public contact form.
+        Whether you have a question about your profile, programmes, or university information,
+        our team is ready to point you in the right direction.
       </p>
+      <div class="support-status">
+        <span class="status-dot"></span>
+        Support available during South African business hours
+      </div>
     </div>
   </section>
 
   <section class="contact-section">
+    <div class="section-heading">
+      <span class="section-eyebrow">Contact channels</span>
+      <h2>Choose the easiest way to reach us</h2>
+      <p>For the fastest response, include the email address linked to your Unipply profile.</p>
+    </div>
+
     <div class="contact-grid">
-      <ion-card class="contact-card">
+      <ion-card class="contact-card email-card">
         <ion-card-header>
+          <div class="contact-icon email-icon"><ion-icon name="mail-outline"></ion-icon></div>
+          <span class="channel-label">Best for detailed questions</span>
           <ion-card-title>Email Support</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>For account, platform, or general questions.</p>
+          <p>Send us account, platform, or general questions and we’ll get back to you.</p>
           <ion-button href="mailto:support@unipply.co.za" class="contact-btn" shape="round">
             support@unipply.co.za
+            <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
           </ion-button>
         </ion-card-content>
       </ion-card>
 
-      <ion-card class="contact-card">
+      <ion-card class="contact-card whatsapp-card">
         <ion-card-header>
+          <div class="contact-icon whatsapp-icon"><ion-icon name="logo-whatsapp"></ion-icon></div>
+          <span class="channel-label">Best for quick guidance</span>
           <ion-card-title>WhatsApp</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <p>Quick updates and guidance during office hours.</p>
           <ion-button href="https://wa.me/27110000000" target="_blank" rel="noopener" class="contact-btn" shape="round">
             Chat on WhatsApp
+            <ion-icon slot="end" name="open-outline"></ion-icon>
           </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="contact-card social-contact-card">
+        <ion-card-header>
+          <span class="channel-label">Stay connected</span>
+          <ion-card-title>Follow the Unipply journey</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Follow us for university updates, application guidance, and student opportunities.</p>
+          <div class="contact-social-links">
+            <a href="https://www.instagram.com/unipplysa?igsh=MXN3MW5odDRtcXJleQ==" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+              Instagram
+            </a>
+            <a href="https://vm.tiktok.com/ZS9rcDuJPrUb6-UCTz4/" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-tiktok"></ion-icon>
+              TikTok
+            </a>
+            <a href="https://www.linkedin.com/company/unipplysa/" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+              LinkedIn
+            </a>
+          </div>
         </ion-card-content>
       </ion-card>
 
@@ -56,14 +97,18 @@
   </section>
 
   <section class="contact-section muted">
-    <div class="contact-hero-inner">
-      <h2>Before You Contact Us</h2>
-      <p>
-        Unipply centralizes university discovery and course visibility in one place.
-        We guide and redirect students to university channels for final application submission.
-      </p>
-      <ion-button href="/tabs/universities" fill="outline" class="contact-btn secondary" shape="round">
+    <div class="guidance-card">
+      <div>
+        <span class="section-eyebrow">Good to know</span>
+        <h2>University applications remain with each institution</h2>
+        <p>
+          Unipply helps you discover universities and programmes in one place. Final applications
+          and admission decisions are handled directly by each university.
+        </p>
+      </div>
+      <ion-button href="/tabs/universities" class="contact-btn guidance-btn" shape="round">
         Explore Universities
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
       </ion-button>
     </div>
   </section>

@@ -10963,5 +10963,1449 @@
         "compulsory": true
       }
     ]
+  },
+  {
+    "id": 407,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education Senior and FET Phase (Agriculture specialisation)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains Senior and FET Phase teachers to specialise in teaching Agriculture.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Agricultural Science",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "500491",
+    "saqaId": "112523"
+  },
+  {
+    "id": 408,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education Senior and FET Phase (Commerce specialisation)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains Senior and FET Phase teachers to specialise in Accounting, Economics or Business Management.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Accounting/Economics/Business Management (any two)",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "500492",
+    "saqaId": "112523"
+  },
+  {
+    "id": 409,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education Senior and FET Phase (Science specialisation)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains Senior and FET Phase teachers to specialise in Physical Science, Life Science, Geography or Computer Science.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Science/Life Science/Geography/Computer Science",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "500493",
+    "saqaId": "112523"
+  },
+  {
+    "id": 410,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education Senior and FET Phase (Social Science specialisation)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains Senior and FET Phase teachers to specialise in History, Geography and additional languages.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "isiXhosa or Afrikaans (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "History or Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "500494",
+    "saqaId": "112523"
+  },
+  {
+    "id": 411,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education in Foundation Phase Teaching",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Prepares generalist teachers for Grade R-3 classrooms.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "isiXhosa or Afrikaans (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "50045",
+    "saqaId": "103090"
+  },
+  {
+    "id": 412,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Education in Intermediate Phase Teaching",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Prepares teachers for Grades 4-6 across the Intermediate Phase curriculum.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "isiXhosa or Afrikaans (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "50046",
+    "saqaId": "99690"
+  },
+  {
+    "id": 413,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Laws",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 30,
+    "description": "The standard qualification for entry into the legal profession, covering core areas of South African law.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics/Mathematical Literacy/Technical Mathematics",
+        "level": 3,
+        "compulsory": false
+      }
+    ],
+    "programCode": "21525",
+    "saqaId": "15578"
+  },
+  {
+    "id": 414,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Laws (Extended Programme)",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 26,
+    "description": "An extended-curriculum LLB with additional academic support over an extra year of study.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics/Mathematical Literacy/Technical Mathematics",
+        "level": 2,
+        "compulsory": false
+      }
+    ],
+    "programCode": "21526",
+    "saqaId": "15578"
+  },
+  {
+    "id": 415,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce in Law",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Combines commerce and law studies for careers in commercial legal practice.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics/Mathematical Literacy/Technical Mathematics",
+        "level": 4,
+        "compulsory": false
+      }
+    ],
+    "programCode": "21527",
+    "saqaId": "15573"
+  },
+  {
+    "id": 416,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Health Sciences in Human Movement Science",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Covers exercise, movement and sport science for careers in health, fitness and rehabilitation.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "84001",
+    "saqaId": "115314"
+  },
+  {
+    "id": 417,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Speech Language Pathology",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains speech-language pathologists to assess and treat communication and swallowing disorders.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Physical Science",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "84033",
+    "saqaId": "101706"
+  },
+  {
+    "id": 418,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Nursing",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Trains professional nurses to deliver comprehensive patient care across health settings.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Physical Science",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "84040",
+    "saqaId": "117790"
+  },
+  {
+    "id": 419,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Administration in Public Administration",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "Develops administrative and management skills for careers in the public sector.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics/Mathematical Literacy",
+        "level": 2,
+        "compulsory": false
+      }
+    ],
+    "programCode": "62005",
+    "saqaId": "94224"
+  },
+  {
+    "id": 420,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "A general commerce degree covering core business, economics and management modules.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "60015",
+    "saqaId": "115313"
+  },
+  {
+    "id": 421,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce (Extended Programme)",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into general commerce with an additional foundation year.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "61015",
+    "saqaId": "115313"
+  },
+  {
+    "id": 422,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce in Accounting",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "Focuses on financial and management accounting for careers in accounting and auditing.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "programCode": "60001",
+    "saqaId": "17394"
+  },
+  {
+    "id": 423,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce in Accounting (Extended Programme)",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 30,
+    "description": "An extended-curriculum route into the accounting degree with an additional foundation year.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "60006",
+    "saqaId": "17394"
+  },
+  {
+    "id": 424,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce in Information Systems",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "Combines commerce with information systems for careers bridging business and technology.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "60011",
+    "saqaId": "15147"
+  },
+  {
+    "id": 425,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Commerce in Information Systems (Extended Programme)",
+    "faculty": "Management and Commerce",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Information Systems commerce degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "60101",
+    "saqaId": "15147"
+  },
+  {
+    "id": 426,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "A general science degree with a choice of majors across the natural sciences.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences/Geography/Agriculture/Information Technology",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "40000",
+    "saqaId": "19236"
+  },
+  {
+    "id": 427,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the BSc with an additional foundation year.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences/Geography/Agriculture/Information Technology",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "40400",
+    "saqaId": "19236"
+  },
+  {
+    "id": 428,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Soil Science",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Specialises in soil science within the agricultural sciences.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71522",
+    "saqaId": "100997"
+  },
+  {
+    "id": 429,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Soil Science (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Soil Science degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71422",
+    "saqaId": "100997"
+  },
+  {
+    "id": 430,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Horticulture",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Specialises in horticultural production and plant science.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71523",
+    "saqaId": "100998"
+  },
+  {
+    "id": 431,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Horticulture (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Horticulture degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71423",
+    "saqaId": "100998"
+  },
+  {
+    "id": 432,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Crops",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Specialises in crop production and management.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71524",
+    "saqaId": "101000"
+  },
+  {
+    "id": 433,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Crops (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Crops degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71424",
+    "saqaId": "101000"
+  },
+  {
+    "id": 434,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Animal Production",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Specialises in livestock and animal production systems.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71525",
+    "saqaId": "100996"
+  },
+  {
+    "id": 435,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Animal Production (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Animal Production degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71425",
+    "saqaId": "100996"
+  },
+  {
+    "id": 436,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Pasture Science",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Specialises in pasture and grassland management for livestock systems.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71526",
+    "saqaId": "100999"
+  },
+  {
+    "id": 437,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Pasture Science (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Pasture Science degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics and Physical Science",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71426",
+    "saqaId": "100999"
+  },
+  {
+    "id": 438,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Agricultural Economics",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Combines agricultural science with economics for agribusiness and policy careers.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "71521",
+    "saqaId": "100995"
+  },
+  {
+    "id": 439,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Science in Agriculture (in) Agricultural Economics (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Agricultural Economics degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": false
+      }
+    ],
+    "programCode": "71421",
+    "saqaId": "100995"
+  },
+  {
+    "id": 440,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Agriculture",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "A broad agricultural science degree covering production, extension and agribusiness.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Agriculture",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "70001",
+    "saqaId": "3393"
+  },
+  {
+    "id": 441,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Agriculture (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the general Agriculture degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": false
+      },
+      {
+        "subject": "Agriculture",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "70401",
+    "saqaId": "3393"
+  },
+  {
+    "id": 442,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Agriculture (in) Agricultural Extension",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "Prepares graduates for agricultural extension and rural development careers.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": false
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": false
+      },
+      {
+        "subject": "Agriculture",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "70002",
+    "saqaId": "100994"
+  },
+  {
+    "id": 443,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Agriculture (in) Agricultural Extension (Extended Programme)",
+    "faculty": "Science and Agriculture",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 27,
+    "description": "An extended-curriculum route into the Agricultural Extension degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": false
+      },
+      {
+        "subject": "Agriculture",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "70402",
+    "saqaId": "100994"
+  },
+  {
+    "id": 444,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Arts",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "A flexible humanities degree allowing students to combine language and social-science majors.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30000",
+    "saqaId": "115408"
+  },
+  {
+    "id": 445,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Arts (Extended Programme)",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 26,
+    "description": "An extended-curriculum route into the BA with an additional foundation year.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30040",
+    "saqaId": "115408"
+  },
+  {
+    "id": 446,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Fine Art",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "Trains visual artists across studio practice, theory and art history.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30100",
+    "saqaId": "3799"
+  },
+  {
+    "id": 447,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Library and Information Science",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "Trains information professionals to manage libraries and information services.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "32000",
+    "saqaId": "96531"
+  },
+  {
+    "id": 448,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Music",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "Covers music performance, theory and composition.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30003",
+    "saqaId": "116486"
+  },
+  {
+    "id": 449,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Social Science",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "A broad social science degree covering sociology, politics and related disciplines.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30002",
+    "saqaId": "3923"
+  },
+  {
+    "id": 450,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Social Science (Extended Programme)",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 26,
+    "description": "An extended-curriculum route into the Social Science degree.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30041",
+    "saqaId": "3923"
+  },
+  {
+    "id": 451,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Social Science in Communication",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "Combines social science theory with communication and media studies.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30201",
+    "saqaId": "3957"
+  },
+  {
+    "id": 452,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Social Science in Human Settlement",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "Covers the social dimensions of human settlement planning and development.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "30005",
+    "saqaId": "94599"
+  },
+  {
+    "id": 453,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Social Work",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "Trains social workers to support individuals, families and communities.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "33002",
+    "saqaId": "96466"
+  },
+  {
+    "id": 454,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Bachelor of Theology",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 27,
+    "description": "Covers biblical studies, theology and ministry preparation.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Another Language",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "10001",
+    "saqaId": "3487"
+  },
+  {
+    "id": 455,
+    "universityId": 6,
+    "universityName": "University of Fort Hare",
+    "name": "Diploma in Fine Art",
+    "faculty": "Social Science and Humanities",
+    "qualificationType": "Diploma",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "A studio-based diploma in visual art practice.",
+    "campus": "Alice / East London",
+    "subjectRequirements": [
+      {
+        "subject": "English (HL/FAL)",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "programCode": "35000",
+    "saqaId": "4019"
   }
 ]
