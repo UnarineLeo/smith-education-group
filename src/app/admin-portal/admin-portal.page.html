@@ -280,140 +280,258 @@
        TAB: INSIGHTS
   ══════════════════════════════════════ -->
   @if (activeTab === 'insights') {
-    <section class="admin-shell single-column-shell tab-panel">
-
-      <!-- KPI row -->
-      <div class="kpi-row">
-        <div class="kpi-card">
-          <span class="kpi-label">Total Users</span>
-          <span class="kpi-value">{{ users.length }}</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-label">Verified Emails</span>
-          <span class="kpi-value">{{ getVerifiedCount() }}</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-label">Subscribed</span>
-          <span class="kpi-value">{{ getSubscribedCount() }}</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-label">Avg APS Score</span>
-          <span class="kpi-value">{{ getOverallAvgAps() }}</span>
-        </div>
-      </div>
-
-      <!-- Charts row 1: Study Level + Course Choices -->
-      <div class="chart-row-2col">
-
-        <!-- Study Level: horizontal bar -->
-        <div class="chart-panel">
-          <div class="chart-panel-head">
-            <h3>Current Study Level</h3>
-            <p>Distribution across all users</p>
+    <section class="admin-shell analytics-shell tab-panel">
+      <header class="analytics-heading">
+        <div>
+          <div class="analytics-kicker">
+            <span class="live-dot"></span>
+            Users collection overview
           </div>
-          <div class="bar-chart-wrap">
-            @for (item of getStudyLevelDistribution(); track item.label) {
-              <div class="bar-row">
-                <span class="bar-label">{{ item.label }}</span>
-                <div class="bar-track">
-                  <div class="bar-fill" [style.width.%]="item.pct" [style.background]="item.color"></div>
-                </div>
-                <span class="bar-count">{{ item.count }}</span>
-              </div>
-            }
-          </div>
+          <h2>Analytics overview</h2>
+          <p>Understand user readiness, academic interests and institution demand at a glance.</p>
         </div>
-
-        <!-- Course Choices: donut-style pill chart -->
-        <div class="chart-panel">
-          <div class="chart-panel-head">
-            <h3>Top Course Choices</h3>
-            <p>Most popular courses selected</p>
-          </div>
-          <div class="pill-chart-wrap">
-            @for (item of getTopCourseChoices(); track item.label) {
-              <div class="pill-row">
-                <span class="pill-label">{{ item.label }}</span>
-                <div class="pill-track">
-                  <div class="pill-fill" [style.width.%]="item.pct"></div>
-                </div>
-                <span class="pill-pct">{{ item.pct | number:'1.0-0' }}%</span>
-              </div>
-            }
-          </div>
+        <div class="analytics-actions">
+          <ion-button size="small" fill="outline" (click)="refreshUsers()" [disabled]="isLoadingUsers">
+            {{ isLoadingUsers ? 'Refreshing…' : 'Refresh data' }}
+          </ion-button>
+          <ion-button
+            size="small"
+            (click)="exportUsersToExcel()"
+            [disabled]="isLoadingUsers || isExportingUsers || users.length === 0"
+          >
+            {{ isExportingUsers ? 'Exporting…' : 'Export report' }}
+          </ion-button>
         </div>
+      </header>
 
-      </div>
-
-      <!-- Charts row 2: Avg APS per University (full-width bar chart) -->
-      <div class="chart-panel chart-panel-full">
-        <div class="chart-panel-head">
-          <h3>Average APS Score by University</h3>
-          <p>Mean score across all users who have APS data for each institution</p>
+      @if (isLoadingUsers) {
+        <div class="analytics-state">
+          <div class="loading-spinner"></div>
+          <p>Preparing analytics…</p>
         </div>
-        <div class="vertical-bar-chart">
-          @for (item of getAvgApsByUniversity(); track item.label) {
-            <div class="v-bar-col">
-              <span class="v-bar-value">{{ item.avg | number:'1.0-1' }}</span>
-              <div class="v-bar-track">
-                <div class="v-bar-fill" [style.height.%]="item.pct"></div>
-              </div>
-              <span class="v-bar-label">{{ item.label }}</span>
+      } @else if (loadUsersError) {
+        <div class="analytics-state error-state">{{ loadUsersError }}</div>
+      } @else if (users.length === 0) {
+        <div class="analytics-state">Analytics will appear when user documents are available.</div>
+      } @else {
+        <div class="kpi-grid">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-topline">
+              <span class="kpi-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="kpi-label">Total users</span>
             </div>
-          }
+            <strong class="kpi-value">{{ users.length }}</strong>
+            <p><b>{{ getUsersWithApsCount() }}</b> users have APS data</p>
+          </article>
+
+          <article class="kpi-card kpi-green">
+            <div class="kpi-topline">
+              <span class="kpi-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 22C7 20 4 16 4 10V5l8-3 8 3v5c0 6-3 10-8 12z"/></svg>
+              </span>
+              <span class="kpi-label">Verified emails</span>
+            </div>
+            <strong class="kpi-value">{{ getVerifiedRate() }}%</strong>
+            <p><b>{{ getVerifiedCount() }}</b> of {{ users.length }} accounts</p>
+          </article>
+
+          <article class="kpi-card kpi-violet">
+            <div class="kpi-topline">
+              <span class="kpi-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <span class="kpi-label">Avg. session duration</span>
+            </div>
+            <strong class="kpi-value">{{ getAverageSessionDuration() }}</strong>
+            <p>From Google Analytics for the latest reporting period</p>
+          </article>
+
+          <article class="kpi-card kpi-orange">
+            <div class="kpi-topline">
+              <span class="kpi-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>
+              </span>
+              <span class="kpi-label">Average APS</span>
+            </div>
+            <strong class="kpi-value">{{ getOverallAvgAps() }}</strong>
+            <p>Based on <b>{{ getApsObservationCount() }}</b> recorded scores</p>
+          </article>
         </div>
-      </div>
 
-      <!-- Charts row 3: University Choices popularity + Sign-in timeline -->
-      <div class="chart-row-2col">
-
-        <!-- University Choices: ranked list -->
-        <div class="chart-panel">
-          <div class="chart-panel-head">
-            <h3>University Popularity</h3>
-            <p>How often each university appears across all 4 choice slots</p>
-          </div>
-          <div class="rank-list">
-            @for (item of getUniversityPopularity(); track item.label; let i = $index) {
-              <div class="rank-row">
-                <span class="rank-num">#{{ i + 1 }}</span>
-                <span class="rank-label">{{ item.label }}</span>
-                <div class="rank-track">
-                  <div class="rank-fill" [style.width.%]="item.pct"></div>
-                </div>
-                <span class="rank-count">{{ item.count }}</span>
+        <div class="analytics-grid">
+          <article class="chart-card">
+            <header class="chart-card-head">
+              <div>
+                <span class="chart-eyebrow">User profile</span>
+                <h3>Current study level</h3>
+                <p>Share of all registered users</p>
               </div>
-            }
-          </div>
-        </div>
+              <span class="chart-total">{{ users.length }} users</span>
+            </header>
 
-        <!-- Sign-ins sparkline: monthly sign-in activity -->
-        <div class="chart-panel">
-          <div class="chart-panel-head">
-            <h3>Sign-in Activity</h3>
-            <p>Monthly last-sign-in distribution</p>
-          </div>
-          <div class="sparkline-wrap">
-            <svg class="sparkline-svg" viewBox="0 0 300 120" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35"/>
-                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0.04"/>
-                </linearGradient>
-              </defs>
-              <path [attr.d]="getSparklineFillPath()" fill="url(#sparkGrad)"/>
-              <path [attr.d]="getSparklinePath()" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="sparkline-labels">
-              @for (m of getSignInMonths(); track m.label) {
-                <span>{{ m.label }}</span>
+            <div class="distribution-strip" aria-label="Study level distribution">
+              @for (item of getStudyLevelDistribution(); track item.label) {
+                <span
+                  [style.width.%]="item.pct"
+                  [style.background]="item.color"
+                  [attr.title]="item.label + ': ' + item.count"
+                ></span>
               }
             </div>
-          </div>
+            <div class="distribution-list">
+              @for (item of getStudyLevelDistribution(); track item.label) {
+                <div class="distribution-row">
+                  <span class="legend-dot" [style.background]="item.color"></span>
+                  <span class="distribution-label">{{ item.label }}</span>
+                  <span class="distribution-count">{{ item.count }}</span>
+                  <span class="distribution-share">{{ item.pct }}%</span>
+                </div>
+              }
+            </div>
+          </article>
+
+          <article class="chart-card">
+            <header class="chart-card-head">
+              <div>
+                <span class="chart-eyebrow">Academic demand</span>
+                <h3>Top course choices</h3>
+                <p>Ranked across every saved course choice</p>
+              </div>
+            </header>
+            @if (getTopCourseChoices().length === 0) {
+              <p class="chart-empty">No course choices have been recorded yet.</p>
+            } @else {
+              <div class="metric-list">
+                @for (item of getTopCourseChoices(); track item.label; let i = $index) {
+                  <div class="metric-row">
+                    <span class="metric-rank">{{ i + 1 }}</span>
+                    <div class="metric-main">
+                      <div class="metric-copy">
+                        <span title="{{ item.label }}">{{ item.label }}</span>
+                        <b>{{ item.count }}</b>
+                      </div>
+                      <div class="metric-track">
+                        <span [style.width.%]="item.barPct"></span>
+                      </div>
+                    </div>
+                    <span class="metric-share">{{ item.share }}%</span>
+                  </div>
+                }
+              </div>
+            }
+          </article>
+
+          <article class="chart-card aps-dashboard-card">
+            <header class="chart-card-head">
+              <div>
+                <span class="chart-eyebrow">Academic readiness</span>
+                <h3>Average APS by university</h3>
+                <p>Top institutions ranked by mean recorded score</p>
+              </div>
+              <span class="chart-total">{{ getApsObservationCount() }} scores</span>
+            </header>
+            @if (getAvgApsByUniversity().length === 0) {
+              <p class="chart-empty">No university APS scores have been recorded yet.</p>
+            } @else {
+              <div class="aps-ranking">
+                @for (item of getAvgApsByUniversity(); track item.label; let i = $index) {
+                  <div class="aps-rank-row">
+                    <span class="metric-rank">{{ i + 1 }}</span>
+                    <div class="aps-rank-copy">
+                      <div>
+                        <span title="{{ item.label }}">{{ item.label }}</span>
+                        <small>{{ item.count }} {{ item.count === 1 ? 'score' : 'scores' }}</small>
+                      </div>
+                      <div class="aps-track"><span [style.width.%]="item.pct"></span></div>
+                    </div>
+                    <strong>{{ item.avg | number:'1.0-1' }}</strong>
+                  </div>
+                }
+              </div>
+            }
+          </article>
+
+          <article class="chart-card">
+            <header class="chart-card-head">
+              <div>
+                <span class="chart-eyebrow">Institution demand</span>
+                <h3>Most selected universities</h3>
+                <p>Selections across all four preference slots</p>
+              </div>
+            </header>
+            @if (getUniversityPopularity().length === 0) {
+              <p class="chart-empty">No university choices have been recorded yet.</p>
+            } @else {
+              <div class="metric-list">
+                @for (item of getUniversityPopularity(); track item.label; let i = $index) {
+                  <div class="metric-row">
+                    <span class="metric-rank">{{ i + 1 }}</span>
+                    <div class="metric-main">
+                      <div class="metric-copy">
+                        <span title="{{ item.label }}">{{ item.label }}</span>
+                        <b>{{ item.count }}</b>
+                      </div>
+                      <div class="metric-track university-track">
+                        <span [style.width.%]="item.pct"></span>
+                      </div>
+                    </div>
+                    <span class="metric-share">{{ item.share }}%</span>
+                  </div>
+                }
+              </div>
+            }
+          </article>
+
+          <article class="chart-card search-performance-card">
+            <header class="chart-card-head">
+              <div>
+                <span class="chart-eyebrow">Engagement snapshot</span>
+                <h3>Clicks vs impressions</h3>
+                <p>Monthly organic search performance from Google Search Console</p>
+              </div>
+              <span class="chart-total">{{ getSearchPerformanceMonthLabel() }}</span>
+            </header>
+            @if (engagementSnapshotError) {
+              <p class="chart-empty">{{ engagementSnapshotError }}</p>
+            } @else if (!getCurrentSearchPerformance()) {
+              <p class="chart-empty">No Search Console data has been synced for this month yet.</p>
+            } @else {
+              <div class="search-summary">
+                <div class="search-stat clicks-stat">
+                  <span>Clicks</span>
+                  <strong>{{ getSearchClicks() | number }}</strong>
+                </div>
+                <div class="search-stat impressions-stat">
+                  <span>Impressions</span>
+                  <strong>{{ getSearchImpressions() | number }}</strong>
+                </div>
+                <div class="search-stat ctr-stat">
+                  <span>Search CTR</span>
+                  <strong>{{ getSearchClickThroughRate() }}</strong>
+                </div>
+              </div>
+              <div class="search-comparison" aria-label="Monthly Google Search clicks compared with impressions">
+                <div class="search-comparison-row">
+                  <span>Clicks</span>
+                  <div class="search-comparison-track">
+                    <i class="clicks-bar" [style.width.%]="getSearchMetricWidth(getSearchClicks())"></i>
+                  </div>
+                  <b>{{ getSearchClicks() | number }}</b>
+                </div>
+                <div class="search-comparison-row">
+                  <span>Impressions</span>
+                  <div class="search-comparison-track">
+                    <i class="impressions-bar" [style.width.%]="getSearchMetricWidth(getSearchImpressions())"></i>
+                  </div>
+                  <b>{{ getSearchImpressions() | number }}</b>
+                </div>
+              </div>
+            }
+          </article>
         </div>
-
-      </div>
-
+      }
     </section>
   }
 

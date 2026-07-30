@@ -10,6 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "update:programmes": "node scripts/extract-programmes-from-markdown.cjs",
     "update:universities": "node scripts/update-university-data.cjs",
     "ionic:build": "npm run build",
     "ionic:serve": "npm run start -- --open"

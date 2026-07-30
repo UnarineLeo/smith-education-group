@@ -10966,7 +10966,7 @@
   },
   {
     "id": 407,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education Senior and FET Phase (Agriculture specialisation)",
     "faculty": "Education",
@@ -11007,7 +11007,7 @@
   },
   {
     "id": 408,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education Senior and FET Phase (Commerce specialisation)",
     "faculty": "Education",
@@ -11043,7 +11043,7 @@
   },
   {
     "id": 409,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education Senior and FET Phase (Science specialisation)",
     "faculty": "Education",
@@ -11074,7 +11074,7 @@
   },
   {
     "id": 410,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education Senior and FET Phase (Social Science specialisation)",
     "faculty": "Education",
@@ -11105,7 +11105,7 @@
   },
   {
     "id": 411,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education in Foundation Phase Teaching",
     "faculty": "Education",
@@ -11141,7 +11141,7 @@
   },
   {
     "id": 412,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Education in Intermediate Phase Teaching",
     "faculty": "Education",
@@ -11177,7 +11177,7 @@
   },
   {
     "id": 413,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Laws",
     "faculty": "Law",
@@ -11203,7 +11203,7 @@
   },
   {
     "id": 414,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Laws (Extended Programme)",
     "faculty": "Law",
@@ -11229,7 +11229,7 @@
   },
   {
     "id": 415,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce in Law",
     "faculty": "Law",
@@ -11255,7 +11255,7 @@
   },
   {
     "id": 416,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Health Sciences in Human Movement Science",
     "faculty": "Health Sciences",
@@ -11291,7 +11291,7 @@
   },
   {
     "id": 417,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Speech Language Pathology",
     "faculty": "Health Sciences",
@@ -11332,7 +11332,7 @@
   },
   {
     "id": 418,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Nursing",
     "faculty": "Health Sciences",
@@ -11373,7 +11373,7 @@
   },
   {
     "id": 419,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Administration in Public Administration",
     "faculty": "Management and Commerce",
@@ -11399,7 +11399,7 @@
   },
   {
     "id": 420,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce",
     "faculty": "Management and Commerce",
@@ -11425,7 +11425,7 @@
   },
   {
     "id": 421,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce (Extended Programme)",
     "faculty": "Management and Commerce",
@@ -11451,7 +11451,7 @@
   },
   {
     "id": 422,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce in Accounting",
     "faculty": "Management and Commerce",
@@ -11477,7 +11477,7 @@
   },
   {
     "id": 423,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce in Accounting (Extended Programme)",
     "faculty": "Management and Commerce",
@@ -11503,7 +11503,7 @@
   },
   {
     "id": 424,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce in Information Systems",
     "faculty": "Management and Commerce",
@@ -11529,7 +11529,7 @@
   },
   {
     "id": 425,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Commerce in Information Systems (Extended Programme)",
     "faculty": "Management and Commerce",
@@ -11555,7 +11555,7 @@
   },
   {
     "id": 426,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science",
     "faculty": "Science and Agriculture",
@@ -11591,7 +11591,7 @@
   },
   {
     "id": 427,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11622,7 +11622,7 @@
   },
   {
     "id": 428,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Soil Science",
     "faculty": "Science and Agriculture",
@@ -11653,7 +11653,7 @@
   },
   {
     "id": 429,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Soil Science (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11679,7 +11679,7 @@
   },
   {
     "id": 430,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Horticulture",
     "faculty": "Science and Agriculture",
@@ -11710,7 +11710,7 @@
   },
   {
     "id": 431,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Horticulture (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11736,7 +11736,7 @@
   },
   {
     "id": 432,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Crops",
     "faculty": "Science and Agriculture",
@@ -11767,7 +11767,7 @@
   },
   {
     "id": 433,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Crops (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11793,7 +11793,7 @@
   },
   {
     "id": 434,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Animal Production",
     "faculty": "Science and Agriculture",
@@ -11824,7 +11824,7 @@
   },
   {
     "id": 435,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Animal Production (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11850,7 +11850,7 @@
   },
   {
     "id": 436,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Pasture Science",
     "faculty": "Science and Agriculture",
@@ -11881,7 +11881,7 @@
   },
   {
     "id": 437,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Pasture Science (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11907,7 +11907,7 @@
   },
   {
     "id": 438,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Agricultural Economics",
     "faculty": "Science and Agriculture",
@@ -11938,7 +11938,7 @@
   },
   {
     "id": 439,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Science in Agriculture (in) Agricultural Economics (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -11969,7 +11969,7 @@
   },
   {
     "id": 440,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Agriculture",
     "faculty": "Science and Agriculture",
@@ -12005,7 +12005,7 @@
   },
   {
     "id": 441,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Agriculture (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -12036,7 +12036,7 @@
   },
   {
     "id": 442,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Agriculture (in) Agricultural Extension",
     "faculty": "Science and Agriculture",
@@ -12072,7 +12072,7 @@
   },
   {
     "id": 443,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Agriculture (in) Agricultural Extension (Extended Programme)",
     "faculty": "Science and Agriculture",
@@ -12103,7 +12103,7 @@
   },
   {
     "id": 444,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Arts",
     "faculty": "Social Science and Humanities",
@@ -12129,7 +12129,7 @@
   },
   {
     "id": 445,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Arts (Extended Programme)",
     "faculty": "Social Science and Humanities",
@@ -12155,7 +12155,7 @@
   },
   {
     "id": 446,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Fine Art",
     "faculty": "Social Science and Humanities",
@@ -12181,7 +12181,7 @@
   },
   {
     "id": 447,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Library and Information Science",
     "faculty": "Social Science and Humanities",
@@ -12207,7 +12207,7 @@
   },
   {
     "id": 448,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Music",
     "faculty": "Social Science and Humanities",
@@ -12233,7 +12233,7 @@
   },
   {
     "id": 449,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Social Science",
     "faculty": "Social Science and Humanities",
@@ -12259,7 +12259,7 @@
   },
   {
     "id": 450,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Social Science (Extended Programme)",
     "faculty": "Social Science and Humanities",
@@ -12285,7 +12285,7 @@
   },
   {
     "id": 451,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Social Science in Communication",
     "faculty": "Social Science and Humanities",
@@ -12311,7 +12311,7 @@
   },
   {
     "id": 452,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Social Science in Human Settlement",
     "faculty": "Social Science and Humanities",
@@ -12337,7 +12337,7 @@
   },
   {
     "id": 453,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Social Work",
     "faculty": "Social Science and Humanities",
@@ -12363,7 +12363,7 @@
   },
   {
     "id": 454,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Bachelor of Theology",
     "faculty": "Social Science and Humanities",
@@ -12389,7 +12389,7 @@
   },
   {
     "id": 455,
-    "universityId": 6,
+    "universityId": 13,
     "universityName": "University of Fort Hare",
     "name": "Diploma in Fine Art",
     "faculty": "Social Science and Humanities",
@@ -12407,5 +12407,4791 @@
     ],
     "programCode": "35000",
     "saqaId": "4019"
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Diploma in Coaching Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "2 years",
+    "apsScore": 18,
+    "description": "This diploma develops applied knowledge and practical skills in Coaching Science, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 456
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Health Sciences in Biokinetics",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Biokinetics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 457
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Pharmacy",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Pharmacy, preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "Life Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 458
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Consumer Studies",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Consumer Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 459
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Dietetics",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Dietetics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 460
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Arts",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 461
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Social Work",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 28,
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 462
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Diploma in Animal Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "This diploma develops applied knowledge and practical skills in Animal Science, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Agricultural Science",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 463
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Diploma in Plant Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "This diploma develops applied knowledge and practical skills in Plant Science, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Agricultural Science",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 464
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Information Technology",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Information Technology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Technical Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Information Technology",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 465
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Mathematical Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Mathematical Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 466
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Biological Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Biological Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Technical Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 467
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Environmental Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Environmental Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Technical Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 468
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Financial Mathematics",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Financial Mathematics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 469
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Business Analytics",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Business Analytics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 470
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Quantitative Risk Management",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Quantitative Risk Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 471
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Actuarial Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Actuarial Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 472
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science in Urban and Regional Planning",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 28,
+    "description": "This bachelor's programme provides comprehensive study in Urban and Regional Planning, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Technical Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 473
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Commerce (BCom)",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 36,
+    "description": "This bachelor's programme provides comprehensive study in Commerce (BCom), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 474
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Commerce (BCom) in Economic Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Commerce (BCom) in Economic Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 475
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Administration",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 21,
+    "description": "This bachelor's programme provides comprehensive study in Administration, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "id": 476
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Diploma in Music (DM)",
+    "faculty": "Humanities",
+    "qualificationType": "Diploma",
+    "duration": "3 years",
+    "apsScore": 18,
+    "description": "This diploma develops applied knowledge and practical skills in Music, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 477
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Arts (BA) in Music and Society",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This bachelor's programme provides comprehensive study in Arts in Music and Society, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 478
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Baccalaureus Musicae (BMus)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Musicae (BMus), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 479
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Philosophy (BPhil)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Philosophy (BPhil), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 480
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Arts (BA) Humanities",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Arts Humanities, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 481
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Social Sciences (BSocSc)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "This bachelor's programme provides comprehensive study in Social Sciences (BSocSc), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 482
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Arts (BA) in Behavioural Sciences",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "This bachelor's programme provides comprehensive study in Arts in Behavioural Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 483
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Education in Early Childhood Care and Education (ECCE)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Early Childhood Care and Education, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 484
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Education in (BEd) in Foundation Phase (Grade R – 3)",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in (BEd) in Foundation Phase (Grade R – 3), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 485
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Agricultural Science",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 486
+  },
+  {
+    "universityId": 6,
+    "universityName": "North-West University",
+    "name": "Bachelor of Education",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Education, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 487
+  },
+  {
+    "universityId": 11,
+    "universityName": "Tshwane University of Technology",
+    "name": "Bachelor of Architecture",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 31,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Architecture, preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 488
+  },
+  {
+    "universityId": 11,
+    "universityName": "Tshwane University of Technology",
+    "name": "Bachelor of Architecture (Extended)",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 31,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Architecture (Extended), preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 489
+  },
+  {
+    "universityId": 11,
+    "universityName": "Tshwane University of Technology",
+    "name": "Bachelor of Pharmacy",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Pharmacy, preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 490
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Science in Audiology",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 37,
+    "description": "This bachelor's programme provides comprehensive study in Audiology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 491
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Science in Speech-Language Pathology",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 40,
+    "description": "This bachelor's programme provides comprehensive study in Speech-Language Pathology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 492
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Arts",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 493
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Social Science",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Social Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 494
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Social Work",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 495
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Social Science (Philosophy, Politics and Economics)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Social Science (Philosophy, Politics and Economics), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 496
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Arts (Fine Art)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Arts (Fine Art), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 497
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Arts (Theatre & Performance)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Arts (Theatre & Performance), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 498
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Bachelor of Music",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Music, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 499
+  },
+  {
+    "universityId": 12,
+    "universityName": "University of Cape Town",
+    "name": "Diploma in Theatre",
+    "faculty": "Humanities",
+    "qualificationType": "Diploma",
+    "duration": "See prospectus",
+    "apsScore": 31,
+    "description": "This diploma develops applied knowledge and practical skills in Theatre, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 500
+  },
+  {
+    "universityId": 14,
+    "universityName": "University of the Free State",
+    "name": "Bachelor of Sustainable Food Systems",
+    "faculty": "Not specified",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Sustainable Food Systems, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 501
+  },
+  {
+    "universityId": 15,
+    "universityName": "University of Johannesburg",
+    "name": "Diploma in Architecture",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Diploma",
+    "duration": "See prospectus",
+    "apsScore": 25,
+    "description": "This diploma develops applied knowledge and practical skills in Architecture, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 502
+  },
+  {
+    "universityId": 15,
+    "universityName": "University of Johannesburg",
+    "name": "Diploma in Fashion Production",
+    "faculty": "Not specified",
+    "qualificationType": "Diploma",
+    "duration": "See prospectus",
+    "apsScore": 22,
+    "description": "This diploma develops applied knowledge and practical skills in Fashion Production, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 503
+  },
+  {
+    "universityId": 15,
+    "universityName": "University of Johannesburg",
+    "name": "Diploma in Jewellery Design and Manufacture",
+    "faculty": "Not specified",
+    "qualificationType": "Diploma",
+    "duration": "See prospectus",
+    "apsScore": 20,
+    "description": "This diploma develops applied knowledge and practical skills in Jewellery Design and Manufacture, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 504
+  },
+  {
+    "universityId": 15,
+    "universityName": "University of Johannesburg",
+    "name": "Bachelor of Science in Life and Environmental Sciences (Extended)",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Life and Environmental Sciences (Extended), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Geography",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "id": 505
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Science (Physical Sciences stream)",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Science (Physical Sciences stream), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 506
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Commerce in Accountancy",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 22,
+    "description": "This bachelor's programme provides comprehensive study in Accountancy, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 507
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Science in Agriculture in Plant Production",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Agriculture in Plant Production, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 508
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Science in Geology",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 27,
+    "description": "This bachelor's programme provides comprehensive study in Geology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 509
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Science in Agriculture in Animal Production",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Agriculture in Animal Production, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 510
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Commerce in Human Resource Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 27,
+    "description": "This bachelor's programme provides comprehensive study in Human Resource Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 511
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Commerce in Business Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 27,
+    "description": "This bachelor's programme provides comprehensive study in Business Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 512
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Commerce in Business Management (Extended Curriculum )",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 27,
+    "description": "This bachelor's programme provides comprehensive study in Business Management (Extended Curriculum ), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 513
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Administration",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Administration, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 514
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Development in Planning and Management",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Development in Planning and Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 515
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Science (Mathematical Sciences stream) (Extended Curriculum )",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Science (Mathematical Sciences stream) (Extended Curriculum ), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 516
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Optometry",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 27,
+    "description": "This bachelor's programme provides comprehensive study in Optometry, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 517
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Nursing",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Nursing, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 518
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Laws",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Laws, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 519
+  },
+  {
+    "universityId": 17,
+    "universityName": "University of Limpopo",
+    "name": "Bachelor of Laws (Extended Curriculum )",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 26,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Laws (Extended Curriculum ), preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "English Home Language",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 520
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Higher Certificate in Event Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Higher Certificate",
+    "duration": "1 Year",
+    "apsScore": 19,
+    "description": "This higher certificate provides foundational study in Event Management, developing practical knowledge and a pathway to further study or entry-level work.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 521
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Social Work",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 Year",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 522
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Arts (general)",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 Year",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Arts (general), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 523
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Administration",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 Year",
+    "apsScore": 33,
+    "description": "This bachelor's programme provides comprehensive study in Administration, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "id": 524
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Higher Certificate in ICT in User Support",
+    "faculty": "Science & IT",
+    "qualificationType": "Higher Certificate",
+    "duration": "1 Year",
+    "apsScore": 20,
+    "description": "This higher certificate provides foundational study in ICT in User Support, developing practical knowledge and a pathway to further study or entry-level work.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 525
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Diploma in Nature Conservation",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "3 Year",
+    "apsScore": 30,
+    "description": "This diploma develops applied knowledge and practical skills in Nature Conservation, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 526
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Diploma in Agriculture in Plant Production",
+    "faculty": "Science & IT",
+    "qualificationType": "Diploma",
+    "duration": "3 Year",
+    "apsScore": 23,
+    "description": "This diploma develops applied knowledge and practical skills in Agriculture in Plant Production, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 527
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Science in Agriculture",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 Year",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Agriculture, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 6,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 528
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Science in Forestry",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 Year",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Forestry, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 7,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 529
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Agriculture in Agricultural Extension and Rural Resource Management",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 Year",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Agriculture in Agricultural Extension and Rural Resource Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 530
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of Science in Environmental Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 Year",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Environmental Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 6,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "id": 531
+  },
+  {
+    "universityId": 18,
+    "universityName": "University of Mpumalanga",
+    "name": "Bachelor of ICT",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 Year",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in ICT, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Information Technology",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 532
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Diploma in Media Studies",
+    "faculty": "Not specified",
+    "qualificationType": "Diploma",
+    "duration": "3 yrs",
+    "apsScore": 24,
+    "description": "This diploma develops applied knowledge and practical skills in Media Studies, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 533
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Diploma in Public Relations Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Diploma",
+    "duration": "3 yrs",
+    "apsScore": 24,
+    "description": "This diploma develops applied knowledge and practical skills in Public Relations Management, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 534
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Bachelor of Social Sciences in Political and International Studies",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 yrs",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Social Sciences in Political and International Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 535
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Diploma in Tourism Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Diploma",
+    "duration": "3 yrs",
+    "apsScore": 24,
+    "description": "This diploma develops applied knowledge and practical skills in Tourism Management, preparing graduates for related technical and professional roles.",
+    "subjectRequirements": [],
+    "id": 536
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Bachelor of Education in Foundation Phase Teaching",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 yrs",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Foundation Phase Teaching, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 537
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Bachelor of Education in Foundation Phase",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 yrs",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Foundation Phase, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 538
+  },
+  {
+    "universityId": 24,
+    "universityName": "University of Zululand",
+    "name": "Bachelor of Education in Intermediate Phase",
+    "faculty": "Education",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 yrs",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Intermediate Phase, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 539
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Administration specialising in Public Administration",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "This bachelor's programme provides comprehensive study in Administration specialising in Public Administration, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "id": 540
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Investment Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 34,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Investment Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 541
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Financial Management Sciences",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Financial Management Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 542
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Economics",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Economics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 543
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Statistics and Data Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Statistics and Data Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 544
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Information Systems",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Information Systems, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 545
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Agribusiness Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Agribusiness Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 546
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Business Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Business Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 547
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Supply Chain Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Supply Chain Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 548
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Marketing Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Marketing Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 549
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Commerce in specialising in Human Resource Management",
+    "faculty": "Commerce & Management",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in specialising in Human Resource Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 550
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Engineering",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "5 years",
+    "apsScore": 33,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Engineering, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 551
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Architecture",
+    "faculty": "Engineering & Built Environment",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Architecture, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 552
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Information Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 28,
+    "description": "This bachelor's programme provides comprehensive study in Information Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 553
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Information Science specialising in Publishing",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 28,
+    "description": "This bachelor's programme provides comprehensive study in Publishing, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 554
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Information Science specialising in Multimedia",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Multimedia, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 555
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Information Technology in Information Systems",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Information Systems, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Information Technology",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "id": 556
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Computer Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Computer Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 557
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Dental Surgery",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "5 years",
+    "apsScore": 35,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Dental Surgery, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 558
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Oral Hygiene",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Oral Hygiene, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 559
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Nursing Science",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "See prospectus",
+    "apsScore": 28,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Nursing Science, preparing graduates for practice in the field.",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 560
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Physiotherapy",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Physiotherapy, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 561
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Sports Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Sports Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "id": 562
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Arts in Speech-Language Pathology",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Speech-Language Pathology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 563
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Arts in Information Design",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Information Design, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 564
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Social Work",
+    "faculty": "Health Sciences",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "4 years",
+    "apsScore": 30,
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 565
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Music",
+    "faculty": "Humanities",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "5 years",
+    "apsScore": 26,
+    "description": "This bachelor's programme provides comprehensive study in Music, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 566
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Food Science",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Food Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 567
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Biochemistry",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Biochemistry, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 568
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Human Genetics",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Human Genetics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 569
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Microbiology",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Microbiology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 570
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Geology",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "3 years",
+    "apsScore": 34,
+    "description": "This bachelor's programme provides comprehensive study in Geology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [],
+    "id": 571
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Science in Mathematics",
+    "faculty": "Science & IT",
+    "qualificationType": "Bachelor's Degree",
+    "duration": "See prospectus",
+    "apsScore": 32,
+    "description": "This bachelor's programme provides comprehensive study in Mathematics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "id": 572
+  },
+  {
+    "universityId": 19,
+    "universityName": "University of Pretoria",
+    "name": "Bachelor of Laws",
+    "faculty": "Law",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "duration": "3 years",
+    "apsScore": 30,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Laws, preparing graduates for practice in the field.",
+    "subjectRequirements": [],
+    "id": 573
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Social Work",
+    "duration": "See prospectus",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 574
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Community Development",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Community Development, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 575
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Humanities",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Arts (BA)",
+    "duration": "See prospectus",
+    "apsScore": 35,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 576
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Humanities",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Theology (BTh)",
+    "duration": "See prospectus",
+    "apsScore": 35,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Theology (BTh), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 577
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Afrikaans",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Library and Information Science (BLIS)",
+    "duration": "See prospectus",
+    "apsScore": 35,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Library and Information Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 578
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Pharmacy",
+    "duration": "See prospectus",
+    "apsScore": 38,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Pharmacy, preparing graduates for practice in the field.",
+    "id": 579
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Dental Surgery (BDS)",
+    "duration": "See prospectus",
+    "apsScore": 40,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Dental Surgery, preparing graduates for practice in the field.",
+    "id": 580
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Oral Health (BOH)",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Oral Health, preparing graduates for practice in the field.",
+    "id": 581
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Law",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Laws (LLB) (4yr Prog)",
+    "duration": "4 year",
+    "apsScore": 37,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Laws (4yr Prog), preparing graduates for practice in the field.",
+    "id": 582
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Humanities",
+    "subjectRequirements": [
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Arts in Sport, Recreation and Exercise Science",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Sport, Recreation and Exercise Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 583
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Dietetics and Nutrition",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Dietetics and Nutrition, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 584
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Sport and Exercise Science",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Sport and Exercise Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 585
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Occupational Therapy",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Occupational Therapy, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 586
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Physiotherapy",
+    "duration": "See prospectus",
+    "apsScore": 39,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Physiotherapy, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 587
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Nursing and Midwifery",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Nursing and Midwifery, preparing graduates for practice in the field.",
+    "id": 588
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Commerce in Financial Accounting",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Financial Accounting, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 589
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Environmental and Water Science",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Environmental and Water Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 590
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Biotechnology",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Biotechnology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 591
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Biodiversity and Conservation Biology",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Biodiversity and Conservation Biology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 592
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Chemical Sciences",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Chemical Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 593
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Information Technology",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Mathematical & Statistical Sciences",
+    "duration": "See prospectus",
+    "apsScore": 38,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Mathematical & Statistical Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 594
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Information Technology",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Computer Science",
+    "duration": "See prospectus",
+    "apsScore": 38,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Computer Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 595
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Law",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Commerce in Law",
+    "duration": "See prospectus",
+    "apsScore": 30,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Law, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 596
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Law",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Law",
+    "duration": "3 year",
+    "apsScore": 37,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Law, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 597
+  },
+  {
+    "universityId": 22,
+    "universityName": "University of the Western Cape",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Foundation Phase Teaching",
+    "duration": "See prospectus",
+    "apsScore": 33,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Foundation Phase Teaching, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 598
+  },
+  {
+    "universityId": 25,
+    "universityName": "Vaal University of Technology",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Biotechnology",
+    "duration": "3 years",
+    "apsScore": 21,
+    "qualificationType": "Diploma",
+    "description": "This diploma develops applied knowledge and practical skills in Biotechnology, preparing graduates for related technical and professional roles.",
+    "id": 599
+  },
+  {
+    "universityId": 25,
+    "universityName": "Vaal University of Technology",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Environmental Science",
+    "duration": "3 years",
+    "apsScore": 21,
+    "qualificationType": "Diploma",
+    "description": "This diploma develops applied knowledge and practical skills in Environmental Science, preparing graduates for related technical and professional roles.",
+    "id": 600
+  },
+  {
+    "universityId": 25,
+    "universityName": "Vaal University of Technology",
+    "faculty": "Not specified",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Fashion, Photography, Graphic Design & Fine Art",
+    "duration": "See prospectus",
+    "apsScore": 21,
+    "qualificationType": "Diploma",
+    "description": "This diploma develops applied knowledge and practical skills in Fashion, Photography, Graphic Design & Fine Art, preparing graduates for related technical and professional roles.",
+    "id": 601
+  },
+  {
+    "universityId": 25,
+    "universityName": "Vaal University of Technology",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Tourism Management",
+    "duration": "See prospectus",
+    "apsScore": 21,
+    "qualificationType": "Diploma",
+    "description": "This diploma develops applied knowledge and practical skills in Tourism Management, preparing graduates for related technical and professional roles.",
+    "id": 602
+  },
+  {
+    "universityId": 25,
+    "universityName": "Vaal University of Technology",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Public Relations Management",
+    "duration": "See prospectus",
+    "apsScore": 21,
+    "qualificationType": "Diploma",
+    "description": "This diploma develops applied knowledge and practical skills in Public Relations Management, preparing graduates for related technical and professional roles.",
+    "id": 603
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Accounting",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Accounting Science",
+    "duration": "3 years",
+    "apsScore": 44,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Accounting Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 604
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "Accounting",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Accounting",
+    "duration": "3 years",
+    "apsScore": 38,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Accounting, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 605
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Economic Science",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Economic Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 606
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Law",
+    "subjectRequirements": [],
+    "name": "Bachelor of Commerce with Law",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Commerce with Law, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 607
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Law",
+    "subjectRequirements": [],
+    "name": "Bachelor of Laws (LLB)",
+    "duration": "4 years",
+    "apsScore": 46,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Laws, preparing graduates for practice in the field.",
+    "id": 608
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Metallurgy and Materials Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Metallurgy and Materials Engineering, preparing graduates for practice in the field.",
+    "id": 609
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Civil Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Civil Engineering, preparing graduates for practice in the field.",
+    "id": 610
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Electrical Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Electrical Engineering, preparing graduates for practice in the field.",
+    "id": 611
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Biomedical Engineering",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Biomedical Engineering, preparing graduates for practice in the field.",
+    "id": 612
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering Science in Digital Arts",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Engineering Science in Digital Arts, preparing graduates for practice in the field.",
+    "id": 613
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Aeronautical Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Aeronautical Engineering, preparing graduates for practice in the field.",
+    "id": 614
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Industrial Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Industrial Engineering, preparing graduates for practice in the field.",
+    "id": 615
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Mechanical Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Mechanical Engineering, preparing graduates for practice in the field.",
+    "id": 616
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Engineering in Mining Engineering",
+    "duration": "4 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Mining Engineering, preparing graduates for practice in the field.",
+    "id": 617
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Architectural Studies",
+    "duration": "3 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Architectural Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 618
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Urban and Regional Planning",
+    "duration": "3 years",
+    "apsScore": 36,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Urban and Regional Planning, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 619
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Construction Studies",
+    "duration": "3 years",
+    "apsScore": 36,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Construction Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 620
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Property Studies",
+    "duration": "3 years",
+    "apsScore": 36,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Property Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 621
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Law",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts (Law)",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Arts (Law), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 622
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Humanities",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Digital Arts",
+    "duration": "4 years",
+    "apsScore": 36,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Digital Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 623
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Humanities",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Theatre and Performance",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Theatre and Performance, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 624
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Humanities",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Film and Television",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Film and Television, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 625
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Humanities",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Fine Arts",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Fine Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 626
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Humanities",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Music",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Music, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 627
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Education",
+    "subjectRequirements": [],
+    "name": "Bachelor of Education in Foundation Phase Teaching",
+    "duration": "4 years",
+    "apsScore": 37,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Foundation Phase Teaching, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 628
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Education",
+    "subjectRequirements": [],
+    "name": "Bachelor of Education in Intermediate Phase Teaching",
+    "duration": "4 years",
+    "apsScore": 37,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Intermediate Phase Teaching, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 629
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Education",
+    "subjectRequirements": [],
+    "name": "Bachelor of Education in Senior Phase and Further Education and Training Teaching",
+    "duration": "4 years",
+    "apsScore": 37,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Senior Phase and Further Education and Training Teaching, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 630
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Speech-Language Pathology",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Speech-Language Pathology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 631
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Audiology",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Audiology, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 632
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [],
+    "name": "Bachelor of Arts in Social Work",
+    "duration": "4 years",
+    "apsScore": 34,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Social Work, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 633
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science (General)",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Science (General), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 634
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Biological Sciences",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Biological Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 635
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Geographical and Archaeological Sciences",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Geographical and Archaeological Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 636
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Geospatial Sciences",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Geospatial Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 637
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Environmental Studies",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Environmental Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 638
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Geological Sciences",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Geological Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 639
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Actuarial Science",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Actuarial Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 640
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Computational and Applied Mathematics",
+    "duration": "3 years",
+    "apsScore": 44,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Computational and Applied Mathematics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 641
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Computer Science",
+    "duration": "3 years",
+    "apsScore": 44,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Computer Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 642
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Mathematical Sciences",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Mathematical Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 643
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Physical Sciences (Chemistry/Physics)",
+    "duration": "3 years",
+    "apsScore": 42,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Physical Sciences (Chemistry/Physics), building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 644
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Chemistry with Chemical Engineering",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Chemistry with Chemical Engineering, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 645
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Materials Science",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Materials Science, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 646
+  },
+  {
+    "universityId": 23,
+    "universityName": "University of the Witwatersrand",
+    "faculty": "Science & IT",
+    "subjectRequirements": [],
+    "name": "Bachelor of Science in Astronomy and Astrophysics",
+    "duration": "3 years",
+    "apsScore": 43,
+    "qualificationType": "Bachelor's Degree",
+    "description": "This bachelor's programme provides comprehensive study in Astronomy and Astrophysics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "id": 647
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Accountancy",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Accountancy, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 648
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Internal Auditing",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Internal Auditing, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 649
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 7,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Accounting",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Accounting, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 650
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Commerce",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The objective of this program is to impart knowledge, insight, and understanding of the fundamental principles and practices in commerce-related subjects.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 651
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Building Technology",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The Diploma in Building Technology is a broad-based, vocationally oriented qualification intended to prepare learners for supervisory and middle management level employment in the building industry and to enable them to provide technical and support services within the fields of Quantity Surveying and Construction Management.",
+    "qualificationType": "Diploma",
+    "id": 652
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Civil Engineering",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "This diploma develops applied knowledge and practical skills in Civil Engineering, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 653
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Electrical Engineering",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The purpose of this qualification is to train electrical engineering technicians who will meet the criteria for registration as Candidate Engineering Technicians by the Engineering Council of South Africa (ECSA), and who will display competence as part of the engineering team in the execution of technical tasks under remote supervision by using and applying their knowledge in independent judgement in the identific…",
+    "qualificationType": "Diploma",
+    "id": 654
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Fashion",
+    "duration": "3 years",
+    "apsScore": 19,
+    "description": "The purpose of this qualification is to provide the learner with Fashion designing/manufacturing skills to enable him/her to enter into the fashion industry.",
+    "qualificationType": "Diploma",
+    "id": 655
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Fine Art",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This diploma develops applied knowledge and practical skills in Fine Art, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 656
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Humanities",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Arts",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Arts, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 657
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Journalism",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Journalism, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 658
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 659
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Policing",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Policing, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 660
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Nursing",
+    "duration": "4 years",
+    "apsScore": 24,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Nursing, preparing graduates for practice in the field.",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "id": 661
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Financial Information Systems",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "The primary objective of this qualification is to equip graduates with the necessary competencies to engage in financial and information system activities, encompassing areas such as accounting, taxation, auditing, and management accounting.",
+    "qualificationType": "Diploma",
+    "id": 662
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Accounting Science",
+    "duration": "4 years",
+    "apsScore": 27,
+    "description": "The primary purpose of this qualification is to provide students with a comprehensive undergraduate education that serves as a solid foundation for pursuing further studies in the field of accounting, specifically the Chartered Accountant (CA) route.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 663
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Commerce in Business Management",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The purpose of this program is to empower students with the ability to think logically and critically, enabling them to make well-informed business decisions.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 664
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 6,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Commerce in Economics",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The aim of this program is to impart knowledge, insight, and understanding of the principles and practices of micro- and macro-economic procedures within the field of economics.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 665
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Foundation Phase Teaching",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The primary purpose of the Bachelor of Education in Senior Phase and Further Education and Training Teaching (SP & FET) is to provide a well-rounded education that equips graduates with the required subject content knowledge base, educational theory, and methodology that will enable them to demonstrate competence and responsibility as academically and professionally qualified beginner teachers",
+    "qualificationType": "Bachelor's Degree",
+    "id": 666
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Senior Phase & FET Teaching (Creative Arts History)",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The primary purpose of the Bachelor of Education in Senior Phase and Further Education and Training Teaching (SP & FET) is to provide a well-rounded education that equips graduates with the required subject content knowledge base, educational theory, and methodology that will enable them to demonstrate competence and responsibility as academically and professionally qualified beginner teachers",
+    "qualificationType": "Bachelor's Degree",
+    "id": 667
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Senior Phase & FET Teaching (Creative Arts English)",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The primary purpose of the Bachelor of Education in Senior Phase and Further Education and Training Teaching (SP & FET) is to provide a well-rounded education that equips graduates with the required subject content knowledge base, educational theory, and methodology that will enable them to demonstrate competence and responsibility as academically and professionally qualified beginner teachers Bachelor of Educatio…",
+    "qualificationType": "Bachelor's Degree",
+    "id": 668
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Geography",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Senior Phase & FET Teaching (Humanities)",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The primary purpose of the Bachelor of Education in Senior Phase and Further Education and Training Teaching (SP & FET) is to provide a well-rounded education that equips graduates with the required subject content knowledge base, educational theory, and methodology that will enable them to demonstrate competence and responsibility as academically and professionally qualified beginner teachers Bachelor of Educatio…",
+    "qualificationType": "Bachelor's Degree",
+    "id": 669
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Education",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Education in Senior Phase & FET Teaching (Languages)",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The primary purpose of the Bachelor of Education in Senior Phase and Further Education and Training Teaching (SP & FET) is to provide a well-rounded education that equips graduates with the required subject content knowledge base, educational theory, and methodology that will enable them to demonstrate competence and responsibility as academically and professionally qualified beginner teachers",
+    "qualificationType": "Bachelor's Degree",
+    "id": 670
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Engineering & Built Environment",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Technical Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Mechanical Engineering",
+    "duration": "See prospectus",
+    "apsScore": 24,
+    "description": "The purpose of this qualification is to train mechanical engineering technicians who will meet the criteria for registration as Candidate Engineering Technicians by the Engineering Council of South Africa (ECSA), and who will display competence as part of the engineering team in the execution of technical tasks under remote supervision by using and applying their knowledge in independent judgement in the identific…",
+    "qualificationType": "Diploma",
+    "id": 671
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Humanities",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematical Literacy",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Social Science (Anthropology)",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This qualification has been developed to promote academic competence, community engagement, research competence and professionalism in the pursuit of social and human development knowledge and practice, using a multidisciplinary approach.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 672
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Higher Certificate in Versatile Broadcasting",
+    "duration": "1 year",
+    "apsScore": 21,
+    "description": "This higher certificate provides foundational study in Versatile Broadcasting, developing practical knowledge and a pathway to further study or entry-level work.",
+    "qualificationType": "Higher Certificate",
+    "id": 673
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Administrative Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Administrative Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 674
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Hospitality Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Hospitality Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 675
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Human Resources Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Human Resources Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 676
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Local Government Finance",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Local Government Finance, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 677
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Marketing Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Marketing Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 678
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Office Management & Technology",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Office Management & Technology, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 679
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Public Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Public Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 680
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Accounting",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Public Relations Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Public Relations Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 681
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Medical Sciences",
+    "duration": "3 years",
+    "apsScore": 24,
+    "description": "This bachelor's programme provides comprehensive study in Medical Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 682
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Health Sciences",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Medicine in Clinical Practice",
+    "duration": "3 years",
+    "apsScore": 24,
+    "description": "This professional bachelor's programme combines disciplinary knowledge and applied training in Medicine in Clinical Practice, preparing graduates for practice in the field.",
+    "qualificationType": "Bachelor's Degree (Professional)",
+    "id": 683
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Analytical Chemistry",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "This diploma develops applied knowledge and practical skills in Analytical Chemistry, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 684
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Consumer Science in Food and Nutrition",
+    "duration": "3 years",
+    "apsScore": 22,
+    "description": "The purpose of the diploma is to offer specialized knowledge and skills to enable the university to produce graduates who will be able to display competence in the integration and application of science-based food and nutrition theoretical and practical knowledge and culinary skills in food production, food retail, and food service to improve consumer wellbeing.",
+    "qualificationType": "Diploma",
+    "id": 685
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Commerce & Management",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 3,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Diploma in Pest Management",
+    "duration": "3 years",
+    "apsScore": 21,
+    "description": "This diploma develops applied knowledge and practical skills in Pest Management, preparing graduates for related technical and professional roles.",
+    "qualificationType": "Diploma",
+    "id": 686
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Applied Mathematics",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Applied Mathematics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 687
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Applied Statistical Sciences",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The programme provides statistical knowledge in Applied Mathematics, Computer Science, Mathematics and Statistics with an inclination towards application in the solution of technical problems in the marketplace, and for further training at a higher level in various specialisations needing a sound foundation in Statistical Sciences.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 688
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Biological Sciences",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Biological Sciences, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 689
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Chemistry",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This programme is designed to produce graduates with solid foundations in all branches of Chemistry.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 690
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Computer Science",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The program equips students with knowledge and skills to become computer scientists, with a focus on meeting regional and national needs.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 691
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 3,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Environmental Studies",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Environmental Studies, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 692
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Mathematics",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "The programme provides mathematical knowledge needed for placement in jobs requiring a significant amount of mathematical maturity, and for further training at a higher level in various specialisations of Mathematics.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 693
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      },
+      {
+        "subject": "Life Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Pest Management",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Pest Management, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 694
+  },
+  {
+    "universityId": 26,
+    "universityName": "Walter Sisulu University",
+    "faculty": "Science & IT",
+    "subjectRequirements": [
+      {
+        "subject": "English",
+        "level": 1,
+        "compulsory": true
+      },
+      {
+        "subject": "Mathematics",
+        "level": 5,
+        "compulsory": true
+      },
+      {
+        "subject": "Physical Sciences",
+        "level": 4,
+        "compulsory": true
+      }
+    ],
+    "name": "Bachelor of Science in Physics",
+    "duration": "3 years",
+    "apsScore": 25,
+    "description": "This bachelor's programme provides comprehensive study in Physics, building disciplinary knowledge, analytical skills and preparation for related careers or postgraduate study.",
+    "qualificationType": "Bachelor's Degree",
+    "id": 695
   }
 ]

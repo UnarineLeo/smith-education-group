@@ -1,16 +1,22 @@
-Central University of Technology, Free State: 44 programmes
-Cape Peninsula University of Technology: 159 programmes
-Durban University of Technology: 50 programmes
-Mangosuthu University of Technology: 36 programmes
-Nelson Mandela University: 313 programmes
-North-West University: 66 programmes
-Rhodes University: 26 programmes
-Sefako Makgatho Health Sciences University: 42 programmes
-Sol Plaatje University: 58 programmes
-Stellenbosch University: 170 programmes
-Tshwane University of Technology: 14 programmes
-University of Cape Town: 207 programmes
-University of Fort Hare: 10 programmes
-University of the Free State: 137 programmes
-University of Johannesburg: 123 programmes
-TOTAL: 1455 programmes
+Cape Peninsula University of Technology: 81 programmes
+Durban University of Technology: 83 programmes
+Mangosuthu University of Technology: 20 programmes
+Nelson Mandela University: 108 programmes
+North-West University: 32 programmes
+Sefako Makgatho Health Sciences University: 15 programmes
+Sol Plaatje University: 16 programmes
+Stellenbosch University: 83 programmes
+Tshwane University of Technology: 3 programmes
+University of Cape Town: 10 programmes
+University of Fort Hare: 49 programmes
+University of Johannesburg: 4 programmes
+University of Limpopo: 15 programmes
+University of Mpumalanga: 12 programmes
+University of Pretoria: 34 programmes
+University of the Free State: 1 programme
+University of the Western Cape: 25 programmes
+University of the Witwatersrand: 44 programmes
+University of Zululand: 7 programmes
+Vaal University of Technology: 5 programmes
+Walter Sisulu University: 48 programmes
+TOTAL: 695 programmes

@@ -17,7 +17,7 @@ import {
 import { ToastController } from '@ionic/angular';
 import { FooterComponent } from '../footer/footer.component';
 import { AuthService } from '../services/auth.service';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import * as XLSX from 'xlsx';
 
 interface AdminDocumentEntry {
@@ -87,6 +87,18 @@ interface AdminUserSubjectEntry {
   mark: number | null;
 }
 
+interface MonthlySearchPerformance {
+  month: string;
+  clicks: number;
+  impressions: number;
+}
+
+interface AdminEngagementSnapshot {
+  averageSessionDuration?: number;
+  monthlySearchPerformance?: MonthlySearchPerformance[];
+  updatedAt?: unknown;
+}
+
 
 @Component({
   selector: 'app-admin-portal',
@@ -114,6 +126,8 @@ export class AdminPortalPage implements OnInit {
   isLoadingUsers = false;
   isExportingUsers = false;
   loadUsersError = '';
+  engagementSnapshot: AdminEngagementSnapshot | null = null;
+  engagementSnapshotError = '';
   expandedUserId: string | null = null;
 
   activeTab: 'list' | 'insights' = 'list';
@@ -311,9 +325,13 @@ export class AdminPortalPage implements OnInit {
   private async loadFirestoreUsers(): Promise<void> {
     this.isLoadingUsers = true;
     this.loadUsersError = '';
+    this.engagementSnapshotError = '';
 
     try {
-      const usersSnapshot = await getDocs(collection(this.authService.db, 'users'));
+      const [usersSnapshot, engagementSnapshot] = await Promise.all([
+        getDocs(collection(this.authService.db, 'users')),
+        this.loadEngagementSnapshot(),
+      ]);
       this.users = usersSnapshot.docs
         .map((userDoc) => ({
           id: userDoc.id,
@@ -324,6 +342,7 @@ export class AdminPortalPage implements OnInit {
       if (this.expandedUserId && !this.users.some((user) => user.id === this.expandedUserId)) {
         this.expandedUserId = null;
       }
+      this.engagementSnapshot = engagementSnapshot;
     } catch (error) {
       console.error('Could not load Firestore users:', error);
       this.loadUsersError = 'Could not load Firestore users right now. Please try again.';
@@ -331,6 +350,17 @@ export class AdminPortalPage implements OnInit {
       this.expandedUserId = null;
     } finally {
       this.isLoadingUsers = false;
+    }
+  }
+
+  private async loadEngagementSnapshot(): Promise<AdminEngagementSnapshot | null> {
+    try {
+      const snapshot = await getDoc(doc(this.authService.db, 'analytics', 'engagementSnapshot'));
+      return snapshot.exists() ? snapshot.data() as AdminEngagementSnapshot : null;
+    } catch (error) {
+      console.error('Could not load the engagement snapshot:', error);
+      this.engagementSnapshotError = 'Search Console and Analytics data is temporarily unavailable.';
+      return null;
     }
   }
 
@@ -554,8 +584,79 @@ getVerifiedCount(): number {
   return this.users.filter(u => u.emailVerified).length;
 }
 
-getSubscribedCount(): number {
-  return this.users.filter(u => u.isSubscribed).length;
+getVerifiedRate(): number {
+  return this.users.length ? Math.round((this.getVerifiedCount() / this.users.length) * 100) : 0;
+}
+
+getAverageSessionDuration(): string {
+  const seconds = Number(this.engagementSnapshot?.averageSessionDuration);
+  if (!Number.isFinite(seconds) || seconds < 0) return 'N/A';
+
+  const roundedSeconds = Math.round(seconds);
+  const minutes = Math.floor(roundedSeconds / 60);
+  const remainder = roundedSeconds % 60;
+  return minutes ? `${minutes}m ${remainder}s` : `${remainder}s`;
+}
+
+getCurrentSearchPerformance(): MonthlySearchPerformance | null {
+  const records = this.engagementSnapshot?.monthlySearchPerformance;
+  if (!Array.isArray(records)) return null;
+
+  const validRecords = records
+    .filter(record => (
+      /^\d{4}-\d{2}$/.test(record?.month)
+      && Number.isFinite(Number(record.clicks))
+      && Number.isFinite(Number(record.impressions))
+    ))
+    .map(record => ({
+      month: record.month,
+      clicks: Math.max(0, Number(record.clicks)),
+      impressions: Math.max(0, Number(record.impressions)),
+    }))
+    .sort((a, b) => b.month.localeCompare(a.month));
+
+  const now = new Date();
+  const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  return validRecords.find(record => record.month === currentMonth) ?? validRecords[0] ?? null;
+}
+
+getSearchPerformanceMonthLabel(): string {
+  const month = this.getCurrentSearchPerformance()?.month;
+  if (!month) return 'Current month';
+
+  return new Date(`${month}-01T00:00:00`).toLocaleString('default', {
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+getSearchClicks(): number {
+  return this.getCurrentSearchPerformance()?.clicks ?? 0;
+}
+
+getSearchImpressions(): number {
+  return this.getCurrentSearchPerformance()?.impressions ?? 0;
+}
+
+getSearchClickThroughRate(): string {
+  const performance = this.getCurrentSearchPerformance();
+  if (!performance?.impressions) return '0.0%';
+  return `${((performance.clicks / performance.impressions) * 100).toFixed(1)}%`;
+}
+
+getSearchMetricWidth(value: number): number {
+  const maximum = Math.max(this.getSearchClicks(), this.getSearchImpressions(), 1);
+  return Math.max(value > 0 ? 2 : 0, (value / maximum) * 100);
+}
+
+getUsersWithApsCount(): number {
+  return this.users.filter(user => this.getUserApsScores(user).some(entry => typeof entry.score === 'number')).length;
+}
+
+getApsObservationCount(): number {
+  return this.users.reduce((total, user) => (
+    total + this.getUserApsScores(user).filter(entry => typeof entry.score === 'number').length
+  ), 0);
 }
 
 getOverallAvgAps(): string {
@@ -578,19 +679,19 @@ getStudyLevelDistribution(): { label: string; count: number; pct: number; color:
     const k = u.currentStudyLevel || 'Unknown';
     map.set(k, (map.get(k) ?? 0) + 1);
   }
-  const max = Math.max(...map.values(), 1);
+  const total = Math.max(this.users.length, 1);
   return [...map.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([label, count], i) => ({
       label,
       count,
-      pct: Math.round((count / max) * 100),
+      pct: Math.round((count / total) * 100),
       color: COLORS[i % COLORS.length],
     }));
 }
 
 // ── Top course choices ───────────────────────────────────────────
-getTopCourseChoices(): { label: string; count: number; pct: number }[] {
+getTopCourseChoices(): { label: string; count: number; share: number; barPct: number }[] {
   const map = new Map<string, number>();
   for (const u of this.users) {
     for (const c of (u.courseChoices ?? [])) {
@@ -599,15 +700,17 @@ getTopCourseChoices(): { label: string; count: number; pct: number }[] {
   }
   const sorted = [...map.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
   const max = sorted[0]?.[1] ?? 1;
+  const total = Math.max([...map.values()].reduce((sum, count) => sum + count, 0), 1);
   return sorted.map(([label, count]) => ({
     label,
     count,
-    pct: Math.round((count / max) * 100),
+    share: Math.round((count / total) * 100),
+    barPct: Math.round((count / max) * 100),
   }));
 }
 
 // ── Average APS by university ────────────────────────────────────
-getAvgApsByUniversity(): { label: string; avg: number; pct: number }[] {
+getAvgApsByUniversity(): { label: string; avg: number; pct: number; count: number }[] {
   const map = new Map<string, number[]>();
   for (const u of this.users) {
     for (const aps of this.getUserApsScores(u)) {
@@ -622,15 +725,17 @@ getAvgApsByUniversity(): { label: string; avg: number; pct: number }[] {
   const avgs = [...map.entries()].map(([label, vals]) => ({
     label,
     avg: vals.reduce((a, b) => a + b, 0) / vals.length,
+    count: vals.length,
   }));
   const max = Math.max(...avgs.map(a => a.avg), 1);
   return avgs
     .sort((a, b) => b.avg - a.avg)
+    .slice(0, 10)
     .map(a => ({ ...a, pct: Math.round((a.avg / max) * 100) }));
 }
 
 // ── University popularity ────────────────────────────────────────
-getUniversityPopularity(): { label: string; count: number; pct: number }[] {
+getUniversityPopularity(): { label: string; count: number; pct: number; share: number }[] {
   const map = new Map<string, number>();
   for (const u of this.users) {
     for (const ch of this.getUserUniversityChoices(u)) {
@@ -639,15 +744,17 @@ getUniversityPopularity(): { label: string; count: number; pct: number }[] {
   }
   const sorted = [...map.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
   const max = sorted[0]?.[1] ?? 1;
+  const total = Math.max([...map.values()].reduce((sum, count) => sum + count, 0), 1);
   return sorted.map(([label, count]) => ({
     label,
     count,
     pct: Math.round((count / max) * 100),
+    share: Math.round((count / total) * 100),
   }));
 }
 
 // ── Sign-in sparkline ────────────────────────────────────────────
-private _getSignInMonthCounts(): { label: string; count: number }[] {
+getSignInMonthCounts(): { key: string; label: string; count: number }[] {
   const map = new Map<string, number>();
   for (const u of this.users) {
     const d = this.toDateValue(u.lastSignIn);
@@ -659,20 +766,29 @@ private _getSignInMonthCounts(): { label: string; count: number }[] {
     .sort((a, b) => a[0].localeCompare(b[0]))
     .slice(-12)
     .map(([key, count]) => ({
-      label: new Date(key + '-01').toLocaleString('default', { month: 'short' }),
+      key,
+      label: new Date(`${key}-01`).toLocaleString('default', { month: 'short', year: '2-digit' }),
       count,
     }));
 }
 
-getSignInMonths(): { label: string }[] {
-  return this._getSignInMonthCounts().map(m => ({ label: m.label }));
+getUsersWithSignInCount(): number {
+  return this.users.filter(user => this.toDateValue(user.lastSignIn) !== null).length;
+}
+
+getRecentSignInCount(days = 30): number {
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+  return this.users.filter(user => {
+    const date = this.toDateValue(user.lastSignIn);
+    return date !== null && date.getTime() >= cutoff;
+  }).length;
 }
 
 getSparklinePath(): string {
-  const data = this._getSignInMonthCounts();
+  const data = this.getSignInMonthCounts();
   if (data.length < 2) return '';
   const max = Math.max(...data.map(d => d.count), 1);
-  const W = 300, H = 100, pad = 6;
+  const W = 300, H = 120, pad = 12;
   const xStep = (W - pad * 2) / (data.length - 1);
   return data
     .map((d, i) => {
@@ -686,8 +802,8 @@ getSparklinePath(): string {
 getSparklineFillPath(): string {
   const line = this.getSparklinePath();
   if (!line) return '';
-  const W = 300, H = 100, pad = 6;
-  const data = this._getSignInMonthCounts();
+  const W = 300, H = 120, pad = 12;
+  const data = this.getSignInMonthCounts();
   const xStep = (W - pad * 2) / (data.length - 1);
   const startX = pad;
   const endX   = pad + (data.length - 1) * xStep;
