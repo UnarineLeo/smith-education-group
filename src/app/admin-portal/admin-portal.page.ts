@@ -710,28 +710,55 @@ getTopCourseChoices(): { label: string; count: number; share: number; barPct: nu
 }
 
 // ── Average APS by university ────────────────────────────────────
-getAvgApsByUniversity(): { label: string; avg: number; pct: number; count: number }[] {
-  const map = new Map<string, number[]>();
+getAvgApsByUniversity(): { label: string; avg: number; maxScore: number | null; pct: number; count: number }[] {
+  const map = new Map<string, Array<{ score: number; maxScore: number | null }>>();
   for (const u of this.users) {
     for (const aps of this.getUserApsScores(u)) {
       const v = typeof aps.score === 'number' ? aps.score : Number.parseFloat(String(aps.score ?? ''));
       if (!Number.isNaN(v)) {
         const key = aps.universityName ?? 'Unknown';
         if (!map.has(key)) map.set(key, []);
-        map.get(key)!.push(v);
+        map.get(key)!.push({
+          score: v,
+          maxScore: typeof aps.maxScore === 'number' && Number.isFinite(aps.maxScore)
+            ? aps.maxScore
+            : null,
+        });
       }
     }
   }
-  const avgs = [...map.entries()].map(([label, vals]) => ({
-    label,
-    avg: vals.reduce((a, b) => a + b, 0) / vals.length,
-    count: vals.length,
-  }));
-  const max = Math.max(...avgs.map(a => a.avg), 1);
-  return avgs
+  return [...map.entries()]
+    .map(([label, entries]) => {
+      const avg = entries.reduce((total, entry) => total + entry.score, 0) / entries.length;
+      const recordedMaximums = entries
+        .map(entry => entry.maxScore)
+        .filter((maximum): maximum is number => maximum !== null);
+      const maxScore = recordedMaximums.length
+        ? recordedMaximums.reduce((total, maximum) => total + maximum, 0) / recordedMaximums.length
+        : null;
+
+      return {
+        label,
+        avg,
+        maxScore,
+        count: entries.length,
+        pct: maxScore && maxScore > 0
+          ? Math.min(100, Math.round((avg / maxScore) * 100))
+          : 0,
+      };
+    })
     .sort((a, b) => b.avg - a.avg)
-    .slice(0, 10)
-    .map(a => ({ ...a, pct: Math.round((a.avg / max) * 100) }));
+    .slice(0, 10);
+}
+
+formatUniversityApsAverage(entry: { avg: number; maxScore: number | null }): string {
+  const average = Number.isInteger(entry.avg) ? entry.avg.toFixed(0) : entry.avg.toFixed(1);
+  if (entry.maxScore === null) return average;
+
+  const maximum = Number.isInteger(entry.maxScore)
+    ? entry.maxScore.toFixed(0)
+    : entry.maxScore.toFixed(1);
+  return `${average} / ${maximum}`;
 }
 
 // ── University popularity ────────────────────────────────────────

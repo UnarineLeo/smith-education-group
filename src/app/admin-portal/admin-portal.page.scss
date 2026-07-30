@@ -852,7 +852,7 @@ ion-button[color='primary'] {
 .aps-rank-row {
   min-width: 0;
   display: grid;
-  grid-template-columns: 25px minmax(0, 1fr) 42px;
+  grid-template-columns: 25px minmax(0, 1fr) minmax(58px, auto);
   align-items: center;
   gap: 10px;
 
