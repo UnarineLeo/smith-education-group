@@ -196,6 +196,143 @@ function durationFromRow(rowText) {
   return match ? `${match[1].replace(/\s+/g, '')} ${/^yr$/i.test(match[2]) ? 'year' : match[2]}` : 'See prospectus';
 }
 
+// Some converted prospectuses separate the qualification name and duration
+// into different OCR blocks. These values come from the duration/years-of-study
+// sections in the corresponding markdown and keep regeneration deterministic.
+const markdownDurationOverrides = new Map();
+function registerDurations(universityName, duration, programmeNames) {
+  for (const name of programmeNames) {
+    markdownDurationOverrides.set(`${universityName}|${programmeKey(name)}`, duration);
+  }
+}
+
+registerDurations('North-West University', '4 years', [
+  'Bachelor of Pharmacy',
+  'Bachelor of Science in Dietetics',
+  'Bachelor of Social Work',
+]);
+
+registerDurations('Tshwane University of Technology', '4 years', [
+  'Bachelor of Architecture',
+  'Bachelor of Pharmacy',
+]);
+registerDurations('Tshwane University of Technology', '5 years', [
+  'Bachelor of Architecture (Extended)',
+]);
+
+registerDurations('University of Cape Town', '3 years', [
+  'Bachelor of Arts',
+  'Bachelor of Social Science',
+  'Bachelor of Social Science (Philosophy, Politics and Economics)',
+  'Diploma in Theatre',
+]);
+registerDurations('University of Cape Town', '4 years', [
+  'Bachelor of Science in Audiology',
+  'Bachelor of Science in Speech-Language Pathology',
+  'Bachelor of Social Work',
+  'Bachelor of Arts (Fine Art)',
+  'Bachelor of Arts (Theatre & Performance)',
+  'Bachelor of Music',
+]);
+
+registerDurations('University of the Free State', '3 years', [
+  'Bachelor of Sustainable Food Systems',
+]);
+
+registerDurations('University of Johannesburg', '3 years', [
+  'Diploma in Architecture',
+  'Diploma in Fashion Production',
+  'Diploma in Jewellery Design and Manufacture',
+]);
+registerDurations('University of Johannesburg', '4 years', [
+  'Bachelor of Science in Life and Environmental Sciences (Extended)',
+]);
+
+registerDurations('University of Limpopo', '3 years', [
+  'Bachelor of Science (Physical Sciences stream)',
+  'Bachelor of Commerce in Accountancy',
+  'Bachelor of Science in Geology',
+  'Bachelor of Commerce in Human Resource Management',
+  'Bachelor of Commerce in Business Management',
+  'Bachelor of Administration',
+  'Bachelor of Development in Planning and Management',
+]);
+registerDurations('University of Limpopo', '4 years', [
+  'Bachelor of Science in Agriculture in Plant Production',
+  'Bachelor of Science in Agriculture in Animal Production',
+  'Bachelor of Commerce in Business Management (Extended Curriculum )',
+  'Bachelor of Science (Mathematical Sciences stream) (Extended Curriculum )',
+  'Bachelor of Optometry',
+  'Bachelor of Nursing',
+  'Bachelor of Laws',
+]);
+registerDurations('University of Limpopo', '5 years', [
+  'Bachelor of Laws (Extended Curriculum )',
+]);
+
+registerDurations('University of Pretoria', '3 years', [
+  'Bachelor of Commerce in specialising in Marketing Management',
+  'Bachelor of Commerce in specialising in Human Resource Management',
+  'Bachelor of Information Science specialising in Publishing',
+  'Bachelor of Information Technology in Information Systems',
+  'Bachelor of Science in Computer Science',
+  'Bachelor of Sports Science',
+  'Bachelor of Science in Mathematics',
+]);
+registerDurations('University of Pretoria', '4 years', [
+  'Bachelor of Nursing Science',
+]);
+
+registerDurations('University of the Western Cape', '3 years', [
+  'Bachelor of Community Development',
+  'Bachelor of Arts (BA)',
+  'Bachelor of Theology (BTh)',
+  'Bachelor of Oral Health (BOH)',
+  'Bachelor of Arts in Sport, Recreation and Exercise Science',
+  'Bachelor of Science in Sport and Exercise Science',
+  'Bachelor of Commerce in Financial Accounting',
+  'Bachelor of Science in Environmental and Water Science',
+  'Bachelor of Science in Biotechnology',
+  'Bachelor of Science in Biodiversity and Conservation Biology',
+  'Bachelor of Science in Chemical Sciences',
+  'Bachelor of Science in Mathematical & Statistical Sciences',
+  'Bachelor of Science in Computer Science',
+  'Bachelor of Commerce in Law',
+]);
+registerDurations('University of the Western Cape', '4 years', [
+  'Bachelor of Social Work',
+  'Bachelor of Library and Information Science (BLIS)',
+  'Bachelor of Pharmacy',
+  'Bachelor of Science in Dietetics and Nutrition',
+  'Bachelor of Science in Occupational Therapy',
+  'Bachelor of Science in Physiotherapy',
+  'Bachelor of Nursing and Midwifery',
+  'Bachelor of Education in Foundation Phase Teaching',
+]);
+registerDurations('University of the Western Cape', '5 years', [
+  'Bachelor of Dental Surgery (BDS)',
+]);
+
+registerDurations('Vaal University of Technology', '3 years', [
+  'Diploma in Fashion, Photography, Graphic Design & Fine Art',
+  'Diploma in Tourism Management',
+  'Diploma in Public Relations Management',
+]);
+
+registerDurations('Walter Sisulu University', '3 years', [
+  'Diploma in Building Technology',
+  'Diploma in Civil Engineering',
+  'Diploma in Electrical Engineering',
+  'Diploma in Mechanical Engineering',
+]);
+registerDurations('Walter Sisulu University', '4 years', [
+  'Bachelor of Education in Foundation Phase Teaching',
+  'Bachelor of Education in Senior Phase & FET Teaching (Creative Arts History)',
+  'Bachelor of Education in Senior Phase & FET Teaching (Creative Arts English)',
+  'Bachelor of Education in Senior Phase & FET Teaching (Humanities)',
+  'Bachelor of Education in Senior Phase & FET Teaching (Languages)',
+]);
+
 function requirementsFromRow(rowText) {
   const requirements = [];
   const lower = rowText.toLowerCase();
@@ -535,7 +672,24 @@ for (const filename of markdownFiles) {
 }
 
 const merged = [...existing, ...additions]
+  .map((programme) => {
+    if (programme.duration !== 'See prospectus') return programme;
+    const key = `${programme.universityName}|${programmeKey(programme.name)}`;
+    return {
+      ...programme,
+      duration: markdownDurationOverrides.get(key) ?? programme.duration,
+    };
+  })
   .map((programme, index) => ({ ...programme, id: index + 1 }));
+
+const unresolvedDurations = merged.filter((programme) => programme.duration === 'See prospectus');
+if (unresolvedDurations.length) {
+  throw new Error(
+    `Missing markdown durations for: ${unresolvedDurations
+      .map((programme) => `${programme.universityName} — ${programme.name}`)
+      .join('; ')}`
+  );
+}
 
 fs.writeFileSync(outputPath, `${JSON.stringify(merged, null, 2)}\n`);
 

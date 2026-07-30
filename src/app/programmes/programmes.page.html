@@ -4,46 +4,71 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="programmes-content">
+<ion-content
+  [fullscreen]="true"
+  [scrollEvents]="true"
+  class="programmes-content"
+  (ionScroll)="onContentScroll($event)">
 
   <section class="programmes-intro unipply-page-hero">
     <span class="page-eyebrow">Explore your options</span>
     <h1 class="page-title">Find a Programme</h1>
     <p class="page-subtitle">
-      Search and filter programmes across universities by faculty, qualification type, and APS score.
+      Search programmes by university, faculty and qualification, then use your saved academic profile to see where you qualify.
     </p>
   </section>
 
   <ion-card class="filter-card">
     <ion-card-content>
-      <div class="search-row">
-        <div class="search-input-wrapper">
-          <ion-icon name="search-outline" class="search-icon"></ion-icon>
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search by programme, university, faculty or subject..."
-            [(ngModel)]="searchQuery"
-            (ngModelChange)="applyFilters()" />
+      <header class="filter-card-header">
+        <div>
+          <span class="filter-eyebrow">Refine your results</span>
+          <h2>Find your best programme match</h2>
+          <p>Search broadly or narrow the list using academic and institution filters.</p>
         </div>
+        @if (hasActiveFilters()) {
+          <ion-button fill="clear" class="clear-button" (click)="clearFilters()">
+            <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+            Reset filters
+          </ion-button>
+        }
+      </header>
 
-        <div class="aps-input-wrapper">
-          <ion-icon name="calculator-outline" class="aps-icon"></ion-icon>
-          <input
-            type="number"
-            class="aps-input"
-            placeholder="Your APS"
-            min="0"
-            max="50"
-            [(ngModel)]="myAps"
-            (ngModelChange)="applyFilters()" />
+      <div class="primary-filter-grid">
+        <label class="filter-field search-filter-field">
+          <span class="filter-label">Search programmes</span>
+          <span class="search-input-wrapper">
+            <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Programme, university, faculty or subject"
+              [(ngModel)]="searchQuery"
+              (ngModelChange)="applyFilters()" />
+          </span>
+        </label>
+
+        <div class="filter-field eligibility-filter-field">
+          <span class="filter-label">APS eligibility</span>
+          <ion-segment
+            class="eligibility-segment"
+            [value]="eligibilityFilter"
+            (ionChange)="onEligibilityFilterChange($event.detail.value)">
+            <ion-segment-button value="all">
+              <ion-label>Show All</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="qualified">
+              <ion-label>I Qualify Only</ion-label>
+            </ion-segment-button>
+          </ion-segment>
         </div>
       </div>
 
-      <div class="filter-row">
-        <div class="select-wrapper">
+      <div class="secondary-filter-row">
+        <label class="select-wrapper">
+          <span class="filter-label">University</span>
           <ion-select
-            placeholder="University"
+            placeholder="All universities"
             [(ngModel)]="selectedUniversities"
             [multiple]="true"
             interface="popover"
@@ -51,11 +76,12 @@
             (ionChange)="applyFilters()">
             <ion-select-option *ngFor="let uni of universityOptions" [value]="uni">{{ uni }}</ion-select-option>
           </ion-select>
-        </div>
+        </label>
 
-        <div class="select-wrapper">
+        <label class="select-wrapper">
+          <span class="filter-label">Faculty</span>
           <ion-select
-            placeholder="Faculty"
+            placeholder="All faculties"
             [(ngModel)]="selectedFaculties"
             [multiple]="true"
             interface="popover"
@@ -63,11 +89,12 @@
             (ionChange)="applyFilters()">
             <ion-select-option *ngFor="let faculty of facultyOptions" [value]="faculty">{{ faculty }}</ion-select-option>
           </ion-select>
-        </div>
+        </label>
 
-        <div class="select-wrapper">
+        <label class="select-wrapper">
+          <span class="filter-label">Qualification</span>
           <ion-select
-            placeholder="Qualification"
+            placeholder="All qualifications"
             [(ngModel)]="selectedQualificationTypes"
             [multiple]="true"
             interface="popover"
@@ -75,24 +102,43 @@
             (ionChange)="applyFilters()">
             <ion-select-option *ngFor="let q of qualificationTypeOptions" [value]="q">{{ q }}</ion-select-option>
           </ion-select>
-        </div>
-
-        <ion-button
-          fill="clear"
-          class="clear-button"
-          (click)="clearFilters()"
-          *ngIf="hasActiveFilters()">
-          <ion-icon slot="start" name="close-circle-outline"></ion-icon>
-          Clear
-        </ion-button>
+        </label>
       </div>
+
+      @if (!isLoggedIn) {
+        <aside class="eligibility-callout logged-out-callout">
+          <span class="callout-icon"><ion-icon name="calculator-outline"></ion-icon></span>
+          <div class="callout-copy">
+            <h3>Know exactly where you qualify</h3>
+            <p>Log in, save your subjects and marks, and we’ll calculate your APS for each university automatically.</p>
+          </div>
+          <div class="callout-actions">
+            <ion-button size="small" class="login-eligibility-button" (click)="openLoginModal()">Log in to check</ion-button>
+            <ion-button size="small" fill="clear" class="learn-more-button" (click)="presentApsLoginAlert()">How it works</ion-button>
+          </div>
+        </aside>
+      } @else if (!isCheckingEligibility && !hasEligibilityData) {
+        <aside class="eligibility-callout profile-callout">
+          <span class="callout-icon"><ion-icon name="calculator-outline"></ion-icon></span>
+          <div class="callout-copy">
+            <h3>Complete your academic details</h3>
+            <p>Add at least seven subjects and marks so we can calculate your APS and unlock “I Qualify Only”.</p>
+          </div>
+          <ion-button size="small" class="login-eligibility-button" (click)="openProfile()">Complete profile</ion-button>
+        </aside>
+      } @else if (isLoggedIn && hasEligibilityData) {
+        <div class="eligibility-ready">
+          <ion-icon name="calculator-outline"></ion-icon>
+          Eligibility is based on your saved subjects, marks and each university’s APS rules.
+        </div>
+      }
     </ion-card-content>
   </ion-card>
 
   <div class="results-meta">
     <span>{{ filteredProgrammes.length }} programme{{ filteredProgrammes.length === 1 ? '' : 's' }} found</span>
-    @if (hasApsInput()) {
-      <span class="aps-meta">Comparing against an APS of {{ myAps }}</span>
+    @if (eligibilityFilter === 'qualified') {
+      <span class="aps-meta">Showing only programmes you qualify for</span>
     }
   </div>
 
@@ -102,65 +148,57 @@
         <ion-card-content>
           <div class="programme-accent"></div>
           <div class="programme-header">
-            <h3 class="programme-name">{{ programme.name }}</h3>
-          </div>
-
-          <p class="university-line">
-            <ion-icon name="school-outline"></ion-icon>
-            {{ programme.universityName }}
-          </p>
-
-          <div class="programme-metrics">
-            <div class="programme-metric faculty-metric">
-              <ion-icon name="book-outline"></ion-icon>
-              <div>
-                <span>Faculty</span>
-                <strong>{{ programme.faculty }}</strong>
-              </div>
+            <div class="programme-heading-copy">
+              <h3 class="programme-name">{{ programme.name }}</h3>
+              <p class="university-line">{{ programme.universityName }}</p>
             </div>
-            <div class="programme-metric qualification-metric">
-              <ion-icon name="ribbon-outline"></ion-icon>
-              <div>
-                <span>Qualification</span>
-                <strong>{{ programme.qualificationType }}</strong>
-              </div>
-            </div>
-            <div class="programme-metric duration-metric">
-              <ion-icon name="time-outline"></ion-icon>
-              <div>
-                <span>Duration</span>
-                <strong>{{ programme.duration }}</strong>
-              </div>
-            </div>
-            <div
-              class="programme-metric aps-metric"
-              [class.aps-met]="meetsAps(programme)"
-              [class.aps-unmet]="hasApsInput() && !meetsAps(programme)">
-              <ion-icon [name]="hasApsInput() ? (meetsAps(programme) ? 'checkmark-circle-outline' : 'close-circle-outline') : 'calculator-outline'"></ion-icon>
-              <div>
-                <span>Minimum APS</span>
-                <strong>{{ programme.apsScore }}</strong>
-              </div>
+            <div class="programme-aps" aria-label="Minimum APS">
+              <span>APS</span>
+              <strong>{{ programme.apsScore }}</strong>
             </div>
           </div>
 
-          <p class="programme-description">{{ truncate(programme.description) }}</p>
+          <div class="programme-detail-chips" aria-label="Programme details">
+            <ion-chip class="detail-chip faculty-chip">{{ programme.faculty }}</ion-chip>
+            <ion-chip class="detail-chip qualification-chip">{{ programme.qualificationType }}</ion-chip>
+            <ion-chip class="detail-chip duration-chip">{{ programme.duration }}</ion-chip>
+          </div>
 
           <div class="requirements-block">
-            <p class="requirements-label">Subject Requirements</p>
+            <p class="requirements-label">Required subjects</p>
             <div class="requirement-chips">
               @for (req of programme.subjectRequirements; track req.subject) {
-                <span class="requirement-chip" [class.compulsory]="req.compulsory">
-                  {{ req.subject }} · {{ getLevelLabel(req.level) }}
-                </span>
+                <ion-chip class="requirement-chip" [class.compulsory]="req.compulsory">
+                  {{ req.subject }} · L{{ req.level }}
+                </ion-chip>
+              } @empty {
+                <ion-chip class="requirement-chip no-requirement-chip">No specific subjects listed</ion-chip>
               }
             </div>
           </div>
 
-          <ion-button class="view-university-btn" (click)="viewUniversity(programme)">
-            View University & Prospectus
-            <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
-          </ion-button>
+          <div class="programme-footer">
+            <div class="programme-statuses">
+              <span
+                class="application-status"
+                [class.closed]="isApplicationClosed(programme)">
+                {{ getApplicationStatusLabel(programme) }}
+              </span>
+              @if (isLoggedIn) {
+                <span
+                  class="eligibility-status"
+                  [class.qualified]="getEligibilityStatus(programme) === 'qualified'"
+                  [class.not-qualified]="getEligibilityStatus(programme) === 'not-qualified'">
+                  {{ getEligibilityLabel(programme) }}
+                </span>
+              }
+            </div>
+
+            <ion-button fill="clear" class="view-university-btn" (click)="viewUniversity(programme)">
+              View prospectus
+              <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+          </div>
         </ion-card-content>
       </ion-card>
     } @empty {
@@ -172,4 +210,29 @@
       </div>
     }
   </div>
+
+  @if (showBackToTop) {
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="back-to-top-fab">
+      <ion-fab-button
+        class="back-to-top-button"
+        size="small"
+        title="Back to top"
+        aria-label="Back to top"
+        (click)="scrollToTop()">
+        <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  }
+
+  <ion-modal [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
+    <ng-template>
+      <app-login-modal (dismissed)="handleLoginDismiss($event)"></app-login-modal>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
+    <ng-template>
+      <app-register-modal (dismissed)="handleRegisterDismiss($event)"></app-register-modal>
+    </ng-template>
+  </ion-modal>
 </ion-content>
