@@ -656,6 +656,50 @@ function isUsableProgramme(programme) {
   return true;
 }
 
+// Nelson Mandela University calls its admission measure the Applicant Score
+// (AS). Its programme tables generally list separate AS values for Mathematics,
+// Technical Mathematics and Mathematical Literacy. The legacy programme data
+// stored the equivalent compact APS values, so convert them to the lowest AS
+// published across those columns. A dash in every AS column means that the
+// programme has no numeric school-leaving AS requirement.
+function nelsonMandelaApplicantScore(programme) {
+  if (programme.universityName !== 'Nelson Mandela University') return programme.apsScore;
+
+  if (/^PGCE:|Higher Certificate in Human Settlement Development/i.test(programme.name)) {
+    return 0;
+  }
+
+  if (/Diploma in Interior Design/i.test(programme.name)) {
+    return 315;
+  }
+
+  const lowestPublishedAsByLegacyScore = new Map([
+    [20, 290],
+    [22, 310],
+    [23, 330],
+    [24, 350],
+    [26, 370],
+    [27, 390],
+    [29, 410],
+    [30, 430],
+  ]);
+
+  return lowestPublishedAsByLegacyScore.get(programme.apsScore) ?? programme.apsScore;
+}
+
+// UCT's South African NSC requirements use the raw six-subject APS out of 600.
+// Health Sciences explicitly calls this the sub-minimum APS; Humanities calls
+// the equivalent unadjusted score the FPS (which equals APS in that faculty).
+// Do not retain the 31-40 point values from the international-applicant table.
+function universityOfCapeTownSubMinimumAps(programme) {
+  if (programme.universityName !== 'University of Cape Town') return programme.apsScore;
+
+  if (/Diploma in Theatre/i.test(programme.name)) return 0;
+  if (/Audiology|Speech-Language Pathology/i.test(programme.name)) return 340;
+  if (/Philosophy, Politics and Economics/i.test(programme.name)) return 450;
+  return 380;
+}
+
 const additions = [];
 const markdownFiles = fs.readdirSync(markdownDirectory)
   .filter((name) => name.endsWith('_prospectus.md'))
@@ -672,6 +716,14 @@ for (const filename of markdownFiles) {
 }
 
 const merged = [...existing, ...additions]
+  .map((programme) => ({
+    ...programme,
+    apsScore: nelsonMandelaApplicantScore(programme),
+  }))
+  .map((programme) => ({
+    ...programme,
+    apsScore: universityOfCapeTownSubMinimumAps(programme),
+  }))
   .map((programme) => {
     if (programme.duration !== 'See prospectus') return programme;
     const key = `${programme.universityName}|${programmeKey(programme.name)}`;

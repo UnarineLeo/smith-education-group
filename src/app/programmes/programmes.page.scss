@@ -504,6 +504,8 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
     font-size: 0.58rem;
     font-weight: 800;
     letter-spacing: 0.08em;
+    line-height: 1.15;
+    text-align: center;
     text-transform: uppercase;
   }
 
@@ -606,6 +608,7 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
 }
 
 .application-status,
+.user-aps-status,
 .eligibility-status {
   display: inline-flex;
   align-items: center;
@@ -615,6 +618,12 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
   font-size: 0.67rem;
   font-weight: 800;
   line-height: 1.2;
+}
+
+.user-aps-status {
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
 }
 
 .application-status {

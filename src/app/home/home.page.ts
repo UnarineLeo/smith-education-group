@@ -337,7 +337,9 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   openProspectus(uni: University) {
-    this.router.navigate(['/tabs/prospectus', uni.id]);
+    this.router.navigate(['/tabs/prospectus', uni.id], {
+      queryParams: { from: 'home' },
+    });
   }
 
   // Helper method to get label from value
@@ -451,7 +453,9 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   openDeadlineProspectus(universityId: number): void {
-    this.router.navigate(['/tabs/prospectus', universityId]);
+    this.router.navigate(['/tabs/prospectus', universityId], {
+      queryParams: { from: 'home' },
+    });
   }
 
   getDeadlineCountdownLabel(daysLeft: number): string {

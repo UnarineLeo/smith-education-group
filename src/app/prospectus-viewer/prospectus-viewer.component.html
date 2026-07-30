@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar class="viewer-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/universities" icon="arrow-back-outline"></ion-back-button>
+      <ion-button fill="clear" class="toolbar-back-button" aria-label="Go back" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title class="viewer-title">Prospectus</ion-title>
     <ion-buttons slot="end">
@@ -19,41 +21,71 @@
       <p class="viewer-kicker">University Prospectus</p>
       <h1 class="viewer-name">{{ university.name }}</h1>
       <p class="viewer-location">{{ university.suburb }}, {{ university.province }}</p>
+    </section>
 
-      <div class="meta-row">
-        <ion-button class="viewer-back-btn" fill="solid" color="dark" routerLink="/tabs/universities">
+    <section class="viewer-filter-card" aria-label="Prospectus and application tools">
+      <header class="viewer-filter-header">
+        <div>
+          <span class="viewer-filter-eyebrow">Prospectus tools</span>
+          <h2>Application overview</h2>
+          <p>Review key application details before exploring programmes or applying.</p>
+        </div>
+        <ion-button class="viewer-back-btn" fill="outline" (click)="goBack()">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
           Back
         </ion-button>
-        <ion-chip>
+      </header>
+
+      <div class="viewer-metrics">
+        <article class="viewer-metric">
           <ion-icon name="calendar-outline"></ion-icon>
-          <ion-label>{{ getDatesDisplay() }}</ion-label>
-        </ion-chip>
-        <ion-chip>
+          <div>
+            <span>Application dates</span>
+            <strong>{{ getDatesDisplay() }}</strong>
+          </div>
+        </article>
+        <article class="viewer-metric">
           <ion-icon name="cash-outline"></ion-icon>
-          <ion-label>{{ getApplicationFeeDisplay() }}</ion-label>
-        </ion-chip>
-        <ion-chip class="status-chip" [class.open]="isApplicationOpen()" [class.closed]="!isApplicationOpen()">
-          <ion-label>{{ getApplicationStatusDisplay() }}</ion-label>
-        </ion-chip>
+          <div>
+            <span>Application fee</span>
+            <strong>{{ getApplicationFeeDisplay() }}</strong>
+          </div>
+        </article>
+        <article class="viewer-metric status-metric" [class.open]="isApplicationOpen()" [class.closed]="!isApplicationOpen()">
+          <span class="status-dot"></span>
+          <div>
+            <span>Application status</span>
+            <strong>{{ getApplicationStatusDisplay() }}</strong>
+          </div>
+        </article>
 
         @if (hasUniversityApsScore) {
-          <ion-chip class="aps-chip aps-chip-ready">
+          <article class="viewer-metric aps-metric aps-chip-ready">
             <ion-icon name="calculator-outline"></ion-icon>
-            <ion-label>{{ universityApsDisplay }}</ion-label>
-          </ion-chip>
-        } @else if (shouldShowAddMarksPrompt) {
-          <ion-chip class="aps-chip aps-chip-prompt">
-            <ion-icon name="calculator-outline"></ion-icon>
-            <ion-label>Add your marks in Profile for automatic APS</ion-label>
-          </ion-chip>
-        } @else if (shouldShowRegisterApsPrompt) {
-          <ion-chip class="aps-chip aps-chip-register" (click)="openRegisterModal()" button>
-            <ion-icon name="person-add-outline"></ion-icon>
-            <ion-label>Register to unlock automatic APS calculation</ion-label>
-          </ion-chip>
+            <div>
+              <span>Your calculated score</span>
+              <strong>{{ universityApsDisplay }}</strong>
+            </div>
+          </article>
         }
+      </div>
 
+      @if (shouldShowAddMarksPrompt) {
+        <div class="viewer-aps-notice aps-chip-prompt">
+          <ion-icon name="calculator-outline"></ion-icon>
+          <span>Add your marks in Profile for automatic APS calculation.</span>
+        </div>
+      } @else if (shouldShowRegisterApsPrompt) {
+        <div class="viewer-aps-notice aps-chip-register">
+          <ion-icon name="person-add-outline"></ion-icon>
+          <span>Register to unlock automatic APS calculation.</span>
+          <ion-chip class="aps-chip aps-chip-register" (click)="openRegisterModal()" button>
+            <ion-label>Register</ion-label>
+          </ion-chip>
+        </div>
+      }
+
+      <div class="viewer-filter-actions">
         <ion-button
           class="viewer-programmes-btn"
           fill="solid"
@@ -74,7 +106,6 @@
           <ion-icon slot="start" name="rocket-outline"></ion-icon>
           Apply
         </ion-button>
-        
       </div>
     </section>
 

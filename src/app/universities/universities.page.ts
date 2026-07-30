@@ -55,7 +55,9 @@ export class Universities {
   }
 
   openProspectus(uni: University) {
-    this.router.navigate(['/tabs/prospectus', uni.id]);
+    this.router.navigate(['/tabs/prospectus', uni.id], {
+      queryParams: { from: 'universities' },
+    });
   }
 
     searchUniversities() {

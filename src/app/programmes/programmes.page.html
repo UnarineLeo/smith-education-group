@@ -152,9 +152,9 @@
               <h3 class="programme-name">{{ programme.name }}</h3>
               <p class="university-line">{{ programme.universityName }}</p>
             </div>
-            <div class="programme-aps" aria-label="Minimum APS">
-              <span>APS</span>
-              <strong>{{ programme.apsScore }}</strong>
+            <div class="programme-aps" [attr.aria-label]="'Minimum ' + getAdmissionScoreLabel(programme)">
+              <span>{{ getAdmissionScoreLabel(programme) }}</span>
+              <strong>{{ getAdmissionScoreDisplay(programme) }}</strong>
             </div>
           </div>
 
@@ -185,6 +185,9 @@
                 {{ getApplicationStatusLabel(programme) }}
               </span>
               @if (isLoggedIn) {
+                @if (getUserApsDisplay(programme); as userAps) {
+                  <span class="user-aps-status">{{ userAps }}</span>
+                }
                 <span
                   class="eligibility-status"
                   [class.qualified]="getEligibilityStatus(programme) === 'qualified'"

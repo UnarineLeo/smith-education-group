@@ -34,7 +34,7 @@ import { getAuth, onAuthStateChanged, Unsubscribe, User } from 'firebase/auth';
 import programmesData from '../shared/programme-list.json';
 import universityList from '../university-list/university-list.json';
 import { University } from '../shared/app-data';
-import { FACULTIES, Programme, QUALIFICATION_TYPES, SubjectRequirement } from '../shared/programme-data';
+import { FACULTIES, Programme, QUALIFICATION_TYPES } from '../shared/programme-data';
 import { ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
 import { AuthService } from '../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
@@ -86,8 +86,7 @@ export class Programmes implements OnInit, OnDestroy {
       this.buildApplicationStatusLabel(university),
     ])
   );
-  private readonly userApsByUniversity = new Map<string, number>();
-  private readonly userSubjectLevels = new Map<string, number>();
+  private readonly userApsByUniversity = new Map<string, { score: number; maxScore: number | null }>();
   private readonly eligibilityByProgrammeId = new Map<number, EligibilityStatus>();
   private unsubscribeAuth?: Unsubscribe;
 
@@ -353,7 +352,12 @@ export class Programmes implements OnInit, OnDestroy {
   }
 
   viewUniversity(programme: Programme): void {
-    void this.router.navigate(['/tabs/prospectus', programme.universityId]);
+    void this.router.navigate(['/tabs/prospectus', programme.universityId], {
+      queryParams: {
+        from: 'programmes',
+        university: programme.universityName,
+      },
+    });
   }
 
   getApplicationStatusLabel(programme: Programme): string {
@@ -375,10 +379,34 @@ export class Programmes implements OnInit, OnDestroy {
       case 'qualified':
         return 'You qualify';
       case 'not-qualified':
-        return 'Requirements not met';
+        return 'Requirement not met';
       default:
         return 'Add subjects to check eligibility';
     }
+  }
+
+  getAdmissionScoreLabel(programme: Programme): string {
+    if (programme.universityName === 'Nelson Mandela University') return 'AS';
+    if (programme.universityName === 'University of Cape Town') return 'Sub-minimum APS';
+    return 'APS';
+  }
+
+  getAdmissionScoreDisplay(programme: Programme): string {
+    return programme.apsScore > 0 ? programme.apsScore.toString() : 'N/A';
+  }
+
+  getUserApsDisplay(programme: Programme): string | null {
+    const result = this.userApsByUniversity.get(this.normalizeText(programme.universityName));
+    if (!result) return null;
+
+    const score = Number.isInteger(result.score)
+      ? result.score.toFixed(0)
+      : result.score.toFixed(1);
+    const maximum = result.maxScore === null
+      ? ''
+      : `/${Number.isInteger(result.maxScore) ? result.maxScore.toFixed(0) : result.maxScore.toFixed(1)}`;
+    const scoreLabel = programme.universityName === 'Nelson Mandela University' ? 'AS' : 'APS';
+    return `Your ${scoreLabel} ${score}${maximum}`;
   }
 
   onContentScroll(event: CustomEvent): void {
@@ -395,7 +423,6 @@ export class Programmes implements OnInit, OnDestroy {
     this.isCheckingEligibility = Boolean(user);
     this.hasEligibilityData = false;
     this.userApsByUniversity.clear();
-    this.userSubjectLevels.clear();
     this.eligibilityByProgrammeId.clear();
 
     if (!user) {
@@ -426,16 +453,15 @@ export class Programmes implements OnInit, OnDestroy {
       this.hasEligibilityData = subjects.length >= 7;
       if (!this.hasEligibilityData) return;
 
-      for (const subject of subjects) {
-        const key = this.normalizeText(subject.subject);
-        const level = this.markToLevel(subject.mark);
-        this.userSubjectLevels.set(key, Math.max(level, this.userSubjectLevels.get(key) ?? 0));
-      }
-
       for (const universityName of new Set(this.allProgrammes.map((programme) => programme.universityName))) {
         const result = this.apsCalculationService.calculateForUniversity(universityName, subjects);
         if (typeof result.score === 'number' && Number.isFinite(result.score)) {
-          this.userApsByUniversity.set(this.normalizeText(universityName), result.score);
+          this.userApsByUniversity.set(this.normalizeText(universityName), {
+            score: result.score,
+            maxScore: typeof result.maxScore === 'number' && Number.isFinite(result.maxScore)
+              ? result.maxScore
+              : null,
+          });
         }
       }
 
@@ -453,42 +479,14 @@ export class Programmes implements OnInit, OnDestroy {
     }
   }
 
-  private meetsSubjectRequirement(requirement: SubjectRequirement): boolean {
-    const requirementKey = this.normalizeText(requirement.subject);
-    const matches = [...this.userSubjectLevels.entries()].filter(([subjectKey]) => {
-      if (requirementKey === 'english') return subjectKey.includes('english');
-      if (requirementKey === 'physical science' || requirementKey === 'physical sciences') {
-        return subjectKey === 'physical science' || subjectKey === 'physical sciences';
-      }
-      if (requirementKey === 'life science' || requirementKey === 'life sciences') {
-        return subjectKey === 'life science' || subjectKey === 'life sciences';
-      }
-      return subjectKey === requirementKey;
-    });
-
-    return matches.some(([, level]) => level >= requirement.level);
-  }
-
   private calculateEligibilityStatus(programme: Programme): EligibilityStatus {
-    const aps = this.userApsByUniversity.get(this.normalizeText(programme.universityName));
+    const aps = this.userApsByUniversity.get(this.normalizeText(programme.universityName))?.score;
     const requiredAps = Number(programme.apsScore);
     const hasApsRequirement = Number.isFinite(requiredAps) && requiredAps > 0;
-    const meetsAps = !hasApsRequirement || (aps !== undefined && aps >= requiredAps);
-    const meetsSubjects = programme.subjectRequirements.every((requirement) =>
-      !requirement.compulsory || this.meetsSubjectRequirement(requirement)
-    );
 
-    return meetsAps && meetsSubjects ? 'qualified' : 'not-qualified';
-  }
-
-  private markToLevel(mark: number): number {
-    if (mark >= 80) return 7;
-    if (mark >= 70) return 6;
-    if (mark >= 60) return 5;
-    if (mark >= 50) return 4;
-    if (mark >= 40) return 3;
-    if (mark >= 30) return 2;
-    return 1;
+    return !hasApsRequirement || (aps !== undefined && aps >= requiredAps)
+      ? 'qualified'
+      : 'not-qualified';
   }
 
   private parseUniversityDate(value: string): Date | null {

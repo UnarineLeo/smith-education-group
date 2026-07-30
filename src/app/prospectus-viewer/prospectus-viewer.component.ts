@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonBackButton, IonChip, IonLabel, IonModal } from '@ionic/angular/standalone';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon, IonContent, IonChip, IonLabel, IonModal } from '@ionic/angular/standalone';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { getAuth, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
 import { calendarOutline, cashOutline, openOutline, arrowBackOutline, rocketOutline, calculatorOutline, personAddOutline, schoolOutline } from 'ionicons/icons';
@@ -28,7 +28,6 @@ import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '..
     IonButton,
     IonIcon,
     IonContent,
-    IonBackButton,
     IonChip,
     IonLabel,
     IonModal,
@@ -63,6 +62,8 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
   constructor(
     private sanitizer: DomSanitizer,
     private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
     private authService: AuthService,
     private apsCalculationService: ApsCalculationService
   ) {
@@ -94,6 +95,42 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authUnsubscribe?.();
+  }
+
+  goBack(): void {
+    const origin = this.route.snapshot.queryParamMap.get('from');
+    const navigationId = Number(globalThis.history.state?.navigationId);
+    const hasInAppHistory = Number.isFinite(navigationId) && navigationId > 1;
+
+    if (hasInAppHistory && ['programmes', 'home', 'universities'].includes(origin ?? '')) {
+      this.location.back();
+      return;
+    }
+
+    if (origin === 'programmes') {
+      const university = this.route.snapshot.queryParamMap.get('university');
+      void this.router.navigate(['/tabs/programmes'], {
+        queryParams: university ? { university } : undefined,
+      });
+      return;
+    }
+
+    if (origin === 'home') {
+      void this.router.navigate(['/tabs/home']);
+      return;
+    }
+
+    if (origin === 'universities') {
+      void this.router.navigate(['/tabs/universities']);
+      return;
+    }
+
+    if (hasInAppHistory) {
+      this.location.back();
+      return;
+    }
+
+    void this.router.navigate(['/tabs/universities']);
   }
 
   openLoginModal() {
@@ -222,14 +259,15 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
   }
 
   get universityApsDisplay(): string {
+    const scoreLabel = this.university?.name === 'Nelson Mandela University' ? 'AS' : 'APS';
     if (!this.currentUniversityApsResult || this.currentUniversityApsResult.score === null || this.currentUniversityApsResult.score === undefined) {
-      return 'APS N/A';
+      return `${scoreLabel} N/A`;
     }
 
     const score = this.currentUniversityApsResult.score;
     const formattedScore = Number.isInteger(score) ? score.toString() : score.toFixed(2).replace(/\.00$/, '');
     const suffix = this.currentUniversityApsResult.maxScore ? `/${this.currentUniversityApsResult.maxScore}` : '';
-    return `APS ${formattedScore}${suffix}`;
+    return `${scoreLabel} ${formattedScore}${suffix}`;
   }
 
   onMobilePdfError(): void {
