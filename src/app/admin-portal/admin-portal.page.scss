@@ -155,7 +155,18 @@ ion-content {
 .tab-icon {
   display: inline-flex;
   align-items: center;
-  opacity: 0.8;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #f1f5f9;
+  opacity: 0.9;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.top-tab-btn.active .tab-icon {
+  color: #fff;
+  background: var(--c-accent);
 }
 
 // ─── SHELL ──────────────────────────────────────────────────────────────────
@@ -1054,6 +1065,198 @@ ion-button[color='primary'] {
 }
 
 @media (max-width: 620px) {
+  .admin-hero {
+    padding: 34px 18px 30px;
+  }
+
+  .admin-hero-inner h1 {
+    font-size: 2.05rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+
+  .top-tab-bar-inner {
+    width: 100%;
+    padding: 6px 10px 0;
+  }
+
+  .top-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 9px 10px 11px;
+  }
+
+  .top-tab-btn.active::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  .single-column-shell {
+    padding: 12px 10px 30px;
+  }
+
+  .users-summary-card {
+    margin: 0;
+    border-radius: 16px;
+    box-shadow: none;
+  }
+
+  .users-summary-card ion-card-header {
+    padding: 18px 14px 12px;
+  }
+
+  .users-summary-card ion-card-title {
+    font-size: 1.15rem;
+  }
+
+  .users-summary-card ion-card-content {
+    padding: 4px 10px 12px;
+  }
+
+  .section-subtitle {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .summary-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+
+    ion-chip {
+      grid-column: 1 / -1;
+      justify-self: start;
+      height: 28px;
+      margin: 0;
+      font-size: 0.72rem;
+    }
+
+    ion-button {
+      width: 100%;
+      height: 40px;
+      margin: 0;
+      font-size: 0.75rem;
+    }
+  }
+
+  .users-grid {
+    gap: 10px;
+  }
+
+  .user-card {
+    border-radius: 14px;
+
+    &:hover {
+      transform: none;
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  .user-card-header {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: start;
+    padding: 13px 12px;
+  }
+
+  .user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    font-size: 0.76rem;
+  }
+
+  .user-card-header-main {
+    gap: 2px;
+
+    h3 {
+      margin-top: 2px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+  }
+
+  .user-card-eyebrow {
+    font-size: 0.59rem;
+    letter-spacing: 0.11em;
+  }
+
+  .user-card-summary {
+    font-size: 0.76rem;
+    line-height: 1.4;
+  }
+
+  .user-card-activity {
+    margin-top: 3px;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .user-card-header-meta {
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-end;
+
+    ion-chip {
+      height: 23px;
+      margin: 0;
+      font-size: 0.6rem;
+    }
+  }
+
+  .user-card-toggle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .user-card-body {
+    padding: 10px;
+  }
+
+  .detail-card-grid {
+    gap: 9px;
+  }
+
+  .detail-card {
+    padding: 13px 12px;
+    border-radius: 12px;
+
+    p {
+      display: grid;
+      grid-template-columns: minmax(92px, 0.72fr) minmax(0, 1fr);
+      gap: 8px;
+      margin: 0;
+      padding: 7px 0;
+      border-bottom: 1px solid #e9eef5;
+      font-size: 0.74rem;
+      line-height: 1.4;
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .detail-card-icon-head {
+    margin-bottom: 7px;
+  }
+
+  .aps-grid,
+  .document-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aps-card,
+  .document-card {
+    padding: 11px;
+  }
+
   .analytics-heading {
     align-items: stretch;
     flex-direction: column;

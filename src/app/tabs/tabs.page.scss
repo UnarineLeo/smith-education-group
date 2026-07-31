@@ -194,9 +194,15 @@ ion-button {
     margin-bottom: 4px;
 
     ion-icon {
-      font-size: 20px;
+      width: 34px;
+      height: 34px;
       margin-right: 12px;
+      padding: 7px;
+      border-radius: 10px;
+      background: #f1f5f9;
       color: #64748b;
+      font-size: 19px;
+      transition: color 0.2s ease, background 0.2s ease;
     }
 
     ion-label {
@@ -211,6 +217,10 @@ ion-button {
       ion-label {
         color: #1e40af;
       }
+
+      ion-icon {
+        background: rgba(30, 64, 175, 0.1);
+      }
     }
 
     &.active-mobile-tab {
@@ -220,6 +230,11 @@ ion-button {
       ion-icon,
       ion-label {
         color: #1e40af;
+      }
+
+      ion-icon {
+        background: #ffffff;
+        box-shadow: 0 3px 10px rgba(30, 64, 175, 0.12);
       }
     }
 
