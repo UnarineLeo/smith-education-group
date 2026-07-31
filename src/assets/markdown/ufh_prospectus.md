@@ -1,139 +1,840 @@
+# UFH Prospectus
 
+<!-- Generated from ufh_prospectus.pdf; 2 PDF pages. -->
 
-<!-- Start of picture text -->
-Min. APS<br>Score<br>28 (29 with<br>ML)<br>59%)<br>28 (27 with<br>Maths)<br>59%)<br>28<br>59%) STUDY AT THE<br><!-- End of picture text -->
+## Page 1
 
-|**Programme**<br>**Name**|**Prog.**<br>**Code (ITS)**|**SAQA ID**|**Subject Requirements**|**Min. Level of**<br>**Achievement**|**Min. APS**<br>**Score**|
-|---|---|---|---|---|---|
-|Bachelor of<br>Administration<br>in Public<br>Administration|62005|94224|English - Home language OR<br>English-First additional language<br>Mathematics OR<br>Mathematical literacy OR<br>Other Subjects (4)<br>Life Orientation|4 (50%-59%)<br>2 (30%–39%)<br>4 (50%-59%)<br>4X4 (50%-59%)<br>4 (50%-59%)|26<br>(28 with<br>ML)|
-|Bachelor of<br>Commerce|60015|115313|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects (4)<br>Life Orientation|4 (50%-59%)<br>4 (50%-59%)<br>4X4 (50%-59%)<br>4 (50%-59%)|28|
-|Bachelor of<br>Commerce<br>**(Extended**<br>**Programme)**|61015|115313|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects (4)<br>Life Orientation|4 (50%-59%)<br>3 (40%-49%)<br>4X4 (50%-59%)<br>4 (50%-59%)|27|
-|Bachelor of<br>Commerce in<br>Accounting|60001|17394|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects (4)<br>|5 (60%-69%)<br>5 (60%-69%)<br>2X4 (50%-59%)<br>2X5 (60%-69%)<br>|32|
-||||Life Orientation|4 (50%-59%)||
-|Bachelor of<br>Commerce in<br>Accounting<br>**(Extended**<br>**Programme)**|60006|17394|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects (4)|4 (50%-59%)<br>4 (50%-59%)<br>2X4 (50%-59%)<br>2X5 (60%-69%)|30|
-||||Life Orientation|4 (50%-59%)||
-|Bachelor of<br>Commerce in<br>Information Systems|60011|15147|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects (4)<br>Life Orientation|4 (50%-59%)<br>4 (50%-59%)<br>4X4 (50%-59%)<br>4 (50%-59%)|28|
-|Bachelor of<br>Commerce in<br>Information Systems<br>**(Extended**<br>**programme)**|60101|15147|English - Home language OR<br>English-First additional language<br>Mathematics<br>Other Subjects(4)<br>Life Orientation|4 (50%-59%)<br>3 (40%-49%)<br>4X4(50%-59%)<br>4 (50%-59%)|27|
+Programme
+Name*
+Bachelor of
+Education Senior
+and FET Phase
+(Agriculture
+specialisation)
+Bachelor of
+Education Senior
+and FET Phase
+(Commerce
+specialisation)
+Bachelor of
+Education Senior
+and FET Phase
+(Science
+specialisation)
+Bachelor of
+Education Senior
+and FET Phase
+(Social Science
+specialisation)
+### FACULTY OF EDUCATION
+Prog.
+SAQA ID Subject Requirements Code (ITS)
+500491 112523 English - Home language OR
+English - First additional language
+Min. Level of
+Min. APS
+Achievement
+Score
+4 (50-59%) 28 (29 with
+ML)
+Mathematics OR
+4 (50-59%)
+Mathematics Literacy
+5 (60-69%)
+Agricultural Science 4 (50-59%)
+Life Sciences 4 (50-59%)
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+500492 112523 English - Home language OR
+4 (50-59%) 28 (27 with
+English - First additional language
+Maths)
+Mathematics OR
+Mathematics Literacy
+Any two of the following: Accounting
+3 (40-49%)
+4 (50-59%)
+2X4 (50%-59%)
+OR Economics OR Business
+management
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+500493 112523 English - Home language OR
+4 (50-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Science OR Life Science OR
+4 (50-59%)
+Geography OR Computer science
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+500494 112523 English - Home language OR
+4 (50-59%) 28
+English - First additional language
+isiXhosa – Home or First additional
+4 (50%-59%)
+language OR Afrikaans - Home or
+First additional language
+History OR Geography 4 (50%-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+50045 103090 English - Home language OR
+4 (50%-59%) 28 (29 with
+English - First additional language
+ML)
+Mathematics
+Mathematic Literacy
+isiXhosa – Home or First additional
+4 (50%-59%)
+5 (60%-69%)
+4 (50%-59%)
+language OR Afrikaans - Home or
+First additional language
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+50046 99690 English - Home language OR
+4 (50%-59%) 28 (29 with
+English - First additional language
+ML)
+Mathematics
+Mathematic Literacy
+isiXhosa – Home or First additional
+4 (50%-59%)
+5 (60%-69%)
+4 (50%-59%)
+language OR Afrikaans - Home or
+First additional language
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+### MINIMUM NATIONAL CERTIFICATE (VOCATIONAL) ADMISSION REQUIREMENTS
+•
+•
+•
+•
+Matric pass meeting requirements for Bachelor’s degree
+National Certificate (Vocational) Level 4
+At least 60% in three fundamental subjects i.e. English first language or first additional language,
+Mathematics/Mathematics Literacy and Life orientation.
+At least 70% in four relevant compulsory modules (with specialization in the teaching subjects)
+### FACULTY OF LAW
+Bachelor of
+Education in
+Foundation Phase
+Teaching
+Bachelor of
+Education in
+Intermediate
+Phase Teaching
+Programme
+Name
+SAQA ID Subject Requirements Prog.
+Code (ITS)
+Bachelor of Laws 21525 15577 English - Home language OR
+English - First additional language
+Min. Level of
+Achievement
+Min. APS
+Score
+4 (50%-59%) 30
+Bachelor of
+Laws (Extended
+Programme)
+Mathematics OR
+Mathematical Literacy OR
+Technical Mathematics
+Bachelor of
+Commerce in Law
+Mathematics OR
+3 (40%-49%)
+Mathematical Literacy (ML) OR
+4 (50%-59%)
+Technical Mathematics (TM)
+4 (50%-59%)
+Other Subjects (4) 4X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+21526 15577 English - Home language OR
+4 (50%-59%) (28 with
+English - First additional language
+ML or TM)
+2 (30% – 39%)
+4 (50%-59%)
+4 (50%-59%)
+Other Subjects (4) 4X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+21527 15573 English - Home language OR
+4 (50%-59%) 28 (29 with
+English - First additional language
+ML or TM)
+Mathematics OR
+4 (50%–59%)
+Mathematical Literacy OR
+5 (60%-69%)
+Technical Mathematics
+5 (60%-69%)
+Other Subjects (4) 4X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+National Certificate (Vocational):
+Achieved 60% in three fundamental subjects, including the Language of Learning and Teaching of the University;
+and achieved at least 60% in four vocational subjects, chosen from the NCV level 4 subjects.
+Appropriate NQF Level 6 qualification:
+A candidate may be considered for admission into a Bachelor’s degree at the University if they have successfully
+completed an appropriate NQF level 6 qualification. Applicants may also obtain complete exemption certificates
+from the Matriculation Board – USAf www.usaf.ac.za
+Recognition of Prior Learning:
+Candidates seeking admission into undergraduate qualifications may also do so through the Recognition of
+Prior Learning Policy and Procedures of the University.
+### FACULTY OF MANAGEMENT AND COMMERCE
+Bachelor of Commerce:
+Extended Curriculum
+Programme
+Programme
+Name
+Bachelor of
+Administration in Public
+Administration
+Prog.
+Code (ITS)
+SAQA ID Subject Requirements Min. Level of
+Min. APS
+Achievement
+Score
+62005 94224 English Language 4 (50%-59%) 26
+Mathematics OR
+Mathematical literacy
+2 (30%-39%) 4 (50%-59%)
+(28 with ML)
+Other Subjects (2) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+Bachelor of Commerce 60025 115313 English Language 4 (50%-59%) 28
+Mathematics 4 (50%-59%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+61025 115313 English Language 4 (50%-59%) 27
+Mathematics 3 (40%-49%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+600251 115313 English Language 4 (50%-59%) 28
+Mathematics 4 (50%-59%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+610251 115313 English Language 4 (50%-59%) 27
+Mathematics 3 (40%-49%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+600252 115313 English Language 4 (50%-59%) 28
+Mathematics 4 (50%-59%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+610252 115313 English Language 4 (50%-59%) 27
+Mathematics 3 (40%-49%)
+Other Subjects (4) 4 (50%-59%)
+Bachelor of Commerce
+(Economics)
+Bachelor of Commerce
+(Economics)
+Extended Curriculum
+Programme
+Bachelor of Commerce
+(Industrial Psychology)
+Bachelor of Commerce:
+(Industrial Psychology)
+Extended Curriculum
+Programme
+### STUDY AT THE
+### UNIVERSITY OF
+### FORT HARE
+Bachelor of Commerce in
+Information Systems
+Bachelor of Commerce in
+Information Systems
+Extended Curriculum
+Programme
+Bachelor of Commerce in
+Accounting
+Bachelor of Commerce in
+Accounting
+Extended Curriculum
+Programme
+### FOR MORE ENQUIRIES,
+### PLEASE CONTACT THE FOLLOWING:
+General: applications2027@ufh.ac.za
+Faculty of Law: lawenquiries@ufh.ac.za
+Faculty of Social Science & Humanities: zmnguni@ufh.ac.za
+Faculty of Education: nmagocoba@ufh.ac.za
+Faculty of Management & Commerce: fmcenquiries@ufh.ac.za
+Faculty of Science & Agriculture: msmith@ufh.ac.za
+Faculty of Health Sciences: pnhlumayo@ufh.ac.za
+Senior Enrolment Oﬃcer (East London): bmgciza@ufh.ac.za
+Senior Enrolment Oﬃcer (Alice): zaaron@ufh.ac.za
+Manager, Admissions: kmatikinca@ufh.ac.za
+### INTERNATIONAL APPLICATIONS RELATED QUERIES
+Note: International applicants are not eligible to apply for the Extended Programmes
+All campuses:
+Email: Internationalapplications@ufh.ac.za/ Tel: +27 (0) 40 602 2244
+Immigration related queries
+Alice and Bisho campuses:
+Email: ImmigrationCompliance.Alice@ufh.ac.za
+East London campus:
+Email: ImmigrationCompliance.EL@ufh.ac.za
+Tel: +27 (0) 40 602 2221
+www.ufh.ac.za
+Life Orientation 4 (50%-59%)
+60021 118062 English Language 4 (50%-59%) 28
+Mathematics 4 (50%-59%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+60201 118062 English Language 4 (50%-59%) 27
+Mathematics 3 (40%-49%)
+Other Subjects (4) 4 (50%-59%)
+Life Orientation 4 (50%-59%)
+60001 17394 English Language 5 (60%-69%) 32
+Mathematics 5 (60%-69%)
+Other Subjects (4) 2x4 (50%-59%) 2X5 (60%-69%)
+Life Orientation 4 (50%-59%)
+60006 17394 English Language 4 (50%-59%) 28
+Mathematics 4 (50%-59%)
+Other Subjects (4) 2x4 (50%-59%) 2x5 (60%-69%)
+Life Orientation 4 (50-59%)
+### NATIONAL CERTIFICATE (VOCATIONAL)
+The minimum admission requirements for students who passed at public colleges, private colleges and other
+institutions offering FET vocational programmes are as follows:
+•
+National Certificate (Vocational) Level 4;
+•
+(at least) 60% in three fundamental subjects including the English Language;
+•
+(at least) 70% in four compulsory modules.
+### FACULTY OF MANAGEMENT & COMMERCE SELECTION PROCESS:
+•
+The Selection Committee convenes to process all applications.
+•
+Applicants have to meet the minimum admission requirements as laid down in the University Admissions
+Policy.
+•
+For all degrees, Life Orientation (LO) will be capped at level 4 for calculating APS
+•
+Selection is based on Merit
+•
+Transferring students have to meet the Faculty entry requirements as well as the subject/programme pre-
+requisites as published in the prospectus first; apply for credits using Credit Application Form signed by
+respective Departments before a decision is reached.
+### FACULTY OF HEALTH SCIENCES
+Programme
+Name*
+Prog. Code (ITS)
+Bachelor of Health
+Sciences in Human
+Movement Science
+Bachelor of
+Science in Speech
+Language
+Pathology (Contact Faculty for availability)
+SAQA ID Subject Requirements Min. Level of
+Achievement
+84001 115314 English - Home language OR
+English - First additional language
+4 (50 - 59%) Mathematics or
+Mathematical Literacy
+4 (50-59%) 5 (60-69%)
+Life Sciences 4 (50-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+84033 101706 English - Home language OR
+English - First additional language
+4 (50-59%) Mathematics or
+Mathematical Literacy
+4 (50-59%) 5 (60-69%)
+Physical Science 4 (50-59%)
+Life Sciences 4 (50-59%)
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+84040 117790 English - Home language OR
+English - First additional language
+4 (50-59%) Mathematics OR
+Mathematical Literacy
+4 (50-59%) 5 (60-69%)
+Physical Science 4 (50-59%)
+Life Sciences 4 (50-59%)
+Other Subjects (2) 2X4 (50%-59%)
+Life orientation 4 (50-59%)
+Min. APS
+Score
+28 (29 with ML)
+28 (29 with ML)
+Bachelor of
+Nursing
+28 (29 with ML)
+Follow us @ufh1916
 
+## Page 2
 
-
-|**Programme**<br>**Name***|**Prog.**<br>**Code (ITS)**|**SAQA ID**|**Subject Requirements**|**Min. Level of**<br>**Achievement**|**Min. APS**<br>**Score**|
-|---|---|---|---|---|---|
-|Bachelor of<br>Education Senior<br>and FET Phase<br>(_Agriculture_<br>_ilii_|<br>500491|112523|English - Home language OR<br>English-First additional language<br>Mathematics OR<br>Mathematics Literacy<br>|4 (50-59%)<br>4 (50-59%)<br>5 (60-69%)<br>|28 (29 with<br>ML)|
-|_specasaton_)|||Agricultural Science<br>Life Sciences<br>Other Subjects (2)<br>Life Orientation|4 (50-59%)<br>4 (50-59%)<br>2X4 (50%-59%)<br>4 (50-59%)||
-|Bachelor of<br>Education Senior<br>and FET Phase<br>_(Commerce_<br>_specialisation)_|500492|112523|English - Home language OR<br>English-First additional language<br>Mathematics OR<br>Mathematics Literacy<br>Any two of the following: Accounting<br>OR Economics OR Business<br>management|4 (50-59%)<br>3 (40-49%)<br>4 (50-59%)<br>2X4 (50%-59%)|28 (27 with<br>Maths)|
-||||Other Subjects (2)<br>Life Orientation|2X4 (50%-59%)<br>4 (50-59%)||
-|Bachelor of<br>Education Senior<br>and FET Phase<br>_(Science_<br>_specialisation)_|500493|112523|English - Home language OR<br>English-First additional language<br>Mathematics<br>Physical Science OR Life Science OR<br>Geography OR Computer science<br>Other Subjects (3)<br>Life Orientation|4 (50-59%)<br>4 (50-59%)<br>4 (50-59%)<br>3X4 (50%-59%)<br>4 (50-59%)|28|
-|Bachelor of<br>Education Senior<br>and FET Phase<br>_(Social Science_<br>_specialisation)_|500494|112523|English - Home language OR<br>English-First additional language<br>isiXhosa – Home or First additional<br>language OR Afrikaans - Home or<br>First additional language|4 (50-59%)<br>4 (50%-59%)|28|
-||||History OR Geography<br>Other Subjects (3)<br>Lif Oii|4 (50%-59%)<br>3X4 (50%-59%)<br>4 5059%||
-||||e rentaton|(-)||
-|Bachelor of<br>Education in<br>Foundation Phase<br>Teaching|50045|103090|English - Home language OR<br>English-First additional language<br>Mathematics<br>Mathematic Literacy<br>isiXhosa – Home or First additional<br>language OR Afrikaans - Home or<br>First additional language<br>Other Subjects (3)<br>Life Orientation|4 (50%-59%)<br>4 (50%-59%)<br>5 (60%-69%)<br>4 (50%-59%)<br>3X4 (50%-59%)<br>4 (50-59%)|28 (29 with<br>ML)|
-|Bachelor of<br>Education in<br>Intermediate<br>Phase Teaching|50046|99690|English - Home language OR<br>English-First additional language<br>Mathematics<br>Mathematic Literacy<br>isiXhosa – Home or First additional<br>language OR Afrikaans - Home or<br>First additional language<br>Other Subjects (3)<br>Life Orientation|4 (50%-59%)<br>4 (50%-59%)<br>5 (60%-69%)<br>4 (50%-59%)<br>3X4 (50%-59%)<br>4 (50-59%)|28 (29 with<br>ML)|
-
-
-
-
-
-<!-- Start of picture text -->
-STUDY AT THE<br>UNIVERSITY OF<br>FORT HARE<br><!-- End of picture text -->
-
-2024 
-
-
-
-<!-- Start of picture text -->
-isiXhosa – Home or First additional  4 (50%-59%) (Extended  Other Subjects (4) 4X4 (50%-59%)<br>language OR Afrikaans - Home or  programme) Life Orientation 4 (50%-59%)<br>First additional language<br>-<br>Other Subjects (3) 3X4 (50% 59%)<br>Life Orientation 4 (50-59%) NATIONAL CERTIFICATE (VOCATIONAL)<br>Bachelor of  50046 99690 English - Home language OR 4 (50%-59%) 28 (29 with  The minimum admission requirements for students who passed at public colleges, private colleges and other<br>Education in  English - First additional language ML) institutions offering FET vocational programmes are as follows:<br>Intermediate  Mathematics 4 (50%-59%) • National Certificate (Vocational) Level 4;<br>Phase Teaching Mathematic Literacy 5 (60%-69%) • At least 60% in three fundamental subjects including the English Language;<br>isiXhosa – Home or First additional  4 (50%-59%) • At least 70% in four compulsory modules.<br>language OR Afrikaans - Home or<br>First additional language FACULTY OF MANAGEMENT & COMMERCE SELECTION PROCESS:<br>Other Subjects (3) 3X4 (50%-59%) • The Selection Committee convenes to process all applications.<br>Life Orientation 4 (50-59%) • Applicants have to meet the minimum admission requirements as laid down in the University Admissions<br>Policy.<br>MINIMUM NATIONAL CERTIFICATE (VOCATIONAL) ADMISSION REQUIREMENTS<br>• For all degrees, Life Orientation (LO) will be capped at level 4 for calculating APS<br>• Matric pass meeting requirements for Bachelor’s degree• National Certificate (Vocational) Level 4 • Selection is based on Merit<br>• At least 60% in three fundamental subjects i.e. English first language or first additional language,  • Transferring students have to meet the Faculty entry requirements as well as the subject/programme pre-<br>requisites as published in the prospectus first; apply for credits using Credit Application Form signed by<br>Mathematics/Mathematics Literacy and Life orientation.<br>FOR MORE ENQUIRIES,  respective Departments before a decision is reached.<br>• At least 70% in four relevant compulsory modules (with specialization in the teaching subjects)<br>PLEASE CONTACT THE FOLLOWING:<br> FACULTY OF LAW<br>ProgrammeName Bachelor of Laws Prog.Code (ITS) 21525 SAQA ID 15578 Subject Requirements English - Home language OREnglish Mathematics OR- First additional language Min. Level of Achievement 4 (50%-59%)3 (40%-49%) Min. APS Score 30 General: Faculty of Law: applications2024@ufh.ac.za amkiva@ufh.ac.za FACULTY OF HEATH SCIENCESProgrammeName Bachelor of Health  * Prog.Code (ITS) 84001 SAQA ID 115314 Subject Requirements English - Home language OR Min. Level of Achievement 4 (50 - 59%) Min. APS Score 28 (29 with<br>Mathematical Literacy (ML) OR 4 (50%-59%)- Sciences in Human  English - First additional language ML)<br>Technical Mathematics (TM) 4 (50% 59%)- Faculty of Social Science & Humanities:  zmnguni@ufh.ac.za  Movement Science Mathematics or 4 (50-59%)<br>Bachelor of  21526 15578 Other Subjects (4)Life OrientationEnglish - Home language OR 4X4 (50%4 (50%4 (50%-59%)-59%)59%) 26 (28 with  Faculty of Education:  nmagocoba@ufh.ac.za Mathematical LiteracyLife Sciences 5 (604 (50--69%)59%)-<br>Laws  Programme)(Extended  English Mathematics OR- First additional language 2 (30% – 39%) ML or TM) Faculty of Management & Commerce:  lsitebe@ufh.ac.za  Other Subjects (3)Life Orientation 3X4 (50%4 (50%-59%)59%)<br>Bachelor of Commerce in Law 21527 15573 Mathematical Literacy ORTechnical Mathematics Other Subjects (4)Life OrientationEnglish - Home language OREnglish - First additional language 4 (50%-59%)4 (50%4X4 (50%4 (50%4 (50%-59%)--59%)59%)-59%) 28 (29 with ML or TM) Faculty of Science & Agriculture:Faculty of Health Sciences:  pnhlumayo@ufh.ac.za msmith@ufh.ac.za  Bachelor of Science in SpeechLanguage Pathology 84033 101706 English - Home language OREnglish Mathematics orMathematical LiteracyPhysical ScienceLife Sciences- First additional language 4 (50-59%)4 (50-59%)5 (604 (504 (50---69%)59%)59%)- 28 (29 with ML)<br>Mathematics ORMathematical Literacy OR 4 (50%–59%)5 (60%-69%) Senior Enrolment Officer (East London):  bmgciza@ufh.ac.za  Other Subjects (2)Life Orientation 2X4 (50%4 (50-59%)59%)<br>Technical Mathematics Other Subjects (4) 5 (60%4X4 (50%-69%)-59%) Senior Enrolment Officer (Alice):  zaaron@ufh.ac.za  Bachelor of Nursing 84040 117790 English - Home language OREnglish - First additional language 4 (50-59%) 28 (29 with ML)<br>Life Orientation 4 (50%-59%) Manager, Admissions:  kmatikinca@ufh.ac.za Mathematics ORMathematical Literacy 4 (50-59%)5 (60-69%)<br>National Certificate (Vocational):  Physical Science 4 (50-59%)<br>Achieved 60% in three fundamental subjects, including the Language of Learning and Teaching of the University;  Life Sciences 4 (50-59%)<br>-<br>and achieved at least 60% in four vocational subjects, chosen from the NCV level 4 subjects. Other Subjects (2) 2X4 (50% 59%)<br>Life orientation 4 (50-59%)<br>Appropriate NQF Level 6 qualification:<br>A candidate may be considered for admission into a Bachelor’s degree at the University if they have successfully  Follow us on Social Media @ufh1916<br>completed an appropriate NQF level 6 qualification. Applicants may also obtain complete exemption certificates<br>from the Matriculation Board – USAf www.usaf.ac.za<br>Recognition of Prior Learning:<br>Candidates seeking admission into undergraduate qualifications may also do so through the Recognition of<br>Prior Learning Policy and Procedures of the University.<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-FACULTY OF SCIENCE AND AGRICULTURE<br>STANDARD PROCEDURE FOR ADMISSION TO THE UNDERGRADUATE DEGREES Programme Prog. SAQA ID Subject Requirements Min. Level of  Min APS<br>NEW NATIONAL SENIOR CERTIFICATE (NSC) ENTRANCE REQUIREMENTS: Name* Code (ITS) Achievement Score<br>The 4 NSC subjects required at level 4 must satisfy the following Faculty-specific entry requirements. Bachelor of  71426 100999 English - Home language OR 4 (50-59%) 27<br>Science in  English - First additional language<br>ProgrammeName* Prog.Code (ITS) SAQA ID Subject Requirements Min. Level of Achievement Min APS Score Agriculture (in) Pasture Science** Mathematics AND Physical Science (Level 3 in either Maths or Physics, but the 2 nd  one must be at Level 4) 3 (40-49%) in one and 4 (50%-59%) in the other<br>Bachelor of Science 40000 19236 English - Home language OREnglish MathematicsPhysical Sciences- First additional language 4 (50%-59%)4 (504 (50--59%)59%) 28 (Extended Programme) Life Sciences OR Geography OR Agriculture OR Information TechnologyOther Subjects (2)Life Orientation 4 (50-59%)2X4 (50%4 (50-59%)-59%)<br>Life Sciences OR Geography OR  4 (50-59%) Bachelor of  71521 100995 English - Home language OR 4 (50-59%) 28<br>Agriculture OR Information TechnologyOther Subjects (2)Life Orientation 2X4 (50%4 (50-59%)-59%) Science in Agriculture (in)  English MathematicsLife Sciences- First additional language  4 (504 (50--59%)59%)<br>Bachelor of Science  40400 19236 English - Home language OREnglish - First additional language 4 (50%-59%) 27 Agricultural Economics Agriculture OR Geography OR Information Technology 4 (50-59%)<br>(Extended  Mathematics AND Physical Science 3 (40-49%) in one  Other Subjects (2) 2X4 (50%-59%)<br>Programme)<br><!-- End of picture text -->
-
-|**STANDARD PROCEDURE**<br>**NEW NATIONAL SENIOR**|**FOR ADMISSION TO THE UNDERGRADUATE DEGREES**<br>**CERTIFICATE (NSC) ENTRANCE REQUIREMENTS:**|**Programme**<br>**Name***<br>**Prog.**<br>**Code (ITS)**<br>**SAQA ID Subject Requirements**<br>**Min. Level of**<br>**Achievement**<br>**Min APS**<br>**Score**|**Programme**<br>**Name**<br>**Prog.**<br>**Code (ITS)**<br>**SAQA ID**<br>**Subject Requirements**|**Min. Level of**<br>**Achievement**<br>**Min. APS**<br>**Score**|
-|---|---|---|---|---|
-|<br>The 4 NSC subjects requir|<br>ed at level 4 must satisfy the following Faculty-specifc entry requirements.|<br>Bachelor of<br>Science in<br>71426<br>100999<br>English - Home language OR<br>English-First additional language<br>4 (50-59%)<br>27|<br>Bachelor of Fine<br>Art<br>30100<br>3799<br>English - Home language OR<br>English-First additional language|4 (50 - 59%)<br>27|
-|**Proramme**<br>**Pro**|**SAQA IDSubject Reuirements**<br>**Min Level of**<br>**Min APS**|Agriculture<br> <br>  <br>Mathematics AND Physical Science<br> <br>3 (40-49%) in one<br>|<br>Another Language|4 (50-59%)|
-|**g**<br>**Name***<br>**g.**<br>**Code (ITS)**<br>hl f<br>|<br>  **q**<br>**.**<br>**Achievement**<br> <br>**Score**<br><br>lh   l<br> <br>|(in) Pasture<br>Science**<br> <br>**_(Level 3 in either Maths or Physics, but_**<br>**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br>and 4 (50%-59%) in<br>the other<br>|Other Subjects (4)|1X3 (40%-49%)<br>3X4 (50%-59%)|
-|Baceor o<br>Science<br>40000|19236<br>Engis - Home anguage OR<br>Enlish-First additional lanuae<br>4 (50%-59%)<br>28|**(Extended**<br>**P**<br>Life Sciences OR Geography OR<br> <br>4 (50-59%)|Life Orientation|<br>4 (50-59%)|
-||ggg<br>Mathematics<br>4 (50-59%)|**rogramme)**<br>Agriculture OR Information Technology<br> <br>|Bachelor of Lib<br>32000<br>96531<br>English - Home language OR|<br>4 (50 - 59%)<br>27|
-||<br>Physical Sciences<br>4 (50-59%)<br>Lif Si OR Gh OR<br>4 50-59%|Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)<br> <br><br><br> <br> <br>|and Info Science<br>English-First additional language<br>Another Language|4 (50-59%)|
-||e cences  eograpy<br>Agriculture OR Information Technology<br>()|Bachelor of<br> <br>71521<br>100995<br>English - Home language OR<br>  <br>4 (50-59%)<br>28|Other Subjects (4)|1X3 (40%-49%)<br>|
-||<br>Other Subjects (2)<br>2X4 (50%-59%)<br>Lif Oitti<br>4 5059%|Science in<br>Agriculture<br> <br>English-First additional language<br>Mathematics<br>4 (50-59%)<br> <br>|Life Orientation|3X4 (50%-59%)<br>4 (50-59%)|
-|Bachelor<br>of Science<br>40400|e renaon<br>(-)<br>19236<br>English - Home language OR<br>Enlish-First additional lanuae<br>4 (50%-59%)<br>27|(in)<br>Agricultural<br>Economics<br>Life Sciences<br>4 (50-59%)<br>Agriculture OR Geography OR<br> <br>4 (50-59%)|Bachelor of<br>Music<br>30003<br>116486<br>English - Home language OR<br>English-First additional language|4 (50 - 59%)<br>27|
-|<br>**(Extended**|ggg<br>Mthti AND Phil Si<br>3 (40-49%) i|Information Technology<br> <br>|Another Language|4 (50-59%)|
-|<br>**Programme)**|aemacs  ysca cence<br>**_(Level 3 in either Maths or Physics, but_**<br>**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br>n one<br>and 4 (50%-59%) in<br>the other|Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)<br>|Other Subjects (4)|1X3 (40%-49%)<br>3X4 (50%-59%)<br>|
-||<br> <br>Life Sciences OR Geography OR<br>4 (50-59%)|Bachelor of<br> <br>71421<br>100995<br>English - Home language OR<br>  <br>4 (50-59%)<br>27|Life Orientation|4 (50-59%)|
-||<br>Agriculture OR Information Technology<br>|Science in<br> <br>English-First additional language<br> <br>|Bachelor of<br> <br>30002<br>3923<br>English - Home language OR<br>|4 (50 - 59%)<br>27|
-||<br>Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)|Agriculture<br>(in)<br> <br>Mathematics<br>4 (50-59%)<br>Life Sciences<br>3 (40-49%)|Social Science<br>English-First additional language<br>Another Language|4 (50-59%)|
-|Bachelor of<br>Science in<br>71522|<br> <br>100997<br>English - Home language OR<br>English-First additional language<br>4 (50%-59%)<br>28|Agricultural<br>Economics<br>**(Extended**<br>Geography OR Agriculture OR<br>Information Technology<br>4 (50-59%)|Other Subjects (4)|1X3 (40%-49%)<br>3X4 (50%-59%)|
-|<br>Agriculture|<br>Mathematics<br>4 (50-59%)|<br>**Programme)**<br>Other Subjects (2)<br>2X4 (50%-59%)|Life Orientation|4 (50-59%)|
-|<br>(in) Soil<br>Science|<br>Physical Sciences<br>4 (50-59%)<br>Life Sciences OR Georah OR<br>4 (50%-59%)|Life Orientation<br>4 (50-59%)<br>Bachelor of<br>70001<br>3393<br>English - Home language OR<br>4 (50-59%)<br>28 (29|Bachelor of<br>Social Science<br> <br>30041<br>3923<br>English - Home language OR<br>English-First additional language|4 (50 - 59%)<br>26<br>|
-||gpy<br>Agriculture OR Information Technology<br>|Agriculture<br>English-First additional language<br>with<br><br>|**(Extended**<br><br>Another Language<br>|4 (50-59%)<br>|
-||<br>Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50%-59%)|ML)<br>Mathematical Literacy OR<br>Mathematics<br>5 (60-69%) OR<br>4 (50-59%)<br>|**Programme)**<br>Other Subjects (4)|1X3 (40%-49%)<br>3X4 (50%-59%)<br>|
-|Bachelor of<br>71422|<br> <br>100997<br>Enlish - Home lanuae OR<br>4 (50-59%)<br>27|Agriculture<br>4 (50-59%)<br> <br>|Life Orientation|4 (50-59%)<br>|
-|<br>Science in<br>|g   gg<br>English-First additional language<br> <br>|Other Subjects (3)<br>3X4 (50%-59%)|Bachelor of<br> <br>30201<br>3957<br>English - Home language OR<br>|4 (50 - 59%)<br>27|
-|<br>Agriculture|<br>Mathematics AND Phsical Science<br>3 (40-49%) in one|Life Orientation<br>4 (50-59%)|Social Science in<br><br>English-First additional language<br>||
-|<br>(in) Soil<br>Science|y<br>**_(Level 3 in either Maths or Physics, but_**<br>**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br> <br>and 4 (50%-59%) in<br>the other|Bachelor of<br>Agriculture<br> <br>70401<br>3393<br>English - Home language OR<br>English-First additional language<br>4 (50-59%)<br>27 (28<br>with<br>|Communication<br>Another Language<br>Other Subjects (4)|4 (50-59%)<br>1X3 (40%-49%)<br>|
-|**(Extended**<br>|<br>Life Sciences OR Geography OR<br>4 (50-59%)|**(Extended**<br><br>ML)<br>Mathematical Literacy or<br><br>4 (50-59%) or<br>||3X4 (50%-59%)<br>|
-|**Programme)**|<br>Agriculture OR Information Technology<br> <br>Other Subjects (2)<br>2X4 (50%-59%)|**Programme)**<br>Mathematics<br>3 (40-49%)<br>Agriculture<br>4 (50-59%)|Life Orientation<br>Bachelor of<br> <br>30005<br>94599<br>English - Home language OR<br>|4 (50-59%)<br>4 (50 - 59%)<br>27|
-||<br> <br>Life Orientation<br>4 (50-59%)|Other Subjects (3)<br>3X4 (50%-59%)|Social Science<br> <br>English-First additional language<br>||
-|Bachelor of<br>71523|<br>100998<br>English - Home language OR<br>4 (50-59%)<br>28|Life Orientation<br>4 (50-59%)|in Human<br><br>Another Language<br>|4 (50-59%)<br>|
-|<br>Science in<br>|<br>English-First additional language<br> <br>|Bachelor of<br>70002<br>100994<br>English - Home language OR<br>4 (50-59%)<br>28 (29|Settlement<br>Other Subjects (4)|1X3 (40%-49%)<br>|
-|Agriculture<br>(in)|<br>Mathematics<br>4 (50-59%)<br>Physical Sciences<br>4 (50-59%)|Agriculture<br>(in)<br> <br>English-First additional language<br> <br> <br>with<br>ML)<br>Mathematical Literacy OR<br>5 (60-69%) or<br>|Life Orientation|3X4 (50%-59%)<br>4 (50-59%)|
-|Horticulture|<br> <br>Life Sciences OR Geography OR<br>4 (50-59%)|Agricultural<br><br>Mathematics<br> <br>4 (50-59%)<br>|Bachelor of<br> <br>33002<br>96466<br>English - Home language OR<br>|4 (50 - 59%)<br>27|
-||<br>Agriculture OR Information Technology<br> <br>Other Subjects (2)<br>2X4 (50%-59%)|Extension<br>Agriculture<br>4 (50-59%)<br>Other Subjects (3)<br>3X4 (50%-59%)|Social Work<br>English-First additional language<br>Another Language<br>|4 (50-59%)<br>|
-||<br> <br>Life Orientation<br>4 (50-59%)|Life Orientation<br>4 (50-59%)|Other Subjects (4)|1X3 (40%-49%)<br>|
-|Bachelor of<br>71423|<br> <br>100998<br>English - Home language OR<br>4 (50-59%)<br>27|Bachelor of<br>70402<br>100994<br>English - Home language OR<br>4 (50-59%)<br>27 (28||3X4 (50%-59%)<br>|
-|<br>Science in<br>|<br>English-First additional language<br> <br>|Agriculture<br> <br> <br>English-First additional language<br> <br> <br>with<br>|Life Orientation<br> <br>|4 (50-59%)<br>|
-|<br>Agriculture|<br>Mathematics AND Physical Science<br>3 (40-49%) in one|(in)<br> <br>ML)<br>Mathematical Literacy or<br>4 (50-59%) or<br>|Bachelor of<br><br>10001<br>3487<br>English - Home language OR<br>|4 (50 - 59%)<br>27|
-|<br>(in)<br>Horticulture<br>|<br>**_(Level 3 in either Maths or Physics, but_**<br>**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br> <br>and 4 (50%-59%) in<br>the other|Agricultural<br>Extension<br> <br>Mathematics<br>3 (40-49%)<br>Agriculture<br>4 (50-59%)|Theology<br>English-First additional language<br>Another Language<br>|4 (50-59%)<br>|
-|**(Extended**<br>**Programme)**|<br>Life Sciences OR Geography OR<br>Agriculture OR Information Technology<br>4 (50-59%)|**(Extended**<br>**Programme)**<br>Other Subjects (3)<br>3X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)|Other Subjects (4)<br>|1X3 (40%-49%)<br>3X4 (50%-59%)<br>|
-||Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)|**FOUNDATION/EXTENDED PROGRAMME**|Life Orientation<br>Diploma in Fine<br><br>35000<br>4019<br>English - Home language OR<br>|4 (50-59%)<br>4 (50 - 59%)<br>22|
-|Bachelor of<br>71524|<br>101000<br>English - Home language OR<br>28|<br>The extended programme follows the same structure as the mainstream programme but its curriculum is|Art<br>English-First additional language<br>||
-|Science in<br>Agriculture<br>|<br>English-First additional language<br>Mathematics<br>4 (50-59%)|,<br>extended over a longer period and there is additional academic support. Extended Programme students must<br>tk n mr r t mlt thir dr thn mintrm tdnt Th tdnt mt ritr fr|An achievement rating of 3 (40 -<br>49%) or higher in four 20-credit NS<br>|C<br>4X3 (40%-49%)|
-|(in) Crops|<br>Physical Sciences<br>4 (50-59%)<br>Life Sciences OR Geography OR<br>Agriculture OR Information Technology<br>4 (50-59%)|ae oe oe yea o copee e egee a asea sues. ese sues us egse o<br>Social Transformation (STF) which is a value-addition course in their frst year of registration. This course<br>assists students in developing their academic skills towards their qualifcation.|subjects;<br>An achievement rating of 2 (30 -<br>39%) or higher in one 20-credit NS<br>bt|C<br>1X2 (30 - 39%)|
-||<br>Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)||sujec;<br>Life Orientation|4 (50-59%)|
-|Bachelor of<br>71424|<br> <br>101000<br>English - Home language OR<br>4 (50-59%)<br>27||||
-|<br>Science in<br>|<br>English-First additional language<br> <br>|**FACULTY OF SOCIAL SCIENCE AND HUMANITIES**|**MATURE AGE EXEMPTION**||
-|Agriculture<br>(in) Crops<br>|<br>Mathematics AND Physical Science<br>**_(Level 3 in either Maths or Physics, but_**<br>3 (40-49%) in one<br>and 4 (50%-59%) in|<br>|<br>Mature age applicants are those who are 23 years and above with a senior<br>b  dd d d b l  l d|certifcate and a pass in four (4)<br>b h f h|
-|**(Extended**<br>|<br>**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br> <br>the other|**ADMISSION REQUIREMENTS:**<br>|sujects (E Stanar Grae an aove), namey two anguages an two<br>|ontent sujects. Tree o tese<br>|
-|**Programme)**|Life Sciences OR Geography OR<br> <br>3X4 (50%-59%)|Please note: These are only minimum entrance requirements and the fnal student selection will be strictly on|must be from one examination sitting. An applicant who will be turning 23 i<br>|n his/her frst year of registration<br>|
-||Agriculture OR Information Technology<br>Other Subjects (2)|merit. In the case of ties, applicants will be subjected to an aptitude test and the highest scorer gets selected<br>All applicants to meet the requirements for Bachelors admission for NSC OR they must have obtained Matric|shall be considered for Mature Age.  Applicants need to apply for complete<br>Matriculation Board – USAf www.usaf.ac.za|exemption certifcates from the|
-|Bachelor of<br>Science in<br> <br>71525|Life Orientation<br>4 (50-59%)<br>100996<br>English - Home language OR<br>English-First additional language<br>4 (50-59%)<br>28|Exemption OR Pass with Endorsement or with Merit.<br>**National Certifcate (Vocational):**|**FOUNDATION/ EXTENDED PROGRAMME**<br>The Social Sciences and Humanities Foundation/extended Programme is an<br>|entrance programme intended to<br>|
-|Agriculture<br>|Mathematics<br>4 (50-59%)|Achieved 60% in three fundamental subjects, including the Language of Learning and Teaching of the University;|provide a strong academic foundation to students who do not meet Faculty o<br>|f Social Sciences and Humanities<br>|
-|(in) Animal<br>*|Physical Sciences<br>4 (50-59%)|and achieved at least 60% in four vocational subjects, chosen from the NCV level 4 subjects.|minimum entrance requirements because they do not have sufcient Swedis|h rating points.|
-|Production|<br> <br>Life Sciences OR Geography OR<br>4 (50-59%)|<br>|The extended programme follows the same structure as mainstream program|me but its curriculum is extended|
-||<br>Agriculture OR Info Tech<br>|**Appropriate NQF Level 6 qualifcation:**|<br>over a loner eriod and there is additional academic suort Extended Pr|,<br>ramme students must take one|
-||Other Subjects (2)<br>2X4 (50%-59%)<br>Life Orientation<br>4 (50-59%)|A candidate may be considered for admission into a Bachelor’s degree at the University if they have successfully<br>completed an appropriate NQF level 6 qualifcation. Applicants may also obtain complete exemption certifcates|g p      pp.<br>more year to complete their degree than mainstream students. These stud<br>|g<br>ents must register for Academic<br>|
-|Bachelor of<br>Science in<br>71425|<br>100996<br>English - Home language OR<br>English-First additional language<br>4 (50-59%)<br>27|<br>from the Matriculation Board – USAf www.usaf.ac.za|Practices and Reasoning (APR) which is a value-addition course in their frs<br>assists students in developing their academic skills towards their qualifcatio|year of registration. This course<br>n.|
-|Agriculture<br>|<br>Mathematics AND Physical Science<br>3 (40-49%) in one||**RECOGNITION/TRANSFER OF CREDITS FROM OTHER UNIVERSITIES AND C**|**OLLEGES**|
-|(in) Animal<br>|<br>**_(Level 3 in either Maths or Physics, but_**<br>  <br> <br>and 4 (50%-59%) in<br>|**Programme**<br>**Prog.**<br>**SAQA ID**<br>**Subject Requirements**<br>**Min. Level of**<br>**Min. APS**|<br>The Facult informed b the relevant Department ma appl to Senate f|<br>or exemption of candidate from|
-|Production<br>|**_the 2_**<sup>**_nd_**</sup>**_one must be at Level 4)_**<br>the other<br>|**Name**<br><br>**Code (ITS)**<br> <br> <br> <br>**Achievement**<br> <br>**Score**|y,  y    y y<br>ttd d t i  dl  th d f thi hi|<br>btid dit f th|
-|**(Extended**<br>**P**|Life Sciences OR Geography OR<br> <br>4 (50-59%)|<br>Bachelor of Arts<br>30000<br>115408<br>English - Home language OR<br>4 (50%-59%)<br>27|aenance an assessmen n a moue on e grouns o er avng<br>il dl ibd f h lifi f h Uii  C|ane cres or e same o<br>ll idd h Uii|
-|**rogramme)**|Agriculture OR Information Technology<br>Other Subjects (2)<br>2X4 (50%-59%)<br> <br>|<br>English-First additional language<br> <br>Another Language<br>4 (50%-59%)|equvaent moues prescre or anoter quacaton o te nversty or<br>College is CHE (Council for Higher Education) accredited.|ege, prove suc nversty or|
-|Bachelor of<br> <br>71526|Life Orientation<br>4 (50%-59%)<br>100999<br>English - Home language OR<br>  <br>4 (50-59%)<br>28|<br> <br>Other Subjects (4)<br>1X3 (40%-49%)<br>3X4 (50%-59%)|Please Note: If the Diploma was used to gain entry into the University, such<br>credits Students may also be admitted in terms of the University Policy on Re|Diploma cannot be used to gain<br>cognition of Prior Learning (RPL)|
-|Science in<br>Agriculture<br>(in) Pasture<br>**|English-First additional language<br>Mathematics<br>4 (50-59%)<br>Physical Sciences<br>4 (50-59%)|<br>Life Orientation<br>4 (50%-59%)<br>Bachelor of<br>Arts**(Extended**<br>30040<br>115408<br>English - Home language OR<br>English-First additional language<br>4 (50%-59%)<br>26|.<br>(Please refer to the UFH RPL policy).|.|
-|Science|Life Sciences OR Geography OR<br> <br>4 (50-59%)|<br>**Programme)**<br>  <br>Another Language<br>4 (50%-59%)|||
-||Agriculture OR Information Technology<br>Other Subjects (2)<br>2X4 (50%-59%)|<br> <br>Other Subjects (4)<br>1X2 (30%-39%)<br>3X4 (50%-59%)|||
-||Life Orientation<br>4 (50-59%)|<br>Life Orientation<br>4 (50%-59%)||ML: Mathematical Literacy|
-
-
-
-
-
-<!-- Start of picture text -->
-ML: Mathematical Literacy<br><!-- End of picture text -->
-
-|**Programme**<br>**Name**|**Prog.**<br>**Code (ITS)**|**SAQA ID**|**Subject Requirements**|**Min. Level of**<br>**Achievement**<br>|**Min. APS**<br>**Score**|
-|---|---|---|---|---|---|
-|Bachelor of Arts|30000|115408|English - Home language OR<br>English-First additional language|4 (50%-59%)<br>|27|
-||||Another Language|4 (50%-59%)||
-||||Other Subjects (4)|1X3 (40%-49%)<br>3X4 (50%-59%)<br>||
-||||Life Orientation|4 (50%-59%)<br>||
-|Bachelor of<br>Arts**(Extended**<br>|30040|115408|English - Home language OR<br>English-First additional language|4 (50%-59%)|26|
-|**Programme)**|||Another Language|4 (50%-59%)||
-||||Other Subjects (4)|1X2 (30%-39%)<br>3X4 (50%-59%)||
-||||Life Orientation|4 (50%-59%)||
-
-
-
+Programme
+Name*
+Bachelor of
+Science
+*Streams
+Bachelor
+of Science
+(Extended Programme)
+Bachelor of
+Science in
+Agriculture
+(in) Soil
+Science
+Bachelor of
+Science in
+Agriculture
+(in) Soil
+Science
+(Extended Programme)
+Bachelor of
+Science in
+Agriculture
+(in)
+Horticulture
+Bachelor of
+Science in
+Agriculture
+(in)
+Horticulture
+(Extended Programme)
+Bachelor of
+Science in
+Agriculture
+(in) Crops (Extended Programme)
+Bachelor of
+Science in
+Agriculture
+(in) Animal
+Production
+(Extended Programme)
+### FACULTY OF SCIENCE AND AGRICULTURE
+### STANDARD PROCEDURE FOR ADMISSION TO THE UNDERGRADUATE DEGREES
+Mainstream and Extended Programmes
+National Senior Certificate (NSC) Entrance Requirements: The 4 NSC subjects required at level 4 must satisfy
+the following Faculty-specific requirements.
+Prog.
+SAQA ID Subject Requirements Code (ITS)
+40000 19236 English - Home language OR
+Min. Level of
+Achievement
+4 (50%-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+40400 19236 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71522 100997 English - Home language OR
+4 (50%-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50%-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+71422 100997 English - Home language OR
+4 (50-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71523 100998 English - Home language OR
+4 (50-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71423 100998 English - Home language OR
+4 (50-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71524 101000 English - Home language OR
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71424 101000 English - Home language OR
+4 (50-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2x4 (50-59%)
+Life Orientation 4 (50-59%)
+71525 100996 English - Home language OR
+4 (50-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Info Tech
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71425 100996 English - Home language OR
+4 (50-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+71526 100999 English - Home language OR
+4 (50-59%) 28
+English - First additional language
+Mathematics 4 (50-59%)
+Physical Sciences 4 (50-59%)
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+Min APS
+Score
+Life Orientation 4 (50-59%)
+Bachelor of
+Science in
+Agriculture
+(in)
+Agricultural
+Economics
+Mathematics 4 (50-59%)
+Bachelor of
+Science in
+Agriculture
+(in) Crops
+28
+Programme
+Name*
+Bachelor of
+Science in
+Agriculture
+(in) Pasture
+Science**
+(Extended Programme)
+Prog.
+SAQA ID Subject Requirements Code (ITS)
+71426 100999 English - Home language OR
+Min. Level of
+Achievement
+4 (50-59%) 27
+English - First additional language
+Mathematics AND Physical Science
+(Level 3 in either Maths or Physics, but
+3 (40-49%) in one and 4 (50%-59%) in
+the 2nd one must be at Level 4)
+the other
+Life Sciences OR Geography OR
+4 (50-59%)
+Agriculture OR Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Min APS
+Score
+71521 100995 English - Home language OR
+English - First additional language
+4 (50-59%) 28
+Bachelor of
+Science in
+Agriculture
+(in)
+Agricultural
+Economics
+(Extended Programme)
+Bachelor of
+Agriculture
+Bachelor of
+Agriculture
+(Extended Programme)
+Life Sciences 4 (50-59%)
+Agriculture OR Geography OR
+4 (50-59%)
+Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+71421 100995 English - Home language OR
+4 (50-59%) 27
+English - First additional language
+Mathematics 4 (50-59%)
+Life Sciences 3 (40-49%)
+Geography OR Agriculture OR
+4 (50-59%)
+Information Technology
+Other Subjects (2) 2X4 (50%-59%)
+Life Orientation 4 (50-59%)
+70001 3393 English - Home language OR
+4 (50-59%) 28 (29
+English - First additional language
+with
+Mathematical Literacy OR
+Mathematics
+5 (60-69%) OR 4 (50-59%)
+ML)
+Agriculture 4 (50-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+70401 3393 English - Home language OR
+4 (50-59%) 27 (28
+English - First additional language
+with
+Mathematical Literacy or
+Mathematics
+4 (50-59%) or 3 (40-49%)
+ML)
+Agriculture 4 (50-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+70002 100994 English - Home language OR
+4 (50-59%) 28 (29
+English - First additional language
+with
+Mathematical Literacy OR
+Mathematics
+5 (60-69%) or 4 (50-59%)
+ML)
+Agriculture 4 (50-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+70402 100994 English - Home language OR
+4 (50-59%) 27 (28
+English - First additional language
+with
+Mathematical Literacy or
+Mathematics
+4 (50-59%) or 3 (40-49%)
+ML)
+Agriculture 4 (50-59%)
+Other Subjects (3) 3X4 (50%-59%)
+Life Orientation 4 (50-59%)
+PLEASE NOTE: For the extended programme, a student may also be considered where a Level 3 has been
+obtained in any other subject except Life Orientation, on condition that the rest of the subjects have been
+passed at Level 4 or above.
+FOUNDATION/EXTENDED PROGRAMME: The extended programme follows the same structure as the
+mainstream programme, but its curriculum is extended over a longer period and there is additional academic
+support. Extended Programme students must take one more year to complete their degree than mainstream
+students.
+*BACHELOR OF SCIENCE STREAMS
+Bachelor of
+Agriculture
+(in)
+Agricultural
+Extension
+Bachelor of
+Agriculture
+(in)
+Agricultural
+Extension
+(Extended Programme)
+Botany and Entmology - 40008 Botany and Microbiology - 40009 Chemistry and Botany - 40011 Chemistry Single Major - 40012 Chemistry and Geology - 40013 Computer Science and Applied Mathematics - 40014 Computer Science and Physics - 40015 Computer Science and Statistics - 40016 Mathematics and Chemistry - 40026
+Microbiology and Zoology - 40027
+Mathematical Statistics and Mathematics - 40028
+Statistics and Geology - 40029
+Entomology and Microbiology - 40032
+Gis and Zoology - 40033
+Gis and Entomology - 40034
+Applied Mathematics and Mathematics - 40035
+Geography and Geology - 40017 Applied Mathematics and Statistics - 40036
+Geography and Gis - 40018 Applied Mathematics and Physics - 40037
+Bachelor of
+Science in
+Agriculture
+(in) Animal
+Production*
+Bachelor of
+Science in
+Agriculture
+(in) Pasture
+Science**
+Gis and Computer Science - 40020 Geology and Gis - 40022 Geology and Physics - 40023 Mathematics and Physics - 40024 Mathematics and Computer Science - 40025 Biochemistry and Microbiology - 40039
+Biochemistry and Chemistry - 40040
+Biochemistry and Computer Science - 40041
+Botany and Zoology - 40042
+Chemistry and Physics - 40043
+### FACULTY OF SOCIAL SCIENCE AND HUMANITIES
+### ADMISSION REQUIREMENTS:
+Please note: These are only minimum entrance requirements and the final student selection will be strictly on
+merit. In the case of ties, applicants will be subjected to an aptitude test and the highest scorer gets selected
+All applicants to meet the requirements for Bachelors admission for NSC OR they must have obtained Matric
+Exemption OR Pass with Endorsement or with Merit.
+National Certificate (Vocational):
+Achieved 60% in three fundamental subjects, including the Language of Learning and Teaching of the University;
+and achieved at least 60% in four vocational subjects, chosen from the NCV level 4 subjects.
+Appropriate NQF Level 6 qualification:
+A candidate may be considered for admission into a Bachelor’s degree at the University if they have successfully
+completed an appropriate NQF level 6 qualification. Applicants may also obtain complete exemption certificates
+from the Matriculation Board – USAf www.usaf.ac.za
+Bachelor of Fine
+Art
+Bachelor of Lib
+and Info Science
+Bachelor of
+Music
+Bachelor of
+Social Science
+Bachelor of
+Social Science
+(Extended Programme)
+Bachelor of
+Social Science in
+Communication
+Programme
+Name
+Prog.
+SAQA ID Subject Requirements Code (ITS)
+Bachelor of Arts 30000 115408 English - Home language OR
+Min. Level of
+Achievement
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) Life Orientation 4 (50%-59%)
+Bachelor of
+Arts (Extended Programme)
+30040 115408 English - Home language OR
+1X3 (40%-49%) 3X4 (50%-59%)
+4 (50%-59%) 26
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X2 (30%-39%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+30100 3799 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+32000 96531 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+30003 116486 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language Other Subjects (4) Life Orientation 30002 3923 English - Home language OR
+4 (50 - 59%)
+1X3 (40%-49%) 3X4 (50%-59%)
+4 (50 - 59%)
+4 (50 - 59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+30041 3926 English - Home language OR
+4 (50%-59%) 26
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X2 (30%-39%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+30201 3957 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+33002 96466 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+30006 111455 English - Home language OR
+4 (50%-59%) 27
+English - First additional language
+Another Language 4 (50%-59%)
+Other Subjects (4) 1X3 (40%-49%) 3X4 (50%-59%)
+Life Orientation 4 (50%-59%)
+35000 4019 English - Home language OR
+4 (50%-59%) 22
+English - First additional language
+An achievement rating of 3 (40 - 49%) or higher in four 20-credit NSC
+4X3 (40%-49%)
+subjects;
+An achievement rating of 2 (30 - 39%) or higher in one 20-credit NSC
+1X2 (30%-39%)
+subject;
+Min. APS
+Score
+Life Orientation 4 (50%-59%)
+### MATURE AGE EXEMPTION
+Mature age applicants are those who are 23 years and above with a senior certificate and a pass in four (4)
+subjects (E Standard Grade and above), namely two languages and two content subjects. Three of these
+must be from one examination sitting. An applicant who will be turning 23 in his/her first year of registration
+shall be considered for Mature Age. Applicants need to apply for complete exemption certificates from the
+Matriculation Board – USAf www.usaf.ac.za
+### FOUNDATION/ EXTENDED PROGRAMME
+The Social Sciences and Humanities Foundation/extended Programme is an entrance programme intended to
+provide a strong academic foundation to students who do not meet Faculty of Social Sciences and Humanities
+minimum entrance requirements because they do not have sufficient Swedish rating points.
+The extended programme follows the same structure as mainstream programme, but its curriculum is extended
+over a longer period and there is additional academic support. Extended Programme students must take one
+more year to complete their degree than mainstream students. These students must register for Academic
+Practices and Reasoning (APR) which is a value-addition course in their first year of registration. This course
+assists students in developing their academic skills towards their qualification.
+### RECOGNITION/TRANSFER OF CREDITS FROM OTHER UNIVERSITIES AND COLLEGES
+The Faculty, informed by the relevant Department may apply to Senate for exemption of candidate from
+attendance and assessment in a module on the grounds of their having obtained credits for the same or
+equivalent modules prescribed for another qualification of the University or College, provided such University or
+College is CHE (Council for Higher Education) accredited.
+Please Note: If the Diploma was used to gain entry into the University, such Diploma cannot be used to gain
+credits. Students may also be admitted in terms of the University Policy on Recognition of Prior Learning (RPL).
+(Please refer to the UFH RPL policy).
+Bachelor of
+Social Work
+Bachelor of Arts
+in Philosophy,
+Politics and Law
+Diploma in Fine
+Art

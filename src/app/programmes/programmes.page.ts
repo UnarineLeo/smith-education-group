@@ -387,7 +387,7 @@ export class Programmes implements OnInit, OnDestroy {
 
   getAdmissionScoreLabel(programme: Programme): string {
     if (programme.universityName === 'Nelson Mandela University') return 'AS';
-    if (programme.universityName === 'University of Cape Town') return 'Sub-minimum APS';
+    if (programme.universityName === 'University of Cape Town') return 'APS';
     return 'APS';
   }
 

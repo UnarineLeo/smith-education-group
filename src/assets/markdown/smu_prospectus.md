@@ -1,1605 +1,3708 @@
-
-
-<!-- Start of picture text -->
-Et - es e<br>‘i j Ae _ -“ A : Sen 8<br>|<br>B S ) SEFAKO MAKGATHO for impact across the continent and<br>NG He ActH SCIENCES UNIVERSITY<br><!-- End of picture text -->
-
-
-
-
-
-**Scan this QR code with your phone camera to share a digital copy of this prospectus with a friend.** 
-
-~~——— table of contents~~ ~~<mark>—</mark> —————_~~ 
-
-Vision, Mission, Motto 
-
-Prospective Student Applications- Frequently Asked Questions 
-
-b) School of Dentistry 
-
-Academic Literacy Science Communication 
-
-Library and Information Services 
-
-Assessment and Certification Office 
-
-Educational Psychology Unit 
-
-4 42 5 44 6 Information Communication Technology (ICT) 45 Medical Illustration And Audio-Visual Services (MIAAVS) 49 8 Internationalisation Directorate 51 11 Research and Innovation Directorate 53 13 56 19 57 24 58 26 59 27 60 28 61 30 62 32 64 33 66 35 Sport and Recreation 67 36 Alumni Relations Office 71 37 72 39 73 
-
-4l 
-
-3 
-
-
-
-<!-- Start of picture text -->
-education in a range of fields<br>, teaching, learning, innovative<br>\ )<br>><br>|<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-a<br>Rae,<br>ip CARS33 ee EEG ea A<br>a99 Paid ieeeoadoad . | y==|=| OOetet re Seen=<=< etn poone,ne,<br>yf een, oe meee<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-education in a range of fields a<br>Rae,<br>ip CARS33 ee EEG ea A<br>, teaching, learning, innovative a99 Paid ieeeoadoad . | y==|=| OOetet re Seen=<=< etn poone,ne,<br>\ ) innovation. yf een, oe meee<br>> 4 ? 7 oS ~. ve . : 2 ld = oe5<br>| ——— aT == SSS<br>= Hee > S| SSS = ————-+ } fae eds ad A od<br><!-- End of picture text -->
-
-When did SMU | Which openitsdoors? Wa courses are \ offered at SMU? 7 | ie University opened its doors on - { 1 January 2015 after the Medunsa | - SMU focuses on health and science == Campus was uncoupled from the ] courses as part of government plans University of Limpopo and yy, to expand access to education and incorporated into training opportunities for the youth, SMU. — by increasing the number of young ~ = people in education, training When was SMU established? a an ‘Kes Nard employment Where is Sy —T fy SMU was established when the Minister of Higher Education, Science and SMU | d? TEESE va - Technology, Dr Blade Nzimandein terms of section 20 of the Higher Education Act ocated: Omission si - Universityml (SMU) in the SA GovernmentGazette no: 37658of 16 May 2014. SMU isEenlocatedinneGa-Rankaon * eo er / How do | Y Township (next to Dr George a apply to study - The promulgation followed the announcement made in 2011, by Minister eiubnae ceases Hospital). = 2 at SMU? . . . GPS Coordinates: Nzimande, when he announced his intention to separate Medunsa Campus Unit, A aa is - | from University. . of Limpopo.. The minister's_ 1intention. was based on the findings. 25°37'8"S 28°1'22"E SEad aocr and recommendations of the task team that was established and led by Prof . Visit: Nu.2 Who its Sefako Makgatho?* — | \ SMU is named after a highly acclaimed politician, journalist, educationalist and theologian who championed the struggle for South Africa that is democratic, non-racist and equal. 
-
-5 
-
-
-
-<!-- Start of picture text -->
-a<br>in<br>& "|<br>[><br>— ioe<br><!-- End of picture text -->
-
-# p ROS p E CTIVE 
-
-F R E QU E N TLY AS KE D QU ESTI O NS 
-
-Applications open on Tuesday, 1 April 2025 and the closing dates are as<sup>follows:</sup> The closing date for the submission of the 2026 applications for all undergraduate qualifications is Thursday, 31 July 2025. You are allowed to apply for a maximum of two qualifications, first choice and How many qualifications/degrees can | apply for? For information on admissions requirements and relevant school subjects, refer Admissions and selection rules for different Schools. The University receives more applications than it can accommodate, and meeting admission requirements does not guarantee admission. You can apply online. However, online applications are currently limited to undergraduate qualifications for South African and International applicants who havInd **e** writtenpendent orEx **a** minare s **t** udyingions Board towards(IEB) thecertificateNational Senioror studying Certificateat other(NSC)South and African Universities. To complete the Application Form accurately online. PayUpload the R300the following non-refundabledocuments: applicationcertifiedfee; andcopies of your ID/passport; Grade 11/12 results; academic record (if you have attended other universities including SMU) and proofof payment of the non-refundable application fee. If laman international student, how dolapplyto study at SMU? All non-South African citizens and non-permanent residents must obtain a study permit before registering as students. Application for study permits should be 
-
-6 
-
-submitted to the South African Home Affairs, Consulate or High Commissioner in 
-
-Health Sciences University (SMU). The study permit should be submitted during registration. 
-
-The final selection will take place in January 2026, after the release of Grade 12/NSC results by the Department of Basic Education and Independent Examinations Board. 
-
-There will be SMS and email notifications and/or telephone callsto applicants. You can also check the status of your application on after the 
-
-How muchis the application fee? The applicationfee is R300 and is non-refundable. 
-
-Where and how do! deposit the application fee? 
-
-When can | expect a response about the outcome of my application if | have already You can check the status of your application on the student portal 
-
-When is registration going to take place for the accepted applicants? Successful applicants will be informed about registration details in January 2026. 
-
-Application without proof of payment and relevant documents will not be 
-
-Yes, the offer can be withdrawn if the information provided by the applicant is found to be untruthful after an admission offer has been made. The admission 
-
-What documents do] attach to the application form? Certified copy of your ID or Birth Certificate. 
-
-Certified copy of final Grade 11 results or mid-year Grade 12 results or National How do lapply for SMU student residence/accommodation? Senior Certificate (NSC)/Matric Certificate (if you have completed Grade There is an option for residential application on the Application system. 
-
-Official academic record(s) from previous university (ies) attended, including 
-
-Proof of application fee payment (copy of deposit slip).How do | know if my SMU application form has been received? You will receive an SMS/email notification. 
-
-> When can| expect a response about the status of my application if |am in Grade 12? Pre-selections will be done between September and October 2025, using your 
-
-Does SMU consider late applications? Unfortunately, late applications will not be considered. Where can|get more information about the application process? 
-
-7 
-
-
-
-<!-- Start of picture text -->
-mY. fe om fF wie. ‘= > ‘ I<br>SCHOOL OF MEDICINE<br>u<br>- \ ) =<br>|<br>) JS by . 7"<br>, bd ze P af ? https://www.smu.ac.za/schools/medicine/medicine-undergraduate-admission-<br>| % : \- 25= we mYbea eawinloue, Entry into this programmeis programmeisis very competitive. competitive.<br>4 Mathematics<br>5<br>& —<br>N a , \é Additional Subject 1<br>5% — seat Additional Subject 2<br>XN t Ui é ih Life Orientation<br>“ ~*~ , 2. Duration<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-https://www.smu.ac.za/schools/medicine/medicine-undergraduate-admission-<br>eawinloue,<br>Entry into this programmeis programmeisis very competitive. competitive.<br>Mathematics<br>Additional Subject 1<br>Additional Subject 2<br>Life Orientation<br>Duration<br><!-- End of picture text -->
-
-Career Opportunities Can work in innovation and research. 
-
-
-
-<!-- Start of picture text -->
-Substantial Achievement<br><!-- End of picture text -->
-
-8 
-
-of exemption.), or M-score of 10 and a minimum of an E symbol on Higher Grade or D English, Mathematics, Biology/Physiology 
-
-ECP) is reserved for South African Black learners from Quintile 1 and 2 schools who have not previously been engaged in tertiary education and have not been 
-
-National Certificate must have achieved a minimum pass of 60% for E Mathematics, Life Sciences National Senior Certificate with a Diploma endorsement must have the<sup>following</sup> subjects and minimum rating levels. 
-
-Applications that do not meet the above criteria are declined. Only 50 spaces are available on a competitive basis. After completing the one-year foundation 
-
-Mathematics: 3 
-
-Additional (1):3 Additional (2):3 
-
-The applicant must pass the Medical Fitness and Physical Fitness Evaluations. Mathematics Duration:2 years <u>AdditionalLife</u> OrientationSubject <u>1</u> RegistrationOo with the HPCSA as<sup>a Paramedic.</sup> <u>Additional Subject 2</u> 
-
-Higher Certificate in Emergency Medical Care (HCERT EMC) 
-
-For applicants who graduated when the symbol system was still in use, the requirements 
-
-Senior Certificate with (Matriculation exemption is a legal requirement, enter tertiary studies in public universitiesinSouth Africa apply for a certificate 
-
-For applicants who graduated when the symbol system was still in use, the requirements Senior Certificate with a minimum of an E symbol ona Higher Grade ora D symbol on a Standard Grade pass for English Mathematics, Biology and/or Physical Mathematics, Life Sciences and/or Physical Sciences. 
-
-9 
-
-National Senior Certificate with a Higher Certificate endorsement must have passed the following subjects and the specified minimum rating level. 
-
-Mathematics 
-
-Mathematics: 3 or Mathematical Literacy: 4 
-
-Additional subject (1): 3 Additional subject (2): 3 
-
-Life Orientation: 3 and others: 6 
-
-The applicant must pass the Medical Fitness and Physical Fitness Evaluations. 
-
-Duration: 1 year 
-
-Registration with the HPCSA as an Emergency Care Assistant (ECA). 
-
-Bachelor of Diagnostic Radiography (B RAD) 
-
-Career Opportunities The following are the environments where career opportunities are available: 
-
-
-
-<!-- Start of picture text -->
-Substantial Achievement<br><!-- End of picture text -->
-
-Radiography Education Corporate (MarketingApp Specialist). 
-
-National senior certificate (NSC) for Degree purposes with (Mathematics, 
-
-10 
-
-
-
-<!-- Start of picture text -->
-SCHOOL OF DENTISTRY<br>©<br>‘ ' as sea<br>1 ale sete<br>—_—_—_——— For applicants with qualification/partial quali uire-<br>> : 4 m ents will apply. Please get in touch with the School of Dentistry for mor information at<br>4h Mathematics<br>, 4<br>-_ agg Additional Subject 1<br>fs _ Additional Subject 2<br>“2 = } Life Orientation<br>x : ¢ Duration: 5 Years<br>2" oa<br>a{ gi . Folwee, Dentists'entists' work work ranges ffrom h the preventionion ofof tooth tooth d decay,andd preparation an d<br>- > =. filling of cavities to highly intricate tooth reconstruction and realignment<br>procedures, and exciting methods to perfect the appearance of the mouth,<br>AG Dentists can become specialists in oral surgery, orthodontics, perio and oral<br>4<br>4 4 iT<br><!-- End of picture text -->
-
-Criteria for foreign nationals 
-
-###### National Senior Certificate (NSC) 
-
-
-
-<!-- Start of picture text -->
-Mathematics<br>Additional : F 2 Subjects :<br>Life Orientation<br><!-- End of picture text -->
-
-Duration: 3 years 
-
-Career Opportunities: A Dental Therapist performs all the basic procedures, e.g., tooth extractions, 
-
-He/she can work ain private practice, public dental services, and academic dentistry. Criteria for selection of applicants with completed 1st year BSc | degree courses or 
-
-Two top students with completed 1st year BSc or equivalent courses at SMU will after applicationPR be afforded an opportunityPR y to enrol into BDS |, if spacePp is available. The distinctions and an overall average of 75% and above for the year will be considered. selection will be ona competitive basis. 
-
-A relevant matriculation or examination results that qualifies enrolment into a degree program (for SADC nationals from SADC countries not offering dentistry), with an APS to be determined by the enrolment committee on basis of Table 2). The applicants must include a matric exemption certificate issued by South African Qualification Authority(SAQA) as well as proof of Identification(IDdocumenor passpor **t** ). Nationalational SeniorSenior CertificateCertificate (NSC) Mathematics <u>Additional 2 Subjects</u> Life Orientation 
-
-###### <u>Mathematics Literacy</u> 
-
-
-
-<!-- Start of picture text -->
-Additional — 2 Subjects-<br>Life Orientation<br><!-- End of picture text -->
-
-Duration: 3 years 
-
-Career Opportunities preventative procedures, including health promotions. They can work in private practice, public dental services, and academic dentistry. 
-
-12 
-
-##### SCHOOL OF PHARMACY 
-
-Online Higher Certificate in Vaccinology [HCERT (VACC)] (SCV01) 
-
-About the HCert (Vacc) qualification 
-
-
-
-<!-- Start of picture text -->
-»<br>) atLS ;<br>; i<br>! nk,<br>;<br>eb) |<br>F i. ¢<br>P } 7<br>J * _<br>—<br>— —-_.<br>tiie<br>aa —<br>:<br>_<br>> ~~,<br><!-- End of picture text -->
-
-The HCert (Vacc) is designed to equip healthcare workers (HCWs) with the theoretical knowledge and practical expertise necessary for running an up-to-date clinic offering vaccination services. The HCert (Vacc) is registered on the National Qualifications the SA Nursing Council, or a 3-year qualification in health sciences (i.e. in which training in vaccinating is included) from a tertiary institution registered with the Selection criteria: 
-
-working within the field of vaccination, or who are planning to work within this field. Applicants will be required to write a motivation explaining why they should Duration minimum: 1 year 2 years Maximum duration: Registration The programmeis divided into 2 blocks consisting The first block consists of Modules 1 to 5 and a draft Portfolio of Vaccinology of 11 modules. Theory and Practice for formative assessment. The second block consists of Modules 6 to 11 and includes practical assignments with formative assessments of practice, a certificate of competence and a final Portfolio of Vaccinology Theory and Practice for the End of Year Summative Assessment. 
-
-
-
-<!-- Start of picture text -->
-. . .<br>Introduction to Human Infectious Disease<br>Introduction to vaccinology<br>. : .<br>Introduction to vaccine manufacturing and<br>tgs<br>distribution<br>Introduction to the Expanded Programme on<br>Immunisation of South Africa (EPI-SA)<br>Introduction to the epidemiology of vaccine<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Combined online teaching with practical<br>EPI vaccination schedules and strategies<br>Introduction to Cold Chain Management<br>Introduction; to the safe administration. ;<br>Introduction to adverse events following<br>immunisation<br>Introduction to advocacy, communication,<br>and social mobilisation to increase<br>vaccination uptake<br>Monitoring and evaluation of EPI-SA<br><!-- End of picture text -->
-
-Recognition of prior learning 
-
-Modules 6 to 11 have practical assignments which are based on vaccination practices. a. ; Students who are already competent in vaccination practices and can produce evidence of this competence will be able to submit this evidence and thus be exempt from completing sign a certificate of practice for each specific task, and these certificates will form part of ; ; the Portfolio of Vaccinology Theory and Practice. All students, even those with Recognition of Prior Learning in practical skills, must attend the virtual "communication" component of the practicals using Blackboard Ultra Collaborate. This is a mandatory part of the course to ensure everyone develops essential communication skills relevant to vaccination practices, regardless of their prior expe- 
-
-Qualified HCWs will be ableto promote vaccination with confidence, which will in turn increase public confidence in vaccination, and thereby increase vaccination oo ; The HCert (Vacc) qualification is approved by the Department of Higher Education and Training and the Council for Higher Education and is accredited by the South African Qualifications Authority. Funding is available upon application, to cover student registration and tuition fees. While HCWs employed in the public sector are prioritised, HCWs employed in the private sector 
-
-Contact information ~~info@savic.ac.za/http://savic.ac.za/~~ https://www.smu.ac.za/schools/pharmacy/school-of-pharmacy-academic-programmes/ 
-
-14 
-
-The BPharm at SMU follows an integrated, thematic, hybrid problem-based modular method ofinstruction and thus has a limited numberof places. National Senior Certificate (NSC) Applicants 
-
-~~Mathematics~~ <u>Additional Subject 1: preferably Accounting Additional Subject 2: Economics</u> Life Orientation 
-
-Applications will be considered from candidates who have, or are about to receive: A matriculation certificate from a Matriculation Board Certificate of exemption from the matriculation examination granted by the Matriculation Board/ UniversitiesSouth Africa. Candidates will be required to have passed these major subjects: Mathematics, 
-
-The BPharm Student Selection Committee at SMU screens all candidates who Shortlisting is based on the academic results (from the maximum results) to identify suitable candidatesfor admission and provisional admission. Due to a lack of capacity, there are limitations in the number of intakes; some The screening will have to be based on the National Demographic profile of the 
-
-Mathematics, Physical Science, Biology & English, with symbols a minimum A matriculation exemption certificate. from the South African Matriculation 
-
-National Qualifications Framework will be considered (e.g. formally trained pharmacy assistants, pharmacy technicians) if they have a matriculation certificate with the following subjects: Mathematics, Life Sciences, Physical Sciences and English with a minimum APS 
-
-15 
-
-Master's Degree: one additional credit if achieved in minimum time with distinction (+2). 
-
-Master's Degree: one additional credit if achieved in minimum time without distinction (+1) 
-
-Transfers from SMU and/or other universities 
-
-Selection is on a competitive basis and a student's average mark should be 65% 
-
-The applicant should have a matriculation certificate in the following subjects: Mathematics, Life Sciences, Physical Sciences and English with a minimum APS 
-
-Each application will be considered by the Selection Committee and ranked 
-
-The processofthe calculation is as follows 
-
-Selection Process 
-
-The BPharm Selection Committee may screen all candidates who comply with the selection requirements and submit via the Student Enrolment office. 
-
-study, all attempts at the subject are scored and each counts as a course for this calculation. 
-
-Candidates with a minimumof 12 points qualifyfor the selection process. TheSciences/BSc time to completecompleted theindegreethe minimumis also time:considered.two additionalA three orcreditsfour-year(+2) Health Honours Degree: one additional credit if<sup>achievedinminimum time(+3).</sup> Honours Degree: one additional credit if achieved in minimum time without distinction (+2). 
-
-Final selection and the number of spaces are predetermined by the Office of Institutional Planning annually, and will be based on the following distribution: Successful applicantswill be admitted into the year level. Pre-selected students are now given substantive offers on the groundsofeither other disciplines. Selection will be based on a calculation of points for each 
-
-16 
-
-Registration with the South African Pharmacy Council (SAPC) All students admitted to the first year of study must register with the South Africa Pharmacy Council before 31 March ofthe relevant year. Registration fee is determined by 
-
-information. 
-
-After qualification, graduates must undertake one year of an internship, during which they must satisfactorily complete a pre-registration examination for entry-level pharmacists. pharmacist before proceedingto full registration as a pharmacist. These rules must complywith the proposed regulationsof the South African 
-
-Selection Process The BPharm Selection Committee may screen all candidateswho comply with the selection requirements and submitvia the Student Enrolment office. Final selection and the number of spaces are predetermined by the Office of Institutional Planning annually, and will be based on the following distribution: Successful applicants will be admiinto **t** hetedyear level. Pre-selected students are now given substantive offers on the groundsofeither 
-
-other disciplines. Selection will be based on a calculation of points for each 
-
-Honours Degree: one additional credit if achieved in minimum time without distinction (+2). 
-
-distinction (+2). Duration of the programme:4 years Master's Degree: one additional credit if achieved in minimum time with The BPharm curriculum will be updated continuously to reflect statutory distinction (+2). Master's Degree: one additional credit if achieved in minimum time without distinction (+1) workshops, laboratory practicals and experiential learningvia blended learning. 
-
-Transfers from SMU and/or other universities 
-
-Selection is on a competitive basis and a student's average mark should be 65% 
-
-The applicant should have a matriculation certificate in the following subjects: Mathematics, Life Sciences, Physical Sciences and English with a minimum APS 
-
-Each application will be considered by the Selection Committee and ranked 
-
-17 
-
-|~~Po Introduction to Pharmacy~~<br>~~Po~~<br>~~I}~~|
-|---|
-|~~Po Nutrition and gastroenterology~~<br>~~Po~~<br>~~a~~|
-
-
-
-|~~FsSterilepharmaceuticalproducts~~<br>~~Po~~<br>|
-|---|
-|<br><br>~~Teoma pray practice~~|
-
-
-
-18 
-
-
-
-<!-- Start of picture text -->
-SCHOOL OF HEALTH CARE SCIENCES<br>Duration: 4 years a<br>Matric exemption with the following subjects: Mathematics, Physical Science,<br>~~ Z<br>Mathematics, Physical Science at level 4; Life Sciences, and English at level 5<br>~ -” yo —<br>= |<br>o<br>is ol a<br>Mathematics<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-SCHOOL OF HEALTH CARE SCIENCES<br><!-- End of picture text -->
-
-Career Opportunities At the end of the programme, the nurses have a professional role in patient care which private hospital, primary health care facilities as well as in the corporate spaces. Further career opportunities include specialisation in different clinical programmes such as 
-
-Critical Care Nursing, Nursing Education, Health Service Management and Research. 
-
-19 
-
-Is Occupational Therapy the careerfor you? 
-
-The (B. Occ Ther.) degree is a full-time 4-year course. Upon completion of this 
-
-Afterwards, the student may proceed to register for postgraduate studies 
-
-Like to deal with challenges in anew and creative way. 
-
-Intervention Theory 
-
-What kind of settings do OTs work in? 
-
-Therapeutic Media 
-
-
-
-<!-- Start of picture text -->
-Occupational Therapists can become consultan t o:s<br>What do you need to be admitted to the Occupational Therapy degree at SMU?<br>Mathematics<br>Additional Subject 1<br>Additional Subject 2<br>Life Orientation<br><!-- End of picture text -->
-
-These are the unique methods and activities used by OTs to enable 
-
-ill and 
-
-activities such as woodwork, gardening, stress management and life skills. Students also learn to adapt to these activities using knowledge from other subjects such as kinesiology, work-study, and ergonomics. In addition, students learn to use equipment and tools in OT practice. 
-
-This module includes clinical practical work where the students learn to treat the clients and enable persons with disabilities to function independently. Practical experience includes exposure to patients and clients of all age groups in general, hospitals, psychiatric institutions, special schools, and the 
-
-Fundamentals of Occupational Therapy referencein OT practice, ethics, and managementof OT services. 
-
-20 
-
-Why study Occupational Therapy at SMU? 
-
-Different communities. 
-
-The diversity of<sup>clientsindifferentsettings.</sup> 
-
-Our curriculum will equip the newly qualified OT to be competitive across the globe and function in any practice area, at all three levels of health care (community, district, tertiary institutions, and academic hospitals), collaboratingwith individuals and groupsofclients. 
-
-related health promotion for clients of<sup>all age groups.</sup> Various hands-on treatment methods (such as mobilization, manipulation, and massage), physical and mechanical modalities and specifically designed exercise programmes are used in the assessment and treatment of patients. Numerous local and international employment opportunities are available for Physiotherapists. The following are some ofthe settings where Physiotherapists are often employed: Public and private hospitals; clinics and in private practice 
-
-Nursing homes and centres for people with physical disabilities 
-
-###### Matric/National Senior Certificate: 
-
-Mathematics <u>Additional Subject 1 Additional Subject 2</u> Life Orientation 
-
-> Minimum Duration:4 years 
-
-Tertiary training institutions, research units and occupational health units A candidate must comply with the conditions and meet the selection criteria as ~~Mathematics~~ <u>Any Home Language or First Additional</u> ~~Life Orientation~~ <u>-</u> ~~Additional 2 Subjects~~ 
-
-Career Opportunities A Physiotherapist can also be self-employed (private practice). Physiotherapy is an essential health service within the health care profession and Career Opportunities Audiologist is involved in the prevention, identification, assessment, and treatment of and dysfunction to optimise normal function at home, at work and in individuals with communication disorders. The Audiologist is, furthermore, involved in the communities for adults and children. counselling processofthe individual with communication disorders. 
-
-21 
-
-The Audiologist is involved in the prevention, identification, assessment, and treatment ofindividuals with hearing and/or balance disorders. Additionally, this health practice is also involved in the counselling process ofthe<sup>individualwitha</sup> hearing disorder and consultation with the other professionals involved in the treatmentof the patient and researching communication disorders. 
-
-
-
-<!-- Start of picture text -->
-Career Opportunities<br><!-- End of picture text -->
-
-speech language pathologist engages in the prevention, identification, assessment, and treatment of individuals with communication disorders. The speech-language therapist 
-
-communication disorders. 
-
-The audiologist treats individuals with hearing disorders presenting with: 
-
-Functional hearing disorders. 
-
-range of communication, speech, language, and swallowing disorders. Their scope of practice includes: 
-
-caused by hearing loss involving oral, written and/ or graphic modes of including motor speech impairments resulting from strokes or functional communication as well as sign language and others. abnormalities. Feeding and Swallowing Disorders: Evaluation and treatment of both The Audiologist treats patients in a variety of settings ranging from private practice, private developmental and acquired feeding and swallowing difficulties. hospitals, government hospitals, rural clinics, tertiary institutions, schools, industries Prevention, Assessment, and Treatment: Identification, assessment, and communitiesand home environments. intervention for individuals with speech, language, voice, feeding, and Counselling and Consultation: Providing counselling to individuals with Students are also required to observe at hospitals, private practices and/or clinics communication disorders and collaborating with other healthcare professionals regarding the Audiologist's scope of practice before the initial selection is done. For involvedin patient care. practical reasons, only a limited number of applicants can be admitted to the degree Research and Advancements: Conducting research on communication disorders to enhance treatment approaches and evidence-based practice. The Speech Language Pathologist treats patients in a variety of settings ranging from A candidate must comply with the conditions and meet the selection criteria as private practice, private hospitals, government hospitals, rural clinics, tertiary institutions, schools, industries communitiesand home environments. <u>Mathematics</u> ; ; ; ; Students are also required to observe at hospitals, private practices and/or clinics regardingthe speech-language pathology scopeofpractice before the initial selection is <u>Any Home Language or First Additional</u> done. For practical reasons, only a limited number of applicants can be admitted to the 
-
-
-
-<!-- Start of picture text -->
-Any Home Language or First Additional<br>Life Orientation<br>Additional 2 Subjects<br><!-- End of picture text -->
-
-22 
-
-Bachelor of Science in Dietetics (BSc Dietetics) 
-
-Applicants with the national senior certificate should have the following minimum 
-
-Whatis a Dietitian? 
-
-A qualified Dietitian is a health professional registered with the Health Professions Council of South Africa (HPCSA). It is a profession that applies the science of food and nutrition to promote the health and development of individuals, groups, communities, and populations at large. 
-
-###### National Senior Certificate (NSC) 
-
-Upon completion ofthe<sup>training,astudentisrequiredtocompleteone year of</sup> community 
-
-
-
-<!-- Start of picture text -->
-Mathematics<br>— -<br>Additional Subject 1<br>Additional Subject 2<br>Life Orientation<br><!-- End of picture text -->
-
-Applicants who have completed grade 12, senior certificates, with full university exemption before 2008 admission requirements are as follows: Duration: twenty-three weeks are continuous during the fourth year ofstudy. Mathematics <u>Additional Subject 1 Additional Subject2 E</u> 
-
-Career Opportunities 
-
-Dietitians work wherever nutrition expertise is needed and participate<sup>services.</sup> management of<sup>nutrition-related</sup> in the planning and Examples of career opportunities 
-
-Hospitals and health care centres where nutritional care for individual patients who need specialised nutritional support and therapeutic diets. Medical and pharmaceutical companies which manufacture highly specialized nutrition products. 
-
-Food services and catering companies, where nutritional expertise is important in food service management, including therapeutic nutrition. Dieticians may have their private practice, where patients receive individualised 
-
-23 
-
-
-
-<!-- Start of picture text -->
-SCHOOL OF SCIENCE AND TECHNOLOGY<br>—" _ aa<br>= h aN ge Ue Brite RS Mathematics<br>' a = Pod Mathematics<br>‘ ;<br>> ~~ty 7<br>| rif fA i 7]<br>; NV “wy . A *®<br>;<br>, ey f * we = > “ - oa t<br>Yl \ soe i 3 = a = The study of the composition, structure and properties of matter and the changes it<br>1% 2 : S , undergoes. The chemical industry in South Africa is relatively large, absorbing large<br>>) fe + a numbers of graduates into academic institutions and pharmaceutical, mining,<br>t oe ee — : ee  h<br>| P| —" . : Nese pl om Teaching, research, quality control, sales production, research, and development,<br>, oa! = ae ae e E = agricultural/ crop development, pharmaceuticals, water treatment, food industries,<br>: me sn<br>— — =<br>m/c 4 24<br>, — Sa SX ~~. | -al Eee<br>a : a sy asi :<br>at, ~~ - BT Fas + —_ —_ 4<br><!-- End of picture text -->
-
-biosafety, and the environment as well as industries transformation of raw material using 
-
-Academic opportunities exist in medical faculties for lecturing and research. Physiologists are also in demand in pharmaceutical companies, biotechnology, and various medical 
-
-Mathematics and Applied Mathematics 
-
-Teaching, research engineering, information and communications technology, computer programming, system analysis & operational functioning. Some career opportunities are Educators, Lecturers, Education Specialists, Data Has application to careers in a broad spectrum of settings ranging from schools, clinics, Analysts, Data Scientists, Telecommunication, Researchers and Scientists. churches, community service organisations, hospitals rehabilitation centres, universities, Some possible employers include Banks, Financial Institutions, Businesses, education departments,the HSRC, SANDF, Department of Labour, commerce, industry, and Universities, Schools, Education Departments, ICT Companies, and Research and private practice. 
-
-Statistics and Operations Research 
-
-and Operations Research Operations Research Career opportunities include teaching, research, medical physics, nuclear physics, physical The scope of expertise developed includes (but is not limited to) applications in engineering, and industry. Some of the fields include acoustics, astronomy, astrophysics, teaching, research, consulting, financial institutions, census offices, market research organizations, and all other industries. Statistics experts attract technicians,and software designs. relatively high salaries. There are also possibilities for launching private consulting agencies. 
-
-Nature conversation bodies; (natural, provincial, and private); education (primary to tertiary); government departments (agriculture, forestry, sea fisheries, water affairs and environmental impact assessments; pharmaceutical companies). 
-
-This is a fast-growing industry with highly competitive remuneration. Opportunities exist 
-
-Operation managers, 
-
-Information and communications technology 
-
-Software testing. 
-
-25 
-
-
-
-<!-- Start of picture text -->
-G E E ; : O O<br>KN OW OWW<br> E S E RV E RV RV C E E S<br><!-- End of picture text -->
-
-G E E ; : O O KN OW OWW T H E S E RV E RV RV C E E S 
-
-informed, and ready to make the most of your time here. The next few student activities, SMU is dedicated to ensuring you have everything you with your peers, or taking care of your health, you'll find all the information 
-
-So, flip through the following pages and discover the resources waiting for 
-
-This is just the beginning of a transformative experience — we're excited to 
-
-: oy a3 a 
-
-EE ae" 
-
-##### ACADEMIC LITERACY & SCIENCE COMMUNICATION 
-
-
-
-<!-- Start of picture text -->
-Physical Address<br><!-- End of picture text -->
-
-about effectively communicating ideas and engaging with diverse text genres. The Academic Literacy & Science Communication programme is designed to equip students with the essential skills to thrive in their academic journey. Through targeted support and development in reading, writing, research, and presentation, we aim to empoweryou with the tools to excel in all forms of academic communication. Whether you're preparing for your first presentation, developing research protocols, or refining your writing, our 
-
-###### Student Consultations Hours 
-
-###### Contact Details 
-
-###### Services Rendered 
-
-Reading (Variety of text genres) and writing skills (All forms of writing required at 
-
-###### Staff Members 
-
-Online reading and writing proficiency (Pearson). Presentation skills (Group and individual). Research and protocol writing. 
-
-Empowering students with Cognitive Academic Language Proficiency (CALP) and Basic Interpersonal Communication Skills (BICS). 
-
-
-
-
-
-<!-- Start of picture text -->
-ADVOCACY & DIVERSITY UNIT<br>i<br>enriching students' educational experiences by exposing them to individuals from various<br>y with SMU's Internationalisation Directorate. Diversity on campus plays a pivotal role in<br>backgrounds, cultures, and perspectives. This exposure enhances communication and<br>critical thinking skills, encouraging students to engage with differing beliefs and opinions.<br>challenging stereotypes, and addressing biases. These efforts ultimately equip students<br>Services Rendered<br>In conjunction with the Internationalisation Directorate:<br>Provide information about SMU and about studying in South Africa to<br>prospective and current international students.<br>1 Advise and assist international students with applying for study visas and<br>7 renewing existing study visas.<br>' Provide information about South African-approved medical aid service providers.<br>- Participate in the general orientation of new local and international students in<br>Initiate and assistinorganisingcultural celebrations of international students and<br>a .an Dr e latedvelop functions.the International Students' Handbook, which provides information and<br>( 5 ae services to international students.<br>} 4 ¥ Provide informationto foreign embassies and consulates.<br>h — f Serveinternational as a liaisonstudents. between international students and the Department of Home<br>~ A Mir at Advise on and facilitate social interactions amongst international and local<br>~ =<br>wy _ 28<br><!-- End of picture text -->
-
-Other 
-
-To support students with disabilities. 
-
-- Religious formation. - Sexual orientation. 
-
-###### Physical Address 
-
-
-
-<!-- Start of picture text -->
-Old Information Centre behind Residence 1C<br><!-- End of picture text -->
-
-###### Student Consultation Hours: 
-
-###### Contact Details 
-
-Student ~~-~~ Related Activities/Committees 
-
-
-
-<!-- Start of picture text -->
-A. Student Related Activities<br><!-- End of picture text -->
-
-Advocacy and Diversity Orientation 
-
-
-
-<!-- Start of picture text -->
-Excursions for International Students<br>Student Representative Council and International Student Organisation<br>elections<br><!-- End of picture text -->
-
-###### B. Committees 
-
-For International Student and Internationalisation Matters Dr Carlien Jooste (Director: Internationalisation) 
-
-Mr Gift Lebethe (Administrative Officer) ~~gift.lebethe@smu.ac.za~~ 
-
-Sefako Makgatho Health Sciences University International Student Organisation 
-
-Lesbian, gay, bisexual, transgender, queer/questioning, intersex, asexual and many other genders and sexual identities (LGBTQIA+) 
-
-All other student structures, i.e. political and non-political structures registered 
-
-
-
-<!-- Start of picture text -->
-Additional Information<br><!-- End of picture text -->
-
-29 
-
-———~” 
-
-##### LIBRARY AND INFORMATION SERVICES 
-
-
-
-<!-- Start of picture text -->
-Library and Information Services advances academic success and supports research and<br>community engagement by providing access to quality health sciences information<br>resources and services, technology, learning spaces and staff expertise. We offer<br>; undergraduates, postgraduates and staff access to information resources in different<br>formats along with services and facilitiesto optimise access and use of these resources.<br>like the Internet and email. Our library staff offers expertise in answering your library-<br>related queries and information skills training for individuals and groups. Library and<br>Information Services has put in place programmes, services and collections geared towards<br>_ supporting learning and research needs.<br>i: z= |; ———" After the orientation week, students will receive additional practical training on using the<br>W\ eee eee 4 | \ online library catalogue to search for resources, and how to access & use information<br>1 1 fale, i! | .<br>\ i +r ae a — “a Services Rendered:<br>\_— weeeee —ee = eee = CirculationInformationservices Desk:A service desk for general inquiries.<br>G =i<br>ii E- = Printing/Photocopying<br>| & a Pe ik ——<br>— ——— fs 1 — Remote access to online information resources.<br>a=EZ }1 —_sk ll 1[’ —<br>= am i i — cor ‘|<br>Fafi i,Ps al ‘a — 7<br>— —_/"\) = 1<br>Blelloa | — - ne et j<br>- ees<br>=<br>o ” ie<br>ame i 30<br><!-- End of picture text -->
-
-Vacation Time 
-
-###### Collections 
-
-Books: Print and electronic collections Reserve Collection: high-demand material available ona short basis 
-
-Examination Periods 
-
-Theses and Dissertations: print and electronic Institutional Repository Audiovisual collection 
-
-###### Facilities 
-
-Physical Address: Library building 
-
-Circulation Desk: (012) 5215706 Information Desk: (012) 521 3084 
-
-Air-conditioned study space 
-
-Photocopyingand printing facilities 
-
-~~http://www.smu.ac.za/library~~ Virtual Orientation Video: ~~hitps://www.youtube.com/watch 2v=4toTlodrVSQ / https://smu-za.libguides.com/~~ 
-
-###### Library Hours 
-
-Term Time 
-
-31 
-
-##### ASSESSMENT AND CERTIFICATION OFFICE 
-
-
-
-<!-- Start of picture text -->
-The Assessment and Certification Office plays a pivotal role in ensuring that the academic Administration of Postgraduate Dissertations/Theses<br>Receiving and sending out theses and dissertationsto external assessors.<br>examination-related processes, this office is dedicated to maintaining the integrity and Receiving and safekeeping of completed dissertations/theses.<br>efficiency of assessments at SMU. From the meticulous planning and organisation of Preparation of Agenda for PGC and ECS, and implementation of decisions taken<br>examination timetables to the secure handling and distribution of question papers, the<br>Working Hours<br>commitment to excellence in academic performance and certification.<br>Services Rendered Physical Address<br>Drawing up and publication offinal assessment timetable.<br>Receiving, safekeeping and duplication of question papers.<br>Delivery of examination question papers and stationery to and from examination<br>Contact Details<br><!-- End of picture text -->
-
-Publication of Results Publication of students' final assessment results on iEnabler and SMS line. Sarah Mogale (Administration of Postgraduate Dissertations/Theses) Certification Extracting and verification of graduation lists from the system. Compiling graduation programmes. Printing and safekeeping of degree/diploma certificates. Sending out<sup>graduationinvitations</sup> to eligible candidates. Conducting graduation ceremonies. Issuing of graduation certificates. 
-
-32 
-
-| : '~_ 
-
-### CENTRE FOR UNIVERSITY TEACHING AND LEARNING (CUTL) STUDENT SUPPORT SERVICES 
-
-Unit, the E-Learning Unit, and the Medical Illustration and Audio-Visual Services (MIAAVS) Unit,all of which provide essentialsupport to SMU students. 
-
-###### 1. Student Support Services 
-
-« 
-
-
-
-<!-- Start of picture text -->
-ae<br>*<br>:<br><!-- End of picture text -->
-
-support is delivered through initiatives such as the first-year mentorship programme, supplemental instruction, tutoring, student advising, life skills workshops, academic 
-
-a 
-
-###### 1.1. Student Support Unit Contact Details 
-
-specific to your respective schools: 
-
-i r s 
-
-f 
-
-- 
-
-
-
-<!-- Start of picture text -->
-A<br><!-- End of picture text -->
-
-Tutorship andSupplemental Instruction supportfor allschools 
-
-7 
-
-J 
-
-: 
-
-pw 
-
-. 
-
-/ 
-
-: i 
-
-33 
-
-
-
-<!-- Start of picture text -->
-below, specific to your respective schools:<br><!-- End of picture text -->
-
-3. Medical Illustration and Audio- ~~V~~ isual Services (MIAAVS) 
-
-MIAAVS serves as the University's multimedia and multidisciplinary support centre, offering services to students across both academic and non-academic activities. The centre is staffed by professionals who assist students in accurately documenting their 
-
-3.1. Medical Illustration andAudio-Visual Services (MIAAVS) Contact Details 
-
-###### 2. E ~~-~~ Learning Support Services 
-
-SMU utilises a blended learning approach, offering students the opportunity to engage 
-
-Ms Nicolette Jordaan (Manager) 
-
-~~nicolette.jordaan@smu.ac.za~~ 
-
-navigate the Blackboard LMS tools, Turnitin Plagiarism Detection software, and Hornolock 
-
-person workshops, ongoing email assistance, face-to-face consultations, and telephonic 
-
-34 
-
-##### EDUCATIONAL PSYCHOLOGY UNIT 
-
-The Educational Psychology Unit is dedicated to enhancing student development and academic success by providing specialised psychological services aimed at optimising human functioning in educational contexts. The unit offers a holistic approach to student well-being, focusing on both academic and personal growth. With receive the support necessary to overcome barriers and thrive in their educational journey. By offering tailored interventions, counselling, and crisis support, the Educational Psychology Unit plays a crucial role in fostering resilience and emotional well-beingamong students. Brief and psychoeducational counselling. Scope of Practice/ Services Rendered Psychotherapy (e.g. The ability to apply various evidence-based psychotherapeutic modalities appropriate to the case formulation). Prevention programmes to assist learners who have mild or transitory problems that interfere with such as poor peer relationships, learning or behaviour problems academic and learning performance, inthe classroom, and family problems such as adjustment to adoption, death, or divorce. Crisis intervention services that support students following traumatic incidents such as violence, Enhancing resilience, emotional well-being, and emotional literacy. Working to support difficulties with attachment (styles) and bereavement. Supporting (vulnerable and/or at-risk) students with transitions. Physical Address 
-
-;Z M 1! 1 1 | a io Brief 3 E | N | T A L ’ ; ; H, E. i= Pe Pees | 
-
-M A 7 He E | R: S 2 . et | “g . 
-
-###### Student Consultation Hours 
-
-###### Contact Details 
-
-Mrs Sibusisiwe Komane (Educational Psychologist) 
-
-35 
-
-##### CLINICAL PSYCHOLOGY UNIT 
-
-emotional challenges. The unit is dedicated to promoting mental well-being, offering a 
-
-safe and confidential space where students can receive tailored support for their 
-
-
-
-<!-- Start of picture text -->
-Eating disorders<br><!-- End of picture text -->
-
-Psychology Unit plays a key role in ensuring students' emotional resilience and overall well- 
-
-###### Services Rendered 
-
-###### Student Consultation Hours: 
-
-presenting with someof the following difficulties: 
-
-###### Contact Details: 
-
-Trauma and crisis interventionn Relationship and interpersonal difficulties 
-
-Physical address: 
-
-
-
-<!-- Start of picture text -->
-j aH } ; <. - ae f ~)<br>pics ; “ Gi f A j f ‘4<br>* ‘<br><!-- End of picture text -->
-
-##### CAMPUS HEALTH AND WELLNESS CENTRE 
-
-
-
-<!-- Start of picture text -->
-‘<br>‘ ‘f<br>F<br>‘<br>‘ Me<br>. » Fs<br>in M4 . isd<br>; J nye‘Piepe * ; _<br>=<br>a Se Bus. a<br>><br>i eer”<br>;a wt kia " se | ————<br>ee ¥ , a<br>~ Ba “get : as + Ms A : ae -_——~--<br>EE oore ‘ ~ Py Sas a<br>free? ew” ' “se<br>Conca eat “a<br>co f ‘<br>is »<br>4 »<br>ye * —<br>* 37<br>“ ”<br><!-- End of picture text -->
-
-The Campus Health and Wellness Centre is a vital resource dedicated to supporting the physical, mental, and emotional well-being of students. Committed to fostering a healthy and productive campus environment, the centre provides a range of comprehensive consultations to counselling and wellness programmes, the centre serves as a hub for promoting holistic health and equipping students with the toolsto thrive academically and Services Rendered Women's health (contraceptive services). HIV counselling, testing and referralfor<sup>management.</sup> Hepatitis B vaccination. 1 1 . Health promotion through a peer education programme Student- ~~R~~ elated Activities/Committees Peer education training and mentoring. Health Promotion Campaigns like: 
-
-Student Consultation Hours 
-
-###### Additional Information 
-
-###### Staff Members 
-
-After Hours, Weekends, and Emergency 
-
-Counselling social services 
-
-Ms AKgatle: Receptionist 
-
-disruptions, depression, and personal or social challenges for which students may require 
-
-Paramedics 
-
-###### Staff members 
-
-Sibusisiwe Komane (Educational psychologist) 
-
-
-
-<!-- Start of picture text -->
-Noting the need and convenience for students to access counselling services even after<br><!-- End of picture text -->
-
-NB: The university has partnered with ER 24 for additional Emergency Services, and all emergency services are activated through control. 
-
-Location 
-
-38 
-
-
-
-<!-- Start of picture text -->
-DENTAL CLINIC<br>i<br>i] - iw specialisedexpert professionals.dental hospitalIn additionequipped to routine dentalwith advanced services,facilities theand clinica team alsoof<br>; - eee hours of service and affordable consultation fees, the Dental Clinic is<br>pe . , aa - ae committedatients. to promoting oral health and providing accessible care to all<br>™<br>= : Patient Admin Department<br>K 3 =_ lca ~ Pp<br>» —s —— = : ———— — :<br>‘ ee af4 . —~ ’ Q irare ia Services Dental production laboratory<br>cs —_ > e Clinical Service Offered<br>\\ Sancti S A a Basic primary health care dentistry<br>as % vi i ap rik i : nian Diagnosticsand careline (emergency care)<br>Wt , ae ae —— anil Operative dentistr<br>‘ aae> s \ ten”eel: | — te— Specialisedoe Dentistry. Services:<br>; ae aA Prosthodontics<br>ig-* \ .<br>Orthodontics<br>: Neus 3 4 ; Community dentistry<br>; $y avai 4<br> : j se<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-=<br>-<br><!-- End of picture text -->
-
-###### Community Outreach Programmes 
-
-#### Hours of Service 
-
-###### Additional Information 
-
-The patient may come to the hospital for consultation with or without referral letters. 
-
-Consultation starts from R75 to R118 depending on the classification. Foreign Patients pay R391 for consultation only. Foreign patients who are pregnant, lactating women and children under the age Those who are on medical aid use their medical aid for consultation. The patient should bring along their ID copies, Proof of residence, Salary advice, and SASSA letters or cards. 
-
-Physical. Address 
-
-Contact Details 
-
-
-
-<!-- Start of picture text -->
-+ a oe yi = I. "<br>= ff<br>_ 0<br>oF F 4<br>a i<br>; a Oe ra ‘%\<br>ki La a<br>aa a *<br>ty F<br>Z<br>es<br>i<br>F<br><!-- End of picture text -->
-
-r 
-
-40 
-
-#### SOCIAL WORK SERVICES 
-
-The Social Work Services unit is dedicated to fostering a supportive and nurturing 
-
-###### Student- ~~R~~ elated Activities 
-
-approach, the unit addresses a range of personal, social, and emotional challenges faced 
-
-Sexual health education Mental health awareness initiatives 
-
-that enables individualsto navigate life's complexities with confidence and hope. 
-
-###### Physical Address 
-
-Services Rendered 
-
-###### Student Consultation Hours 
-
-Crisis intervention and management Direct therapeutic services Conducting psychosocial assessments 
-
-###### Contact Details 
-
-Facilitating group work/ support group<sup>sessions</sup> Court preparation support 
-
-Suicidal ideation support and intervention 
-
-
-
-<!-- Start of picture text -->
-* ' aa oa f/" ' i : LMYY Y<br>A — =} , ) i” ‘. : \ — l=lle,@ ‘4 ' WTSse av YeNyie“~ pee!). y<br>JAY bawA ial LEAMA _ —_ aA<br>dt fF Ee ee AS . . © pe<br>a Fi o if eeBATSeae© NSegie | ee a2Leeiyi & J& aa -2 y sa2s<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-FINANCIAL AID OFFICE<br>The Financial Aid Office plays a pivotal role in supporting students by providing access to various funding<br>opportunities that make higher education more affordable. Through its range of services, including merit awards,<br>s<br>pursuing their academic goals. The office maintains strong relationships with sponsors and assists students in :<br>applyingfor external funding from various sources, includingthe National Student Financial Aid Scheme (NSFAS) and<br>.<br>Services Rendered te<br>qualify, students must achieve an average mark of 80% or higher in their Grade 12 final examinations. Those who wit<br>meet the criteria will receivea 50% tuition fee waiver. Jf :<br>Calculation of the Average: Aha Pine a;<br>For the Old Curriculum (Matriculation Certificate): Add the percentages of the six best final exam results SY % cf ~<br>For the New Curriculum (Senior Certificate):<br>Add the percentages of all subjects (excluding Life Orientation) Sif s - N<br>— Ke > ol °<br>ye 8 oO<br>Bursaries/Scholarships ow a) <4 /<br>The main responsibility of the office is to maintain and strengthen relationships and communication with sponsors, © a > a  CL/<br>as wellas to provide any necessary information on behalf of students. Students are encouraged to apply<br>bursaries for external 4 OL s/ yi,<br>offered by various companies, government departments, and municipalities. Relevant information and ra Y, in fy J<br>AllNational applicationsStudent forFinancialNSFAS fundingAidSchemehave (NSFAS)to be made online 4 : J<br>on the NSFAS website of ~ - y, Ps<br>Available Computer Labs for Application and Details Update / J<br>- 7<br>You can complete your applications and update your details at the following campus computer labs: /" /<br>42 : /<br><!-- End of picture text -->
-
-Additional Information The Financial Aid Office (FAO) is committed to providing excellent, efficient, professional, tertiary education; however, not all students qualifyfor assistance. Financial aid is awarded 
-
-###### Scanning Facilities 
-
-for further information and personalised assistance. 
-
-For uploading your supporting documents, scanning facilities are available at: 
-
-###### Physical Address 
-
-
-
-<!-- Start of picture text -->
-Student Consultation Hours<br> information on on the above, above,<br>a Contact Details<br><!-- End of picture text -->
-
-For enquiries and more information on on the above, above, 
-
-
-
-<!-- Start of picture text -->
-Fundi<br><!-- End of picture text -->
-
-Formerly known as Eduloan, Fundi is South Africa's leading education finance and bursary/leadership fund management solution specialist. Over the past twenty-five years, Fundi has evolved from humble beginnings as a leading provider of lending solutions in the education sectorto a fully-fledged one-stop shop for all things education. 
-
-Fundi is South Africa's leading education finance and education fund management solution specialist and the only credit provider solely focused on providing funds for education. Since its inception in 1996, we have advanced over 920 000 loans to the value of R6, 5 billion. In 2000, we pioneered South Africa's first fund administration smart card solution (FundiCard) and have since administered more than R24 billion in bursary funds. 
-
-Fundi offers the finance you need for every step of your educational journey and provides fundingfor tuition and registration fees for undergraduate and postgraduate qualifications as well as outstanding balances, textbooks, accommodation, laptops, tablets, and other 
-
-Please visit our Fundi Office at the One-Stop Student Centre or contact us on 012-521 
-
-43 
-
-#### ENROLMENT MANAGEMENT OFFICE 
-
-
-
-<!-- Start of picture text -->
-—<br>The Enrolment Management Office plays a key role in supporting students as they navigate their academic<br>- journey at the university. Focused on streamlining processes and providing essential administrative<br>7<br>: guidance and assistance at every stage, the office helps students successfully transition into university life<br>sshd ; ‘ “ Services RenderedApplications<br>uy ‘’ aie * is Zs Registrations<br>». \ : re Physical address<br>4) i k= & , Office Hours<br>~ A - ; # Contact Details<br>~~ Ms AT Mkhize (Undergraduates Matters)<br>~ de<br>Ms SM Mogale-Kabini (Head: Postgraduate Matters) Mr TE Matlala (Undergraduate Matters)<br>j 4 ‘ Mr AS Mabuse (Online Applications)<br>“ os<br>¥ — * a<br>E<br>~~ :<br><!-- End of picture text -->
-
-Ss. ite. 
-
-. 
-
-, 
-
-
-
-<!-- Start of picture text -->
-.<br><!-- End of picture text -->
-
-##### INFORMATION COMMUNICATION TECHNOLOGY 
-
-
-
-<!-- Start of picture text -->
-The 4<br>Information Communication Technology (ICT) Office provides comprehensive support _ ‘<br>needed for academic and administrative success. With a focus on maintaining smooth<br>network connectivity and securing ICT infrastructure, the office plays a key role in<br>)<br>effectively use technologyin their day-to-day activities.<br>. “ md Poet ee e e<br>Services rendered pete otis '<br>ot st oe oo y<br>Information Communication Technology (ICT) Security Support. ° * wageae oe emot ge a Vv<br>ig woo LD a 3 al<br>\ Oe OO tex.<br>ant oe e~. =<br>campus at South Point Residences available for use by all students for different functions as La re Ng<br>General-purpose and specialized computer Labs and operating hours se<br><!-- End of picture text -->
-
-45 
-
-A student may not attempt to open computers, access their components, or 
-
-Library Multimedia Center: 07h30 - 24h00 
-
-Use of the computer facilities by a student for financial gain, whether directly or 
-
-Should a student contravene the above-mentioned rules, the Student Assistant 
-
-student assistants. Upon reporting the university student, a disciplinary process 
-
-A student may appeal in writing against the decision of the university through 
-
-Statistics Lab: Specialised 
-
-###### Additional information 
-
-free to approach them at any time. 
-
-platforms you need during your study period at SMU. We do this by providing you with access to computer laboratories, Wi-Fi, student email, Microsoft 365, and various software at no additional cost to students. 
-
-###### General rules for all computer labs 
-
-meetings or demonstrations inside the lab, or behave in such a manner that 
-
-would interfere with or impact negatively on the study and research activities of 
-
-1. Wi- ~~F~~ i access @ residences of SMU 
-
-kept secret, and secure, and they are responsible for any action that takes place 
-
-Wi-Fi connections are available in student residences and on-campus designated areas. Student Assistants will assist in configuring Wi-Fi connectivity and provide the necessary credentials from the Student Technical Support Services office in the basement of the NSB 
-
-2. Student email account @ SMU 
-
-All registered students are provided with a free email for online communication purposes. 
-
-The email credentials may be acquired from the Student Technical Assistant office in the 
-
-Tampering with the computer lab facilities is not permitted. 
-
-Oxide-Semiconductor (CMOS) settings, software settings, the network, and 
-
-communication with SMU students well after they have left the institution. Students must 
-
-46 
-
-Minimum Hardware and Software specifications for Laptops. 
-
-###### Below are the steps on how students can access the student email account: 
-
-Recommended Windows Pro Edition) 
-
-###### 3. Student ~~-~~ approved software @ SMU 
-
-Students may not use copied, illegal or pirated software in the university computers or 
-
-thereafter. 
-
-OR 
-
-Minimum Hardware and Software specifications for Laptops. 
-
-Astandard suite of software is installed in all general-purpose labs. 
-
-Students are encouraged to use the Microsoft 365 suite and also to visit the ICT Student 
-
-~~https://www.smu.ac.za/en/explore-~~ 
-
-~~smu/departments/information-communication-technology/student-ict-technical-~~ 
-
-~~support/ to access the software/applications guidelines for ease of use.~~ 
-
-Students should acquire their software when purchasing their computers in the event of additional requirements which are not provided by the university. 
-
-Minimum Hardware and Software specifications for Android Mobile and Tablet. 
-
-###### 4. Request for support 
-
-~~https://tinyurl.com/Devices-Service-Request-Form~~ 
-
-47 
-
-
-
-<!-- Start of picture text -->
-OR<br><!-- End of picture text -->
-
-Minimum Hardware and Softwarespecificationsfor Android Mobile and Tablet. 
-
-
-
-<!-- Start of picture text -->
-5. Online Learning Management System (blackboard) @ SMU<br><!-- End of picture text -->
-
-assessments, group discussions, tests, assignments, and quizzes and allows interaction between lectures and students and students amongst themselves using educational technology at Sefako Makgatho Health Sciences University. Such solutions include access 
-
-Below are the steps on how students can access Blackboard: Type the URL: https://ithute.smu.ac.za 
-
-Minimum Hardware and Software specifications for iOS Mobile and Tablet - (iPhone, iPad, or iPod touch). 
-
-OR 
-
-ICT management wishes all first entering students a fruitful and beneficial academic year Physical Address ICT Building (Production Unit) Contact Details Mr Berto Brand (Acting Director) 
-
-Please see below the recommended specifications for i0S Mobile and Tablet ~~-~~ (iPhone, iPad, or iPod touch). 
-
-
-
-<!-- Start of picture text -->
-Service Desk<br><!-- End of picture text -->
-
-4. Anti ~~-~~ viruses' requirements @SMU 
-
-ICT Student Technical Support Services Office 
-
-Students should make sure their personal computers always have updated antivirus software running before using university ICT Network Infrastructure. All computers in the labs are configured to run Microsoft Defender antivirus updates daily. 
-
-48 
-
-#### MEDICAL ILLUSTRATION AND AUDIO ~~-~~ VISUAL SERVICES (MIAAVS) 
-
-The Department of Learning Technology, Medical Illustration, and Audio-Visual Services 
-
-All printing and event requests from recognized student structures and church groups must be accompanied by a letter from the Student Governance office and 
-
-in supporting the university's academic and research endeavours. By working in close 
-
-partnership with academic schools, administrative departments, and students, the 
-
-teaching, learning, and student engagement. Through its innovative use of learning technology, expert medical illustration, and advanced audio-visual resources, MIAAVS 
-
-printing/copying and lamination service at a nominal fee— printing is only done in A4 and A3 sizes. All black and white (monochrome) printing should be done in 
-
-shape a more interactive, engaging, and resource-rich educational experience. 
-
-###### Services Rendered 
-
-Medical illustration,art and design. Clinical, scientific and general photography. 
-
-Scientific photography- A broad spectrum of scientific photography is available, including microscopic, macro, gel and research photography. In addition, the unit is equipped for scientific documentation in-house oron-location. 
-
-
-
-<!-- Start of picture text -->
-conditions, live streaming and hybrid events, corporate and promotional<br><!-- End of picture text -->
-
-Academic and administrative support. 
-
-VERY IMPORTANT: NO CASH may be handled by MIAAVS staff. 
-
-After ~~-~~ Hours Bookings of Venues 
-
-groups/societies) and departments after hours. Venues are selected/issued according to the intended use and the number of participants. All bookings for annual use must be submitted at the beginning of the year, and the university reserves the right to cancel any approved requests at any time. Illegal occupation of venues may result in occupants being All after-hours bookings of venues are handled by the department, and student structures can book venues by submitting written requests to the Manager's 
-
-Student ~~-~~ Related Activities 
-
-Long-term booking requests must be submitted to MIAAVS early in the year to 
-
-
-
-<!-- Start of picture text -->
-. .<br>a iz - -| _— =<br>/ | a i ' : "a 2 '<br>= = anf + ' . * 7 r a<br>~~ ga pe |<br>v . ‘ - f , Bg I ag . i . 7 ij ’ k a<br><!-- End of picture text -->
-
-###### Student Consultation Times 
-
-
-
-<!-- Start of picture text -->
-allocating venues and equipment. Structures may have to be allocated an<br><!-- End of picture text -->
-
-IMPORTANT: Depending on what material is requested, a waiting period may occur. We DO NOT offer express printing services. All printing/laminating bigger than A3 must be arranged ahead oftime,<sup>asthishasa</sup> minimum<sup>24-hour waiting period.All</sup> payments must<sup>be</sup> made<sup>at</sup> the cashier in the CP Building, and receipts must be presented when collecting printed 
-
-###### Times for ID Photos and Colour Printing/Copies: 
-
-
-
-<!-- Start of picture text -->
-Additional Information<br><!-- End of picture text -->
-
-Physical and Postal Address 
-
-permission and the necessary documentation, as well as a campus Control/Asset Departmental E ~~-~~ mail Address & Main Telephone Number. form and stamp (Forms obtainable from MIAAVS reception). No equipment, including data projectors and projection screens, may be used without MIAAVS' permission. Please contact the department should a motorised screen be lifted Contact Details student group ororganisation. :Ms Nicolette Jordaan All lecture theatre equipment MUST be signed out from the reception and Administrative Officer returned immediately after class. All equipment must be returned as quickly as Assistant Administrative Officer possible to avoid the next class starting late. It is recommended that each class elect two students responsible for collecting and returning equipment to and from MIAAVS. Any loss of equipment, whether due to negligence, theft or Medical IIlustration/Graphic Designer:Ms Marinda Pretorius Ext: 5611 accident, must be reported in writing and telephonically immediately. workshops on poster making and MS PowerPoint presentations and assists assists in the production of multimedia teaching materials and courseware. PLEASE NOTE: 
-
-All requests must be submitted to MIAAVS through the Front Office administrative staff, with no exceptions. The staff will then direct your request to the relevant 
-
-###### Office Hours 
-
-ALL correspondence/requests must be directed to the Manager MIAAVS by using 
-
-~~nicolette.jordaan@smu.ac.za directly.~~ 
-
-50 
-
-##### INTERNATIONALISATION DIRECTORATE 
-
-
-
-<!-- Start of picture text -->
-* SMU's a unique entity in higher education. We are a niche institution<br>= =e Africa. For this reason, SMU's Internationalisation focuses on strategies<br>— a and activities that will internationalise a niche university and assist in<br>graduatingglobal citizens.<br>Internationalisation encompasses a variety of activities and strategies and<br>— ay the local to the global. This approach will include Internationalisation<br>—_ : a activities like Internationalisation at Home (in the classroom, community,<br>rey a> — and campus) as well as Comprehensive Internationalisation (strategic<br>> “a | fy el. “aINN ‘ Services Rendered (Students and Staff):<br>|j r TT TT oo| Ti: i" NHTNTTTI »‘j Wh . , % Student and Staff Assistance (orientation, visa guidance, general<br>HULL 4 a. ie as assistance study to abroad). international, students and staff travelling or<br>:<br>PR isi T . ) | i) | =" fs wanting to<br>ry | | LAG Bsel ge! aed aeDiam’Oe  &es V3Aha Advisestudy visas and andassist renewalsinternationalof existingstudentsstudy withvisas. the application for<br>. Sevier Q | ie iL | Pe ae ue eS = Provide information to international students about South<br>[Ss - « ’ | [hf [ea | Fe aw<br>AAI, | J DX NS frre | he _ + 3 aa i Me | Student activities which promote internationalisation and<br>am CEKAMANUAOOOGIEre fy |,gOMNARTANRA LEAR SS eee ie mL | | » J — j E _ multiculturalism on campus (for example Africa Day).<br>,  | a | 5. — . rsh Fa | saute A ——— Create awareness of international scholarships and other<br>fee sie i AES ees | a= _ = 5 }. Es — opportunitiesfor students and staff.<br>red SS ane aT oo | ee eae : Assist with internationalising of the academic project.<br>ah ae ee a Se oe eee neon? ‘¥ ] ww ‘spyrscoom es Provide information to foreign embassies and consulates.<br>oe eae th imegg yet = rater = a FE : a “a ae ' = oak : : E ich 2 ee, ‘ a<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-The Internationalisation Directorate also has an International Student Buddy programme.<br>international students.<br>Serve asa liaison between international. AssistBe a buddythe Directorateto a new internationalin welcoming students;international guests;<br>Global Footprint: Assist the Directorate in welcoming Embassy representatives.<br>International perception management.<br>Internationalisation of Higher Education thought leaders (research on the topic). If you would like to become an International Student Buddy, contact us.<br>Support office for International Collaborations, International MOU's and Embassy<br>matters, as well as the identification of Funding. Working Hours/Consultation Hours<br>Monitoring SMU's legal compliance with the Internationalisation Framework of<br>Consultation Hours: Tuesday— Thursday, 10:00—15:00<br>International Student Recruitment: Contact Details<br>Assist with the recruitment of international students.<br>Provide information about SMU and about studying in South Africa to prospective Director: Internationalisation<br>and current international students. a<br>Participate in the general orientation of new local and international students in the<br>Initiate and assist in the organization of cultural celebrations of international Administrative Officer: InternationalStudent Affairs<br>students and related functions. a<br>Develop the International Students' Handbook, which has information and<br>services availableto international students. Mr Gift Lebethe<br>Advise on and facilitate social interactions amongst international and local Administrative Officer<br>Email: gift.lebethe@smu.ac.za<br>International Student Organisations:<br>SMU has a growing number of organisations specificallyfor international students<br>(the SMUISO) and also organisations for all students but that are international in<br><!-- End of picture text -->
-
-International Student Buddies: 
-
-52 
-
-RESEARCH AND INNOVATION DIRECTORATE 
-
-
-
-<!-- Start of picture text -->
-- eo<br>iL i<br>—<br>j ;<br>= > t ;<br>5= ee ;:<br>i 3<br>Y<br>; > aD : ~«<br>7 FF - -<br>'<br>= _—— ~~ tii ss a. -<br>—<br>— 7 Gears ee ' 7<br>j . oh<br>‘ —— —<br>j = _<br>. ; ™<br>BD,<br>. “ ’ >. =<br>f . . es ‘SS<br>—>. (aa<br>' ie<br>- =Ps<br>’ ‘ = '<br>\ . X4 “ ' «<br>; fa j'' y<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-The Research and Innovation Directorate at Sefako Makgatho<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-scholarly excellence and innovation. By driving strategic<br>objectives that focus on enhancing research output, building<br>capacity, and fostering impactful collaborations, the directorate<br>targeted initiatives, the directorate not only advances the<br>university's research agenda but also positions it as a leader in<br>innovation and entrepreneurship within the health sciences<br><!-- End of picture text -->
-
-The Research and Innovation Directorate has five key strategic objectives,which are: 
-
-Increase research collaboration and partnerships. 
-
-Increase commercialisation/entrepreneurship. The Directorate Provides the Following Services to SMU Postgraduate Students: , Postgraduate induction. . Thesis writing workshops Publication workshops Statisticaltatistical datadata analysisanalysis workshopsworksh Online biostatisticshort cour **s** e Qualitative data analysis 
-
-
-
-<!-- Start of picture text -->
-Centre for Entrepreneurship Rapid Incubation (CfERI)<br><!-- End of picture text -->
-
-Scientific writing workshops Writing retreats Biostatistics The directorate facilitates the services of a biostatistician to assist postgraduates with statistics and and data analysis for for their research research projects. 
-
-Writing retreats Incubate entrepreneurs with innovative business ideas. Provide training on various business functional areas. Biostatistics Facilitate registration of companies and development of business plans. The directorate facilitates the services of a biostatistician to assist postgraduates with statistics and and data analysis for for their research research projects. potential investors. Editing Postgraduate Enrolment support Postgraduate students may also contact the directorate for editing their thesis/disserProviding prospective postgraduate applicants and continuing postgraduate students with tation. The directorate will facilitate the process by linking them with an Editor. Research protocol review Scientific review of protocol (Masters and Doctoral degrees) by the School Postgraduate Facility: Library Research Committee (SRC). The Directorate, in collaboration with the library, facilitates subscription to resourceful databases and referencing and editing software to support postgraduate students’ studies Research Ethics Committee (SMUREC). with relevant information. A dedicated area in the library has been made available for Funding Opportunities Physical Address opportunifor pos **t** graduateies students at the honours, master's and doctoral levels. Research Collaboration Contact Details Facilitation of collaboration with other institutions by linking postgraduate students with Prof Mapaseka Seheri (Director: Research and Innovation) partners with relevant equipment and expertise about their research project on and off- 
-
-###### Innovation and Entrepreneurship Ecosystem 
-
-The directorate provides administrative support and facilitates financial support for innovation and Entrepreneurship through the<sup>following offices.</sup> 
-
-Technology Transfer Office (TTO) 
-
-Promoting innovative research with entrepreneurial potential. 
-
-Create awareness and provide information on innovation and IP. 
-
-Identify and protect IP (Patent) emanating from research projects with 
-
-54 
-
-
-
-<!-- Start of picture text -->
-i sixth Edition i<br><!-- End of picture text -->
-
-i ch jologic Appr? 
-
-~~—~~ 
-
-Ms Fulufhelo Malamatsho (Research Capacity Development) <u>fulufhelo.malamatsho@smu.ac.za</u> 
-
-<mark>.</mark> 
-
-| a Ms Mexo Sithole (AdministrativeAssistant) 
-
-re? Joseph T.DIPiro ee gobert Talbert 
-
-ary C02 | ah Gary R Matzke ‘ bert G.Wells ‘ \ 1 posey ae Pk 
-
-| oti tial », ‘ ; _ c= = = a 2 ~~ a 
-
-San a 
-
-
-
-<!-- Start of picture text -->
-a A<br>—<br>—_<br>/4<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-REGISTRAR'S OFFICE<br><!-- End of picture text -->
-
-The Registrar's Office is a cornerstone of administrative excellence and governance at the Contact Details university, ensuringthe smooth operation of its academic and regulatory functions. Witha core focus on compliance and governance, the office plays a critical role in upholding the integrity of university policies, academic regulations, and the Higher Education Act. As the Registrar central hub for administrative support to key university structures, including the Council, Senate, and various committees, the Registrar's Office facilitatesthe efficient management of student applications, admissions, examinations, graduations, and records. Its diligent work ensures that the university's academic processes align with institutional standards and legal requirements, contributing to the overall success and growth of the academic Services Rendered The Office of the Deputy Registrar: Academic Administration Secretary to Council and Senate, the Council and the Senate committees, and the Compliance with the Higher Education Act and various university academic institutional forum. policies, principles, rules, and regulations in the administration of student Provides administrative support to governance structures ofthe<sup>university.</sup> applications, admissions, registrations, examinations, graduations, and student Compliance with the Higher Education Act and various university academic policies, principles, rules, and regulations in the administration of student applications, admissions, registrations, examinations, graduations, and student Contact Details: Deputy Registrar: Academic Administration Physical Address ~~a~~ 
-
-56 
-
-##### REGISTRY DEPARTMENT 
-
-
-
-<!-- Start of picture text -->
-+ / haere : ae gl oF ain ah<br>bat ar ae F : aaa hn - ee aaa ring 4<br>CC — < %. | ae a<br>tH 1 C i tn * ‘s<br>’ \ ao a bm<br>mate : o =. *<br>—_ | i ‘ te t T3 4 .<br>j<br>j ‘ J tin<br>, sf<br>ti | _i —_<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-reliable and timely service, the deparsuppor t s thementinstitution's operational needs by<br>managing essential postage and courier services. By maintaining accuracy and efficiency,<br>Services Rendered<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Physical Address<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Working Hours<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Contact Details:<br><!-- End of picture text -->
-
-57 
-
-
-
-<!-- Start of picture text -->
-STUDENT DEBTORS<br>Managing tuition fees is a crucial part of a successful academic journey, and the Student Student Debtors Office<br>payment transactions are handled promptly, helping students focus on their academic<br>goals. A simple step towards financial organisation starts here—don't forget to bring your Collection of outstanding fees<br>Additional Information<br>Cashier Office<br>Collections of tuition fees from students and issuing of receipts Physical Address<br>NB: To process any payment, students must bring along their student cards.<br>Contact Details<br>Additional Information<br>Physical Address<br>Student Consultation Hours<br>Contact Details<br><!-- End of picture text -->
-
-58 
-
-##### SECURITY SERVICES 
-
-The Security Services Department plays a vital role in fostering a safe and supportive 
-
-###### Crime Awareness and Campus Safety 
-
-Your safety is our top priority, and staying vigilant on and off campus is essential. Always remain aware of your surroundings and take proactive steps to protect yourself and your belongings. Secure your room at all times and avoid lending personal devices like mobile 
-
-collaboration. 
-
-###### Services Rendered to SMU Community 
-
-Operational control room monitoring CCTV (1700 cameras on and off-campus 
-
-For your safety, avoid isolated areas, particularly after dark, and never ask for or accept lifts from strangers within or outside the campus. If you notice suspicious individuals, report them immediately to the Control Room. When accessing university facilities, use your 
-
-Security Services Location 
-
-Reaction vehicle with SMU Tactical Response Team (TRT)24 hours/day. Crime prevention through visible security patrols 
-
-###### Emergency Contacts 
-
-Incident, misconduct, GBV and crime investigation 
-
-###### Incident Reporting 
-
-regulations will contribute to a secure and supportive environment for everyone. 
-
-59 
-
-GENDER ~~-~~ BASED VIOLENCE (GBV) OFFICE 
-
-
-
-<!-- Start of picture text -->
-The Gender-Based Violence (GBV) Office at the university is dedicated to supporting both<br>staff and students by providing a safe and confidential space for addressing and managing<br>affected by GBV receive guidance, support, and appropriate interventions. Through<br>advocacy and educational initiatives, the office works to raise awareness and promote a<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Services Rendered<br>Provides a safe and confidential space for reporting cases of GBV.<br>a Confidentially advises complainants and victims of GBV of their options.<br>a P \ alternative accommodation, a no-contact order, or any other that the<br>i 1<br>'<br>Engages activelyin advocacy around GBV.<br>|<br>Working Hours<br>“ Contact Details<br>Acting Manager: GBV- Ms Busi Mbanjwa<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Office Details<br><!-- End of picture text -->
-
-60 
-
-##### STUDENT SUPPORT AND REFERRAL UNIT 
-
-At the Student Support and Referral Unit, we are committed to empowering students to Referrals navigate challenges and unlock their full potential. Our holistic approach ensures that For certain challenges, we may suggest connecting with specialised service providers, such unique circumstances. Whether it's guidance, life coaching, or connecting with specialised Educational Psychologist here to walk alongside you, offering unwavering care, confidentiality, and encouragement. Let us help you turn challenges into opportunities for growth. Our Services ata Glance Problem Identification & Screening: Every student begins here, where we help Who Can Access Our Services? you reflect to identify challenges. Any registered student facing academic difficulties or personal challenges is welcome. We assure you of complete respect, care, and confidentiality in all matters. 
-
-Life Coaching Life coaching is a versatile service designed to help students thrive. While the support 
-
-###### Physical Address 
-
-Modifying behaviour patterns Instilling discipline and a positive mindset Establishing constructive habits Setting and achieving goals Overcoming obstacles and setting action plans for change 
-
-Student Consultation Hours 
-
-Contact 
-
-to the unique needs and aspirations of each student. 
-
-61 
-
-##### STUDENT LIFE AND GOVERNANCE 
-
-Student Governance and Development is dedicated to fostering the holistic growth of all Mission students, shaping future leaders, and creating vibrant campus life. Central to our mission is the trainingand development of student leaders, student lifeand events coordination,and initiatives, promoting excellence in governance, leadership, and co-curricular support for governance structures such as the SRC, Student Housing Committees, Faculty activities. Representatives, Sports Council, and Student Societies. 
-
-###### Goals and Objectives 
-
-To provide leadership training opportunities to students with leadership their full potential. We We are committed to creating an an optimal campus life experience experience while potential. To create opportunities for students to have meaningful and relevant growth experiences asthey<sup>participate</sup> in co-curricular activities (clubs and societies). Whether you're seeking guidance on joining societies, understanding membershipfees, or To build capacity in elected student leaders regarding their representation, accessing general information, our supportive staff at the Student Centres are always To be continuously involved in professional development activities to promote self-development and the development of expertise in the field of student leadership, governance and co-curricular activities Vision » Core Competencies 
-
-their full potential. We We are committed to creating an an optimal campus life experience experience while 
-
-Vision 
-
-To uphold best practicesin student governance. 
-
-SRC activities Societies. 
-
-62 
-
-###### Political Structures 
-
-African National Congress Youth League (ANCYL) 
-
-Progressive African Socialist Students Organisation (PASSO) 
-
-Student Christian Fellowship (SCF) Student Union for Christian Action (SUCA) 
-
-SMU Association for Pharmacy Students (SMUAPS) SMU International Students Organisation (SMUISO) United Nations Association of South Africa (UNASA) 
-
-Young Consolidation Vision 
-
-Social Clubs/Academic Structures 
-
-Religious Structures Association of Catholic Tertiary Students (ACTS) 
-
-International Pentecostal Holiness Church (IPHC) Student Structure International Pentecostal Holiness Church (IPHC) Silo Student Structure 
-
-Disabled Student's Origination 
-
-Nazareth Tertiary Student's Association (NATESA) Seventh-day Adventist Student Movement (SDASM) 
-
-Hippocrates Apprentices International Federation of Medical Students (IFMSA) 
-
-Zion Christian Church (ZCC) Student Fellowship St Engenas Zion Christian Church (ZCC) 
-
-Contact Persons 
-
-Mathematics & Statics Society Nca Nation South African Higher Education Queer Alliance (SAHEQA) South African Student Dental Association (SASDA) Science & Technology Student Federation 
-
-Student Development Practitioner 
-
-SMU Friends of MSF (Médecins Sans Frontiéres)- Doctors Without Borders SMU Medics On Motion 
-
-63 
-
-
-
-<!-- Start of picture text -->
-STUDENT RESIDENCES<br><!-- End of picture text -->
-
-###### Services Rendered 
-
-Rendered B. Committees House Committee Availability of kitchen facilities, including microwaves and stoves. Additional Information Maintenance support, including renovations and replacement of damaged items, in collaboration with the technical services team. Important residence rules Entertainment amenities such as TV rooms equipped with DStv. No tamperingwith fire fighting equipment No illegal squatting in the residences No noise and parties 
-
-Student- ~~R~~ elated Activities/Committees A. Activities Residence Orientation Ubuntu games in collaboration with All Sports Council and the General Treasurer 
-
-General Information 
-
-Green campus in collaboration with garden services SMU conversation/ Pillow Talk Ongoing orientation 
-
-64 
-
-- Report the loss of your key to your Coordinator: Residences/ it can be replaced at a cost. 
-
-- Secure your valuables in a safe place. 
-
-- Report any suspicious persons to the Coordinator: Residences and security. 
-
-- Keep your door closed and locked, especially when you are sleeping or alone in the room. 
-
-- Switch off appliances when not in use. 
-
-Clinical Pathology Building Office S530 
-
-Monday – Friday: 08h00 – 16h00 
-
-|Director: Student Afairs|Mr. Tulani Nkuntse|tulani.nkuntse@smu.ac.za|012 521 3099|
-|---|---|---|---|
-|Deputy Director: Student Life|Mr. Themba Khumalo|themba.khumalo@smu.ac.za|012 521 3730|
-|Deputy Director: Campus Health|Dr. Matsontso Mathebula|matsontso.mathebula@smu.acza|012 521 5714|
-|Ac�ng Head of Department: Student Housing|Mr. Mohale Machete|mohale.mohale@smu.ac.za|012 521 4308|
-|Coordinator: Residences: Res 1A|Ms. Violet Thosago|violet.thosago@smu.ac.za|012 521 4013|
-|Coordinator: Residences: Res 1B|Mr. Joseph Mnisi|joseph.mnisi@smu.ac.za|012 521 3996|
-|Coordinator: Residences: Res 1C|Mr. Joseph Mnisi|joseph.mnisi@smu.ac.za|012 521 3996|
-|Coordinator: Residences: Res 1D|Ms. Marry Motau|marry.motau@smu.ac.za|012 521 5772|
-|Coordinator: Residences: Res 2A|Mr. Khathutshelo Mulaudzi|khathutshelo.mulaudzi@smu.ac.za|012 521 4308|
-|Coordinator: Residences: Res 2B|Ms. Martha Vuma|martha.vuma@smu.ac.za|012 521 4694|
-|Coordinator: Residences: Res 4B|Mr. Bonile Peter|bonile.peter@smu.ac.za|012 521 4359|
-|Coordinator: Residences: Res 5A|Mr. Lethabo Kudumane|lethabo.kudumane@smu.ac.za|012 521 4776|
-|Coordinator: Residences: Res 5B|Mr. Mzolisi Ngcamango|mzolisi.ngcamango@smu.ac.za|012 521 4096|
-|Coordinator: Residences: Res Nurses Home|Mr. Tumiso Motalaota|tumiso.motalaota@smu.ac.za|015 521 4225|
-|Residence Central Ofce/ Queries on Residence Admission|Central Ofce|studenthousing@smu.ac.za|012 521 4308 / 3742|
-
-
-
-Sefako Makgatho Health Sciences University Prospectus 2025/2026 Booklet 
-
-
-
-
-
-<!-- Start of picture text -->
-university community. With a dedicated team of skilled drivers and supportive disciplinary action.<br>administrative staff, the department provides reliable and efficient transport services that<br>underpin the academic, social, and operational needs of students and staff alike. Through<br>our services,  we  aim to foster connection, accessibility, anda sense of  community  across all<br>areas of campus life. The department consists of thirty-four drivers and five administrative Physical Address<br>Services rendered:<br>Student Consultation Hours<br>Facilitate transport for students and staffto sports and spiritual activities.<br>Supply transport for other departments’ operational requirements.<br>Additional information<br>No vehicle may be driven without prior authorisation.<br>All student transport requests should be submitted to the transport department<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-No driver with a license that has active endorsement will be allowed to drive fleet<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Veee.|.» {Vrqia2s - yy NE¥'yafaeaaaeS shawhase NSa N e  SsOeEEce.d,  igEGPSeeSago”  <aae Rolaeea e's,a 4 oe Sa -ai ef=PPIERSRa e Ripeeeases ee)eetLe.S ae“g PABae?ont NEyeeig oemupa os Ss ceeae wea<br>RS Bee NR Se aePR<br>; e p *<br>= A : é s + G8 a0 Ba ES —Q| ; — i . GATHO eu. ~<br>a<br>{ =, 1 >. i A Nt auousool > ; 5 eee~ “] ee—~ §£ CD HEALTH SCENCES UNIVERSITY i J | ——UDENT TRANSPO : 3<br>i “4 en emi 2 >, AX Ete 8 = Qy | ¥ —y SEFAKO MAKGATHO = === .=| : ey<br>See er ee<br>: v = HT 66 BL x — ry —— aE, ya & _— 7 iN PEELE EIEN TT TEER Eean ARE Ts = DEI GSoa<br>BeteDas eeee abeigeRRRee Ge asReeeWane ee ees eee a BiteoeAe Reeeeehie Tee<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-1; foe<br>SPORT AND RECREATION<br>) Y) —> . — Sportexperience.and recreationAt the heartare ofintegralcampusto life,fosteringthe Sporta vibrantand Recreationand well-roundedDepartmentuniversityoffers<br>1 “U . s wa . opportunities for students, staff, and alumni to engage in a variety of physical activities that<br>r | & ; » lasting connections, and embrace an active lifestyle.<br>j\ "71 a ~ ff =>" Services renderedAdministration ofall registered sporting codes on campus.<br>j SS f Multi-purpose gymnasium.<br>: j ‘ 7 f Provide students, staff, and alumni with the opportunity to participate in a range<br>\ ; of indoor and outdoor sports activities, such as Football, Rugby, Tennis,<br>\ onal,<br>‘ \ “a<br>Coordinate internal and external sports activities.<br>. \ Jee foe Student - Related Activities/Committees<br>d a ’ There are 18 active sporting codes on campus: Aerobics, Athletics, Basketball, Boxing,<br>") you are encouraged to join one or more of our sports and recreational clubs so you can<br>v “U 2 » University Sport South Africa (USSA)<br>0 Our clubs annually participate in the University Sport South Africa (USSA) Winter, Autumn,<br>O \ recess. Some of the summer tournaments’ sporting codes are Aerobics, Chess, Cricket,<br>Athletics, Football, Karate, Pool, Football, Swimming, Table Tennis and Tennis. The Summer<br>tournaments are held on the first week of the Summer holidays. Participation in the<br>to participate internationally.<br>| =, national USSA tournaments offers one an opportunity<br><!-- End of picture text -->
-
-###### Community Leagues 
-
-Athletics —Moderfontein 10Km (Athletics Gauteng) 
-
-###### Facilities 
-
-Dance Sport— Rumba in The Jungle (International Competition) 
-
-student card at reception. Various training equipment is available in the centre. 
-
-Dance Sport - World Dance Sport Federation (WDSF) World Under 21 Latin 
-
-###### Indoor Facilities 
-
-> Dance Sport— WADFAllAfrican Artistic Championships (Continental Competition) 
-
-Siamisang Tswidi— Youth Solo Latin Winner 
-
-Oratilwe Sethabela— 1st position (Senior Women U60kg) Ester Msiza— 3rd position (Senior Women U60kg) Mogau Matshitisho—3rd position (Men's 80kg Light Heavyweight) 
-
-###### Outdoor Facilities 
-
-Avela Mncwabeni-—Athletics 
-
-Sikelela Notununu—Athletics Paballo Kobe—Karate and Athletics 
-
-Swimming Pool—Under construction 
-
-Ignitious Molefe— Aerobics 
-
-Additional Information 
-
-The Department takes pride in having cultivated some of the natf **i** neston'ssportsmen and 
-
-68 
-
-###### National Call ~~-~~ ups 
-
-SASAFS (Aerobics) 2016 Austria, Athletics 
-
-Pool (Blackball Pool games) National Champions 
-
-
-
-<!-- Start of picture text -->
-Finals of Blue Bulls Rugby Union 2015, Dance Sports National Championships and<br><!-- End of picture text -->
-
-###### Matthews Mpete Cup ~~-~~ 2x Winners (Women's Football) 
-
-Inter ~~-~~ Varsity Volleyball Tournament (Winners ~~-~~ women) 
-
-###### GALFA Development League - 
-
-USSA C Netball Champions, Champions of B Division- Promoted to Section Ain 2018 
-
-Our coaches are certified First Aiders after completingFirst Aid Levels 1& 2 Physical Address: 
-
-Under11: Position 2 
-
-Under13: Position 3 
-
-Under17: Position 6 Under 19: Position 3 
-
-###### Social Media Platforms 
-
-GALFA Promotional League — Winners (Football Senior Men) 
-
-Working Hours: Monday-Friday: 07h30- 16h00 After- Working Hour Meetings on Request: Monday-Friday: 16h00- 18h00 
-
-###### Service Catalogue 
-
-Strategy development and execution 
-
-USSA Men's Volleyball National Championships — Plate Winners - 2021 
-
-Karate AllAfrican Games, Shinkyokushinkai World Championships 2017participation 
-
-Bodybuilding International Participation Student 2016 
-
-Monitoring, Evaluation and reporting 
-
-Managing sport facilities 
-
-69 
-
-Sports Affiliations (USSA and federations) Processing of overtime claims and coach payments 
-
-Staff& student Engagement & Recreational 
-
-Tests/Examinations Booking arrangements 
-
-Requisitions 
-
-Communications and Marketing 
-
-Athletics 
-
-Boxing - recreational 
-
-Basketball - recreational 
-
-70 
-
-##### ALUMNI RELATIONS OFFICE 
-
-The primary objective of the Alumni Relations Office is to establish and maintain lifelong Working Hours connections between the university and its graduates. The office is dedicated to fostering continuous communication with alumni by developing an Alumni Database. It allows Alumni Association members to network and reconnect via alumni chapters and events Physical such as Golf Days and Class Reunions. Additionally, the office is vital in supporting students Marketing and and Communication from previously disadvantaged backgrounds through donations and sponsorships. 
-
-Physical Address Marketing and and Communication Department 
-
-The objectives of SMU Alumni include building a comprehensive database of graduates to support academic and research initiatives, leveraging alumni influence to generate third- 
-
-Contact Details 
-
-the importance of engaging with alumni, the community, and private organisations. 
-
-
-
-<!-- Start of picture text -->
-Services RenderedCirculate communique through the university communication channels, such as '"I = a4 ydi” a2 ve<br>the website, publications, social media and SMU FM. a. 2 e. ——<br>Planning, organising and implementing Alumni events, according to their f eg,<br>& Te ~ » Pe pies r « =<br>Be presenton open days, orientation weeks, and other university events. ae we - ™=m| ar ./Qi -9>€ 7, =<br>The organisation of institutional<br>alumni events such as reunions R 4 yf ate is aay i‘<br>OrganisingDistributionEXCOof university meetingsAlumni publication a? a | % ae “ ,<br>The and Alumni Annual General Meetings (AGM) ; qi / ww y. we us \»<br>facilities ) 4 ' ciel |<br>Mobilising alumni<br>implementationto appointof an alumni or elect the rgiv i ng representative campaign, includingwhowill onlineserve on givingSMU ] a. a i\, ~ ’ A gE q: ‘.<br>* dle 7 I j<br>Regular communication with Alumni and Convocation using electronic | F | ; | a a. | :<br>newsletter, emails, SMS and social media. is x = « 4 | j<br>| en) | + 7 ‘ |<br><!-- End of picture text -->
-
-## The Heartbeat of Our Campus ~~-~~ Tune In and Be Part of the Vibe 
-
-campus radio station that has quickly become the heartbeat of our university, offering a platform for expression, creativity, and connection. 
-
-initiatives, and news that impacts us all. SMU FM is alsoa creative outlet where students can 
-
-station offers invaluable experience, equipping students with practical skills that 
-
-Since its inception, SMU FM has stood as a voice for the students, by the students. Broadcast to the entire campus and beyond, it provides a space for students to share their 
-
-If you're a new student, there's no better way to immerse yourselfin the university's culture 
-
-
-
-<!-- Start of picture text -->
-institution committed to excellence in health sciences, the station has seamlessly So, tunein toSMU FM today and be part of the conversatWhether you're i n theon.library,<br>integrated education, entertainment, and social issues into its programming. From health the gym, or on your way to class, let SMU FM be your soundtrack — connecting you to the<br>tips to career advice, interviews with community members and experts, to student-led<br>discussions on relevant societal topics, SMU FM is an essential part of the university's<br>#YourSoundYourVoiceYourStation #SMUFM<br>NJBs) SEFAKOica.TH SCIENCES MAKGATHO UNIVERSITY Bakwe 080060|www.smufm.c o . z a<br>\ <a =. ,<br>P i : —) * - } : = 7 Y 4 ~ F<br>- . | r . jj ae y/ “<br>» ie \ eames.<br>| ‘y f ‘ ’ 3<br>~ é<br>.. 2 ig / e * \<br>ad | i 3 jin N<br>* te a| |daa ‘smt . JB. t+t-.lif /!].\4 |<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-1<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-High-Calibre<br>Academic Staff<br><!-- End of picture text -->
-
-SMU boasts an accomplished team of academic professionals who bring a wealth of expertise and dedication to teaching, research, and service. Their Student Success commitment to fostering the and Recognition R EAS O N S next generationis evident of healin both **th** eir leaders recognisedSMU studentsfor their are frequently leadership, professional achievements innovation, and academic W 4 VY S M U U and unwaveringfor student . unwaveringfor student .for student . student . **s** upport achievemein natio al **n** ts. competitions From excelling to engaging in social advocacy, STA N DD DD S O UT theour values students exemplify and aspirations AS A L EA D | N G N G Innovative Research Research of SMU. HEALTH SCIENCES UNIVERSITY aeeInitiativeseeInitiativesInitiatives 2 inat healththeat healththe healththethe forefront sciences,offocusingresearch on 4 areas that address that address address pressing Duels healthcare needs in South Africa Alumni Network -* and beyond. Research led by SMU The university's alumni are oe | faculty and students and students students is creating making strides in the healthcare dit: rf meaningful impact, particularly sector, both locally and ——_ thal im. a im. a a in community health and community health and internationally. Their BARS AH — healthcare access. accomplishments and _. © wlathedilee ht =, oot aM aM Ais) contributions to the field serve app B - Les en £ stung” Wade as an inspiration to current ga ane — q Sw **)** veers students and a testament to at ae ee , eg nuit the quality of education 
-
-
-
-<!-- Start of picture text -->
-W 4 VY S M U U and unwaveringfor student . unwaveringfor student .for student . student . s<br>STA N DD DD S O UT<br>AS A L EA D | N G N G Innovative Research Research<br>HEALTH SCIENCES UNIVERSITY aeeInitiativeseeInitiativesInitiatives<br>inat healththeat healththe healththethe<br>areas that address that address address<br>healthcare needs in South<br>-* and beyond. Research<br>oe | faculty and students and students students<br>dit: rf<br>——_ thal im. a im. a a in community health and community health and<br>BARS AH — healthcare access.<br>_.<br>© wlathedilee ht =, oot aM aM Ais)<br>app B - Les en £ stung” Wade<br>ga ane — q Sw ) veers<br>at ae ee , eg nuit<br><!-- End of picture text -->
-
-J Comprehensive Commitment 7 Cutting-Edge Health Sciences Programmes to Community Health Facilities and Resources SMU offers a wide range of One of SMU's core values is SMU's state-of-the-art facilitie programmes that cater to the service to the community. The include advanced laboratories, diverse needs of the health 6 university encourages students simulation centres, and a medical sector. From medicine and and staff to participate in library, offering students access nursing to public health and outreach initiatives that provide to the resources they need to biomedical sciences, our essential healthcare services to excel in their studies. These curriculum is designed to equip under-resourced communities, facilities support a hands-on students with the skills and fostering a culture of learning approach, preparing knowledge required for success compassion and students for real-world in today's healthcare responsibility. challenges. environment. Global 8 Focusand onInclusion Diversity 9 SMU continuesRecognitionto **a** chievend Rankingsrecognition in The university takes pride . Strategic Industry in national and international rankings, 1 0 fostering a diverse and inclusive Partnerships reflecting the institution's commitment to Sean welcoming students Ghuihacreuiivated partnerships quality education and research. The university's rom a variety of backgrounds. ofteh lesdtiag faseleinaene focus on excellence ensures that graduates are This commitment enriches the providers, research institutions, well-respected within the healthcare community. learning experience and Peja ree and industry players. These With these attributes and achievements, SMU students to work effectively in collaborations provide students remains a distinguished institution, providing diversehealthcare with valuable exposure to the students with an education that is not only settings. healthcare industry through rigorous but also socially relevant. internships, research The university's forward-thinking approach opportunities, and hands-on equips graduates to make meaningful experiences. contributions to the healthcare sector, shaping a healthier future for all. 
-
-14 
-
-
-
-**Scan this QR code with your phone camera to share a digital copy of this prospectus with a friend.** 
-
-| ; wi Yt ; = ge colts é = i / aee i 4 >» ; 59 ow as 4 - » ‘ Vie roy a ae ~—* f ¥ ~ Wes ; tana ‘ : “ » * ° = é ae ~P a 4 4 ‘ss ns — ~ * 3 c ve le ; r Zz —— wWy ‘ > 2a— . il " . fi ;, , L - or ni r : ‘ a8 3 »». | veel ae ‘ oly sre ’ ‘ P 4 Bae y iFya ~~ ~ ‘ ' , ¢ i7 V ‘ f 4 J) 4? a” ~ I r ——— 3 | \ ‘ Sa” +. =a ~. . wae | £ ae. We Se eee 
-
-HEALTH SCIENCES UNIVERSITY Welcome to SMU. | ~~S~~ GHENG MAKGATHO transforming communities. At SMU, SMU, you're not just studying — — you're contributing to Now it's your turn ~~.~~ This's si more h than education.tion. ItiIt is a movement, taja journey,,, and and you are now an essentiatial Vision:. Transforming: health services: through excellence and innovation.. ’ #SMUImpact #SMU #SMUShapingHealthSA #WeAreSMU —_Followus: @ QO QOH | www.smu.ac.za 
-
-and transforming communities. At SMU, SMU, you're not just studying — — you're contributing to 
-
+# SMU Prospectus
+
+<!-- Generated from smu_prospectus.pdf; 86 PDF pages. -->
+
+## Page 1
+
+2026 2027
+### PROSPECTUS
+### NEXT GEN:
+Shaping Health Sciences in South Africa
+Lead. Heal. Innovate.
+Choose SMU to join a new generaon of sciensts, innovators and
+leaders advancing health science and society.
+
+## Page 2
+
+Scan this QR code with
+your phone camera to
+share a digital copy of this
+prospectus with a friend.
+
+## Page 3
+
+Vision, Mission, Moo
+Who Are We?
+Prospecve Student Applicaons - Frequently Asked Quesons
+SMU Innovaon: Provisional Patent for Respiratory Treatment from a Medicinal
+Plant
+SMU Student Develops Pioneering Hepas B Diagnosc Assay
+Groundbreaking Patent Reinforces SMU's Health Sciences Leadership
+Schools
+a) School of Medicine
+b) School of Denstry
+c) School of Pharmacy
+d) School of Health Care Sciences
+e) School of Science and Technology
+Get to Know the Services Oﬀered at SMU
+Academic Literacy Science Communicaon
+Advocacy Diversity
+Library and Informaon Services
+Assessment and Cerficaon Oﬃce
+Centre for University Teaching and Learning (CUTL) Student Support Services
+Educaonal Psychology Unit
+Clinical Psychology Unit
+Campus Health and Wellness Centre
+Dental Clinic
+Social Work Services
+Skills Centre
+Financial Aid Oﬃce
+Enrolment Management Oﬃce
+Informaon Communicaon Technology (ICT)
+Medical Illustraon And Audio-Visual Services (MIAAVS)
+Internaonalisaon Directorate
+Research and Innovaon Directorate
+Registrar’s Oﬃce
+Registry Department
+Student Debtors
+Security Services
+Gender-Based Violence Oﬃce
+Student Counsellor
+Student Life and Governance
+Student Residences
+Transport Department
+Sport and Recreaon
+Alumni Relaons Oﬃce
+SMU Convocaon
+### SMU FM
+Ten reasons why SMU stands out as a leading health sciences university
+Experience Campus Life Through #SMUCreators2026
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 4
+
+SMU is a dedicated health
+SMU is a dedicated health
+sciences university providing
+sciences university providing
+professional training and
+professional training and
+educaon in a range of fields
+educaon in a range of fields
+through excellence in teaching,
+through excellence in teaching,
+learning, innovave research
+learning, innovave research
+and community engagement.
+and community engagement.
+### VISION
+### VISION
+Transforming health
+Transforming health
+services through
+services through
+excellence and
+excellence and
+innovaon.
+innovaon.
+‘Knowledge
+‘Knowledge
+for Quality Health
+for Quality Health
+Services'
+Services'
+4
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 5
+
+Wh are
+o we?
+SMU was established when the Minister of Higher Educaon, Science and
+Technology, Dr Blade Nzimande in terms of secon 20 of the Higher
+Educaon Act 1997 (Act 101 of 1997) promulgated the Sefako Makgatho
+Health Sciences University (SMU) in the SA Government Gazee no: 37658
+of 16 May 2014.
+The promulgaon followed the announcement made in 2011, by Minister
+Nzimande, when he announced his intenon to separate Medunsa Campus
+Unit, from University of Limpopo. The minister's intenon was based on the
+findings and recommendaons of the task team that was established and
+led by Prof Malegapuru Makgoba, former Vice-Chancellor of University of
+Kwa-Zulu Natal (UKZN) and Dr Max Price, the former Vice-Chancellor of
+University of Cape Town (UCT).
+5Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 6
+
+When can I apply to study at SMU in 2027?
+Applicaons open on Wednesday, 1 April 2026 and the closing dates are as follows:
+- The closing date for the submission of the 2027 applicaons for all undergraduate
+qualificaons is Friday, 31 July 2026.
+How many qualificaons/degrees can I apply for?
+- You are allowed to apply for a maximum of two qualificaons, first choice and second
+choice.
+What are the admission requirements?
+- For informaon on admissions requirements and relevant school subjects, refer to
+www.smu.ac.za, click under students and look for the following:
+- Admissions and selecon rules for diﬀerent Schools.
+- Undergraduate Prospectus 2027.
+PLEASE NOTE: The University receives more applicaons than it can accommodate, and
+meeng admission requirements does not guarantee admission.
+How can I apply?
+- You can apply online. However, online applicaons are currently limited to
+undergraduate qualificaons for South African and Internaonal applicants who have
+wrien or are studying towards the Naonal Senior Cerficate (NSC) and Independent
+Examinaons Board (IEB) cerficate or studying at other South African Universies.
+How do I apply online? To apply online, you need:
+- Access to the internet and a valid email address.
+- To complete the Applicaon Form accurately online.
+- To specify the names of your first and second choice degrees (if applicable).
+- Pay the R300 non-refundable applicaon fee; and
+- Upload the following documents: cerfied copies of your ID/passport; Grade 11/12
+results; academic record (if you have aended other universies including SMU) and
+proof of payment of the non-refundable applicaon fee.
+If I am an internaonal student, how do I apply to study at SMU?
+- All non-South African cizens and non-permanent residents must obtain a study permit
+before registering as students. Applicaon for study permits should be submied to the
+South African Home Aﬀairs, Consulate or High Commissioner in your country of
+6
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 7
+
+residence/origin and should be in favour of Sefako Makgatho Health
+Sciences University (SMU). The study permit should be submied
+during registraon.
+How much is the applicaon fee?
+- The applicaon fee is R300 and is non-refundable.
+Where and how do I deposit the applicaon fee?
+- Bank Name: Standard Bank
+- Account Number: 071 244 395
+- Account Name: Sefako Makgatho Health Sciences University
+- Branch Number: 020 909
+### PLEASE NOTE:
+- Use your ID as a Reference.
+- Applicaon without proof of payment and relevant documents will
+not be considered.
+What documents do I attach to the applicaon form?
+- Cerfied copy of your ID or Birth Cerficate.
+- Cerfied copy of final Grade 11 results or mid-year Grade 12 results
+or Naonal Senior Cerficate (NSC)/Matric Cerficate (if you have
+completed Grade 12/Matric).
+- Oﬃcial academic record(s) from previous university (ies) aended,
+including SMU (if applicable).
+Proof of applicaon fee payment (copy of deposit slip). How do I know if my
+SMU applicaon form has been received?
+- You will receive an SMS/email noficaon.
+When can I expect a response about the status of my applicaon if I am in
+Grade 12?
+- Pre-selecons will be done between September and October 2026,
+using your Grade 11 results (for those in Grade 12) and you will be
+informed about the outcome.
+- The final selecon will take place in January 2027, aer the release
+of Grade 12/NSC results by the Department of Basic Educaon and
+Independent Examinaons Board.
+- There will be SMS and email noficaons and/or telephone calls to
+applicants.
+- You can also check the status of your applicaon on www.smu.ac.za
+aer the release of Grade 12.
+When can I expect a response about the outcome of my applicaon if I have
+already passed Grade 12/Matric?
+- You can check the status of your applicaon on the student portal
+(www.smu.ac.za).
+When is registraon going to take place for the accepted applicants?
+- Successful applicants will be informed about registraon details in
+January 2027
+.
+Can a study/admission oﬀer be withdrawn?
+- Yes, the oﬀer can be withdrawn if the informaon provided by the
+applicant is found to be untruthful aer an admission oﬀer has been
+made. The admission oﬀer can be revoked immediately, and no
+further correspondence will be entered into with the applicant.
+How do I apply for SMU student residence/accommodaon?
+- There is an opon for residenal applicaon on the Applicaon
+system.
+PLEASE NOTE: there are limited places in university residence and
+admission to study at SMU does not guarantee a residence place. The
+places are awarded on a first come first served basis and the
+University is not obliged to provide a place in the residence.
+Does SMU consider late applicaons?
+- Unfortunately, late applicaons will not be considered.
+Where can I get more informaon about the applicaon process?
+- Enquiries should be emailed to: apply@smu.ac.za
+www.smu.ac.za.
+or on the website:
+7
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 8
+
+ws 3% et xz » a etn :
+ine FF a $ m, € a ae 7} ot A at ™ a 3 : : f a
+, . 7 ee a 7. ad ¥ ~~ - ihe? “ a _ 7 * -
+fi ’ ot “ WS A ee . 4 a a
+
+## Page 9
+
+SMU Innovation:
+Provisional Patent for Respiratory Treatment
+from a Medicinal Plant
+- By Tumelo Moila
+A
+major research breakthrough at Sefako Makgatho Health Sciences
+University (SMU) has resulted in a provisional patent for a novel compound
+derived from a medicinal plant. The innovaon was developed by PhD
+candidate Thabo Lesiba Lekgoathi from the Department of Biochemistry
+and Biotechnology under the mentorship of Dr Vuyisile Thibane and
+Professor Stanley Gololo.
+The research focuses on Schinus molle, a plant tradionally used in many communies to
+treat colds and flu-like symptoms. Through advanced scienfic analysis, Lekgoathi
+idenfied a compound known as geranylgeranyl acetate, which demonstrates potenal
+in combang respiratory illnesses, including COVID-19. The compound works by
+inhibing enzymes that viruses rely on to replicate and suppress the immune system.
+This discovery represents an important step in bridging indigenous knowledge with
+modern biomedical science. The patent process was supported by SMU's Technology
+Transfer Oﬃce, which assists researchers in protecng intellectual property and
+translang innovaons into praccal healthcare soluons.
+Further research will focus on safety tesng, formulaon, and partnerships to support
+the development and potenal commercialisaon of the treatment.
+9
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 10
+
+SMU Student Develops
+Pioneering Hepatitis B
+Diagnostic Assay
+- By Dimakatso Modise
+A
+groundbreaking diagnosc innovaon developed at Sefako Makgatho Health Sciences
+University (SMU) has the potenal to improve the early detecon of Hepas B. The
+innovaon was created by Master's student Nondumiso Nkosi, whose research focuses on
+developing an accessible diagnosc assay suitable for resource-limited healthcare
+sengs.
+Hepas B remains a major global health challenge and is parcularly prevalent in many parts of Africa.
+Millions of people live with chronic infecons that can lead to severe liver disease, cirrhosis, and liver
+cancer. Nkosi's diagnosc assay aims to address limitaons in exisng tesng methods, which are oen
+expensive or diﬃcult to access in low-resource environments.
+The research was developed with support from the Department of Clinical Laboratory Medicine at
+Nagoya City University Hospital in Japan and under the mentorship of Dr Omphile Simani. SMU's
+Technology Transfer Oﬃce is assisng with intellectual property protecon and exploring
+commercialisaon opportunies.
+Nkosi's work highlights the role of student-led research in advancing healthcare innovaon and
+addressing crical public health challenges.
+10
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 11
+
+Groundbreaking
+Patent Reinforces
+SMU's Health Sciences
+Leadership
+efako Makgatho Health Sciences
+Supported by SMU's Technology Transfer Oﬃce and
+S - By Tumelo Moila
+University (SMU) reached a historic
+the Technology and Innovaon Agency, the project
+milestone with the registraon of its
+demonstrates the university's commitment to
+first patent, reinforcing the instuon's
+translang academic research into praccal
+growing reputaon in health sciences
+healthcare soluons. The achievement also reflects
+research and innovaon. The patented drug,
+SMU's growing research capacity and its focus on
+Raloxifene Hydrochloride Hydrate Solvate, has
+innovaons that improve health outcomes.
+promising potenal in improving treatment for
+post-menopausal osteoporosis and breast cancer.
+This milestone marks a new chapter for SMU,
+strengthening its posion as an emerging leader in
+The breakthrough was developed by Master's
+health sciences research and innovaon in South
+student Emmanuel Kiyonga from the School of
+Africa and beyond.
+Pharmacy. His research focused on improving the
+formulaon of exisng medicaon to enhance its
+solubility and eﬀecveness, addressing limitaons
+in current treatments.
+11
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 12
+
+<!-- No extractable text on this page. -->
+
+## Page 13
+
+Bachelor of Medicine and Bachelor of Surgery (MBChB)
+### NATIONAL SR
+### ACHIEVEMENT
+### LEVEL
+### NSC - LEVEL OF
+### ACHIEVEMENT
+### ADMISSION
+### POINTS (APS)
+7 Outstanding Achievement (80 - 100%)
+6 Meritorious Achievement (70 - 79%)
+5 Substanal Achievement (60 - 69%)
+4 Adequate Achievement (50 - 59%)
+3 Moderate Achievement (40 - 49%)
+2 Elementary Achievement (30 - 39%)
+1 Not achieved (0 - 29%)
+Admission points of 38 are required together with programme-specific
+admission requirements: An admission may be made at a much higher level than
+these minimum requirements
+- h  p s : / / w w w. s m u . a c . za /s c h o o l s / m e d i c i n e / m e d i c i n e -
+undergraduate-admission-requirements/
+- Entry into this programme is very compeve.
+### SUBJECT MINIMUM POINTS
+Mathemacs
+6
+Physical Sciences
+6
+Life Sciences
+6
+English
+6
+Addional Subject 1
+5
+Addional Subject 2
+4
+Life Orientaon
+5
+Total
+38
+Duraon
+- Minimum: 6 years
+- Maximum: 8 years
+Career Opportunies
+- Can work as a clinician/medical doctor and specialize in various
+medical disciplines.
+- Can work in innovaon and research.
+- Can work as an academic or an administrator in the medical field.
+13
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 14
+
+Bachelor of Medicine and Bachelor of Surgery Extended Curriculum (MBChB -
+### ECP)
+Eligibility
+- The Bachelor of Medicine and Bachelor of Surgery Extended
+Program (MBChB- ECP) is reserved for South African Black learners
+from Quinle 1 and 2 schools who have not previously been engaged
+in terary educaon and have not been able to get admission into
+the six-year SMU medicine degree program (MBChB). Applicaons
+that do not meet the above criteria are declined. Only 50 spaces are
+available on a compeve basis. Aer compleng the one-year
+foundaon program, students enter the mainstream SMU MBChB
+program. The following are the minimum entry requirements:
+### SUBJECT MINIMUM POINTS
+Physical Science
+5
+Life Sciences
+5
+Mathemacs
+5
+English Language
+5
+Life Orientaon
+4
+Addional Subject 1
+4
+Addional Subject 2
+4
+Total 32
+Diploma in Emergency Medical Care (DIP EMC)
+Requirements
+For applicants who graduated when the symbol system was sll in use, the
+requirements are as follows:
+- Senior Cerficate with (Matriculaon exempon is a legal
+requirement, facilitated by the Matriculaon Board of Universies
+South Africa, wherein students who do not meet the statutory
+minimum admission requirements to enter terary studies in public
+universies in South Africa apply for a cerficate of exempon.), or
+M-score of 10 and a minimum of an E symbol on Higher Grade or D
+symbol on Standard Grade pass for English, Mathemacs,
+Biology/Physiology and Physical Sciences.
+- Naonal Cerficate must have achieved a minimum pass of 60% for
+English, Mathemacs, Life Sciences and Physical Sciences.
+- Naonal Senior Cerficate with a Diploma endorsement must have
+the following subjects and minimum rang levels.
+· English: 3
+· Mathemacs: 3
+· Life Sciences: 3
+· Physical Sciences: 3
+· Addional (1): 3
+· Addional (2): 3
+Total: Minimum of 18 points
+The applicant must pass the Medical Fitness and Physical Fitness Evaluaons.
+Duraon: 2 years
+- A mid-level emergency care worker in EMS.
+- Registraon with the HPCSA as a Paramedic.
+- Professional and personal development to a bachelor's degree in
+Emergency Medical Care (EMC).
+Higher Cerficate in Emergency Medical Care (HCERT EMC)
+Requirements
+For applicants who graduated when the symbol system was sll in use, the
+requirements are as follows:
+- Senior Cerficate with a minimum of an E symbol on a Higher Grade
+or a D symbol on a Standard Grade pass for English Mathemacs,
+Biology and/or Physical Sciences.
+- Naonal Cerficate (Vocaonal) with a minimum pass of 60% for
+English, Mathemacs, Life Sciences and/or Physical Sciences.
+14
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 15
+
+- Naonal Senior Cerficate with a Higher Cerficate endorsement must
+have passed the following subjects and the specified minimum rang
+level.
+· English: 3
+· Mathemacs: 3 or Mathemacal Literacy: 4
+· Life Sciences: 3 and or /Physical Sciences: 3
+· Addional subject (1): 3
+· Addional subject (2): 3
+Total: Minimum 15 points
+The applicant must pass the Medical Fitness and Physical Fitness Evaluaons.
+Duraon: 1 year
+- An entry-level emergency care worker in EMS.
+- Registraon with the HPCSA as an Emergency Care Assistant (ECA).
+- Professional and personal development to a Diploma in EMC and a
+bachelor's degree in EMC.
+Bachelor of Diagnosc Radiography (B RAD)
+### NSC - LEVEL OF
+### ACHIEVEMENT
+### NATIONAL SR
+### ACHIEVEMENT
+### ADMISSION
+### POINTS (APS)
+7 Outstanding Achievement (80 - 100%)
+6 Meritorious Achievement (70 - 79%)
+5 Substanal Achievement (60 - 69%)
+4 Adequate Achievement (50 - 59%)
+3 Moderate Achievement (40 - 49%)
+2 Elementary Achievement (30 - 39%)
+1 Not achieved (0 - 29%)
+- Candidates must also meet the University admission criteria.
+A minimum admission point of 4 in each of the following subjects is required:
+- Mathemacs
+- Physical Sciences
+- Life Sciences
+- English
+Total minimum admission point score = 16
+Remaining subjects: Life Orientaon: 3 and others: 6
+Minimum: 4 years | Maximum: 6 years
+Clinical training is done at accredited hospitals in Gauteng, Limpopo and
+North West provinces.
+Career Advancement
+The following are some of the careers in this field:
+- Ultrasonography
+- Mammography
+- Radiotherapy
+- Nuclear Medicine
+- Honours (specializing in Computed Tomography, MRI etc.)
+- Masters
+- PhD
+Career Opportunies
+The following are the environments where career opportunies are available:
+- Public hospitals
+- Private hospitals
+- Mining industry
+- Radiography Educaon
+- Self-employment
+- Corporate (Markeng App Specialist).
+Requirements
+- Naonal senior cerficate (NSC) for Degree purposes with
+(Mathemacs, Physical Science, Life Science and English) all at a
+minimum score of 4.
+15
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 16
+
+Bachelor of Dental Therapy (BDT)
+Bachelor of Dental Surgery (BDS), Bachelor of Dental Therapy (BDT), Bachelor
+of Oral Hygiene (BOH).
+Naonal Senior Cerficate (NSC)
+### SUBJECT MINIMUM POINTS
+PLEASE NOTE: For applicants with qualificaon/paral qualificaons, diﬀerent
+Mathemacs
+4
+require-ments will apply. Please get in touch with the School of Denstry for
+Physical Sciences
+4
+more informaon at 012 521 4803.
+Life Sciences
+4
+English
+Bachelor of Dental Surgery (BDS)
+Addional 2 Subjects
+SUBJECT Life Orientaon
+4
+4 each
+Mathemacs
+Total Physical Sciences
+### MINIMUM POINTS
+4
+6
+28
+6
+Life Sciences
+6
+English
+5
+Addional Subject 1
+Duraon: 3 years
+Addional Subject 2
+5
+4
+5
+Life Orientaon
+Career Opportunies:
+Total 37
+- A Dental Therapist performs all the basic procedures, e.g., tooth
+Duraon: 5 Years
+extracons, cleaning and polishing teeth and x-rays.
+- He/she can work in private pracce, public dental services, and
+Career Opportunies
+academic denstry.
+- Densts' work ranges from the prevenon of tooth decay, and
+Criteria for selecon of applicants with completed 1st year BSc I degree
+preparaon and filling of cavies to highly intricate tooth
+courses or equivalent (SMU full BSc I; MBChB I and BSc ECP II course holders)
+reconstrucon and realignment procedures, and excing methods
+to perfect the appearance of the mouth, teeth, and surrounding
+Two top students with completed 1st year BSc or equivalent courses at SMU will
+ssues.
+aer applicaon be aﬀorded an opportunity to enrol into BDS I, if space is
+- Densts can work in private pracce, public dental oral health
+available. The combined average percentage of all modules will be used to
+services and academic denstry.
+determine the best one student. In case of BSc - ECP II applicants, the average
+- Densts can become specialists in oral surgery, orthodoncs, perio
+and oral medicine, oral pathology, prosthodoncs, and community
+denstry.
+16
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 17
+
+Bachelor of Dental Therapy (BDT)
+Naonal Senior Cerficate (NSC)
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Addional 2 Subjects
+4 each
+Life Orientaon
+4
+Total 28
+Criteria for foreign naonals
+A relevant matriculaon or examinaon results that qualifies enrolment into a
+degree program (for SADC naonals from SADC countries not oﬀering denstry),
+with an APS to be determined by the enrolment commiee on basis of Table 2).
+The applicants must include a matric exempon cerficate issued by South
+African Qualificaon Authority (SAQA) as well as proof of Idenficaon (ID
+document or passport).
+Bachelor of Oral Hygiene (BOH)
+Naonal Senior Cerficate (NSC)
+### SUBJECT MINIMUM POINTS
+Duraon: 3 years
+Career Opportunies:
+- A Dental Therapist performs all the basic procedures, e.g., tooth
+extracons, cleaning and polishing teeth and x-rays.
+- He/she can work in private pracce, public dental services, and
+academic denstry.
+Criteria for selecon of applicants with completed 1st year BSc I degree
+courses or equivalent (SMU full BSc I; MBChB I and BSc ECP II course holders)
+Two top students with completed 1st year BSc or equivalent courses at SMU will
+aer applicaon be aﬀorded an opportunity to enrol into BDS I, if space is
+available. The combined average percentage of all modules will be used to
+determine the best one student. In case of BSc - ECP II applicants, the average
+scores of modules done in both years (Year 1 and 2) will be considered. Only
+applicants who obtain a minimum of three disncons and an overall average of
+75% and above for the year will be considered. However, the requirements
+might be higher as only two (2) space are available, and selecon will be on a
+compeve basis.
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Addional 2 Subjects
+Life Orientaon
+4 each
+4
+Total 28
+### SUBJECT MINIMUM POINTS
+Mathemacs Literacy
+7
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Addional 2 Subjects
+Life Orientaon
+4 each
+4
+Total 31
+Duraon: 3 years
+Career Opportunies
+- An Oral Hygienist is trained to clean and polish teeth, take x-rays
+and preventave procedures, including health promoons.
+- They can work in private pracce, public dental services, and
+academic denstry.
+17
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 18
+
+Online Higher Cerficate in Vaccinology [HCERT (VACC)] (SCV01)
+About the HCert (Vacc) qualificaon
+The HCert (Vacc) is designed to equip healthcare workers (HCWs) with the
+theorecal knowledge and praccal experse necessary for running an up-to-
+date clinic oﬀering vaccinaon services. The HCert (Vacc) is registered on the
+Naonal Qualificaons Framework at Level 5, with a total of 120 credits.
+- Minimum admission requirements: Registered General Nurse and
+Midwife with the SA Nursing Council, or a 3-year qualificaon in
+health sciences (i.e. in which training in vaccinang is included) from a
+terary instuon registered with the Health Professions Council of
+South Africa.
+- Selecon criteria: Priority will be given to in-service HCWs who are
+currently working within the field of vaccinaon, or who are planning
+to work within this field. Applicants will be required to write a
+movaon explaining why they should be accepted for this
+programme.
+Duraon minimum: 1 year | Maximum duraon: 2 years
+Registraon
+- Students must register for the academic year before the closing date,
+as specified in the SMU General Calendar.
+Curriculum
+- The programme is divided into 2 blocks consisng of 11 modules.
+- The first block consists of Modules 1 to 5 and a dra Porolio of
+Vaccinology Theory and Pracce for formave assessment.
+- The second block consists of Modules 6 to 11 and includes praccal
+assignments with formave assessments of pracce, a cerficate
+of competence and a final Porolio of Vaccinology Theory and
+Pracce for the End of Year Summave Assessment.
+18
+Prospectus 2024/2025 Booklet
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 19
+
+### BLOCK 1 ENTIRELY ONLINE
+### CREDITS
+Module 1 Introducon to Human Infecous Disease
+Immunology
+4
+Module 2 Introducon to vaccinology
+4
+Module 3 Introducon to vaccine manufacturing and
+distribuon
+4
+Module 4 Introducon to the Expanded Programme on
+Immunisaon of South Africa (EPI-SA)
+4
+Module 5 Introducon to the epidemiology of vaccine
+preventable diseases and the corresponding
+vaccines used within the EPI
+32
+### FORMATIVE ASSESSMENT: DRAFT PORTFOLIO OF
+### VACCINOLOGY THEORY AND PRACTICE
+BLOCK 2 Combined online teaching with praccal
+assignments
+### CREDITS
+Module 6 EPI vaccinaon schedules and strategies in South Africa
+12
+Module 7 Introducon to Cold Chain Management 12
+Module 8 Introducon to the safe administraon
+of vaccines
+12
+produce evidence of this competence will be able to submit this evidence and
+thus be exempt from compleng these assignments. Their super-
+visor/manager/employer will be required to complete and sign a cerficate of
+pracce for each specific task, and these cerficates will form part of the
+Porolio of Vaccinology Theory and Pracce.
+All students, even those with Recognion of Prior Learning in praccal skills,
+must aend the virtual "communicaon" component of the praccals using
+Blackboard Ultra Collaborate. This is a mandatory part of the course to ensure
+everyone develops essenal communicaon skills relevant to vaccinaon
+pracces, regardless of their prior experience.
+Why should you enrol in the HCert (Vacc)?
+- All HCert (Vacc) alumni are given permanent online access to
+updated course materials at no cost to enable them to keep up to
+date with the latest developments in EPI-SA.
+- Qualified HCWs will be able to promote vaccinaon with confidence,
+which will in turn increase public confidence in vaccinaon, and
+thereby increase vaccinaon uptake.
+- The HCert (Vacc) qualificaon is approved by the Department of
+Higher Educaon and Training and the Council for Higher Educaon
+and is accredited by the South African Qualificaons Authority.
+Module 9 Introducon to adverse events following
+immunisaon
+12
+Module 10 Introducon to advocacy, communicaon,
+and social mobilisaon to increase
+vaccinaon uptake
+12
+Module 11 Monitoring and evaluaon of EPI-SA 12
+### SUMMATIVE ASSESSMENT: FINAL PORTFOLIO OF
+### VACCINOLOGY THEORY AND PRACTICE
+Total 120
+Funding
+Funding is available upon applicaon, to cover student registraon and tuion
+fees. While HCWs employed in the public sector are priorised, HCWs employed
+in the private sector may also apply for funding, which will be dependent on the
+amount of funding available.
+Contact informaon
+Junior Lecturer: Ms Nontobeko Shabangu
+Tel: 012 521 4044
+Email: or
+nontobeko.shabangu@smu.ac.za info@savic.ac.za/hp://savic.ac.za/
+hps://www.smu.ac.za/schools/pharmacy/school-of-pharmacy-academic-
+programmes/
+Recognion of prior learning
+Modules 6 to 11 have praccal assignments which are based on vaccinaon
+pracces. Students who are already competent in vaccinaon pracces and can
+19
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 20
+
+Bachelor of Pharmacy (BPharm)
+About the BPharm Degree
+The BPharm at SMU follows an integrated, themac, hybrid problem-based
+modular method of instrucon and thus has a limited number of places.
+Naonal Senior Cerficate (NSC) Applicants
+Applicants require the following minimum Admission Point Score (APS).
+The minimum point score does not guarantee admission.
+Table 1: Minimum APS score
+APS Calculator
+Table 2: APS point/score per percentage
+### MATRIC SUBJECT SYMBOL/MARK RECEIVED IN
+MATRIC EXAM (APS %)
+APS (Admission
+Point Score)
+A. 80 – 100%
+7
+B. 70 – 79%
+6
+C. 60 – 69%
+5
+D. 50 – 59%
+4
+E. 40 – 49%
+3
+F. 30 – 39%
+2
+Applicaons will be considered from candidates who have, or are about to
+receive:
+- A matriculaon cerficate from a Matriculaon Board
+- Cerficate of exempon from the matriculaon examinaon
+granted by the Matriculaon Board/ Universies South Africa.
+- Candidates will be required to have passed these major subjects:
+Mathemacs, Physical Sciences, Life Sciences and English with a
+minimum level of 5 each at Matric level and indicate BPharm as their
+first choice.
+- The BPharm Student Selecon Commiee at SMU screens all
+candidates who comply with the above criteria.
+- Shortlisng is based on the academic results (from the maximum
+results) to idenfy suitable candidates for admission and provisional
+admission.
+- Due to a lack of capacity, there are limitaons in the number of
+intakes; some applicants may not be selected even if they meet the
+minimum requirements.
+- The screening will have to be based on the Naonal Demographic
+profile of the country.
+Non-South Africans should obtain the following:
+- There is a limited intake of candidates for A-Levels in the following
+subjects: Mathemacs, Physical Science, Biology & English, with
+symbols a minimum symbol of C.
+- A matriculaon exempon cerficate from the South African
+Matriculaon Board/University South Africa (USAF) is required.
+Mature Age applicants
+Applicants who have completed appropriate training within the requirements of
+the Naonal Qualificaons Framework will be considered (e.g. formally trained
+pharmacy assistants, pharmacy technicians) if they have a matriculaon
+cerficate with the following subjects: Mathemacs, Life Sciences, Physical
+Sciences and English with a minimum APS level of 5 per subject.
+G. 0 - 29%
+1
+20
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 21
+
+Graduates
+(I) There is a limited intake of Graduates with Health Sciences/BSc
+degrees who will be considered for enrolment into the First Year.
+Mark obtained during the degree will be scored according to the
+table 3:
+Table 3: Points awarded for scores on the academic transcript
+### PERCENTAGE OBTAINED POINTS
+>75 24
+70 - 74 16
+65 - 69 12
+60 - 64 8
+55 - 59 4
+<54 0
+(ii) Points are allocated according to the above table for all courses. The
+points will be summed and divided by the number of courses.
+The process of the calculaon is as follows
+- Each subject is awarded a score based on the percentage achieved
+as per the table below.
+- The percentage will be rounded oﬀ to the nearest decimal.
+- In the event a subject has been completed as a supplementary
+result, the score awarded will be zero.
+- If the year of study is repeated or a subject is repeated in a
+subsequent year of study, all aempts at the subject are scored and
+each counts as a course for this calculaon.
+- These are then added together and divided by the number of
+subjects included.
+- The smallest score which will be considered eligible is 12.
+- Candidates with a minimum of 12 points qualify for the selecon
+process.
+- The me to complete the degree is also considered. A three or four-
+year Health Sciences/BSc completed in the minimum me: two
+addional credits (+2)
+- Honours Degree: one addional credit if achieved in minimum me
+(+3).
+- Honours Degree: one addional credit if achieved in minimum me
+without disncon (+2).
+- Master's Degree: one addional credit if achieved in minimum me
+with disncon (+2).
+- Master's Degree: one addional credit if achieved in minimum me
+without disncon (+1)
+- Doctorate (+2)
+Registraon with the South African Pharmacy Council (SAPC)
+All students admied to the first year of study must register with the South
+Africa Pharmacy Council before 31 March of the relevant year. Registraon fee is
+determined by the South African Pharmacy Council. Please contact the School
+of Pharmacy for further informaon.
+Internship
+Aer qualificaon, graduates must undertake one year of an internship, during
+which they must sasfactorily complete a pre-registraon examinaon for
+entry-level pharmacists. They are then required to complete one year in the
+public sector as a community service pharmacist before proceeding to full
+registraon as a pharmacist.
+PLEASE NOTE: These rules must comply with the proposed regulaons of the
+South African Pharmacy Council as promulgated in terms of the Pharmacy Act,
+as amended.
+- Honours Degree: one addional credit if achieved in minimum me
+without disncon (+2).
+- Master's Degree: one addional credit if achieved in minimum me
+with disncon (+2).
+- Master's Degree: one addional credit if achieved in minimum me
+without disncon (+1)
+- Doctorate (+2)
+21
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 22
+
+Transfers from SMU and/or other universies
+- A limited number of applicants with incomplete Health Sciences/BSc
+degrees will be considered. from the Matric and the performance in
+the first year of BSc degree/Health Sciences degree.
+- Selecon is on a compeve basis and a student's average mark
+should be 65% and above.
+- The applicant should have a matriculaon cerficate in the following
+subjects: Mathemacs, Life Sciences, Physical Sciences and English
+with a minimum APS level of 5 per subject.
+- Each applicaon will be considered by the Selecon Commiee and
+ranked based on their academic outcomes.
+Selecon Process
+- The BPharm Selecon Commiee may screen all candidates who
+comply with the selecon requirements and submit via the Student
+Enrolment oﬃce.
+Final selecon and the number of spaces are predetermined by the Oﬃce of
+Instu-onal Planning annually, and will be based on the following
+distribuon:
+- Successful applicants will be admied into the year level.
+- 90 % of the students comprises of:
+- Pre-selected students are now given substanve oﬀers on the
+grounds of either having maintained their performance in the
+SMU Admission score.
+- Students selected from the remaining pool of applicants from
+other schools.
+- 4 % who have completed their first degree at SMU, this includes
+students from other disciplines. Selecon will be based on a
+calculaon of points for each symbol.
+- Teaching and learning methods include small group tutorials, site
+visits, workshops, laboratory praccals and experienal learning via
+blended learning.
+BPharm I
+Semester 1
+Module 1 Introducon to Pharmacy MPIT011
+Module 2 From atoms to medicines MATO011
+Module 3 Biopharmaceucs, pharmacokinecs,
+and pharmacodynamics
+### MPHR012
+Semester 2
+Module 4 Microorganisms, man, and medicines MPMM012
+Module 5 Nutrion and gastroenterology MPMB012
+Year Course English for Health Sciences MEHS010
+BPharm II
+Semester 1
+Module 1 Principles and pracce of pharmaceucal MPPP021
+manufacturing
+Module 2 Industrial pharmacy pracce MPIP021
+Module 3 Industrial pharmacy pracce-based
+learning
+### MPCB021
+Semester 2
+Module 4 Cardiovascular pharmacy MPCA022
+Module 5 Respiratory system, ear, and eye MPRE022
+Module 6 Primary healthcare pracce-based
+learning
+### MPPH022
+Curriculum
+- Duraon of the programme: 4 years
+- The BPharm curriculum will be updated connuously to reflect
+statutory requirements.
+22
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 23
+
+Semester 1
+Module 1 Module 2 Module 3 Semester 2
+Module 4 Module 5 Module 6 BPharm III
+BPharm IV
+Semester 1
+Sterile pharmaceucal products MPMC031
+Module 1 Neurological and psychiatric pharmacy Community pharmacy pracce MPMA031
+Module 2 Hospital pharmacy pracce Modern technologies in healthcare MPMB031
+Module 3 Specialised pharmacy Semester 2
+Endocrine and reproducve pharmacy MPMB032
+Module 4 First aid Musculoskeletal, skin condions and
+pain management
+### MPMC032
+Module 5 Hospital-based pharmaceucal care Module 6 Advanced research methodology and
+project
+Community pharmacy pracce-based
+learning
+### MPMA032
+Module 7 Hospital pharmacy pracce-based
+learning
+23
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+### MPMB041
+### MPMA041
+### MPMC041
+### MPMA042
+### MPMB042
+### MPMR040
+### MPMC042
+
+## Page 24
+
+Bachelor of Nursing and Midwifery (BNAM)
+Duraon: 4 years
+Requirements
+- Old matric grading
+- Matric exempon with the following subjects: Mathemacs, Physical
+Science, Biology, and English (Symbol C on higher grade or D on
+Standard grade)
+- New matric grading
+- Mathemacs, Physical Science at level 4; Life Sciences, and English at
+level 5 minimum.
+Total Combined APS of 18
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Addional Subject 1
+Addional Subject 2
+4
+3
+Life Orientaon
+3
+Total 26
+Career Opportunies
+At the end of the programme, the nurses have a professional role in paent care
+which includes General Nursing Science and Midwifery allowing them to work at
+a public or private hospital, primary health care facilies as well as in the
+corporate spaces. Further career opportunies include specialisaon in
+diﬀerent clinical programmes such as Community Health Nursing, Primary
+Health Care Nursing, Psychiatric nursing science, Crical Care Nursing, Nursing
+Educaon, Health Service Management and Research.
+Sefako Makgatho Health Sciences University 24
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+Bachelor of Occupaonal Therapy (B OCC THER)
+- Occupaonal Therapy is a profession that is dynamic and fulfilling for
+individuals who are passionate about helping others, solving
+problems and improving people’s parcipaon in everyday life.
+Occupaonal Therapy (OT) promotes people's health and well-being
+through the therapeuc use of occupaon and acvies.
+Intervenons may include acvies related to self care, health
+management, rest and sleep, educaon, work, play, leisure and
+social parcipaon.
+- The occupaonal therapist helps clients to regain or develop new
+skills so that they can live a meaningful life again.
+- Helping people of all age groups to perform ordinary, everyday
+acvies is especially important when people are ill, injured or living
+with a disability.
+- In occupaonal therapy, the whole person is important. This means
+that physical, social, emoonal, and mental factors are taken into
+consideraon.
+
+## Page 25
+
+Is Occupaonal Therapy the career for you?
+Yes, if you:
+- Enjoy working with disabled and ill people.
+- Cares about the well-being of others' lives.
+- Like to deal with challenges in a new and creave way.
+- Want others to help themselves by improving the quality of their lives.
+- Likes solving problems.
+What kind of sengs do OTs work in?
+These are only a few examples:
+- Community based sengs: NGO's, community rehab, outreach
+services.
+- Healthcare sengs: Clinics and hospitals.
+- Schools and Educaonal instuons: LSEN schools, mainstreams
+and ECD centers.
+- Mental health seng: psychiatric hospital , mental health clinics
+- Work and Industries: Vocaonal Rehab, Medico-legal and
+insurance services.
+- Private Pracce: Physical Rehab, Mental Health, Work pracce
+and Paediatrics.
+- Research and Academia: conduct research and teach
+undergraduate & postgraduate students.
+What do you need to be admied to the Occupaonal Therapy degree at SMU?
+The minimum admission requirements
+SUBJECT Mathemacs
+Physical Sciences
+Life Sciences
+English
+Addional Subject 1
+Addional Subject 2
+Life Orientaon
+Total NOTE: In addion to meeng the requirements of University Rules relang to
+selecon and admission, English must be at a minimum of 4 and Life Orientaon
+at a minimum of 3.
+The minimum admission requirements
+- The (B. 0cc Ther.) degree is a full-me 4-year course. Upon
+compleon of this degree, the candidate must register with the
+Health Professions Council of South Africa (HPCSA).
+- Aerwards, the student may proceed to register for postgraduate
+studies (master's and then a Doctoral degree).
+- There are four professional modules that the student registers for
+throughout the training. These include the following:
+- Intervenon Theory
+The student learns about the methods used to treat ill and
+disabled persons.
+- Therapeuc Media
+These are the unique methods and acvies used by OTs to
+enable ill and disabled persons to adapt to the environment.
+Students learn a variety of acvies such as woodwork,
+gardening, stress management and life skills. Students also
+learn to adapt to these acvies using knowledge from other
+subjects such as kinesiology, work-study, and ergonomics. In
+addion, students learn to use equipment and tools in OT
+pracce.
+- Occupational Therapy Applied
+This module includes clinical praccal work where the students
+learn to treat the clients and enable persons with disabilies to
+funcon independently. Praccal experience includes exposure
+to paents and clients of all age groups in general, hospitals,
+psychiatric instuons, special schools, and the community.
+Students are exposed to clients in the community from their
+first year of study.
+Other subjects, which form part of the course are Anatomy,
+Biophysics, Clinical Sciences, Physiology, Psychology and
+English.
+25
+Sefako Makgatho Health Sciences University Prospectus 2025/2026 Booklet
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+### MINIMUM POINTS
+4
+4
+4
+4
+3
+3
+3
+25
+
+## Page 26
+
+- Fundamentals of Occupaonal Therapy
+In this module, the student learns about the philosophy of OT,
+frames of reference in OT pracce, ethics, and management of
+OT services.
+Why study Occupaonal Therapy at SMU?
+Because SMU Students are exposed to:
+- Diﬀerent communies.
+- Diverse cultures.
+- The diversity of clients in diﬀerent sengs.
+- Primary health care.
+Our curriculum will equip the newly qualified OT to be compeve across the
+globe and funcon in any pracce area, at all three levels of health care
+(community, district, terary instuons, and academic hospitals),
+collaborang with individuals and groups of clients.
+Bachelor of Science in Physiotherapy (BSc Physio)
+Requirements
+Matric/Naonal Senior Cerficate:
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+- Physiotherapists assess, treat, and prevent human movement
+disorders, pain, and dysfuncon to opmise normal funcon at
+home, at work and in communies for adults and children.
+- Physiotherapists also play a pivotal role in community, industry, and
+school-related health promoon for clients of all age groups.
+- Various hands-on treatment methods (such as mobilizaon,
+manipulaon, and massage), physical and mechanical modalies
+and specifically designed exercise programmes are used in the
+assessment and treatment of paents.
+- Numerous local and internaonal employment opportunies are
+available for Physiotherapists. The following are some of the sengs
+where Physiotherapists are oen employed:
+- Public and private hospitals; clinics and in private pracce
+- Community health care centres
+- Day-care centres, crèches, and schools for children with special
+needs
+- Nursing homes and centres for people with physical disabilies
+- Sports centres and sports teams
+- Terary training instuons, research units and occupaonal
+health units
+Bachelor of Audiology (B. AUD01)
+A candidate must comply with the condions and meet the selecon criteria as
+determined by the Department of Speech-Language Pathology and Audiology.
+Addional Subject 1
+Addional Subject 2
+4
+4
+### SUBJECT MINIMUM POINTS
+Life Orientaon
+4
+Mathemacs
+4
+Total 28
+English
+4
+Life Sciences
+4
+Life Orientaon
+Addional 2 Subjects
+Total
+Minimum Duraon: 4 years
+Career Opportunies
+- A Physiotherapist can also be self-employed (private pracce).
+- Physiotherapy is an essenal health service within the health care
+profession and applies to all aspects of health care.
+26
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+Any Home Language or First Addional
+4
+3
+3 each
+25
+
+## Page 27
+
+Career Opportunies
+According to the Professional Board for Speech, Language and Hearing
+Professions, an Audiologist is involved in the prevenon, idenficaon,
+assessment, and treatment of individuals with communicaon disorders. The
+Audiologist is, furthermore, involved in the counselling process of the individual
+with communicaon disorders.
+- The Audiologist is involved in the prevenon, idenficaon,
+assessment, and treatment of individuals with hearing and/or
+balance disorders. Addionally, this health pracce is also involved
+in the counselling process of the individual with a hearing disorder
+and consultaon with the other professionals involved in the
+treatment of the paent and researching communicaon disorders.
+The audiologist treats individuals with hearing disorders presenng with:
+- Organic disorders of the auditory system as well as the balance
+system.
+- Funconal hearing disorders.
+- Central auditory processing disorders.
+- Developmental or acquired disorders of language and language
+processing
+caused by hearing loss involving oral, wrien and/ or graphic modes
+of communicaon as well as sign language and others.
+The Audiologist treats paents in a variety of sengs ranging from private
+pracce, private hospitals, government hospitals, rural clinics, terary
+instuons, schools, industries communies and home environments.
+General
+Students are also required to observe at hospitals, private pracces and/or
+clinics regarding the Audiologist's scope of pracce before the inial selecon is
+done. For praccal reasons, only a limited number of applicants can be admied
+to the degree programme.
+Bachelor of Speech-Language Pathology
+A candidate must comply with the condions and meet the selecon criteria as
+determined by the Department of Speech-Language Pathology and Audiology.
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+English
+4
+Life Sciences
+4
+Any Home Language or First Addional
+4
+Life Orientaon
+3
+Addional 2 Subjects
+3 each
+Total
+25
+Career Opportunies
+According to the Professional Board for Speech, Language and Hearing
+Professions, the speech language pathologist engages in the prevenon,
+idenficaon, assessment, and treatment of individuals with communicaon
+disorders. The speech-language therapist will, furthermore, be involved in the
+counselling process of the individual with communicaon disorders.
+The Speech-Language Pathologist assess, diagnose, and treat individuals
+with a wide range of communicaon, speech, language, and swallowing
+disorders. Their scope of pracce includes:
+- Speech Disorders: Management of developmental or acquired
+speech disorders, including motor speech impairments resulng
+from strokes or funconal abnormalies.
+- Feeding and Swallowing Disorders: Evaluaon and treatment of
+both developmental and acquired feeding and swallowing
+diﬃcules.
+- Prevenon, Assessment, and Treatment: Idenficaon, assessment,
+and intervenon for individuals with speech, language, voice,
+feeding, and swallowing disorders.
+- Counselling and Consultaon: Providing counselling to individuals
+with communicaon disorders and collaborang with other
+healthcare professionals involved in paent care.
+27
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 28
+
+- Research and Advancements: Conducng research on
+communicaon disorders to enhance treatment approaches and
+evidence-based pracce.
+The Speech Language Pathologist treats paents in a variety of sengs ranging
+from private pracce, private hospitals, government hospitals, rural clinics,
+terary instuons, schools, industries communies and home environments.
+General
+Students are also required to observe at hospitals, private pracces and/or
+clinics regarding the speech-language pathology scope of pracce before the
+inial selecon is
+done. For praccal reasons, only a limited number of applicants can be admied
+to the degree programme.
+Bachelor of Science in Dietecs (BSc Dietecs)
+Requirements
+Applicants with the naonal senior cerficate should have the following
+minimum admission point scores (APS):
+Naonal Senior Cerficate (NSC)
+- Duraon: 4 years, including thirty-four weeks of integrated internship, of
+which twenty-three weeks are connuous during the fourth year of study.
+### SUBJECT HG SG POINTS
+Mathemacs D C 4
+Physical Sciences D C 4
+Life Science D C 4
+English D C 4
+Addional Subject 1 E D 3
+Addional Subject 2 E D 3
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+English
+Addional Subject 1
+Addional Subject 2
+Life Orientaon
+Total Applicants who have completed grade 12, senior cerficates, with full university
+exemp-on before 2008 admission requirements are as follows:
+What is a Diean?
+A qualified Diean is a health professional registered with the Health
+Professions Council of South Africa (HPCSA). It is a profession that applies the
+science of food and nutrion to promote the health and development of
+individuals, groups, communies, and populaons at large.
+Community Services
+Upon compleon of the training, a student is required to complete one year of
+community service.
+Career Opportunies
+Dieans work wherever nutrion experse is needed and parcipate in the
+planning and management of nutrion-related services.
+Examples of career opportunies
+- Hospitals and health care centres where nutrional care for
+individual paents who need specialised nutrional support and
+therapeuc diets.
+- Medical and pharmaceucal companies which manufacture highly
+specialized nutrion products.
+- Food services and catering companies, where nutrional experse is
+important in food service management, including therapeuc
+nutrion.
+- Diecians may have their private pracce, where paents receive
+individualised dietary care.
+28
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+4
+4
+3
+3
+3
+25
+
+## Page 29
+
+Bachelor of Science (BSc)
+### SUBJECT MINIMUM POINTS
+Mathemacs
+5
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Any two other NSC subjects with a minimum
+NSC score of 4 each.
+BSc-ECP (Bachelor of Science - Extended Curriculum Programme)
+### SUBJECT MINIMUM POINTS
+Mathemacs
+4
+Physical Sciences
+4
+Life Sciences
+4
+English
+4
+Any two other NSC subjects with a minimum
+NSC score of 4 each.
+The curriculum for the BSc-ECP Programme shall extend over four years.
+Chemistry and Chemical Technology
+The study of the composion, structure and properes of maer and the
+changes it undergoes. The chemical industry in South Africa is relavely large,
+absorbing large numbers of graduates into academic instuons and
+pharmaceucal, mining, manufacturing, government, and private laboratories.
+Biochemistry and Chemical Technology
+Teaching, research, quality control, sales producon, research, and
+development, agricultural/ crop development, pharmaceucals, water
+treatment, food industries, biosafety, and the environment as well as industries
+transformaon of raw material using chemical and biochemical technology.
+29
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 30
+
+Mathemacs and Applied Mathemacs
+- Teaching, research engineering, informaon and communicaons
+technology, computer programming, system analysis & operaonal
+funconing.
+- Some career opportunies are Educators, Lecturers, Educaon
+Specialists, Data Analysts, Data Sciensts, Telecommunicaon,
+Researchers and Sciensts.
+- Some possible employers include Banks, Financial Instuons,
+Businesses, Universies, Schools, Educaon Departments, ICT
+Companies, and Research and Development Centres.
+Stascs and Operaons Research
+- The scope of experse developed includes (but is not limited to)
+applicaons in teaching, research, consulng, financial instuons,
+census oﬃces, market research organizaons, and all other
+industries. Stascs experts aract relavely high salaries. There are
+also possibilies for launching private consulng agencies.
+Computer Science
+This is a fast-growing industry with highly compeve remuneraon.
+Opportunies exist for:
+- Programme and system analysts,
+- System designer,
+- Database managers,
+- Operaon managers,
+- Project managers
+- Network specialists.
+- Informaon and communicaons technology
+- Computer programming.
+- Soware tesng.
+Physiology
+Academic opportunies exist in medical facules for lecturing and research.
+Physiologists are also in demand in pharmaceucal companies, biotechnology,
+and various medical disciplines.
+Psychology
+Has applicaon to careers in a broad spectrum of sengs ranging from schools,
+clinics, churches, community service organisaons, hospitals rehabilitaon
+centres, universies, educaon departments, the HSRC, SANDF , Department of
+Labour, commerce, industry, and private pracce.
+Physics
+Career opportunies include teaching, research, medical physics, nuclear
+physics, physical engineering, and industry. Some of the fields include acouscs,
+astronomy, astrophysics, geophysics, vacuum science, thin film technology,
+environment, material sciences, technicians, and soware designs.
+Biology and Environmental Sciences
+Nature conversaon bodies; (natural, provincial, and private); educaon
+(primary to terary); government departments (agriculture, forestry, sea
+fisheries, water aﬀairs and environmental aﬀairs), medical and veterinary
+laboratories, private sector (industry, environmental impact assessments;
+pharmaceucal companies).
+30
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 31
+
+As you step into your first year at Sefako Makgatho Health
+Sciences University (SMU), we know that it's important for
+you to feel supported, informed, and ready to make the most
+of your me here. The next few pages will guide you through
+the wealth of services and resources available to you as an
+SMU student.
+From academic support and career services to wellness
+programmes and student acvies, SMU is dedicated to
+ensuring you have everything you need to succeed. Whether
+it's advice on managing your studies, engaging with your
+peers, or taking care of your health, you'll find all the
+informaon you need right here. We invite you to explore the
+full range of services designed to enhance your academic
+journey and personal growth.
+So, flip through the following pages and discover the
+resources waing for you. Take note of the services that will
+help you thrive, from personal development and support to
+making your campus life vibrant and fulfilling. This is just the
+beginning of a transformave experience – we're excited to
+see you make your mark at SMU.
+31
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 32
+
+At SMU, we understand that academic success goes beyond just mastering
+content — it's about eﬀecvely communicang ideas and engaging with diverse
+text genres. The Academic Literacy & Science Communicaon programme is
+designed to equip students with the essenal skills to thrive in their academic
+journey. Through targeted support and development in reading, wring,
+research, and presentaon, we aim to empower you with the tools to excel in all
+forms of academic communicaon. Whether you're preparing for your first
+presentaon, developing research protocols, or refining your wring, our
+programme ensures you're prepared for success, enhancing both your
+academic and professional future.
+BMS, Second Floor
+Room No. N216
+Monday – Friday: 13h00 - 14h00
+Email: edwin.seleka@smu.ac.za
+Email: juliet.ratsoana@smu.ac.za
+- Reading (Variety of text genres) and wring skills (All forms of wring
+required at SMU).
+- Online reading and wring proficiency (Pearson).
+- Presentaon skills (Group and individual).
+- Research and protocol wring.
+- Raising students' awareness of academic language and its use.
+- Empowering students with Cognive Academic Language
+Proficiency (CALP) and Basic Interpersonal Communicaon Skills
+(BICS).
+- Dr M.E. Seleka: Head of Discipline
+- Mrs J.R. Ratsoana: Secretary
+- Dr P . Nair: Senior Lecturer
+- Dr V. Hungwe: Senior Lecturer
+- Dr B.G. Marutla: Senior Lecturer
+- Mr G. Nkgadima: Lecturer
+- Mr J.T.Mamabolo: Lecturer
+32
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 33
+
+The Advocacy & Diversity Unit, part of the Student Aﬀairs Directorate,
+collaborates closely with SMU's Internaonalisaon Directorate. Diversity on
+campus plays a pivotal role in enriching students' educaonal experiences by
+exposing them to individuals from various backgrounds, cultures, and
+perspecves. This exposure enhances communicaon and crical thinking skills,
+encouraging students to engage with diﬀering beliefs and opinions. At SMU,
+diversity and advocacy are central to fostering mutual respect and
+understanding, challenging stereotypes, and addressing biases. These eﬀorts
+ulmately equip students with the global competence and cultural awareness
+necessary to thrive in diverse workplaces.
+In conjuncon with the Internaonalisaon Directorate:
+- Provide informaon about SMU and about studying in South Africa
+to prospecve and current internaonal students.
+- Advise and assist internaonal students with applying for study visas
+and renewing exisng study visas.
+- Provide informaon about South African-approved medical aid
+service providers.
+- Parcipate in the general orientaon of new local and internaonal
+students in the university.
+- Iniate and assist in organising cultural celebraons of internaonal
+students and related funcons.
+- Develop the Internaonal Students' Handbook, which provides
+informaon and services to internaonal students.
+- Provide informaon to foreign embassies and consulates.
+- Serve as a liaison within the university community and beyond on
+behalf of SMU internaonal students.
+33
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 34
+
+- Serve as a liaison between internaonal students and the
+Department of Home Aﬀairs.
+- Advise on and facilitate social interacons amongst internaonal
+and local students.
+The oﬃce oﬃcially houses the LGBTQIA+ structure on campus. Students who
+want to join can contact the oﬃce.
+Old Informaon Centre behind Residence 1C
+- To support students with disabilies.
+- To advocate for minority groups in various areas such as:
+- Religious formaon.
+- Sexual orientaon.
+- Cultural diversity.
+Monday - Friday: 08h00 – 16h00
+Ms Eunice Modiba
+Email: eunice.modiba@smu.ca.za
+Tel: 012 521 5834
+Cell: 071 711 2921 | Short Number: 6001
+- Advocacy and Diversity Orientaon
+- SMU Africa Day
+- Excursions for Internaonal Students
+- SMU Heritage Day
+- Student Representave Council and Internaonal Student
+Organisaon elecons
+Dr Carlien Jooste (Director: Internaonalisaon)
+Email: carlien.jooste@smu.ac.za
+Mr Gi Lebethe (Administrave Oﬃcer)
+Email: gi.lebethe@smu.ac.za
+- Sefako Makgatho Health Sciences University Internaonal Student
+Organisaon (SMUISO)
+- Lesbian, gay, bisexual, transgender, queer/quesoning, intersex,
+asexual and many other genders and sexual idenes (LGBTQIA+)
+- All other student structures, i.e. polical and non-polical structures
+registered with the SRC, are also recognised by the oﬃce.
+34
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 35
+
+Library and Informaon Services advances academic success and supports
+research and community engagement by providing access to quality health
+sciences informaon resources and services, technology, learning spaces and
+staﬀ experse. We oﬀer undergraduates, postgraduates and staﬀ access to
+informaon resources in diﬀerent formats along with services and facilies to
+opmise access and use of these resources.
+The library building is equipped with Wi-Fi to enable you to access a range of
+other services like the Internet and email. Our library staﬀ oﬀers experse in
+answering your library-related queries and informaon skills training for
+individuals and groups. Library and Informaon Services has put in place
+programmes, services and collecons geared towards supporng learning and
+research needs.
+Aer the orientaon week, students will receive addional praccal training on
+using the online library catalogue to search for resources, and how to access &
+use informaon resources for assignments and study projects.
+- Informaon Desk: A service desk for general inquiries.
+- Circulaon services
+- Inter library loans
+- Library training (Undergraduate /Postgraduate/Staﬀ)
+- Research support
+- Referencing and Endnote support
+- Prinng/Photocopying
+- Database literature searches
+- LibAnswers: A facility for online help on any Library-related query.
+35
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 36
+
+- Remote access to online informaon resources.
+- LibApp: A mobile tool that enables library clients to access all
+resources.
+Monday – Thursday: 07h30 – 22h00
+Friday: 07h30 – 16h00
+Saturday: 09h00 – 17h00
+- Books: Print and electronic collecons
+- Reserve Collecon: high-demand material available on a short basis
+- JournalsPrint and electronic
+- Electronic Databases
+- Theses and Dissertaons: print and electronic
+- Instuonal Repository
+- Audiovisual collecon
+- Artefact (Bone clones)
+- Electronic past exam papers
+Monday – Friday: 07h30 – 16h00
+Saturday: Closed
+Monday - Friday: 07h30 - 00h00
+Saturday - Sunday: 09h00 - 17h00
+- 24-hour study facility (at the basement of the BMS building)
+- Air-condioned study space
+- Study Cubicles
+- Computer Lab
+- WIFI
+- Discussion rooms
+- Photocopying and prinng facilies
+- Training room
+- Staﬀ & Postgraduate Lab.
+Contact Details
+Director's Oﬃce: (012) 521 4151
+Circulaon Desk: (012) 521 5706
+Informaon Desk: (012) 521 3084
+Photocopying: (012) 521 4497
+Library IT: (012)521 3753
+Security: (012) 521 5701
+Library Website: hp://www.smu.ac.za/library
+Virtual Orientaon Video: hps://www.youtube.com/watch?v=4toTIodrVSQ /
+hps://smu-za.libguides.com/
+36
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 37
+
+The Assessment and Cerficaon Oﬃce plays a pivotal role in ensuring that the
+academic progress of students is accurately evaluated and recorded. As the
+central hub for all examinaon-related processes, this oﬃce is dedicated to
+maintaining the integrity and eﬃciency of assessments at SMU. From the
+meculous planning and organisaon of examinaon metables to the secure
+handling and distribuon of queson papers, the oﬃce ensures that every step
+in the assessment process is executed seamlessly. With a focus on data accuracy
+and student success, this department supports the university's commitment to
+excellence in academic performance and cerficaon.
+Monday – Friday: 07h30 - 16h00
+Clinical Pathology Building
+Ground Floor
+Room N07
+Assessment
+- Drawing up and publicaon of final assessment metable.
+- Receiving, safekeeping and duplicaon of queson papers.
+- Delivery of examinaon queson papers and staonery to and from
+examinaon venues.
+- Data processing of annual result codes on the system.
+Publicaon of Results
+line.
+iEnbler.
+- Publicaon of students' final assessment results on iEnabler and SMS
+- Ensuring that progress reports and academic records are available on
+Cerficaon
+- Extracng and verificaon of graduaon lists from the system.
+- Compiling graduaon programmes.
+- Prinng and safekeeping of degree/diploma cerficates.
+- Sending out graduaon invitaons to eligible candidates.
+- Conducng graduaon ceremonies.
+- Issuing of graduaon cerficates.
+Rose van Wyk
+Tel.: 012 521 4556
+Email: rose.vanwyk@smu.ac.za
+Penelope Mankge
+Tel.: 012 521 5353
+Email: penelope.mankge@smu.ac.za
+Elizabeth Khoza
+Tel.: 012 521 4674
+Email: elizabth.khoza@smu.ac.za
+37
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 38
+
+The Centre for University Teaching and Learning (CUTL) encompasses the
+Student Support Unit, the E-Learning Unit, and the Medical Illustraon and
+Audio-Visual Services (MIAAVS) Unit, all of which provide essenal support to
+SMU students.
+The Student Support Unit, a division of CUTL, is dedicated to providing both
+academic and personal assistance to help students successfully complete their
+university studies. This support is delivered through iniaves such as the first-
+year mentorship programme, supplemental instrucon, tutoring, student
+advising, life skills workshops, academic development sessions, and various
+other student development and support programmes.
+You can contact the CUTL Student Support Unit via the email addresses
+provided below, specific to your respecve schools:
+- Student success monitoring for all schools
+Mr Stanley Lekata (Student Tracking and Monitoring Specialist)
+Email: stanley.lekata@smu.ac.za
+- Student Academic Development and Support for All Schools
+Ms Thabile Mtsweni (Student Academic Development and Support
+Oﬃcer)
+Email: thabile.mtsweni@smu.ac.za
+- Tutorship and Supplemental Instrucon support for all schools
+student.tutorship@smu.ac.za
+38
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 39
+
+- School of Science Technology (SST) student advising and other
+support
+Ms Bonolo Kau (Student Advisor)
+Email: bonolo.kau@smu.ac.za
+SST Student Academic Advisor
+Email: sst.studentadvisor@smu.ac.za
+- School of Medicine (SOM) student advising and other support
+Ms Dikeledi Thipe (Student Advisor)
+Email: dikeledi.thipe@smu.ac.za
+SOM Student Academic Advisor
+Email: som.studentadvisor@smu.ac.za
+Management System (LMS). The E-Learning Unit within CUTL provides training
+and support to help students navigate the Blackboard LMS tools, Turnin
+Plagiarism Detecon soware, and Hornolock Proctoring System. Support is
+delivered through various methods, including online and in-person workshops,
+ongoing email assistance, face-to-face consultaons, and telephonic guidance.
+2.1. E-Learning Unit Contact Details
+You can contact the CUTL Student Support Unit via the email addresses provided
+below, specific to your respecve schools:
+Student Support Service Contact DetailsE-learning student support for all
+schools
+Ms Thandokazi Ikedinobi (E-learning Specialist)
+Tel.: 012 521 3896
+Email: thandokazi.ikedinobi@smu.ac.za
+- School of Denstry (SOD) student advising and other support
+Ms Dikeledi Thipe (Student Advisor)
+Email: dikeledi.thipe@smu.ac.za
+SOHS Student Academic Advisor
+Email: sohs.studentadvisor@smu.ac.za
+Student Support Helpdesk
+Tel.: 012 521 3982
+Email: students.elearningsupport@swave.smu.ac.za
+- School of Pharmacy (SOP) student advising and other support
+Ms Bonolo Kau (Student Advisor)
+Email: bonolo.kau@smu.ac.za
+- School of Health Care Sciences (SHCS) student advising and other
+support
+Ms Bonolo Kau (Student Advisor)
+Email: bonolo.kau@smu.ac.za
+SHCS Student Academic Advisor
+Email: shcs.studentadvisor@smu.ac.za
+SMU ulises a blended learning approach, oﬀering students the opportunity to
+engage with learning materials through the online Blackboard Learning
+MIAAVS serves as the University's mulmedia and muldisciplinary support
+centre, oﬀering services to students across both academic and non-academic
+acvies. The centre is staﬀed by professionals who assist students in accurately
+documenng their clinical, laboratory, research, teaching, learning, and general
+campus life projects. This support includes photography, videography, audio-
+visual technology, as well as art and graphic design services.
+3.1. Medical Illustraon and Audio-Visual Services (MIAAVS) Contact Details
+You may contact MIAAVS through:
+Ms Nicolee Jordaan (Manager)
+Tel.: 012 521 5642
+Email: nicolee.jordaan@smu.ac.za
+39
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 40
+
+The Educaonal Psychology Unit is dedicated to enhancing student development and academic success by
+providing specialised psychological services aimed at opmising human funconing in educaonal contexts. The
+unit oﬀers a holisc approach to student well-being, focusing on both academic and personal growth. With a
+team of skilled professionals, the unit assesses and addresses various psychological needs, ensuring students
+receive the support necessary to overcome barriers and thrive in their educaonal journey. By oﬀering tailored
+intervenons, counselling, and crisis support, the Educaonal Psychology Unit plays a crucial role in fostering
+resilience and emoonal well-being among students.
+- Brief and psychoeducaonal counselling.
+- Psychotherapy (e.g. The ability to apply various evidence-based psychotherapeuc modalies
+appropriate to the case formulaon).
+- Career counselling.
+- Learning support.
+- Prevenon programmes to assist learners who have mild or transitory problems that interfere with
+academic and learning performance, such as poor peer relaonships, learning or behaviour
+problems in the classroom, and family problems such as adjustment to adopon, death, or divorce.
+- Crisis intervenon services that support students following traumac incidents such as violence,
+abuse, death, or suicide by a student.
+- Enhancing resilience, emoonal well-being, and emoonal literacy.
+- Working to support diﬃcules with aachment (styles) and bereavement.
+- Supporng (vulnerable and/or at-risk) students with transions.
+Pharmacovigilance Building (before the clinic)
+Monday-Friday: 08h00-16h00
+Mrs Sibusisiwe Komane (Educaonal Psychologist)
+Tel: (012) 521 5711 | Email: sibusisiwe.komane@smu.ac.za
+40
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 41
+
+The Clinical Psychology Unit oﬀers vital mental health support to students,
+providing professional psychotherapy and assessments to help them navigate
+various personal and emoonal challenges. The unit is dedicated to promong
+mental well-being, oﬀering a safe and confidenal space where students can
+receive tailored support for their psychological needs. Through compassionate
+care and expert guidance, the Clinical Psychology Unit plays a key role in
+ensuring students' emoonal resilience and overall well-being during their
+academic journey.
+- Suicide
+- Personality problems
+- Abuse and assault
+- Grief and bereavement
+- Anger management
+- Eang disorders
+- Self-esteem issue
+- Personal growth and development
+Psychotherapy and assessment for students (individuals, couples, families and
+groups) presenng with some of the following diﬃcules:
+- Adjustment problem
+- Trauma and crisis intervenonn
+- Relaonship and interpersonal diﬃcules
+- Psychosocial & family problems
+- Stress
+- Mood disorders (depressive & bipolar)
+- Anxiety disorders
+Monday- Friday: 08h00- 16h00
+Mrs Molebogeng Moholo (Clinical Psychologist)
+Email: molebogeng.moholo@smu.ac.za
+Tel: 012 521 3806
+Oﬃce Number: 08
+Pharmacovigilance Building (next to Campus Health)
+41
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 42
+
+The Campus Health and Wellness Centre is a vital resource dedicated to
+supporng the physical, mental, and emoonal well-being of students.
+Commied to fostering a healthy and producve campus environment, the
+centre provides a range of comprehensive health services designed to meet the
+diverse needs of the SMU community. From medical consultaons to counselling
+and wellness programmes, the centre serves as a hub for promong holisc
+health and equipping students with the tools to thrive academically and
+personally. Accessible and student-focused, the Campus Health and Wellness
+Centre is a cornerstone of support throughout the university journey.
+- Minor ailment treatment.
+- Women's health (contracepve services).
+- Emergency care/ first aid.
+- HIV counselling, tesng and referral for management.
+- Hepas B vaccinaon.
+- Health promoon through a peer educaon programme.
+- Student counselling and guidance services.
+- Peer educaon training and mentoring.
+- Health Promoon Campaigns like:
+- First Things First.
+- Health Awareness Dialogues.
+- Women's Health.
+- Men's Health.
+- Substance and Alcohol Abuse Awareness.
+- GBV awareness.
+- Candlelight World Aids Day.
+- Group discussions and many more.
+42
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 43
+
+- All services are free of charge.
+Monday – Friday: 08h00 – 16h00
+Clinic-Based
+Vacant: Clinic Doctor
+S.J Mokono: Assistant Manager Campus Health
+E Modise: Senior Professional Nurse
+A.M. Mokoele: Senior Professional Nurse
+Ms A Kgatle: Receponist
+Ms N.S Leballo: HIV/AIDS Oﬃcer
+Ms K.A Nonkwelo: Health Promoter
+Contact campus control at 082 793 1367
+Clinic Contact details: 012 521 5735
+Campus Health also oﬀers student counselling services, located in the
+Pharmacovigilance Building. These services address issues such as tension,
+stress management, learning disrupons, depression, and personal or social
+challenges for which students may require support. If a student is uncertain
+about what they are experiencing, it is important to consult the psychosocial
+team for guidance.
+Mr E Sephoka
+Mrs M Maake
+Mr A Masikwa
+Mrs T Mangwani
+Mr G Satege
+Ms L Magana
+Mr R Mabogo
+Mr F Mulovhedzi
+Ms K Maubane
+Ms M Mashego
+Molebogeng Moholo (Clinical Psychologist)
+Sibusisiwe Komane (Educaonal psychologist)
+Corlia Du Preez (counsellor/life coach)
+Lesego Tsima (Social worker)
+Dr Gundo Nepfumbada (Social worker)
+Nong the need and convenience for students to access counselling services
+even aer hours, the university has partnered with SYKED. This online
+counselling service will serve to strengthen the availability of the counselling
+service. Students can download the Syked app from the Play Store.
+and all emergency services are acvated through control.
+Next to the Security oﬃce at the Main Gate/ between the Safety and Security
+Services Oﬃce and the Pharmacovigilance Oﬃce
+43
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 44
+
+The Dental Clinic provides comprehensive oral health care services, oﬀering
+both basic and specialised dental treatments to students, staﬀ, and the wider
+community. With a focus on quality care, the clinic operates as a specialised
+dental hospital equipped with advanced facilies and a team of expert
+professionals. In addion to roune dental services, the clinic also oﬀers
+specialised treatments and has established community outreach programmes
+to extend dental care to underserved areas. With flexible hours of service and
+aﬀordable consultaon fees, the Dental Clinic is commied to promong oral
+health and providing accessible care to all paents.
+Level of Care: Specialised Hospital (Dental Hospital)
+- Dental producon laboratory
+- Basic primary health care denstry
+- Diagnoscs and careline (emergency care)
+- Operave denstry
+- Maxillo facial and oral radiology services
+- Maxillo facial and oral surgery
+- Prosthodoncs
+- Maxillo facial and oral pathology
+- Orthodoncs
+- Community denstry
+- Oral medicine and periodontology
+- Theatre services for surgical disciplines
+44Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 45
+
+- Winterveldt - Sisters of Mercy Clinic
+- Salvokop
+- Phelophepa
+Monday - Friday: 07h00 - 16h00
+Saturday: 07h00 - 13h00
+- The paent may come to the hospital for consultaon with or
+without referral leers.
+- Consultaon starts from R75 to R118 depending on the classificaon.
+- Foreign Paents pay R391 for consultaon only.
+- Foreign paents who are pregnant, lactang women and children
+under the age of 6 are eligible for free services.
+- Those who are on medical aid use their medical aid for consultaon.
+- Free services are provided for pregnant women, children under the
+age of 6 and pensioners/SASSA.
+- The paent should bring along their ID copies, Proof of residence,
+Salary advice, and SASSA leers or cards.
+Dental Building
+Ms Tshepiso Appolus
+Tel: 012 521 5787 / 5761
+Ms Lerato Sebolai
+Tel: 012 521 5761
+45Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 46
+
+The Social Work Services unit is dedicated to fostering a supporve and
+nurturing environment for the university community. Through a compassionate
+and professional approach, the unit addresses a range of personal, social, and
+emoonal challenges faced by students and staﬀ alike. Guided by principles of
+empathy and empowerment, Social Work Services aims to enhance well-being,
+build resilience, and provide tailored support that enables individuals to
+navigate life's complexies with confidence and hope.
+- Wellness and self-care workshops
+- Sexual health educaon
+- Mental health awareness iniaves
+- Gender-based violence dialogues and campaigns
+- Orient on support to help first-years trans on successfully
+Pharmacovigilance Building
+- Counselling and development of coping mechanisms
+- Stress management support
+- Social relief and assistance programs
+- Crisis intervenon and management
+- Direct therapeuc services
+- Conducng psychosocial assessments
+- Debriefing (individuals and groups)
+- Facilitang group work/ support group sessions
+- Court preparaon support
+- Substance abuse counselling
+- Grief counselling
+- Suicidal ideaon support and intervenon
+- Advocacy and referral services
+Monday- Friday: 08h30 – 15h30
+Ms Lesego Tsima
+Email: lesego.tsima@smu.ac.za
+Tel: 012 521 4579
+Oﬃce number: 04
+Ms Thabiso Ntsoane
+Email: thabiso.ntsoane@smu.ac.za
+Tel: 012 521 3309
+Oﬃce number: 07
+46
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 47
+
+The Skill Centre is a dedicated place within the university where undergraduate
+and postgraduate health care sciences students acquire their clinical skills
+training and simulaon experiences without fear of injuring the paent. The Skills
+Centre serves as the first point of entry for students to be introduced and
+orientated to the realies of clinical pracce before being exposed to the real
+clinical sengs. In the Skills Centre, students are taught clinical skills and
+procedures that they would be expected to perform on real paents in clinical
+pracce. They pracce repeatedly in a non-threatening environment unl
+competency is achieved before aending to paents. The Skills Centre allows
+students to develop and refine their clinical skills safely, using advanced
+simulaon technology, simulated paents, and realisc scenarios. The range of
+clinical skills and competencies taught in the Skills Centre includes
+communicaon, history-taking, professionalism, physical examinaon,
+demonstraon of basic procedures, diagnosc, therapeuc, resuscitaon,
+crical thinking and clinical reasoning, problem solving, and teamwork in the
+form of Interprofessional educaon (IPE). Overall, the Skills Centre serves as an
+essenal resource in bridging theorecal knowledge with real-world applicaon,
+ulmately preparing students for their future roles in healthcare.
+The Centre consists of four Skills Laboratories (Lab 1–4) and several specialised
+simulaon wards designed to replicate authenc clinical sengs. In the skills
+labs, students pracce applied clinical procedures that require accuracy,
+repeon, and fine motor precision, guided by instructors using semi-realisc
+task trainers. The General Ward mirrors a typical hospital ward environment,
+allowing students to develop bedside manners and pracse roune paent-care
+acvies. The Emergency Department (ED) is equipped to simulate the
+management of acute and life-threatening condions, providing exposure to
+high-pressure decision-making and immediate care intervenons. The Maternity
+Ward supports training in antenatal, intrapartum, and postnatal care for
+pregnant women and newborns, enabling midwifery, nursing, and medical
+47
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+students to collaborate in managing maternal and neonatal health. The Intensive
+Care Unit (ICU) features high-fidelity manikins and advanced monitoring systems
+that simulate the management of crically ill paents while promong
+interprofessional teamwork. The Speech-Language Pathology and Audiology
+room includes a soundproof booth, audiometer, tympanometry system,
+vesbular assessment tools, and optometric ICS equipment, providing students
+with access to specialised diagnosc and therapeuc procedures. Together,
+these spaces create a comprehensive and realisc simulaon environment that
+supports the development of competent, confident, and paent-centred
+healthcare professionals
+Simulaon Based Educaon
+- High, medium, and low-fidelity simulaons across nursing,
+emergency care, maternal and child health, speech and audiology,
+and diagnosc sciences.
+- Realisc pracce using manikins such as SimMan Essenal, Nursing
+Anne, Code Kelly, Noelle, Newborn HAL, Harvey, and various semi-
+realisc task trainers.
+- Scenario-based training in the General Ward, A&E Unit, Maternity
+Ward, ICU, and speech and audiology spaces
+Standardised Paent (SP) Programme
+- A standardized paent (SP) is an individual who has been trained to
+act or simulate a paent's experience, symptoms, and behaviors
+realiscally and consistently.
+- The SP Programme is embedded across several disciplines, including
+medicine, nursing, speech-language pathology and audiology,
+psychiatry, occupaonal therapy, human nutrion and dietecs,
+physiotherapy, and denstry.
+
+## Page 48
+
+- Through the simulaon of a wide range of clinical scenarios, SPs help
+students develop essenal skills in communicaon, history-taking,
+physical examinaon, and counselling within a safe, structured
+seng.
+- Students interact with 'paents' who talk, move, and respond just as
+real individuals would. That makes all the diﬀerence when preparing
+them for actual paent care.
+- These individuals are carefully selected and trained to ensure that
+students receive an accurate representaon of the real-world clinical
+environment.
+- SPs support OSCE assessments, clinical examinaons, and
+interprofessional acvies that require human interacon.
+Moulage and Scenario Enhancement
+- Applicaon of professional moulage to simulate injuries, wounds,
+burns, bleeding, and other clinical condions.
+- Enhances realism for both manikins and SP-based simulaons.
+- Supports training in emergency care, trauma response, obstetrics,
+and crical care environments.
+Digitalised Enhanced Learning
+- Audio-visual systems for recording, live streaming, and structured
+debriefing.
+- Tele simulaon capabilies for remote demonstraons and
+collaborave teaching.
+- High-technology manikins controlled by computers and SimPads to
+manipulate paent physiological rhythms, enabling students to learn
+clinical skills in a modern, technology-driven environment.
+- Interacve Virtual tour that allows students, staﬀ and external people
+to see our facility remotely.
+- Digital Signages used to modernise informaon sharing and replace
+tradional communicaon methods through dynamic, real-me
+displays.
+- QCPR manikins equipped with real-me feedback technology to
+improve students' CPR performance and support data-driven training
+within the Skills Centre.
+Workshops and Support for Staﬀ
+- Simulaon workshops and training for staﬀ.
+- Training on the usage of technology and manikins in the Centre.
+- Essenal Steps in Managing Obstetric Emergencies (ESMOE).
+Self-directed learning
+- The “Self-Directed Learning” program is designed to provide students
+with access to and more me for praccing their clinical skills.
+- The students have an opportunity to book an online system form for
+their independent skills pracce sessions.
+The Skills Centre also oﬀers the following basic courses for students:
+- Primary Emergency Care (PEC)
+- Intermediate Emergency Care (IEC) (Provided as part of the
+curriculum on 4th year MBChB level
+- Basic Life Support for Health Care professionals (BLS)
+Background
+Interprofessional educaon (IPE) is a socio-construcvist approach where future
+health professionals learn with, from, and about each other to strengthen their
+understanding of professional roles, ethics, communicaon, and teamwork.
+Interprofessional collaboraon (IPC) involves qualified professionals from
+diﬀerent disciplines working together within their scopes of pracce to provide
+safe, person-centred care, leading to improved health outcomes, job sasfacon,
+and resource eﬃciency.
+At SMU, IPE and IPC are promoted through shared teaching, joint facilitaon in
+classrooms, simulaons and OSCEs, and collaborave work in clinical and
+48Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 49
+
+community sengs. Health facility staﬀ also contribute as educators and
+partners in service and training.
+The IPECP Unit builds the capacity of academic and clinical staﬀ, collaborates with
+public and private sector stakeholders, and creates interprofessional learning
+opportunies across the enre health connuum from prevenon to palliave
+care. Through these eﬀorts, the Unit strengthens SMU's interprofessional
+culture, advances innovave teaching, and develops graduates who are
+competent, well-rounded, and prepared to serve communies locally and
+globally.
+Services for Students
+Orientaon to Interprofessional Educaon and Collaboraon
+- Introductory sessions on interprofessional educaon (IPE) and
+interprofessional collaboraon (IPC).
+- Clarificaon of the roles and responsibilies of diﬀerent health
+professions.
+Interprofessional learning plaorms
+- Interprofessional simulaon sessions and case-based scenarios.
+- Clinical and ward-based IPE acvies
+Interprofessional Community engagement and service-learning acvies
+- Interprofessional outreach in schools, clinics and communies.
+- Health promoon, screening and educaon acvies led by mixed
+student teams.
+Reflecon, debriefing and feedback
+- Guided reflecon and debriefing sessions following IPE acvies.
+- Opportunies for students to provide and receive feedback across
+professions.
+Leadership, advocacy and recognion: Face of IPECP
+- Parcipaon in the Face of IPECP structure to advocate for IPECP
+acvies.
+- Opportunies to serve as peer facilitators, student representaves
+and IPE project leads.
+- Cerficates and leers of recognion for acve involvement.
+Student support and consultaons
+- Guidance for student groups and sociees interested in
+interprofessional iniaves.
+- Individual or group consultaons on IPE learning acvies and
+projects.
+Interprofessional curriculum and module mapping support
+- Advising Schools and Departments on integrang IPE outcomes into
+modules and programmes.
+- Assisng with alignment to professional, regulatory and accreditaon
+standards.
+Facilitaon and staﬀ development
+- Training and mentoring of academic staﬀ, clinicians and clinical
+preceptors.
+- Orientaon of new academic staﬀ on what is IPE and IPC, to embrace
+the innovave interprofessional educaon pedagogy during Teaching
+and Learning acvies.
+Simulaon and case-based teaching support
+- Coordinaon of interprofessional simulaon sessions and skills
+pracce.
+- ·Support for the use of Standardised Paents and scenario-based
+learning.
+49
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 50
+
+Cordinate Interprofessional service-learning and community-based acvies
+- Coordinaon of interprofessional clinical placements and ward-based
+teaching acvies.
+- Planning and support for interprofessional community engagement
+projects.
+07:30-16:00
+Monday to Friday: 08:00-16:00
+Tuesdays and Thursdays: 14:00 – 15:00, or by appointment
+By appointment (in-person or online)
+Skills Centre Building, Ground Floor
+Dr Lesego Phiri
+Director: Skills Centre
+Email: Lesego.Phiri@smu.ac.za
+Tel: 012 521 3317
+Ms Theresa VanDyk
+Admin Oﬃcer
+Email: Theresa.vandyk@smu.ac.za
+Tel: 012 521 3321
+Ms Thokozile Kgongwana
+IPECP Coordinator
+Email: Thokozile.Kgongwana@smu.ac.za
+Tel: 067 571 3786
+Ms Xolelwa Dyani
+SP Facilitator
+Email: Xolelwa.Dyani@smu.ac.za
+Tel: 012 521 4268
+Mr Ntakadzeni Munyai
+Technical Oﬃcer
+Email: Ntakadzeni.Munyai@smu.ac.za
+Tel: 072 825 7460
+Ms Lesego Kekana
+Clinical Skills Facilitator
+Email: Lesego.Kekana@smu.ac.za
+Tel: 078 562 4121
+Mr Henk Havenga
+Clinical Skills Facilitator
+Email: Henk.Havenga@smu.ac.za
+Tel: 012 521 3316
+Skills Centre's Virtual Tour
+hps://www.smu.ac.za/e-student-recruitment-portal/
+50
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 51
+
+- For the New Curriculum (Senior Cerficate): Add the percentages of
+all subjects (excluding Life Orientaon) and divide by the total
+number of subjects.
+The main responsibility of the oﬃce is to maintain and strengthen relaonships
+and communicaon with sponsors, as well as to provide any necessary
+informaon on behalf of students. Students are encouraged to apply for external
+bursaries oﬀered by various companies, government departments, and
+municipalies. Relevant informaon and contact details can be found at
+www.zabursaries.co.za, www.studentroom.co.za and at the Financial Aid Oﬃce.
+The Financial Aid Oﬃce plays a pivotal role in supporng students by providing
+access to various funding opportunies that make higher educaon more
+aﬀordable. Through its range of services, including merit awards, bursaries,
+scholarships, and loans, the oﬃce works to ensure that financial barriers do not
+prevent students from pursuing their academic goals. The oﬃce maintains
+strong relaonships with sponsors and assists students in applying for external
+funding from various sources, including the Naonal Student Financial Aid
+Scheme (NSFAS) and Fundi. With a commitment to delivering eﬃcient and
+friendly service, the Financial Aid Oﬃce is dedicated to helping students secure
+the financial assistance they need to succeed at university.
+All applicaons for NSFAS funding have to be made online on the NSFAS website
+www.nsfas.org.za.
+Please take note of the annual NSFAS closing date.
+Merit Award
+First-year students who are pursuing their first degree following Grade 12 may
+be eligible for a Merit Award. To qualify, students must achieve an average mark
+of 80% or higher in their Grade 12 final examinaons. Those who meet the
+criteria will receive a 50% tuion fee waiver.
+You can complete your applicaons and update your details at the following
+campus computer labs:
+- BMS 301
+- BMS Study Hall
+- NSB CBE
+- NSB E-Learning Centre
+- Residence 2B
+- For the Old Curriculum (Matriculaon Cerficate): Add the
+percentages of the six best final exam results and divide by six.
+For uploading your supporng documents, scanning facilies are available at:
+- The Library
+- Financial Aid Oﬃce
+51
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 52
+
+- One-Stop Student Centre
+- Basement Clinical Pathology Building
+For enquiries and more informaon on the above, please visit the Financial Aid
+Oﬃce or visit the NSFAS website at www.nsfas.org.za.
+The Financial Aid Oﬃce (FAO) is commied to providing excellent, eﬃcient,
+professional, and friendly service to students. Financial aid oﬀers students the
+opportunity to access terary educaon; however, not all students qualify for
+assistance. Financial aid is awarded based on specific financial and academic
+criteria. Students are encouraged to visit the FAO for further informaon and
+personalised assistance.
+Formerly known as Eduloan, Fundi is South Africa's leading educaon finance
+and bursary/leadership fund management soluon specialist. Over the past
+twenty-five years, Fundi has evolved from humble beginnings as a leading
+provider of lending soluons in the educaon sector to a fully-fledged one-stop
+shop for all things educaon.
+Fundi is South Africa's leading educaon finance and educaon fund
+management soluon specialist and the only credit provider solely focused on
+providing funds for educaon. Since its incepon in 1996, they have advanced
+over 1.8 million loans to the value of R6, 5 billion. In 2000, they pioneered South
+Africa's first fund administraon smart card soluon (FundiCard) and have since
+administered more than R24 billion in bursary funds.
+Fundi oﬀer the finance you need for every step of your educaonal journey and
+provides funding for tuion and registraon fees for undergraduate and
+postgraduate qualificaons as well as outstanding balances, textbooks,
+accommodaon, laptops, tablets and other study tools. You can find student
+accommodaon through FUNDI's online plaorm, buy air-me, data and get e-
+books. If your allowances are managed through Fundi, depending on the rules
+set by SMU, you will receive cash in your bank account or funding in certain
+pockets on your FundiCard.
+Financial Aid Oﬃce, One-Stop Student Centre, Basement, Clinical Pathology
+Building.
+Monday – Friday: 09h00 - 16h00
+Ms Rhendani Mashila (Head of Department)
+Email: rhendani.mashila@smu.ac.za
+Tel. 012 521 4622
+Mr Father Moloto (Financial Aid Oﬃcer: NSFAS)
+Email: father.moloto@smu.ac.za
+Tel.: 012 521 4031
+Mr Onke Klaas (Financial Aid Oﬃcer)
+Email: Onke.klaas@smu.ac.za
+012-521 5964; 0860 555 555 44, www.fundi.co.za
+or download our FundiSA
+app.
+Tel.: 012 521 5314
+Mrs Patricia Motsepe (Financial Aid Oﬃcer: Private Bursaries)
+Email: patricia.motsepe@smu.ac.za
+Tel.: 012 521 4486
+Mrs Nonia Kgubudi (Data Capturer)
+Email: nonia.kgubudi@smu.ac.za
+Tel.: 012 521 5961
+52
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 53
+
+The Enrolment Management Oﬃce plays a key role in supporng students as they navigate their
+academic journey at the university. Focused on streamlining processes and providing essenal
+administrave support, the oﬃce ensures that students' enrolment experiences are eﬃcient and
+seamless. By oﬀering guidance and assistance at every stage, the oﬃce helps students successfully
+transion into university life and manage their academic records throughout their studies.
+- Applicaons
+- Admissions
+- Registraons
+- Student Records
+Molotlegi Street
+Clinical Pathology Building,
+Basement, Room N011
+Monday- Friday: 07h30- 16h00
+Ms ML Hlatshwayo (Head of Department)
+Email: mmule.hlatshwayo@smu.ac.za
+Tel.: 012 521 4979
+Ms SM Mogale-Kabini (Head: Postgraduate Maers)
+Email: sarah.mogale@smu.ac.za
+Tel.: 012 521 5886
+Mr AS Mabuse (Online Applicaons)
+Email: alfred.mabuse@smu.ac.za
+Ms AT Mkhize (Undergraduates Maers)
+Email: angel.mkhize@smu.ac.za
+Tel.: 012 521 4135
+Mr TE Matlala (Undergraduate Maers)
+Email: thabiso.matlala@smu.ac.za
+Tel.: 012 521 5889
+Tel.: 012 521 4204
+53
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 54
+
+The Informaon Communicaon Technology (ICT) Oﬃce provides
+comprehensive support to ensure that staﬀ and students have reliable access to
+the technological resources needed for academic and administrave success.
+With a focus on maintaining smooth network connecvity and securing ICT
+infrastructure, the oﬃce plays a key role in enhancing the overall digital
+experience at the university. Through a range of services, ICT works to ensure
+that users have the necessary tools and assistance to navigate and eﬀecvely
+use technology in their day-to-day acvies.
+- Network Support.
+- Network Infrastructure Support.
+- Cyber Security Support.
+- Service Desk Support.
+- Student Technical Services Support.
+- ICT Project management.
+- Basic Computer Literacy Training.
+- Business Systems Support.
+The ICT department has nineteen computer labs on campus and two computer
+labs oﬀ-campus at South Point Residences available for use by all students for
+diﬀerent funcons as per the access schedules for the labs. Student assistants
+employed in the department assist in the labs. These computer labs listed herein
+are manned by the ICT department and are located as follows:
+- BMS S301, Basic Medical Sciences Building: 07h30 - 18h00
+- BMS S303, Basic Medical Sciences Building: 07h30 - 18h00
+- Pharmacy S519, Basic Medical Sciences Building: Open as per
+schedule
+- Physiology S308, Basic Medical Sciences Building: Specialized
+- Residence 2B: 24/7
+- Glass Cabinet, Dental Building: 07h30 - 18h00
+- Library Main Hall: 07h30 - 24h00
+- Library Postgraduate: 07h30 - 24h00
+- Library Mulmedia Center: 07h30 - 24h00
+- CBE, Natural Sciences Building: 07h30 - 18h00
+- E-Learning Centre, Natural Sciences Building: 07h30 - 20h00
+- E-Learning Centre Small Lab, Natural Sciences Building: 07h30 -
+20h00
+- Computer Science, Natural Sciences Building: Open as per schedule
+- English, Natural Sciences Building: Open as per schedule
+- Chemistry, Natural Sciences Building: Specialised
+- Physics, Natural Sciences Building: Specialised
+- Stascs Lab: Specialised
+- Clinical Pathology-CP Ground Floor: 07h30 - 18h00
+You are welcome to use any of the available labs of your choice, except the
+specialised labs. We have student assistants to help you in these labs, should
+there be a need. Please feel free to approach them at any me.
+- Study Hall, Basic Medical Sciences Building: 24/7
+- Neither food nor drinks are to be brought into the lab.
+54
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 55
+
+- Students shall not make noise or cause disturbances, use cellular
+phones, hold meengs or demonstraons inside the lab, or behave in
+such a manner that would interfere with or impact negavely on the
+study and research acvies of other lab students.
+- Students are responsible for their email accounts and passwords,
+which must be kept secret, and secure, and they are responsible for
+any acon that takes place from a computer logged in with their
+account.
+- Students must log out before leaving the computer lab.
+- Students shall not give other people access to their accounts.
+- No student may make use of an unauthorised account other than
+what has been issued to him or her personally by the University.
+- Student accounts are not transferable.
+- Student passwords must be alphanumeric and be changed regularly
+for security.
+- No student is allowed to send a broadcast message(s) in the
+university community.
+- Tampering with the computer lab facilies is not permied.
+- A student may not tamper with computer lab hardware,
+Complementary Metal-Oxide-Semiconductor (CMOS) sengs,
+soware sengs, the network, and University data, and the list is
+endless.
+- A student may not aempt to open computers, access their
+components, or remove any part of a computer from the lab,
+including a keyboard and/or mouse.
+- Use of the computer facilies by a student for financial gain, whether
+directly or indirectly is prohibited.
+- Should a student contravene the above-menoned rules, the
+Student Assistant or his/her nominee must report immediately to
+the supervisor responsible for all student assistants. Upon reporng
+the university student, a disciplinary process shall be followed.
+- A student may appeal in wring against the decision of the university
+through available channels in university policy.
+ICT department, we are here to make your study life easier by providing the tools
+and plaorms you need during your study period at SMU. We do this by
+providing you with access to computer laboratories, Wi-Fi, student email,
+Microso 365, and various soware at no addional cost to students.
+The ICT department has general student assistants and student technical
+assistants (STAS) to support students in the use of computer labs and also
+further support student personal computers to enhance their studying and use
+the university resources appropriated to the student domain.
+Wi-Fi connecons are available in student residences and on-campus
+designated areas. For security reasons, access is managed and authorised only
+for registered SMU students.
+Student Assistants will assist in configuring Wi-Fi connecvity and provide the
+necessary credenals from the Student Technical Support Services oﬃce in the
+basement of the NSB next to the Van Schaik bookstore.
+Scan the QR code
+to connect to the
+new SMU Wi-fi
+All registered students are provided with a free email for online communicaon
+purposes. The email credenals may be acquired from the Student Technical
+Assistant oﬃce in the basement NSB next to the Van Schaik bookstore.
+Note that the email provided could be kept or used for life. This is done to
+maintain communicaon with SMU students well aer they have le the
+instuon. Students must use the email within prescripts of the law and
+university policies, which are found on the university intranet page.
+55
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 56
+
+Step 1: Type the URL: www.google.co.za.
+Step 2: Click Sign in.
+Step 3: Type the email address studentnumber@swave.smu.ac.za
+Step 4: Type the password.
+Step 5: Click the link Mail.
+Recommended Windows Pro Edion)
+- Cable Lock for Laptops
+- Backpack for Laptops
+- 3 Year Next day Warranty
+Students may not use copied, illegal or pirated soware in the university
+computers or personal computers and may not connect them to the university
+ICT infrastructure thereaer. A standard suite of soware is installed in all
+general-purpose labs.
+Students are encouraged to use the Microso 365 suite and also to visit the ICT
+Student Technical Support portal using the URL: hps://www.smu.ac.za/en/
+explore-smu/departments/informaon-communicaon-technology/student-
+ict-technical-support/ to access the soware/applicaons guidelines for ease of
+- (i7 or Ryzen 7 (Gen 10 or Gen 11)
+- (16GB to 64Gb)
+- Drive: 1TB to 2TB Nvme or SSD
+- Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- Windows 10 PRO or Windows 11 PRO – (Genuine License Windows
+Product)
+- Cable Lock for Laptops
+- Backpack for Laptops
+- 3 to 5-Year Next day Warranty (On-Site)
+use.
+Students should acquire their soware when purchasing their computers in the
+event of addional requirements which are not provided by the university.
+- CPU Speed Quad-Core 1.2GHz
+- RAM (GB) 3 GB
+- Internal 32 GB storage
+- Wi-Fi 5 of Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- Android 10
+- 2-Year Warranty
+To request support students should use the following link:
+hps://nyurl.com/Devices-Service-Request-Form
+Students should use the following minimum requirements when purchasing
+computers.
+- Processor: i5 or Ryzen 5 (Gen 8)
+- RAM: At Least 8GB – (Recommended 16GB)
+- Drive: 512GB Nvme or SSD
+- Wi-Fi 5 of Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- Windows 10 or Windows 11 – (Genuine License Windows Product.
+- CPU Speed Octa-core 2.4GHz
+- RAM (GB) 12 GB
+- Internal 256 GB storage
+- Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- Android 11
+- 2 to 3-Year Warranty
+56
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 57
+
+- CPU Speed Hexa-core 3. GHz
+- RAM (GB) 6 to 64 GB
+- Internal 128 GB storage
+- Wi-Fi 5 of Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- iOS 14.1
+- 2-Year Warranty
+Step 1: Type the URL: hps://ithute.smu.ac.za
+Step 2: type username: student number
+Step 3: type password.
+(Default password 'changeme')
+ICT management wishes all first entering students a fruiul and beneficial
+academic year ahead of their studies.
+ICT Building (Producon Unit)
+- CPU Speed Hexa-core 3. GHz
+- RAM (GB) 6 to 64 GB
+- Internal 256 GB storage
+- Wi-Fi 6 Radio (2.4 and 5G Wi-Fi 802.11n/ac/ax)
+- iOS 15
+- 2 to 3-Year Warranty
+Mr Berto Brand (Director)
+Tel: 012 521 4103
+Ms Monica Tau (Secretary)
+Tel: 012 521 3376
+Email: ictservicedesk@smu.ac.za
+Tel: 012 521 5050
+Students should make sure their personal computers always have updated
+anvirus soware running before using university ICT Network Infrastructure.
+All computers in the labs are configured to run Microso Defender anvirus
+updates daily.
+Student Technical Assistants Team
+Email: ictstudent_support@swave.smu.ac.za
+Tel: 012 521 5768
+Blackboard is a teaching and learning management system providing online
+courses, assessments, group discussions, tests, assignments, and quizzes and
+allows interacon between lectures and students and students amongst
+themselves using educaonal technology at Sefako Makgatho Health Sciences
+University. Such soluons include access to online course content via web-based
+or mobile access.
+Scan the QR code
+to dowload
+Mul-factor
+authencaon
+57
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 58
+
+The Department of Learning Technology, Medical Illustraon, and Audio-Visual
+Services (MIAAVS) is a dynamic and integral part of the Centre for University
+Teaching and Learning (CUTL). Located on the basement level of the Library
+building, MIAAVS plays a pivotal role in supporng the university's academic and
+research endeavours. By working in close partnership with academic schools,
+administrave departments, and students, the department provides a
+comprehensive array of services designed to elevate the quality of teaching,
+learning, and student engagement. Through its innovave use of learning
+technology, expert medical illustraon, and advanced audio-visual resources,
+MIAAVS contributes to the enhancement of the university's academic
+environment and helps shape a more interacve, engaging, and resource-rich
+educaonal experience.
+Student Governance oﬃce and this is usually issued by Mr Albert
+Masetla.
+- The department also assists students with study material by oﬀering
+a colour prinng/copying and laminaon service at a nominal fee –
+prinng is only done in A4 and A3 sizes. All black and white
+(monochrome) prinng should be done in the library. Please
+enquire at the department for the correct price list – payment is per
+page/side. All payments must be made at the cashier in the Clinical
+Pathology building. NO cash will be handled by the MIAAVS staﬀ.
+- Medical illustraon, art and design.
+- Clinical, scienfic and general photography.
+- Scienfic photography- A broad spectrum of scienfic photography is
+available, including microscopic, macro, gel and research
+photography. In addion, the unit is equipped for scienfic
+documentaon in-house or on-locaon.
+- Medical television/media – training videos, recordings of various
+medical condions, live streaming and hybrid events, corporate and
+promoonal material.
+- Audio-visual and technical services to lecturing staﬀ and students.
+- Academic and administrave support.
+- MIAAVS assists students with events by providing Public Address
+(PA) systems and technical assistance whenever possible and as
+needed. These events are normally arranged through the Student
+Aﬀairs/Governance and SRC oﬃces.
+- All prinng and event requests from recognized student structures
+and church groups must be accompanied by a leer from the
+58
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+MIAAVS assists Ms Tsholo Tau in booking venues for use by student structures
+(e.g., church groups/sociees) and departments aer hours. Venues are
+selected/issued according to the intended use and the number of parcipants.
+All bookings for annual use must be submied at the beginning of the year, and
+the university reserves the right to cancel any approved requests at any me.
+Illegal occupaon of venues may result in occupants being asked to vacate the
+venue by Safety and Security.
+- All aer-hours bookings of venues are handled by the department,
+and student structures can book venues by subming wrien
+requests to the Manager's oﬃce for approval. Venues are booked on
+a first come first served basis and availability.
+- Long-term booking requests must be submied to MIAAVS early in
+the year to prevent disappointment.
+- All SMU oﬃcial and academic events will get preference when it
+comes to allocang venues and equipment. Structures may have to
+be allocated an alternate venue to accommodate an oﬃcial
+university event.
+- Please complete the booking form at MIAAVS and carefully read the
+rules at the back. If a student group or structure is found to be guilty
+
+## Page 59
+
+of not following the rules, they may be fined or banned from their
+venue and any other venue for a set period, depending on the
+severity of the transgression.
+We
+must be arranged ahead of me, as this has a minimum 24-hour waing period. All
+payments must be made at the cashier in the CP Building, and receipts must be
+presented when collecng printed material. No material will be allowed to leave
+the department without a receipt.
+- The Audio-Visual and Technical Services maintain AV equipment and
+systems in lecture theatres/auditoriums, classrooms, seminar
+rooms, etc. All equipment taken on the loan must be signed for on
+the prescribed form and returned signed by a member of MIAAVS.
+No equipment may be removed from campus without permission
+and the necessary documentaon, as well as a campus
+Control/Asset form and stamp (Forms obtainable from MIAAVS
+recepon). No equipment, including data projectors and projecon
+screens, may be used without MIAAVS' permission. Please contact
+the department should a motorised screen be lied or brought down
+for any reason or if the use of a data projector is required by a student
+group or organisaon.
+- All lecture theatre equipment MUST be signed out from the
+recepon and returned immediately aer class. All equipment must
+be returned as quickly as possible to avoid the next class starng late.
+It is recommended that each class elect two students responsible for
+collecng and returning equipment to and from MIAAVS.
+- Any loss of equipment, whether due to negligence, the or accident,
+must be reported in wring and telephonically immediately.
+- MIAAVS supports all teaching, learning and research. MIAAVS oﬀers
+training workshops on poster making and MS PowerPoint
+presentaons and assists clinical skills and facilitators. MIAAVS
+supports laboratory-based classes and assists in the producon of
+mulmedia teaching materials and courseware. Students are invited
+to visit the department to familiarise themselves with the
+procedures, fee structure and rules that may be applicable.
+Mondays to Fridays: 09h00–15h00
+Library Building, Basement Level | Postal Address: PO Box 214, PO Medunsa, 0204
+Tel. : 012 521 4541/5634
+E-mail: miaavs@smu.ac.za
+Ms Nicolee Jordaan (Manager ) - Ext: 5642
+Ms. Gertrude Ramabu (Administrave Oﬃcer) - Ext: 4541/5634
+Ms Tiny Mokwape (Assistant Administrave Oﬃcer) - Ext: 4541/5634
+Ms Edinah Ndlovu (Medical Photographer) - Ext: 4541/3733
+Mr Jaco Janse van Rensburg (Medical Photographer) - Ext: 4541/3733
+Ms Marinda Pretorius (Medical Illustraon/Graphic Designer) - Ext: 5611
+Vacant (Media and Television Specialist) - Ext: 4541/5704
+Mr Andrew Leso - (Audio-Visual Technician) - Ext: 4541/5634/5702
+Mr Kenny Sibiya - (Audio-Visual Technician) - Ext: 4541/5634/5702
+All requests must be submied to MIAAVS through the Front Oﬃce
+administrave staﬀ, with no excepons. The staﬀ will then direct your request to
+the relevant person or unit within MIAAVS.
+Mondays – Friday: 07h30 – 16h00
+Saturday/Sunday/Public & University Holidays: Closed
+the Manager MIAAVS by using the manager nicolee.jordaan@smu.ac.za directly.
+miaavs@smu.ac.za email
+or by mailing the
+59
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 60
+
+Sefako Makgatho Health Sciences University (SMU) is a unique higher educaon
+instuon specialising in health sciences. As such, SMU's approach to
+internaonalisaon is designed to broaden the global scope of this niche
+university while nurturing the development of globally-minded graduates.
+Internaonalisaon at SMU encompasses a variety of strategies and acvies
+aimed at incorporang global perspecves both locally and internaonally. This
+includes iniaves such as Internaonalisaon at Home, which brings global
+elements into the classroom, community, and campus, as well as
+Comprehensive Internaonalisaon, which focuses on strategic partnerships,
+collaborave research, and knowledge exchange across borders.
+The Directorate works closely with the Advocacy & Diversity Unit within the
+Student Aﬀairs Directorate to ensure the eﬀecve delivery of student services
+and support.
+internaonal MOU's and embassies.
+- Monitoring SMU's legal compliance with the internaonalisaon
+framework of South Africa.
+- Assist with the recruitment of internaonal students.
+- Acvies take place in conjuncon with the Student Aﬀairs
+Directorate.
+- Sefako Makgatho Health Sciences University Internaonal Student
+Organisaon (SMUISO).
+- SMU SASUF Student Network.
+Working Hours: Monday – Friday, 08:00 – 16:00
+Consultaon Hours: Tuesday – Thursday, 10:00 – 15:00
+- Student and staﬀ mobility (outgoing and incoming students).
+- Student and staﬀ assistance (visa guidance, assistance to
+internaonal students on campus, prospecve internaonal students
+and local students and staﬀ travelling or wanng to study abroad).
+- Student acvies which promote internaonalisaon and
+mulculturalism on campus (Africa Day).
+- Create awareness of internaonal scholarships and other
+opportunies for students and staﬀ.
+- Assist with internaonalising of the academic project.
+- Internaonal percepon management.
+- Internaonalisaon of higher educaon thought leaders (research on
+the topic).
+- Support oﬃce for wring funding proposals, collaboraons,
+Mr Gi Lebethe
+Administrave Oﬃcer
+Email: gi.lebethe@smu.ac.za
+Dr Carlien Jooste
+Director: Internaonalisaon
+Email: carlien.jooste@smu.ac.za
+60
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 61
+
+The Research and Innovaon Directorate at Sefako Makgatho Health Sciences
+University is dedicated to fostering a culture of scholarly excellence and
+innovaon. By driving strategic objecves that focus on enhancing research
+output, building capacity, and fostering impacul collaboraons, the
+directorate empowers postgraduate students and researchers to excel in their
+academic and professional pursuits. Through a variety of targeted iniaves, the
+directorate not only advances the university's research agenda but also
+posions it as a leader in innovaon and entrepreneurship within the health
+sciences field.
+- Improve research output and impact.
+- Increase postgraduate students' scholarly engage-ments.
+- Increase research collaboraon and partnerships.
+- Increase research capacity.
+- Increase commercialisaon/entrepreneurship.
+Research Capacity Development
+- Research Methodology Course (REME)
+- Postgraduate inducon
+- Proposal development workshops
+- Thesis wring workshops
+- Publicaon workshops
+- Stascal data analysis workshops
+- Online biostascs short course
+- Qualitave data analysis
+- Scienfic wring workshops
+- Wring retreats
+61
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 62
+
+The directorate facilitates the services of a biostascian to assist postgraduates
+with stascs and data analysis for their research projects.
+Postgraduate students may also contact the directorate for eding their
+thesis/dissertaon. The directorate will facilitate the process by linking them
+with an Editor.
+- Incubate entrepreneurs with innovave business ideas.
+- Provide training on various business funconal areas.
+- Facilitate registraon of companies and development of business
+plans.
+- Organises investor sessions for entrepreneurs to pitch their business
+ideas to potenal investors.
+- Scienfic review of protocol (Masters and Doctoral degrees) by the
+School Research Commiee (SRC).
+- Ethical review of research proposal for postgraduate students by the
+SMU Research Ethics Commiee (SMUREC).
+Providing prospecve postgraduate applicants and connuing postgraduate
+students with enrolment support, including postgraduate supervision
+memorandum of agreement (MOA) and Research Code of Conduct.
+In partnership with the NRF, MRC, HWSETA, etc., the directorate facilitates
+funding opportunies for postgraduate students at the honours, master's and
+doctoral levels.
+The Directorate, in collaboraon with the library, facilitates subscripon to
+resourceful databases and referencing and eding soware to support
+postgraduate students' studies with relevant informaon. A dedicated area in
+the library has been made available for postgraduate students for easy and
+convenient use of the facility.
+Facilitaon of collaboraon with other instuons by linking postgraduate
+students with partners with relevant equipment and experse about their
+research project on and oﬀ-campus.
+Clinical Pathology Building, 5th Floor (South)
+The directorate provides administrave support and facilitates financial support
+for innovaon and Entrepreneurship through the following oﬃces.
+- Promong innovave research with entrepreneurial potenal.
+- Create awareness and provide informaon on innovaon and IP .
+- Idenfy and protect IP (Patent) emanang from research projects
+with appropriate legal rights.
+- Assist in commercialising and licensing of the IP .
+Prof Mapaseka Seheri
+Director: Research, Postgraduate Studies and Innovaon
+Tel: 012 521 3360|mapaseka.seheri@smu.ac.za
+Oﬃce No: S521
+Mr Mohlatlego Sebola
+Acng Manager: Technology Transfer Oﬃce
+Tel: 012 521 4612 | mohlatlego.sebola@smu.ac.za
+Oﬃce No: S520
+62
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 63
+
+Mr Dev Mamabolo
+Project Coordinator- Technology Transfer Oﬃce
+Tel: 012 521 4612 | Dev.mamabolo@smu.ac.za
+Oﬃce No: S520
+Ms Lorato Phiri
+Coordinator- Human and Animal Ethics
+Tel: 012 521 5617 | lorato.phiri@smu.ac.za
+Oﬃce No: S524
+Ms Jadah Matentji
+Postgraduate Studies Oﬃcer- Finance and Admin Support
+Tel: 012 521 3956 | jadah.matentji@smu.ac.za
+Oﬃce No: S524
+Ms Elsie Mfete
+Research Informaon Oﬃcer- Research Outputs
+Tel: 012 521 3698 | elsie.mfete@smu.ac.za
+Oﬃce No: S519
+Ms Fuluelo Malamatsho
+Coordinator-Research Capacity Development
+Tel: 012 521 5171 |
+fuluelo.malamatsho@smu.ac.za
+Oﬃce No: S519
+Ms Winnie Motsatsi
+Coordinator-Research Grants and Strategic Partnerships
+Tel: 012 521 3233 l winnie.motsatsi@smu.ac.za
+Oﬃce No: S519
+63
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 64
+
+The Registrar's Oﬃce is a cornerstone of administrave excellence and
+governance at the university, ensuring the smooth operaon of its academic
+and regulatory funcons. With a core focus on compliance and governance, the
+oﬃce plays a crical role in upholding the integrity of university policies,
+academic regulaons, and the Higher Educaon Act. As the central hub for
+administrave support to key university structures, including the Council,
+Senate, and various commiees, the Registrar's Oﬃce facilitates the eﬃcient
+management of student applicaons, admissions, examinaons, graduaons,
+and records. Its diligent work ensures that the university's academic processes
+align with instuonal standards and legal requirements, contribung to the
+overall success and growth of the academic community.
+Mr SS Mokoena
+Registrar
+Email: simon.mokoena@smu.ac.za
+Tel: 012 521 3358
+Ms VO Mokgoko
+Secretary
+Email: vuyiswa.mokgoko@smu.ac.za
+Tel: 012 521 3357
+- Compliance Oﬃcer of the university.
+- Electoral Oﬃcer of the university.
+- Secretary to Council and Senate, the Council and the Senate
+commiees, and the instuonal forum.
+- Provides administrave support to governance structures of the
+university.
+- Compliance with the Higher Educaon Act and various university
+academic policies, principles, rules, and regulaons in the
+administraon of student applicaons, admissions, registraons,
+examinaons, graduaons, and student records.
+Services Rendered:
+- Compliance with the Higher Educaon Act and various university
+academic policies, principles, rules, and regulaons in the
+administraon of student applicaons, admissions, registraons,
+examinaons, graduaons, and student records.
+Mr Sylvester Khohliso
+Deputy Registrar: Academic Administraon
+Email: sylvester.khohliso@smu.ac.za
+Tel: 012 521 4322
+Clinical Pathology Building, 5th Floor, oﬃce S517.
+64
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 65
+
+The Registry Department plays a vital role in ensuring seamless and eﬃcient
+movement of documents and parcels within the university and beyond. Through
+its commitment to reliable and mely service, the department supports the
+instuon's operaonal needs by managing essenal postage and courier
+services. By maintaining accuracy and eﬃciency, the Registry Department helps
+to connect the university with its stakeholders.
+- Postage
+- Courier services
+Clinical Pathology Building
+Ground Foor
+Room no. Cs003
+Monday – Friday: 07h30 to 16h00
+Sophie Baby Masebe
+Email: sophie.masebe@smu.ac.za
+Tel: 012 521 5880
+Joel Micheal Sekgotha
+Email: joel.sekghotha@smu.ac.za
+65
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 66
+
+Managing tuion fees is a crucial part of a successful academic journey, and the
+Student Debtors Cashier Oﬃce is here to make the process seamless and
+eﬃcient. With a commitment to providing reliable and student-centred service,
+the oﬃce ensures that payment transacons are handled promptly, helping
+students focus on their academic goals. A simple step towards financial
+organisaon starts here—don't forget to bring your student card for all payment
+processes.
+Barbara Dooka: Invoice Clerk
+Email: barbara.dooka@smu.ac.za
+Tel: 012 521 4154
+Services Rendered
+- Administering student fee accounts
+- Issuing of the statement of account
+- Collecon of outstanding fees
+Service Rendered
+- Collecons of tuion fees from students and issuing of receipts
+All students are requested to produce their student cards at the student
+debtors' oﬃce.
+Clinical Pathology Building, Basement, One Stop Student Centre.
+All students are requested to produce their student cards at the Cashier
+Oﬃce.
+Clinical Pathology Building, Basement, One Stop Student Centre.
+Monday – Friday: 09h00 – 12h00 and 13h00 – 15h00.
+Tebogo Shole: Assistant Director Student Fees
+Email: tebogo.shole@smu.ac.za
+Tel: 012 521 4614
+Emily Msiza: Assistant Accountant
+Email: emily.msiza@smu.ac.za
+Tel: 012 521 4735
+Frans Teﬀo: Principal Accountant
+Email: frans.teﬀo@smu.ac.za
+Phala Sepeng: Treasurer
+Email: phala.sepeng@smu.ac.za
+Tel: 012 521 3024
+Relebogile Ntlatleng: Cashier
+Email: relebogile.ntlatleng@smu.ac.za
+Tel: 012 521 4957
+Tel: 012 521 4713
+66
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 67
+
+The Security Services Department plays a vital role in fostering a safe and
+supporve environment where the University's core pursuits—teaching,
+learning, and community engagement—can thrive. With a steadfast
+commitment to safeguarding the physical assets of Sefako Makgatho Health
+Sciences University (SMU) and ensuring the well-being of students, staﬀ, and
+visitors, the department provides robust systems and measures designed to
+create a secure and conducive campus for academic excellence and
+collaboraon.
+Your safety is our top priority, and staying vigilant on and oﬀ campus is essenal.
+Always remain aware of your surroundings and take proacve steps to protect
+yourself and your belongings. Always secure your room and avoid lending
+personal devices like mobile phones to strangers. Remember to switch oﬀ
+appliances when not in use and keep valuables away from open windows.
+For your safety, avoid isolated areas, parcularly aer hours in dark areas, and
+never ask for or accept lis from strangers within or outside the campus. If you
+noce suspicious individuals, report them immediately to the Security Control
+Room. When accessing university facilies, use your biometric access control
+(facial or fingerprint) or access card and never allow unauthorised entry to
+others (tailgang).
+- Operaonal control room monitoring CCTV (28000 cameras on and
+oﬀ-campus monitored live) and a UAV/ DRONE on a 24h/7 basis.
+- Access card management
+- Incident management
+- Reacon vehicle with SMU Taccal Response Team (TRT)24
+hours/day.
+- Crime prevenon through visible security patrols
+- Green route (walkway) escorts for on and oﬀ-campus residences
+- Locksmith services
+- Incident, misconduct, GBV and crime invesgaon
+- Medical assistance: SMU Ambulance Service (Dispatch only).
+- Special events management on campus
+The Security Services department is conveniently located next to the
+University's Main Entrance, ready to assist with all safety concerns.
+Control Room Operator
+- Receive complaint
+- Record in the electronic occurrences book
+- Dispatch required personnel
+- Refer the maer for the invesgaon oﬃcer for further handling.
+- Report with recommendaon is draed and feedback sent to
+relevant department or student aﬀairs for implementaon.
+- 24-Hour Control Room: 012 521 4139 / 3705
+- Toll-Free Number: 080 016 0874
+- 24-Hour Supervisor: 082 793 1367 / Short Number 6004 (internal
+use only)
+At the Security Services Department, we encourage you to lead a balanced
+university life while keeping your safety and academic goals in mind. Adhering to
+university policies and regulaons will contribute to a secure and supporve
+environment for everyone.
+“Working together for safer campus”
+67
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 68
+
+The Gender-Based Violence (GBV) Oﬃce is a safe and confidenal space for
+both students andemployees who need support with issues related to gender-
+based violence or harassment. The oﬃce leads the university's zero-tolerance
+policy on GBV and works to ensure that anyone aﬀected receives guidance, care
+and appropriate intervenons. Through awareness campaigns, training and
+ongoing advocacy, the oﬃce promotes a campus environment rooted in
+respect, dignity and safety.
+Students and employees are welcome to contact the oﬃce if they:
+- have experienced GBV or harassment,
+- know someone who needs help,
+- want clarity on reporng procedures, or
+- would like to parcipate in GBV awareness or prevenon acvies.
+Monday – Friday from 08h00 to 16h30.
+The GBV Oﬃce provides free and confidenal services to all students and
+employees. These include:
+- A safe and private space to report any form of GBV or harassment.
+- Confidenal guidance on available reporng opons, both formal
+and informal.
+- Coordinang support for complainants, including psychosocial
+support, alternave accommodaon, a no-contact direcve or any
+praccal assistance they may require.
+- Nofying respondents of complaints made against them and guiding
+them through the process.
+- Managing GBV-related complaints on behalf of complainants, from
+reporng through to resoluon.
+- Awareness programmes, educaonal campaigns and campus-wide
+advocacy.
+- Training sessions and workshops to build understanding and equip
+the community to prevent and respond to GBV.
+Ms Busi Mbanjwa
+Acng Manager: GBV
+Telephone number: 012 521 3085
+Email address: gbvoﬃce@smu.ac.za
+HR Department
+Clinical Pathology Building
+5th Floor
+Oﬃce No S531
+68
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 69
+
+At the Student Support and Referral Unit, we are commied to empowering
+students to navigate challenges and unlock their full potenal. Our holisc
+approach ensures that every student receives tailored support, beginning with
+a thorough understanding of their unique circumstances. Whether it's
+guidance, life coaching, or connecng with specialised services, our team is
+here to foster resilience, personal growth, and academic success. Your journey
+at university is as much about self-discovery as it is about achievement, and we
+are here to walk alongside you, oﬀering unwavering care, confidenality, and
+encouragement. Let us help you turn challenges into opportunies for growth.
+For certain challenges, we may suggest connecng with specialised service
+providers, such as:
+- Educaonal Psychologist
+- Clinical Psychologist
+- Social Worker
+- Centre of University Teaching and Learning (Academic Support)
+- Financial Aid
+- Campus Health
+- Problem Idenficaon & Screening: Every student begins here,
+where we help you reflect to idenfy challenges.
+- Guidance & Referral: Based on the screening, students may receive
+Life Coaching sessions or be directed to relevant service providers.
+Any registered student facing academic diﬃcules or personal challenges is
+welcome. We assure you of complete respect, care, and confidenality in all
+maers.
+Welcome to our community, and remember, we're here to support you every
+step of the way.
+Life coaching is a versale service designed to help students thrive. While the
+support provided includes:
+- Modifying behaviour paerns
+- Inslling discipline and a posive mindset
+- Establishing construcve habits
+- Seng and achieving goals
+- Personal development
+- Overcoming obstacles and seng acon plans for change
+It's important to note that our coaching isn't limited to these areas. We cater our
+sessions to the unique needs and aspiraons of each student.
+Clinical Pathology Building, Ground Floor, Lecture Hall 3, Room No. 3L003
+Monday – Friday: 07h30 – 16h00
+Mrs C Du Preez
+Email: corlia.dupreez@smu.ac.za / studentsupport@smu.ac.za
+Tel: 012 521 3805
+WhatsApp Only: 072 687 1898
+69
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 70
+
+Student Governance and Development is dedicated to fostering the holisc
+growth of all students, shaping future leaders, and creang vibrant campus life.
+Central to our mission is the training and development of student leaders,
+student life and events coordinaon, and support for governance structures
+such as the SRC, Student Housing Commiees, Faculty Representaves, Sports
+Council, and Student Sociees.
+Our strategic focus lies in ensuring a quality learning experience by providing
+comprehensive academic and non-academic support and empowering
+students to reach their full potenal. We are commied to creang an opmal
+campus life experience while enhancing student employability.
+Whether you're seeking guidance on joining sociees, understanding
+membership fees, or accessing general informaon, our supporve staﬀ at the
+Student Centres are always ready to assist. Let us help you connect with the right
+resources and navigate your student journey with ease.
+- To create opportunies for students to have meaningful and relevant
+growth experiences as they parcipate in co-curricular acvies
+(clubs and sociees).
+- To build capacity in elected student leaders regarding their
+representaon, planning and management of student aﬀairs.
+- To be connuously involved in professional development acvies to
+promote self-development and the development of experse in the
+field of student leadership, governance and co-curricular acvies.
+- Leadership training and development.
+- Student life and events.
+- SRC acvies
+- Sociees.
+- Student leadership development.
+- To uphold best pracces in student governance.
+- To foster meaningful community development.
+- African Naonal Congress Youth League (ANCYL)
+- Economic Freedom Fighters Students Command (EFFsc)
+- Pan African Student Movement of Azania (PASMA)
+- Progressive African Socialist Students Organisaon (PASSO)
+- South African Students Congress (SASCO)
+- Student Chrisan Fellowship (SCF)
+- Student Union for Chrisan Acon (SUCA)
+- Young Communist League of South Africa (YCLSA)
+- To empower and enhance the student community through capacity-
+building iniaves, promong excellence in governance, leadership,
+and co-curricular acvies.
+- To provide leadership training for all student governance structures.
+- To provide leadership training opportunies to students with
+leadership potenal.
+- Amabutho Akwazulu
+- Book Club
+- BMF Student Chapter
+- Community Audiology
+70
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 71
+
+- Computer Science Society
+- Debate Society
+- Denzhe Student Society
+- Disabled Student's Originaon
+- DL Central Lions
+- Empower Her SMU
+- Enactus
+- GetFit
+- Hippocrates Apprences
+- Internaonal Federaon of Medical Students (IFMSA)
+- Lemonade
+- Let The Young Man Live
+- Mathemacs & Stacs Society
+- Nca Naon
+- South African Higher Educaon Queer Alliance (SAHEQA)
+- South African Student Dental Associaon (SASDA)
+- Science & Technology Student Federaon
+- South African Sisterhood Society
+- SMU Arts Society
+- SMU Friends of MSF (Médecins Sans Fronères) - Doctors Without
+Borders
+- SMU Medics On Moon
+- SMU Mental Health Advocacy Group
+- SMU Promath Alumni
+- SMU Rainbow Alliance
+- SMU Research Club
+- SMU Associaon for Pharmacy Students
+- South African Dental Associaon
+- South African Nursing Associaon
+- Associaon of Catholic Terary Students (ACTS)
+- Believers Love World (BLW)
+- His House Church Student Chapter
+- Internaonal Pentecostal Holiness Church (IPHC) Student Structure
+- Internaonal Pentecostal Holiness Church (IPHC) Silo Student
+Structure
+- The Twelve Apostolic Church in Christ
+- Methodist Student Society
+- Nazareth Terary Student's Associaon (NATESA)
+- Seventh-day Advenst Student Movement (SDASM)
+- The Last Days Evangelism Ministries
+- United Apostolic Church
+- Zion Chrisan Church (ZCC) Student Fellowship
+- St Engenas Zion Chrisan Church (ZCC)
+Mr. A.L Masetla
+Student Development Praconer
+SRC Oﬃces at the Natural Sciences Building (NSB)
+Tel: (012) 521 5836
+E-mail: Albert.masetla@smu.ac.za
+Ms. R.G Mogase
+SRC Administrator
+Tel: (012) 521 5835
+E-mail: Goitsemang.mogase@smu.ac.za
+71
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 72
+
+Student life at university is a journey of discovery, growth, and new
+opportunies, and where you live plays a significant role in shaping that
+experience. Our student residences oﬀer more than just a place to stay—they
+provide a supporve and inclusive community designed to make you feel at
+home. Here, lifelong friendships are formed, and personal growth is fostered
+in an environment that values diversity, respect, and collaboraon.
+Conveniently located, our residences are designed to create a balance
+between academic focus and social interacon, ensuring that every student
+has access to the resources and support they need to thrive. From secure
+living spaces to engaging residence programmes, we are commied to
+creang a vibrant and enriching residenal experience for every student.
+Welcome to your new home, where memories are made and futures are
+shaped.
+- Access to washing machines and tumble dryers for laundry needs.
+- Availability of kitchen facilies, including microwaves and stoves.
+- Cleaning services to maintain a hygienic living environment.
+- Maintenance support in collaboraon with the technical services
+team.
+- Dedicated security oﬃcers assigned to each residence for
+enhanced safety.
+- Addressing student concerns and providing support for various
+issues.
+- Oversight and enforcement of student discipline to ensure a
+harmonious living environment.
+Student-Related Acvies/Commiees
+A. Acvies
+- Residence Orientaon
+- Ubuntu games in collaboraon with All Sports Council and the
+72Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 73
+
+General Treasurer of SRC
+- Green campus in collaboraon with garden services
+- SMU conversaon / Pillow Talk
+- Ongoing orientaon
+- Residence games
+B. Commiees
+- House Commiee
+- Residence Disciplinary Commiee
+- Your postal address; your name, residence name, room number, P O
+Box 154 Medunsa 0204
+- All junior students share rooms.
+- If you need help, contact your Coordinator: Residences.
+- Report repairs and maintenance of your room to the Coordinator:
+Residences.
+Residence Policy Available on SMU Intranet
+- Report the loss of your key to your Coordinator: Residences/ it can be
+replaced at a cost.
+- Secure your valuables in a safe place.
+- Report any suspicious persons to the Coordinator: Residences and
+security.
+- Keep your door closed and locked, especially when you are sleeping or
+alone in the room.
+- Switch oﬀ appliances when not in use.
+- No alcohol or substance abuse
+- No tampering with fire fighng equipment
+- No illegal squang in the residences
+- No illegal connecons and extra appliances
+- No noise and pares
+- No vandalism
+- No trading
+- No weapons allowed in residence
+Clinical Pathology Building Oﬃce S530
+Monday – Friday: 08h00 – 16h00
+- Kele
+- Microwave
+- Air Fryer
+- Bar Fridge or 154L fridge
+- Iron
+- Fan Heater
+- Electric blanket
+Residence Central Oﬃce/ Queries on Residence Admission
+E-mail : studenthousing@smu.ac.za
+Tel: 012 521 4308 / 3742
+Scan the QR code
+to download
+SMUStudent
+Bus Schedule
+- Proof of residence can be obtained from your Coordinator:
+Residences.
+73
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 74
+
+The Transport Department plays a vital role in ensuring the seamless mobility of
+our university community. With a dedicated team of skilled drivers and
+supporve administrave staﬀ, the department provides reliable and eﬃcient
+transport services that underpin the academic, social, and operaonal needs of
+students and staﬀ alike. Through our services, we aim to foster connecon,
+accessibility, and a sense of community across all areas of campus life. The
+department consists of thirty-two drivers and five administrave staﬀ.
+- Private use of the vehicle shall lead to the withdrawal of the privilege
+and possible disciplinary acon.
+- Each driver will be held responsible for any traﬃc fines incurred while
+driving the vehicle, as the university does not allocate funds for the
+payment of fines.
+Transport Building
+Situated next to the small gate
+- Provide student transport for various outreach programmes.
+- Oﬀer transport for students to oﬀ-campus residences.
+- Facilitate transport for students and staﬀ to sports and spiritual
+acvies.
+- Supply transport for other departments' operaonal requirements.
+Monday – Friday: 07h30- 16h00
+Email address: transport@smu.ac.za
+- No vehicle may be driven without prior authorisaon.
+- All student transport requests should be submied to the transport
+department at least four (04) working days before the trip.
+- No driver with a license that has acve endorsement will be allowed
+to drive fleet vehicles.
+- No student or staﬀ member may drive oﬃcial SMU vehicles while
+under the influence of alcohol or any drug that could aﬀect their
+judgement.
+- No vehicle may be taken home overnight without permission and/or
+prior authorisaon.
+Ms Evelina Mahlangu
+Head of Department
+Tel: 012 521 4917 / 083 468 8191
+Ms Gaobuse Mojaki
+Transport Oﬃcer
+Tel: 012 521 3719 / 083 798 1992
+Ms Jemina Motsie
+Admin Assistant
+Tel: 012 521 4634 / 073 501 0105
+Mr Edwin Manabalala
+Transport Oﬃcer
+Tel: 012 521 5009 / 066 257 1601
+Ms Katlego Maseka
+Admin Assistant
+Tel: 012 521 4634 / 066 257 1639
+Ms Maluleke Rose
+Admin Assistant
+Tel: 012 521 4634 / 081 023 1764
+74
+Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 75
+
+Sport and recreaon are integral to fostering a vibrant and well-rounded
+university experience. At the heart of campus life, the Sport and Recreaon
+Department oﬀers opportunies for students, staﬀ, and alumni to engage in a
+variety of physical acvies that promote health, wellness, and community spirit.
+Whether you're looking to compete, stay fit, or unwind, the department provides
+a welcoming space to explore your passions, build lasng connecons, and
+embrace an acve lifestyle.
+- Administraon of all registered sporng codes on campus.
+- Training and development of athletes.
+- Mul-purpose gymnasium.
+- Provide students, staﬀ, and alumni with the opportunity to parcipate
+in a range of indoor and outdoor sports acvies, such as Football,
+Rugby, Tennis, Bodybuilding, Aerobics, etc., and promote a healthy
+and physical wellness lifestyle.
+- Coordinate internal and external sports acvies.
+There are 18 acve sporng codes on campus: Aerobics, Athlecs, Basketball,
+Boxing, Bodybuilding, Chess, Cricket, Dance Sports, Football, Karate, Netball,
+Supa Pool, Rugby, Squash, Swimming, Table Tennis, Tennis, Esport, Golf and
+Volleyball. As a new student at the university, you are encouraged to join one or
+more of our sports and recreaonal clubs so you can enjoy your stay.
+Our clubs annually parcipate in the University Sport South Africa (USSA) Winter,
+Autumn, and Summer tournaments. The winter tournaments' sports codes are
+Dance Sport, Netball, Body Building, Karate, Supa Pool, Sport and Volleyball held
+on the first week of the winter recess. Some of the summer tournaments' sporng
+codes are Aerobics, Chess, Cricket, Athlecs, Football, Karate, Pool, Football,
+75Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 76
+
+Swimming, Table Tennis and Tennis. The Summer tournaments are held on the
+first week of the Summer holidays. Parcipaon in the naonal USSA
+tournaments oﬀers one an opportunity to parcipate internaonally.
+Clubs also play in the community leagues around Gauteng. All clubs have
+internal and external fixtures played on diﬀerent weekdays and weekends at
+various venues in and around Gauteng province.
+General Gym
+All students are free to use the gymnasium. To do so, one simply produces one`s
+current student card at recepon. Various training equipment is available in the
+centre.
+- General Gym
+- Karate Hall
+- Squash Court x 6
+- Bodybuilding Gymnasium
+- Dance Hall
+- Table Tennis Hall
+- Basketball Court x 2
+- Volleyball Court x 2
+- Badminton Court x 6
+- Football Stadium
+- Football field x 2
+- Rugby Field
+- Tennis Court x 4
+- Netball Court x 2
+- Basketball Court
+- Swimming Pool – Under construcon
+The Department takes pride in having culvated some of the naon's finest
+sportsmen and women across the following disciplines:
+Athlecs – Moderfontein 10Km (Athlecs Gauteng)
+- Avela Snyman – Junior Category Champion (Sub 35minutes)
+Body Building – IFBB (SA Championships)
+- Taelo Maloka – 1st Place (Men's Physique under 178cm category)
+Body Building – USSA (SA Championships)
+- Bonno Mohlala – 1st Place (Ladies Wellness under 166cm) and
+overall winner
+Dance Sport – Rumba in The Jungle (Internaonal Compeon)
+- Lehlohonolo Mbongeni – Solo Winner
+Dance Sport - World Dance Sport Federaon (WDSF) World Under 21 Lan
+Championships
+- Reagile Pine and Thomo Thlabane
+Dance Sport – WADF All African Arsc Championships (Connental
+Compeon)
+- Lesedi Mokhwibitjane and Bokamoso Mapela – Youth Category
+Champions
+Dance Sport – FEDANSA (SA Championships)
+- Lehlohonolo Mbongeni – Adult Solo Winner
+- Siamisang Tswidi – Youth Solo Lan Winner
+- Lindiwe Maseko and Otlotleng Hlaletha (Junior Level 2 Winner)
+Karate – Best of the Best Karate Tournament – SA Champs
+- Oralwe Sethabela – 1st posion (Senior Women U60kg)
+- Ester Msiza – 3rd posion (Senior Women U60kg)
+- Mogau Matshisho – 3rd posion (Men's 80kg Light Heavyweight)
+76Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 77
+
+Provincial Call-ups
+- Nokwanda Zwane - Netball
+- Tshiwela Sikau - Netball
+- Neo Dlamini - Netball
+- • Taelo Maloka – Body Building
+- Johannes Mabusela – Chess
+- Boitshepo Motlhala – Deaf Rugby
+- Thabiso Mohubedu– Supa Pool
+- Lethabo MMapheto- Volleyball
+Bodybuilding Internaonal Parcipaon Student 2016
+Soccer Referees Course 2nd level, 5 students
+SASAFS (Aerobics) 2016 Austria, Athlecs
+·
+Pool (Blackball Pool games) Naonal Champions
+Finals of Blue Bulls Rugby Union 2015, Dance Sports Naonal Championships
+and Badminton Northern Gauteng Champions and U.S.S.A
+USSA C Netball Champions, Champions of B Division- Promoted to Secon A in
+2018
+Our coaches are cerfied First Aiders aer compleng First Aid Levels 1& 2
+- Under11: Posion 2
+- Under13: Posion 3
+- Under15: League Champs
+- Under17: Posion 6
+- Under 19: Posion 3
+GALFA Promoonal League – Winners (Football Senior Men)
+10th Annual Matlosana Cup 2022 Championships – Paballo Kobe (2nd place)
+Blue Bulls Rugby Union Women's League – Runner's Up (2021 & 2022)
+Blue Bulls Rugby Union – Reserve League Winners (Men 2021)
+USSA Men's Volleyball Naonal Championships – Plate Winners - 2021
+Karate All African Games, Shinkyokushinkai World Championships 2017
+parcipaon
+- 2018: Innocent Zikhali represented the RSA
+- 2018: Amogelang Bunu: represented RSA
+Sports Complex
+Email: sports@smu.ac.za
+- Facebook – SMU SPORT
+- Instagram - @smusports_sa
+Monday– Friday: 07h30 - 16h00
+Vacant- Head of Department
+E-mail: sports@smu.ac.za
+- Strategy development and execuon
+- Sport management
+- Policy and procedure development
+- Quality assurance and risk management
+77Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 78
+
+- Safety, health and environmental management
+- Resource Management: Human Resource
+- Resource management: Budget and Finance
+- Monitoring, Evaluaon and reporng
+- Staﬀ sport management
+- Managing sport facilies
+- Management of sports clubs
+- Sports Aﬃliaons (USSA and federaons)
+- Processing of overme claims and coach payments
+- Leave arrangements
+Miss BV Sijora (Sport Oﬃcer)
+E-mail: /
+busiswe.sijora@smu.ac.za sports@smu.ac.za
+- Chess
+- Dance Sport
+- Handball
+- Karate
+- Football
+- Rugby
+- Squash
+- Swimming
+- Communicaons and Markeng
+- Community Engagement
+- Risk assessment and management
+- Travel arrangements
+Mr EO Lekgabe (Sport Oﬃcer)
+E-mail: edwin.lekgabe@smu.ac.za
+- Aerobics
+- Athlecs
+- Boxing - recreaonal
+- Basketball - recreaonal
+- Body Building
+- Volleyball
+- Gymnasiums and SIRU
+- Grounds men
+- Infrastructure maintenance
+- Physical Health Programme
+Ms A Zwelibanzi (Sport Oﬃcer)
+E-mail: andiswa.zwelibanzi@smu.ac.za
+- Netball
+- E-Sport – launch in 2025
+- Cricket
+- Supa pool
+- Table tennis
+- Tennis
+- Grant & Sponsorship
+- FISU Healthy Campus
+- Staﬀ & student Engagement & Recreaonal
+- Mr NG Masuku (ISenior Administrator)
+E-mail: nkosinathi.masuku@smu.ac.za
+- Administrave and Operaonal Support
+- General Oﬃce Management
+- Meeng Coordinaon
+- Financial and Procurement Assistance
+- Asset and Equipment Management
+- Vendor and Service Provider Liaison
+- Oﬃce Supplies and Consumables Management
+- Report Preparaon
+- Venue Bookings for test, exams and events
+78Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 79
+
+The funcon of the Alumni Relaons Oﬃce is to establish and maintain lifelong
+connecons between the university and its graduates, as they are stakeholders.
+The oﬃce is dedicated to fostering connuous liaison with alumni by developing
+stakeholder relaon strategies, policies and systems. It allows Alumni
+Associaon members to network, collaborate, mentor, crowd fund university
+projects, and reconnect via alumni chapters and events such as Golf Days and
+Class Reunions.
+The objecves of SMU Alumni include building relaonships with alumni to
+support academic and research iniaves, leveraging alumni influence to
+generate third-stream income, establishing governance structures, and raising
+awareness among schools and academic departments about the importance of
+engaging with alumni, the community, and private organisaons.
+- Establishment of regional chapters and sectors
+- Mobilising alumni to appoint or elect their representave who will
+serve on SMU Council.
+- Community development, and
+- Regular communicaon with Alumni and Convocaon using
+electronic newsleer, emails, SMS and social media.
+Monday – Friday: 07h30 to 16h00
+Advancement and Communicaon Department
+Clinical Pathology Building 5th Floor, Oﬃce S518
+- Circulate communique through the university communicaon
+channels, such as the website, publicaons, social media and SMU
+FM.
+- Planning, organising and implemenng Alumni events, according to
+their programme, including purely social gatherings.
+- Be present on open days, orientaon weeks, and other university
+events.
+- The organisaon of instuonal alumni events such as reunions
+- Audit and update database
+- Conducts alumni surveys
+- Distribuon of university Alumni publicaon
+- Organising EXCO meengs and Alumni Annual General Meengs
+(AGM)
+- The implementaon of an alumni giving campaign, including online
+giving facilies
+Mr Benedict Masenamela
+Email: |
+alumni@smu.ac.za benedict.masenamela@smu.ac.za
+Tel: 012 521 4563
+79Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 80
+
+The SMU Convocaon is a structure of governance tasked with statutory funcons
+as prescribed in the instuonal statute; “facilitate liaison between the university
+and its former students and academic employees, create networks and canvass
+support for the strategic objecves of the university and organize former students
+together with academic employees of the university with a view of facilitang
+representaon of this constuency on appropriate governance structures”.
+Convocaon plays an important role in helping to shape the future of the
+University. This importance is reflected in its representaon of the 12 governance
+structures of the University. This structure has an important role to play in
+promong and maintaining a posive image of the University and engaging in
+fundraising acvies for the University. In terms of the Instuonal Statute,
+Convocaon is represented on the University Council, and as such has a role to
+play in ensuring that the University is working in the best interests of the public,
+and more specifically, the stakeholders who are served by the University, including
+current and former students.
+7h30-16h00
+Advancement and Communicaon Department
+Clinical Pathology Building 5th Floor, Oﬃce S515
+Mr Letsai Mashishi
+Tel: 012 521 5976
+E-mail: letsai.mashishi@smu.ac.za
+80Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 81
+
+At Sefako Makgatho Health Sciences University (SMU), innovaon in health sciences extends
+beyond lecture halls — it resonates on the airwaves. SMU FM 97.1 has rapidly posioned itself
+as the heartbeat of campus life, delivering content that informs, connects and inspires a vibrant
+university community.
+More than a radio staon, SMU FM is a dynamic plaorm where academic excellence meets
+student expression. Broadcasng across campus and beyond, the staon gives students a
+powerful voice while reinforcing the university's mission to transform health services through
+excellence and innovaon.
+SMU FM is not just about music; it is about creang a space where students are heard and ideas
+come alive. The staon is intenonal about producing content that reflects both the academic
+focus of the university and the lived experiences of its students.
+The staon's programming reflects a deliberate, student-centred approach aligned with SMU's
+instuonal values. Through a blend of talk shows, music, and educaonal segments, it delivers:
+- Relevant content: campus updates, health awareness and student-led discussions
+- Praccal learning: hands-on experience in broadcasng, producon and media
+- Community connecon: a shared plaorm for students, staﬀ and stakeholders
+- Creave expression: opportunies for emerging talent to develop and showcase
+skills
+This approach ensures that every broadcast is purposeful, engaging and impacul. Being part of
+SMU FM has sharpened communicaon skills and built confidence, adding that it creates a
+sense of contribung to something larger than oneself.
+The staon also plays a strategic role in preparing graduates for the professional world. By
+integrang real-world media experience into the student journey, SMU FM strengthens the
+university's commitment to producing well-rounded health sciences professionals.
+Importantly, the plaorm speaks directly to students navigang university life. It informs,
+entertains and provides a sense of belonging. When students tune in, they become part of a
+connected community, highlighng the importance of this connecon, parcularly for new
+students finding their place.
+As SMU connues to advance its vision of transforming health services, SMU FM stands as a bold
+extension of that mission — blending educaon, innovaon and human connecon.
+In amplifying student voices and fostering engagement, the staon reinforces SMU's broader
+contribuon to educaon, research and community development, proving that impact is not
+only measured in laboratories and lecture halls, but also in the power of a shared voice.
+#YourSoundYourVoiceYourStaon #SMUFM
+
+## Page 82
+
+82Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 83
+
+83Sefako Makgatho Health Sciences University Prospectus 2026/2027 Booklet
+
+## Page 84
+
+Experience Campus Life Through
+#SMUCreators2026
+Follow our Student Brand Ambassadors for a real-time glimpse into life at SMU —
+from lecture halls and laboratories to campus culture and student experiences.
+As part of the NEXTGEN
+shaping health sciences in South Africa, they oﬀer
+an authentic perspective on what it means to learn, grow and thrive at SMU.
+Connect, engage and discover your future through their journey.
+
+## Page 85
+
+Follow the #SMUCreators2026
+Simamkele Talatala, Bongani Trevor, Kabelo Ramathibela, Tinyiko Angel Moyana,
+Precious Mangwane, Tanganedzani Ramudzuli, Masipa Kamogelo, Lerato Ngomane,
+Lisakhanya Mangxola, Boiketlo Mahobotsha, Pearl Nghonyama, Lebohang Mogano,
+Fortune Lawrence, Angel Nobunga, Nzuzo Mpondwana, Kea Lekete, Thapelo
+Mthimunye, Bonolo Malema, Lethabo Malema and Hunadi Mehlape.
+
+## Page 86
+
+Physical Address: Molotlegi Street | Ga-Rankuwa | PretoriaPostal Address: Registry | P .O.Box 60 | Medunsa | 0204 | South Africa

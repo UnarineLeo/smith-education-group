@@ -87,6 +87,36 @@ ion-toast.app-toast {
 	letter-spacing: 0.005em;
 }
 
+/* Authentication modals share a wider, dashboard-style presentation. */
+ion-modal.auth-login-modal {
+	--width: min(96vw, 960px);
+	--height: min(92vh, 660px);
+	--border-radius: 28px;
+	--box-shadow: 0 30px 90px rgba(15, 39, 68, 0.28);
+}
+
+ion-modal.auth-register-modal {
+	--width: min(96vw, 960px);
+	--height: min(92vh, 680px);
+	--border-radius: 28px;
+	--box-shadow: 0 30px 90px rgba(15, 39, 68, 0.28);
+}
+
+ion-modal.auth-login-modal::part(content),
+ion-modal.auth-register-modal::part(content) {
+	overflow: hidden;
+	background: transparent;
+}
+
+@media (max-width: 760px) {
+	ion-modal.auth-login-modal,
+	ion-modal.auth-register-modal {
+		--width: 100%;
+		--height: 100%;
+		--border-radius: 0;
+	}
+}
+
 /* Shared page hero treatment */
 .unipply-page-hero {
 	position: relative;

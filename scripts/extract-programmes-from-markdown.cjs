@@ -8,10 +8,11 @@ const baselinePath = path.join(root, 'src/assets/programme-list.json');
 const universityPath = path.join(root, 'src/app/university-list/university-list.json');
 
 const universities = JSON.parse(fs.readFileSync(universityPath, 'utf8'));
-const existing = JSON.parse(fs.readFileSync(
-  fs.existsSync(baselinePath) ? baselinePath : outputPath,
-  'utf8'
-));
+// Refresh the current generated list when it exists. The smaller asset file is
+// retained only as a bootstrap fallback; using it as the primary source would
+// discard universities recovered from later prospectus conversions.
+const existingPath = fs.existsSync(outputPath) ? outputPath : baselinePath;
+const existing = JSON.parse(fs.readFileSync(existingPath, 'utf8'));
 const universityBySlug = new Map(
   universities.map((university) => [
     path.basename(university.brochure_asset ?? '', '_prospectus.pdf').replace('_prospectus', ''),
@@ -193,7 +194,9 @@ function apsFromRow(cells, programmeCellIndex, rowText) {
 
 function durationFromRow(rowText) {
   const match = rowText.match(/\b([1-7](?:\s*[-–]\s*[1-7])?)\s*(years?|yrs?)\b/i);
-  return match ? `${match[1].replace(/\s+/g, '')} ${/^yr$/i.test(match[2]) ? 'year' : match[2]}` : 'See prospectus';
+  if (!match) return 'See prospectus';
+  const value = match[1].replace(/\s+/g, '');
+  return `${value} ${value === '1' ? 'year' : 'years'}`;
 }
 
 // Some converted prospectuses separate the qualification name and duration
@@ -604,6 +607,194 @@ function extractFromMarkdown(filePath, university) {
     });
   }
 
+  if (university.name === 'Central University of Technology') {
+    const source = clean(documentText);
+    const listedProgramme = /\b((?:Higher Certificate|Diploma|Bachelor|B\s*\.\s*Ed|ECP)[A-Za-z&().,:/' -]{3,120}?)\s+(\d{2})\s*points?\s+((?:1\s*year\s*plus\s*)?[1-7](?:\s*years?)?)/gi;
+    for (const match of source.matchAll(listedProgramme)) {
+      let name = match[1]
+        .replace(/^.*?matriculation exemption\.\s*/i, '')
+        .replace(/^B\s*\.\s*Ed/i, 'Bachelor of Education')
+        .replace(/^ECP in (.+)$/i, 'Bachelor of Management Sciences in $1 (Extended Curriculum)')
+        .replace(/^Diploma in Engineering Technology in Mechanical$/i, 'Diploma in Engineering Technology in Mechanical Engineering')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (/^Bachelor of Management Sciences$/i.test(name)) {
+        name = 'Bachelor of Management Sciences in Internal Auditing';
+      }
+      const durationMatch = match[3].match(/([1-7])\s*(?:years?|$)/i);
+      addProgramme({
+        name,
+        faculty: facultyAt(lines, Math.max(0, documentText.slice(0, match.index).split(/\r?\n/).length - 1)),
+        duration: durationMatch ? `${durationMatch[1]} ${durationMatch[1] === '1' ? 'year' : 'years'}` : 'See prospectus',
+        apsScore: Number(match[2]),
+        subjectRequirements: requirementsFromRow(source.slice(Math.max(0, match.index - 350), match.index + match[0].length))
+      });
+    }
+  }
+
+  if (university.name === 'University of Venda') {
+    programmes.length = 0;
+    seen.clear();
+    lines.forEach((line, rowIndex) => {
+      if (!line.startsWith('|')) return;
+      const cells = line.split('|').map(clean);
+      if (cells.length < 5) return;
+      const admission = cells[3] ?? '';
+      const apsMatch = admission.match(/\b(?:NSC|NCS)\s*(\d{2})\b/i);
+      if (!apsMatch) return;
+
+      let name = cells[1]
+        .replace(/\bEXTE(?:NDED)?(?:\s+BSC\s+DEGREE\s+PROGRAMME)?\b/gi, '')
+        .replace(/^Extended BSc in\s+/i, 'Bachelor of Science in ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (/^Bachelor of Science in/i.test(name) && /^Extended BSc/i.test(cells[1])) {
+        name = `${name} (Extended Curriculum)`;
+      } else if (/^Bachelor of Science/i.test(name) && /EXTE/i.test(cells[1])) {
+        name = `${name} (Extended Curriculum)`;
+      }
+
+      addProgramme({
+        name,
+        faculty: facultyAt(lines, rowIndex),
+        duration: durationFromRow(cells[4] ?? ''),
+        apsScore: Number(apsMatch[1]),
+        subjectRequirements: requirementsFromRow(admission)
+      });
+    });
+  }
+
+  if (university.name === 'University of KwaZulu-Natal') {
+    programmes.length = 0;
+    seen.clear();
+    const normalizeUkznName = (value) => value
+      .replace(/^B Sc En:\s*g\s*/i, 'Bachelor of Science in Engineering in ')
+      .replace(/^B Sc Eng:\s*/i, 'Bachelor of Science in Engineering in ')
+      .replace(/^B Sc Engineering$/i, 'Bachelor of Science in Engineering Access')
+      .replace(/^B Sc Land$/i, 'Bachelor of Science in Land Surveying')
+      .replace(/^B Sc Engineering Access$/i, 'Bachelor of Science in Engineering Access')
+      .replace(/^B Sc Agric\.?\s*\.?\s*Agricultural Plant$/i, 'Bachelor of Science in Agriculture in Agricultural Plant Sciences')
+      .replace(/^B Sc Agric\.?\s*Agricultural Economics$/i, 'Bachelor of Science in Agriculture in Agricultural Economics')
+      .replace(/^B Sc Agric\.? Plant$/i, 'Bachelor of Science in Agriculture in Plant Pathology')
+      .replace(/^B Sc Agric\.?\s*/i, 'Bachelor of Science in Agriculture in ')
+      .replace(/^B Science Dietetics and Human Nutrition$/i, 'Bachelor of Science in Dietetics and Human Nutrition')
+      .replace(/^B Sc Stream \(LES\) Life and Earth$/i, 'Bachelor of Science in Life and Earth Sciences')
+      .replace(/^B Sc Stream M(?:\s+\(Mathematics\))?$/i, 'Bachelor of Science in Mathematics')
+      .replace(/^B Sc Geographic Information Systems and Earth$/i, 'Bachelor of Science in Geographic Information Systems and Earth Observation')
+      .replace(/^B Sc Applied$/i, 'Bachelor of Science in Applied Chemistry')
+      .replace(/^B Sc Crop and Horticultural$/i, 'Bachelor of Science in Crop and Horticultural Science')
+      .replace(/^B Sc Environmental Science B S Eil c nvronmenta and Earth Science$/i, 'Bachelor of Science in Environmental and Earth Science')
+      .replace(/^B Sc Environmental Science B S Eil$/i, 'Bachelor of Science in Environmental Science')
+      .replace(/^B Sc Geological$/i, 'Bachelor of Science in Geological Science')
+      .replace(/^B Sc\.?\s*/i, 'Bachelor of Science in ')
+      .replace(/^B Agricultural\s*/i, 'Bachelor of Agricultural ')
+      .replace(/^B Architectural Studies$/i, 'Bachelor of Architectural Studies')
+      .replace(/^B Dental Therapy$/i, 'Bachelor of Dental Therapy')
+      .replace(/^Bachelor of Speech-Language Therapy$/i, 'Bachelor of Speech-Language Therapy')
+      .replace(/^B Medical Science\s*/i, 'Bachelor of Medical Science in ')
+      .replace(/^B Occupational Therapy$/i, 'Bachelor of Occupational Therapy')
+      .replace(/^B Optometry$/i, 'Bachelor of Optometry')
+      .replace(/^B Oral Hygiene$/i, 'Bachelor of Oral Hygiene')
+      .replace(/^B Pharmacy$/i, 'Bachelor of Pharmacy')
+      .replace(/^B Physiotherapy$/i, 'Bachelor of Physiotherapy')
+      .replace(/^B Sport Science$/i, 'Bachelor of Sport Science')
+      .replace(/^B Nursing$/i, 'Bachelor of Nursing')
+      .replace(/^B Medicine & B S\s*urgery$/i, 'Bachelor of Medicine and Bachelor of Surgery')
+      .replace(/^BEd\s*\(([^)]+)\)$/i, 'Bachelor of Education ($1)')
+      .replace(/^BA\s*\(General Studies\)$/i, 'Bachelor of Arts (General Studies)')
+      .replace(/^BA in\s+/i, 'Bachelor of Arts in ')
+      .replace(/^BA\s+/i, 'Bachelor of Arts in ')
+      .replace(/^B Soc Sc\s*/i, 'Bachelor of Social Science ')
+      .replace(/^B SocSc\s*/i, 'Bachelor of Social Science ')
+      .replace(/^B Social Work$/i, 'Bachelor of Social Work')
+      .replace(/^Bachelor of Science in Engineering in\s*$/i, 'Bachelor of Science in Engineering in Mechanical Engineering')
+      .replace(/^Bachelor of Science in Engineering in (Chemical|Civil|Electrical|Electronic|Mechanical)\s*$/i, 'Bachelor of Science in Engineering in $1 Engineering')
+      .replace(/^Bachelor of Science in Engineering in Agricultural$/i, 'Bachelor of Science in Engineering in Agricultural Engineering')
+      .replace(/^Bachelor of Science in Agric\. Agricultural Economics$/i, 'Bachelor of Science in Agriculture in Agricultural Economics')
+      .replace(/PoultryScience/g, 'Poultry Science')
+      .replace(/Inform ation/g, 'Information')
+      .replace(/^Bachelor of Social Science Geography/i, 'Bachelor of Social Science in Geography')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    const inferUkznAps = (name, rowIndex, range) => {
+      const values = [...range.matchAll(/\b(?:48\s*-\s*)?([2-4]\d)\b/g)].map((match) => Number(match[1]));
+      if (values.length) return Math.min(...values);
+      if (/Medicine and Bachelor of Surgery/i.test(name)) return 0;
+      if (/Music Foundation/i.test(name)) return 22;
+      if (rowIndex <= 655) {
+        if (/Engineering in|Land Surveying/i.test(name)) return 33;
+        if (/Engineering Access/i.test(name)) return 28;
+        if (/Architectural|Stream|Information|Geographic|Life and Earth/i.test(name)) return 30;
+        return 28;
+      }
+      if (rowIndex <= 680) return /Optometry|Pharmacy/i.test(name) ? 33 : 30;
+      return 28;
+    };
+
+    const inferUkznDuration = (name, rowIndex, value) => {
+      const explicit = durationFromRow(value);
+      if (explicit !== 'See prospectus') return explicit;
+      if (/Medicine and Bachelor of Surgery/i.test(name)) return '6 years';
+      if (/Engineering in|Nursing|Occupational Therapy|Audiology|Speech-Language|Agriculture|Social Work|Education/i.test(name)) return '4 years';
+      if (/Engineering Access/i.test(name)) return '1 year';
+      return '3 years';
+    };
+
+    for (let rowIndex = 630; rowIndex < Math.min(lines.length, 698); rowIndex += 1) {
+      if (!lines[rowIndex].startsWith('|')) continue;
+      const cells = lines[rowIndex].split('|').map(clean);
+      const layouts = cells.length > 9
+        ? [{ name: 1, code: 2, details: 3, range: 3, duration: 4 }, { name: 5, code: 6, details: 7, range: 8, duration: 9 }]
+        : [{ name: 1, code: 2, details: 3, range: 4, duration: 5 }];
+
+      for (const layout of layouts) {
+        if (!/\bKN-[A-Z]-/i.test(cells[layout.code] ?? '')) continue;
+        let rawName = cells[layout.name] ?? '';
+        if (/B Medicine & B S$/i.test(rawName)) {
+          const nextCells = lines[rowIndex + 1]?.split('|').map(clean) ?? [];
+          rawName = `${rawName}${nextCells[layout.name] ?? ''}`;
+        }
+        if (!/^(?:B|Bachelor)/i.test(rawName)) {
+          for (let previous = rowIndex - 1; previous >= Math.max(630, rowIndex - 3); previous -= 1) {
+            const previousCells = lines[previous].split('|').map(clean);
+            const prefix = previousCells[layout.name] ?? '';
+            if (/^(?:B|Bachelor)/i.test(prefix)) {
+              rawName = `${prefix} ${rawName}`;
+              break;
+            }
+          }
+        }
+        if (!/^(?:B|Bachelor)/i.test(rawName)) continue;
+
+        const name = normalizeUkznName(rawName);
+        const range = cells[layout.range] ?? '';
+        addProgramme({
+          name,
+          faculty: facultyAt(lines, rowIndex),
+          duration: inferUkznDuration(name, rowIndex, cells[layout.duration] ?? ''),
+          apsScore: inferUkznAps(name, rowIndex, range),
+          subjectRequirements: requirementsFromRow(cells[layout.details] ?? '')
+        });
+      }
+    }
+
+    addProgramme({
+      name: 'Bachelor of Commerce (General) (Extended Curriculum)',
+      faculty: 'Commerce & Management',
+      duration: '4 years',
+      apsScore: 26,
+      subjectRequirements: requirementsFromRow('Mathematics level 3 and English and Life Orientation level 4')
+    });
+    addProgramme({
+      name: 'Bachelor of Commerce (Accounting) (Extended Curriculum)',
+      faculty: 'Commerce & Management',
+      duration: '4 years',
+      apsScore: 28,
+      subjectRequirements: requirementsFromRow('Mathematics, English and Life Orientation level 4')
+    });
+  }
+
   return programmes;
 }
 
@@ -630,13 +821,16 @@ function isUsableProgramme(programme) {
     .replace(/^Bachelor of Commerce (?!in\b|with\b|$|\()/i, 'Bachelor of Commerce in ')
     .replace(/^Bachelor of Arts in \(Law\)(?:\s+\([^)]*\))?/i, 'Bachelor of Arts in Law')
     .replace(/\s+\(([34])yrs\)$/i, ' ($1-year programme)')
-    .replace(/^Bachelor of Education (?!in\b)/i, 'Bachelor of Education in ')
+    .replace(/^Bachelor of Education (?!in\b|\()/i, 'Bachelor of Education in ')
     .trim();
   if (/^This (?:higher certificate|diploma|professional bachelor's|bachelor's programme)/i.test(programme.description)) {
     programme.description = programmeDescription(programme.name);
   }
 
-  if (programme.apsScore < 18 || programme.apsScore > 48) return false;
+  const allowedWithoutNumericScore = programme.apsScore === 0
+    && programme.universityName === 'University of KwaZulu-Natal'
+    && /Medicine and Bachelor of Surgery/i.test(programme.name);
+  if (!allowedWithoutNumericScore && (programme.apsScore < 18 || programme.apsScore > 48)) return false;
   if (programme.apsScore > 42 && programme.universityName !== 'University of the Witwatersrand') return false;
   if (programme.name.length < 12 || programme.name.length > 135) return false;
   if (/\b(?:points?|years?|academic|SG|HG|curriculum \)|programme$|degree \(|degree$|honours)\b/i.test(programme.name)) return false;
@@ -664,6 +858,10 @@ function isUsableProgramme(programme) {
 // programme has no numeric school-leaving AS requirement.
 function nelsonMandelaApplicantScore(programme) {
   if (programme.universityName !== 'Nelson Mandela University') return programme.apsScore;
+
+  if (/^Diploma in (?:Economics|Marketing)$/i.test(programme.name)) {
+    return 330;
+  }
 
   if (/^PGCE:|Higher Certificate in Human Settlement Development/i.test(programme.name)) {
     return 0;
@@ -701,6 +899,7 @@ function universityOfCapeTownSubMinimumAps(programme) {
 }
 
 const additions = [];
+const extractedFromMarkdown = [];
 const markdownFiles = fs.readdirSync(markdownDirectory)
   .filter((name) => name.endsWith('_prospectus.md'))
   .sort();
@@ -711,11 +910,38 @@ for (const filename of markdownFiles) {
   if (!university) {
     throw new Error(`No university-list entry found for ${filename}`);
   }
+  const extracted = extractFromMarkdown(path.join(markdownDirectory, filename), university).filter(isUsableProgramme);
+  extractedFromMarkdown.push(...extracted);
+  process.stderr.write(`${filename}: ${extracted.length} extracted\n`);
   if (existingUniversityIds.has(university.id)) continue;
-  additions.push(...extractFromMarkdown(path.join(markdownDirectory, filename), university).filter(isUsableProgramme));
+  additions.push(...extracted);
 }
 
-const merged = [...existing, ...additions]
+const markdownByProgramme = new Map(
+  extractedFromMarkdown.map((programme) => [
+    `${programme.universityId}|${programmeKey(programme.name)}`,
+    programme,
+  ])
+);
+let refreshedFromMarkdown = 0;
+const refreshedExisting = existing.map((programme) => {
+  const source = markdownByProgramme.get(`${programme.universityId}|${programmeKey(programme.name)}`);
+  if (!source) return programme;
+  refreshedFromMarkdown += 1;
+  return {
+    ...programme,
+    faculty: source.faculty !== 'Not specified' ? source.faculty : programme.faculty,
+    qualificationType: source.qualificationType,
+    duration: source.duration !== 'See prospectus' ? source.duration : programme.duration,
+    apsScore: source.apsScore,
+    subjectRequirements: source.subjectRequirements.length
+      ? source.subjectRequirements
+      : programme.subjectRequirements,
+  };
+});
+process.stderr.write(`${refreshedFromMarkdown} existing programmes refreshed from markdown\n`);
+
+const merged = [...refreshedExisting, ...additions]
   .map((programme) => ({
     ...programme,
     apsScore: nelsonMandelaApplicantScore(programme),
@@ -723,6 +949,10 @@ const merged = [...existing, ...additions]
   .map((programme) => ({
     ...programme,
     apsScore: universityOfCapeTownSubMinimumAps(programme),
+  }))
+  .map((programme) => ({
+    ...programme,
+    apsScore: Number.isFinite(programme.apsScore) ? programme.apsScore : 0,
   }))
   .map((programme) => {
     if (programme.duration !== 'See prospectus') return programme;

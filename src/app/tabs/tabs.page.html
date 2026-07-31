@@ -94,13 +94,13 @@
   </ion-tab-bar>
 </ion-tabs>
 
-<ion-modal [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
+<ion-modal cssClass="auth-login-modal" [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
   <ng-template>
     <app-login-modal (dismissed)="handleLoginDismiss($event)"></app-login-modal>
   </ng-template>
 </ion-modal>
 
-<ion-modal [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
+<ion-modal cssClass="auth-register-modal" [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
   <ng-template>
     <app-register-modal (dismissed)="handleRegisterDismiss($event)"></app-register-modal>
   </ng-template>

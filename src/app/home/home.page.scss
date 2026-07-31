@@ -212,8 +212,7 @@ ion-content {
     grid-template-columns: 1fr;
     grid-template-areas:
       'text'
-      'stats'
-      'lottie';
+      'stats';
     row-gap: 20px;
   }
 }
@@ -239,7 +238,7 @@ ion-content {
   }
 
   @media (max-width: 768px) {
-    height: 300px;
+    display: none;
   }
 
   @media (max-width: 480px) {

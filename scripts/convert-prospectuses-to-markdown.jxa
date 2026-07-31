@@ -1,0 +1,95 @@
+ObjC.import('Foundation');
+ObjC.import('AppKit');
+ObjC.import('PDFKit');
+
+function unwrap(value) {
+  if (!value) return '';
+  const result = ObjC.unwrap(value);
+  return result === undefined || result === null ? '' : String(result);
+}
+
+function renderPageForOcr(page, imagePath) {
+  const image = page.thumbnailOfSizeForBox($.NSMakeSize(2400, 3400), $.kPDFDisplayBoxMediaBox);
+  const data = image.TIFFRepresentation;
+  if (!data.writeToFileAtomically(imagePath, true)) {
+    throw new Error(`Could not render OCR image at ${imagePath}`);
+  }
+}
+
+function markdownPage(text) {
+  const lines = text
+    .replace(/\r\n?/g, '\n')
+    .replace(/\u0000/g, '')
+    .split('\n')
+    .map((line) => line.replace(/[ \t]+$/g, '').trimStart())
+    .filter((line, index, all) => line || (index > 0 && all[index - 1]));
+
+  return lines.map((line) => {
+    if (!line) return '';
+    const bullet = line.match(/^[•●▪◦]\s*(.+)$/);
+    if (bullet) return `- ${bullet[1]}`;
+    if (/^[A-Z][A-Z0-9 &(),/'’:\-–]{3,100}$/.test(line) && /[A-Z]{3}/.test(line)) {
+      return `### ${line}`;
+    }
+    return line;
+  }).join('\n').trim();
+}
+
+function run(argv) {
+  const inputDirectory = argv[0];
+  const outputDirectory = argv[1];
+  if (!inputDirectory || !outputDirectory) {
+    throw new Error('Usage: osascript -l JavaScript convert-prospectuses-to-markdown.jxa <pdf-directory> <output-directory>');
+  }
+
+  const manager = $.NSFileManager.defaultManager;
+  manager.createDirectoryAtPathWithIntermediateDirectoriesAttributesError(
+    outputDirectory,
+    true,
+    $.NSDictionary.dictionary,
+    null
+  );
+  const filenames = ObjC.deepUnwrap(manager.contentsOfDirectoryAtPathError(inputDirectory, null))
+    .map(String)
+    .filter((name) => /_prospectus\.*pdf$/i.test(name))
+    .sort();
+
+  let converted = 0;
+  for (const filename of filenames) {
+    const sourcePath = `${inputDirectory}/${filename}`;
+    const document = $.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath(sourcePath));
+    if (!document || document.pageCount < 1) throw new Error(`Could not open ${sourcePath}`);
+
+    const outputName = filename.replace(/_prospectus\.*pdf$/i, '_prospectus.md');
+    const sections = [
+      `# ${outputName.replace('_prospectus.md', '').toUpperCase()} Prospectus`,
+      '',
+      `<!-- Generated from ${filename}; ${document.pageCount} PDF pages. -->`,
+    ];
+    let characterCount = 0;
+    let ocrPages = 0;
+
+    for (let index = 0; index < document.pageCount; index += 1) {
+      const page = document.pageAtIndex(index);
+      let text = unwrap(page.string).trim();
+      if (text.length < 40) {
+        const imageName = `.ocr-${outputName}-${index + 1}.tiff`;
+        renderPageForOcr(page, `${outputDirectory}/${imageName}`);
+        text = `<!-- OCR_PENDING:${imageName} -->`;
+        ocrPages += 1;
+      }
+      if (!text.startsWith('<!-- OCR_PENDING:')) characterCount += text.length;
+      sections.push('', `## Page ${index + 1}`, '', markdownPage(text));
+    }
+
+    if (characterCount < 100 && ocrPages === 0) throw new Error(`${filename} produced only ${characterCount} characters`);
+    const output = `${sections.join('\n').replace(/\n{4,}/g, '\n\n\n')}\n`;
+    const destination = `${outputDirectory}/${outputName}`;
+    const written = $(output).writeToFileAtomicallyEncodingError(destination, true, $.NSUTF8StringEncoding, null);
+    if (!written) throw new Error(`Could not write ${destination}`);
+    console.log(`${filename}\t${document.pageCount} pages\t${characterCount} chars\t${ocrPages} OCR pages`);
+    converted += 1;
+  }
+
+  console.log(`Converted ${converted} prospectuses`);
+}

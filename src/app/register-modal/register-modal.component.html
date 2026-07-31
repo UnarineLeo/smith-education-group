@@ -1,137 +1,160 @@
-<div class="auth-shell">
-  <div class="shell-head">
-    <p class="auth-kicker">Get Started</p>
-    <ion-button fill="clear" size="small" class="close-btn" (click)="close()">Close</ion-button>
-  </div>
-  <h2 class="auth-title">Join Unipply</h2>
-  <p class="auth-subtitle">Build your student profile and personalize your university journey.</p>
+<div class="auth-layout">
+  <aside class="auth-brand-panel" aria-label="Unipply account benefits">
+    <a class="brand-wordmark" href="/" aria-label="Unipply home">
+      <span class="brand-mark" aria-hidden="true">U</span>
+      <span>Unipply</span>
+    </a>
 
-  <div class="grid-two">
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="person-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Name</ion-label>
-      <ion-input type="text" [(ngModel)]="firstName" placeholder="First name"></ion-input>
-    </ion-item>
+    <div class="brand-copy">
+      <span class="eyebrow">Start simply</span>
+      <h1>Create your account. Plan at your pace.</h1>
+      <p>
+        Set up your account now, then add your academic details when you are
+        ready to explore programmes.
+      </p>
+    </div>
 
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="person-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Surname</ion-label>
-      <ion-input type="text" [(ngModel)]="surname" placeholder="Last name"></ion-input>
-    </ion-item>
-  </div>
-
-  <ion-item lines="none" class="field-item">
-    <ion-icon slot="start" name="mail-outline" aria-hidden="true" class="field-icon"></ion-icon>
-    <ion-label position="stacked">Email Address</ion-label>
-    <ion-input type="email" [(ngModel)]="email" placeholder="username@domain.com"></ion-input>
-  </ion-item>
-
-  <div class="grid-two">
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Password</ion-label>
-      <div class="password-row">
-        <ion-input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" placeholder="Create password"></ion-input>
-        <ion-button
-          fill="clear"
-          size="small"
-          class="password-toggle-btn"
-          type="button"
-          [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
-          (click)="togglePasswordVisibility()">
-          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" aria-hidden="true"></ion-icon>
-        </ion-button>
+    <div class="brand-benefits">
+      <div class="benefit-item">
+        <span class="benefit-icon" aria-hidden="true">01</span>
+        <span>Save your academic details once</span>
       </div>
-    </ion-item>
-
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="shield-checkmark-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Confirm Password</ion-label>
-      <div class="password-row">
-        <ion-input [type]="showConfirmPassword ? 'text' : 'password'" [(ngModel)]="confirmPassword" placeholder="Confirm password"></ion-input>
-        <ion-button
-          fill="clear"
-          size="small"
-          class="password-toggle-btn"
-          type="button"
-          [attr.aria-label]="showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'"
-          (click)="toggleConfirmPasswordVisibility()">
-          <ion-icon [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'" aria-hidden="true"></ion-icon>
-        </ion-button>
+      <div class="benefit-item">
+        <span class="benefit-icon" aria-hidden="true">02</span>
+        <span>Compare university-specific APS</span>
       </div>
-    </ion-item>
-  </div>
+      <div class="benefit-item">
+        <span class="benefit-icon" aria-hidden="true">03</span>
+        <span>Discover programmes that fit you</span>
+      </div>
+    </div>
 
-  <p class="password-rule">
-    Use at least 6 characters, including 1 uppercase letter, 1 lowercase letter, and 1 special character.
-  </p>
+    <p class="brand-note">It only takes a few minutes to get started.</p>
+  </aside>
 
-  <ion-item lines="none" class="field-item">
-    <ion-icon slot="start" name="school-outline" aria-hidden="true" class="field-icon"></ion-icon>
-    <ion-label position="stacked">Current Study Level</ion-label>
-    <ion-select [(ngModel)]="currentStudyLevel" interface="popover" placeholder="Select your current level">
-      @for (level of studyLevels; track level.value) {
-        <ion-select-option [value]="level.value">
-          {{ level.label }}
-        </ion-select-option>
-      }
-    </ion-select>
-  </ion-item>
+  <main class="auth-form-panel">
+    <div class="form-topbar">
+      <span class="portal-label">Account registration</span>
+      <button class="modal-close" type="button" aria-label="Close registration" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-  <ion-item lines="none" class="field-item">
-    <ion-icon slot="start" name="sparkles-outline" aria-hidden="true" class="field-icon"></ion-icon>
-    <ion-label position="stacked">Interest</ion-label>
-    <ion-select
-      [(ngModel)]="interest"
-      interface="popover"
-      placeholder="Select your primary interest">
-      @for (interest of interestOptions; track interest.value) {
-        <ion-select-option [value]="interest.value">
-          {{ interest.label }}
-        </ion-select-option>
-      }
-    </ion-select>
-  </ion-item>
+    <div class="form-content">
+      <div class="form-heading">
+        <span class="mobile-kicker">Join Unipply</span>
+        <h2>Create your account</h2>
+        <p>Enter your account details to get started.</p>
+      </div>
 
-  <div class="grid-two">
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Course Choice 1</ion-label>
-      <ion-input type="text" [(ngModel)]="courseChoices[0]" placeholder="e.g. BSc Computer Science"></ion-input>
-    </ion-item>
+      <section class="form-section" aria-labelledby="account-details-heading">
+        <div class="section-heading">
+          <span class="section-number" aria-hidden="true">1</span>
+          <div>
+            <h3 id="account-details-heading">Account details</h3>
+            <p>Your sign-in and contact information</p>
+          </div>
+        </div>
 
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Course Choice 2</ion-label>
-      <ion-input type="text" [(ngModel)]="courseChoices[1]" placeholder="e.g. BCom Accounting"></ion-input>
-    </ion-item>
+        <div class="field-grid">
+          <ion-item class="field-item" lines="none">
+            <ion-icon name="person-outline" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label position="stacked">First name</ion-label>
+            <ion-input autocomplete="given-name" placeholder="First name" [(ngModel)]="firstName"></ion-input>
+          </ion-item>
 
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Course Choice 3</ion-label>
-      <ion-input type="text" [(ngModel)]="courseChoices[2]" placeholder="e.g. BA Psychology"></ion-input>
-    </ion-item>
+          <ion-item class="field-item" lines="none">
+            <ion-icon name="person-outline" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label position="stacked">Surname</ion-label>
+            <ion-input autocomplete="family-name" placeholder="Surname" [(ngModel)]="surname"></ion-input>
+          </ion-item>
+        </div>
 
-    <ion-item lines="none" class="field-item">
-      <ion-icon slot="start" name="book-outline" aria-hidden="true" class="field-icon"></ion-icon>
-      <ion-label position="stacked">Course Choice 4</ion-label>
-      <ion-input type="text" [(ngModel)]="courseChoices[3]" placeholder="e.g. LLB Law"></ion-input>
-    </ion-item>
-  </div>
+        <ion-item class="field-item full-width-field" lines="none">
+          <ion-icon name="mail-outline" slot="start" aria-hidden="true"></ion-icon>
+          <ion-label position="stacked">Email address</ion-label>
+          <ion-input
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            [(ngModel)]="email"
+          ></ion-input>
+        </ion-item>
 
-  <ion-button expand="block" class="primary-btn" [disabled]="!canSubmitRegistration()" (click)="register()">
-    Create Account
-  </ion-button>
+        <div class="field-grid">
+          <ion-item class="field-item" lines="none">
+            <ion-icon name="lock-closed-outline" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input
+              [type]="showPassword ? 'text' : 'password'"
+              autocomplete="new-password"
+              placeholder="Create a password"
+              [(ngModel)]="password"
+            ></ion-input>
+            <button
+              class="password-toggle"
+              type="button"
+              slot="end"
+              [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+              (click)="togglePasswordVisibility()"
+            >
+              <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+            </button>
+          </ion-item>
 
-  <div class="auth-divider"><span>or</span></div>
+          <ion-item class="field-item" lines="none">
+            <ion-icon name="shield-checkmark-outline" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label position="stacked">Confirm password</ion-label>
+            <ion-input
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              autocomplete="new-password"
+              placeholder="Repeat your password"
+              [(ngModel)]="confirmPassword"
+            ></ion-input>
+            <button
+              class="password-toggle"
+              type="button"
+              slot="end"
+              [attr.aria-label]="showConfirmPassword ? 'Hide password' : 'Show password'"
+              (click)="toggleConfirmPasswordVisibility()"
+            >
+              <ion-icon [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+            </button>
+          </ion-item>
+        </div>
 
-  <ion-button expand="block" fill="outline" class="google-btn" (click)="continueWithGoogle()">
-    <ion-icon slot="start" name="logo-google" aria-hidden="true" class="google-icon"></ion-icon>
-    Continue with Google
-  </ion-button>
+        <p class="field-hint">
+          <ion-icon name="information-circle-outline" aria-hidden="true"></ion-icon>
+          Use 6+ characters with uppercase, lowercase, and a special character.
+        </p>
+      </section>
 
-  <ion-text class="auth-footer">
-    Already have an account?
-    <button type="button" class="inline-link" (click)="openLogin()">Log in</button>
-  </ion-text>
+      <ion-button
+        class="primary-action"
+        expand="block"
+        [disabled]="!canSubmitRegistration()"
+        (click)="register()"
+      >
+        Create my account
+        <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+      </ion-button>
+
+      <div class="divider" aria-hidden="true">
+        <span></span>
+        <small>or register with</small>
+        <span></span>
+      </div>
+
+      <ion-button class="google-action" expand="block" fill="outline" (click)="continueWithGoogle()">
+        <ion-icon name="logo-google" slot="start"></ion-icon>
+        Google
+      </ion-button>
+
+      <ion-text class="auth-footer">
+        Already have an account?
+        <button type="button" (click)="openLogin()">Sign in</button>
+      </ion-text>
+    </div>
+  </main>
 </div>
