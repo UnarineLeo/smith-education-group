@@ -197,9 +197,21 @@
               }
             </div>
 
+            
+          </div>
+          <div class="programme-actions">
             <ion-button fill="clear" class="view-university-btn" (click)="viewUniversity(programme)">
-              View prospectus
+              Prospectus
               <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+            <ion-button
+              class="apply-programme-btn"
+              [href]="getApplicationLink(programme)"
+              target="_blank"
+              rel="noopener noreferrer"
+              [disabled]="!getApplicationLink(programme)">
+              Apply
+              <ion-icon slot="end" name="open-outline"></ion-icon>
             </ion-button>
           </div>
         </ion-card-content>

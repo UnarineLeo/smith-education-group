@@ -28,7 +28,8 @@ import {
   closeCircleOutline,
   calculatorOutline,
   arrowForwardOutline,
-  arrowUpOutline
+  arrowUpOutline,
+  openOutline
 } from 'ionicons/icons';
 import { getAuth, onAuthStateChanged, Unsubscribe, User } from 'firebase/auth';
 import programmesData from '../shared/programme-list.json';
@@ -120,7 +121,8 @@ export class Programmes implements OnInit, OnDestroy {
       closeCircleOutline,
       calculatorOutline,
       arrowForwardOutline,
-      arrowUpOutline
+      arrowUpOutline,
+      openOutline
     });
   }
 
@@ -358,6 +360,10 @@ export class Programmes implements OnInit, OnDestroy {
         university: programme.universityName,
       },
     });
+  }
+
+  getApplicationLink(programme: Programme): string | null {
+    return this.universitiesById.get(programme.universityId)?.link?.trim() || null;
   }
 
   getApplicationStatusLabel(programme: Programme): string {

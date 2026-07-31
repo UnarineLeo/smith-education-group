@@ -167,7 +167,7 @@
                             </span>
                             <h4>Study</h4>
                           </div>
-                          <p><strong>Current Level:</strong> {{ user.currentStudyLevel || 'N/A' }}</p>
+                          <p><strong>Current Level:</strong> {{ getUserCurrentLevel(user) || 'N/A' }}</p>
                           <p><strong>Study Areas:</strong> {{ formatList(user.studyAreas) }}</p>
                           <p><strong>University Choice 1:</strong> {{ getUserUniversityChoices(user)[0].value || 'N/A' }}</p>
                           <p><strong>University Choice 2:</strong> {{ getUserUniversityChoices(user)[1].value || 'N/A' }}</p>

@@ -656,17 +656,39 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.view-university-btn {
+.programme-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-university-btn,
+.apply-programme-btn {
   flex: 0 0 auto;
   margin: 0;
-  --color: #1e40af;
-  --padding-start: 7px;
-  --padding-end: 5px;
   min-height: 30px;
   height: 30px;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: none;
+}
+
+.view-university-btn {
+  --color: #1e40af;
+  --padding-start: 7px;
+  --padding-end: 5px;
+}
+
+.apply-programme-btn {
+  --background: #1e40af;
+  --background-hover: #1e3a8a;
+  --background-activated: #172f4f;
+  --border-radius: 9px;
+  --box-shadow: 0 6px 14px rgba(30, 64, 175, 0.2);
+  --color: #ffffff;
+  --padding-start: 11px;
+  --padding-end: 10px;
 }
 
 .back-to-top-fab {
@@ -705,8 +727,10 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
     flex-direction: column;
   }
 
-  .view-university-btn {
+  .programme-actions {
+    width: 100%;
     align-self: flex-end;
+    justify-content: flex-end;
   }
 
   .back-to-top-fab {

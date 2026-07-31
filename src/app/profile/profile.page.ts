@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonChip } from '@ionic/angular/standalone';
 import { EmailAuthProvider, deleteUser, getAuth, onAuthStateChanged, reauthenticateWithCredential, reload, sendEmailVerification, updatePassword, User } from 'firebase/auth';
@@ -7,7 +8,7 @@ import { environment } from '../../environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { getApp, getApps } from 'firebase/app';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
-import { UNIVERSITY_OPTIONS } from '../shared/app-data';
+import { INTEREST_OPTIONS, UNIVERSITY_OPTIONS } from '../shared/app-data';
 import { FooterComponent } from '../footer/footer.component';
 
 type ProfileTab = 'personal' | 'nextOfKin' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
@@ -90,7 +91,7 @@ interface ApsCategoryGroup {
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonChip, FooterComponent],
+  imports: [FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonChip, FooterComponent],
 })
 export class ProfilePage implements OnDestroy, AfterViewInit {
   @ViewChild('streetAddressInput') streetAddressInput?: ElementRef<HTMLInputElement>;
@@ -200,16 +201,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private unsubscribeAuth?: () => void;
 
-  interests = [
-    'Engineering',
-    'Medicine & Health Sciences',
-    'Business & Commerce',
-    'Law',
-    'Arts & Humanities',
-    'Natural Sciences',
-    'Education',
-    'Information Technology'
-  ];
+  interests = INTEREST_OPTIONS.map((interest) => interest.label);
 
   selectedInterests: string[] = ['Information Technology', 'Business & Commerce'];
 
@@ -575,6 +567,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       academicInformation,
       currentOrLastSchool: academicInformation.currentOrLastSchool,
       currentLevel: academicInformation.currentLevel,
+      currentStudyLevel: academicInformation.currentLevel,
       schoolProvince: academicInformation.schoolProvince,
       matricYear: academicInformation.matricYear,
       hasWrittenNbt: academicInformation.hasWrittenNbt,
@@ -610,6 +603,26 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         ...this.getAcademicPersistencePayload()
       }, { merge: true });
     }, 'School background saved successfully.');
+  }
+
+  getUniversityOptions(selectedValue: string): string[] {
+    const savedValue = selectedValue?.trim();
+    if (!savedValue || this.apsUniversities.includes(savedValue)) {
+      return this.apsUniversities;
+    }
+
+    // Keep legacy or renamed university values selectable instead of letting
+    // the native select fall back to its empty placeholder.
+    return [savedValue, ...this.apsUniversities];
+  }
+
+  getInterestOptions(selectedValue: string): string[] {
+    const savedValue = selectedValue?.trim();
+    if (!savedValue || this.interests.includes(savedValue)) {
+      return this.interests;
+    }
+
+    return [savedValue, ...this.interests];
   }
 
   async saveInterests() {
@@ -927,7 +940,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     try {
       const recognizedText = this.isPdfFile(file)
         ? await this.extractTextFromPdfForSubjectOcr(file)
-        : await this.recognizeTextWithOcr(file, 'Scanning results...');
+        : await this.recognizeTextWithOcr(
+            await this.prepareImageForSubjectOcr(file),
+            'Scanning results...'
+          );
 
       const recognizedEntries = this.parseSubjectEntriesFromOcrText(recognizedText);
 
@@ -1339,7 +1355,51 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       }
     });
 
-    return result.data.text;
+    const structuredLines = (result.data.blocks ?? [])
+      .flatMap((block) => block.paragraphs ?? [])
+      .flatMap((paragraph) => paragraph.lines ?? [])
+      .map((line) => line.text.trim())
+      .filter(Boolean);
+
+    return structuredLines.length ? structuredLines.join('\n') : result.data.text;
+  }
+
+  private async prepareImageForSubjectOcr(file: File): Promise<Blob | File> {
+    if (typeof createImageBitmap !== 'function') {
+      return file;
+    }
+
+    let bitmap: ImageBitmap | null = null;
+    try {
+      bitmap = await createImageBitmap(file);
+      const widthScale = Math.max(1, 1800 / Math.max(bitmap.width, 1));
+      const scale = Math.min(widthScale, 2.5, 3000 / bitmap.width, 4000 / bitmap.height);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+      canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+
+      const context = canvas.getContext('2d');
+      if (!context) {
+        return file;
+      }
+
+      context.imageSmoothingEnabled = true;
+      context.imageSmoothingQuality = 'high';
+      context.filter = 'grayscale(1) contrast(1.35)';
+      context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+
+      const enhancedImage = await new Promise<Blob | null>((resolve) => {
+        canvas.toBlob(resolve, 'image/png');
+      });
+      canvas.width = 0;
+      canvas.height = 0;
+      return enhancedImage ?? file;
+    } catch (error) {
+      console.warn('Could not enhance the image before OCR; using the original file.', error);
+      return file;
+    } finally {
+      bitmap?.close();
+    }
   }
 
   private async extractTextFromPdfForSubjectOcr(file: File): Promise<string> {
@@ -1377,9 +1437,27 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
   private async extractEmbeddedTextFromPdfPage(page: any): Promise<string> {
     const textContent = await page.getTextContent();
-    return textContent.items
-      .map((item: any) => typeof item?.str === 'string' ? item.str : '')
-      .join(' ');
+    const rows = new Map<number, Array<{ x: number; text: string }>>();
+
+    for (const item of textContent.items as any[]) {
+      const text = typeof item?.str === 'string' ? item.str.trim() : '';
+      const transform = Array.isArray(item?.transform) ? item.transform : [];
+      if (!text || transform.length < 6) {
+        continue;
+      }
+
+      // PDF text is supplied as positioned fragments. Grouping fragments by
+      // their baseline preserves report rows, which keeps each mark beside its subject.
+      const rowKey = Math.round(Number(transform[5]) / 3) * 3;
+      const row = rows.get(rowKey) ?? [];
+      row.push({ x: Number(transform[4]) || 0, text });
+      rows.set(rowKey, row);
+    }
+
+    return Array.from(rows.entries())
+      .sort(([leftY], [rightY]) => rightY - leftY)
+      .map(([, row]) => row.sort((left, right) => left.x - right.x).map((item) => item.text).join(' '))
+      .join('\n');
   }
 
   private async renderPdfPageToBlob(page: any): Promise<Blob | null> {
@@ -1461,7 +1539,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     let bestMatch = '';
 
     for (const alias of aliases) {
-      if (!normalizedLine.includes(alias.alias)) {
+      if (!this.containsOcrPhrase(normalizedLine, alias.alias)) {
         continue;
       }
 
@@ -1474,10 +1552,22 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   private extractMarkFromOcrLine(line: string): number | null {
-    const matches = Array.from(line.matchAll(/(?:^|\s)(\d{1,3})(?:\s*%|$)/g));
-    for (let index = matches.length - 1; index >= 0; index -= 1) {
-      const parsedMark = Number(matches[index][1]);
+    const parseNumericToken = (value: string) => Number(value.replace(/[oO]/g, '0'));
+    const percentageMatches = Array.from(line.matchAll(/(?:^|\s)([0-9oO]{1,3})\s*%/g));
+
+    for (const match of percentageMatches) {
+      const parsedMark = parseNumericToken(match[1]);
       if (Number.isFinite(parsedMark) && parsedMark >= 0 && parsedMark <= 100) {
+        return parsedMark;
+      }
+    }
+
+    // Achievement levels (1–7) often sit beside percentages on reports. Prefer
+    // percentage-like values so a level is not incorrectly stored as the mark.
+    const numericMatches = Array.from(line.matchAll(/(?:^|\s)(\d{1,3})(?=\s|$)/g));
+    for (const match of numericMatches) {
+      const parsedMark = Number(match[1]);
+      if (Number.isFinite(parsedMark) && parsedMark >= 20 && parsedMark <= 100) {
         return parsedMark;
       }
     }
@@ -1486,7 +1576,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
   }
 
   private extractNearbyMarkFromOcrLines(lines: string[], subjectIndex: number): number | null {
-    const candidateIndexes = [subjectIndex + 1, subjectIndex - 1, subjectIndex + 2];
+    const candidateIndexes = [subjectIndex + 1, subjectIndex + 2];
 
     for (const candidateIndex of candidateIndexes) {
       if (candidateIndex < 0 || candidateIndex >= lines.length) {
@@ -1513,6 +1603,10 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       .replace(/[%_|:;,.()\-]+/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+  }
+
+  private containsOcrPhrase(normalizedLine: string, normalizedPhrase: string): boolean {
+    return ` ${normalizedLine} `.includes(` ${normalizedPhrase} `);
   }
 
   private getSubjectOcrAliases(): Array<{ alias: string; subject: string }> {
@@ -1617,6 +1711,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
         academicInformation?: Partial<AcademicInformation>;
         currentOrLastSchool?: string;
         currentLevel?: string;
+        currentStudyLevel?: string;
         schoolProvince?: string;
         matricYear?: string;
         hasWrittenNbt?: string;
@@ -1658,16 +1753,16 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
           // Top-level fields were the write target in previous releases, so
           // prefer them during migration and use the nested object as fallback.
           currentOrLastSchool: userData.currentOrLastSchool || savedAcademic.currentOrLastSchool || '',
-          currentLevel: userData.currentLevel || savedAcademic.currentLevel || '',
+          currentLevel: userData.currentLevel || savedAcademic.currentLevel || userData.currentStudyLevel || '',
           schoolProvince: userData.schoolProvince || savedAcademic.schoolProvince || '',
           matricYear: userData.matricYear || savedAcademic.matricYear || '',
           hasWrittenNbt: userData.hasWrittenNbt || savedAcademic.hasWrittenNbt || '',
-          interest: userData.studyAreas?.[0] || savedAcademic.interest || '',
+          interest: this.resolveSavedInterest(userData.studyAreas?.[0], savedAcademic.interest),
           apsUniversityName: userData.apsUniversityName || savedAcademic.apsUniversityName || '',
-          universityChoice1: userData.universityChoice1 || savedAcademic.universityChoice1 || '',
-          universityChoice2: userData.universityChoice2 || savedAcademic.universityChoice2 || '',
-          universityChoice3: userData.universityChoice3 || savedAcademic.universityChoice3 || '',
-          universityChoice4: userData.universityChoice4 || savedAcademic.universityChoice4 || '',
+          universityChoice1: this.resolveSavedUniversityChoice(userData.universityChoice1, savedAcademic.universityChoice1),
+          universityChoice2: this.resolveSavedUniversityChoice(userData.universityChoice2, savedAcademic.universityChoice2),
+          universityChoice3: this.resolveSavedUniversityChoice(userData.universityChoice3, savedAcademic.universityChoice3),
+          universityChoice4: this.resolveSavedUniversityChoice(userData.universityChoice4, savedAcademic.universityChoice4),
           courseChoice1: userData.courseChoices?.[0] || savedAcademic.courseChoice1 || '',
           courseChoice2: userData.courseChoices?.[1] || savedAcademic.courseChoice2 || '',
           courseChoice3: userData.courseChoices?.[2] || savedAcademic.courseChoice3 || '',
@@ -1676,16 +1771,16 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
       } else {
         this.academicInformation = {
           currentOrLastSchool: userData.currentOrLastSchool ?? '',
-          currentLevel: userData.currentLevel ?? '',
+          currentLevel: userData.currentLevel || userData.currentStudyLevel || '',
           schoolProvince: userData.schoolProvince ?? '',
           matricYear: userData.matricYear ?? '',
           hasWrittenNbt: userData.hasWrittenNbt ?? '',
-          interest: Array.isArray(userData.studyAreas) ? (userData.studyAreas[0] ?? '') : '',
+          interest: this.resolveSavedInterest(Array.isArray(userData.studyAreas) ? userData.studyAreas[0] : ''),
           apsUniversityName: userData.apsUniversityName ?? '',
-          universityChoice1: userData.universityChoice1 ?? '',
-          universityChoice2: userData.universityChoice2 ?? '',
-          universityChoice3: userData.universityChoice3 ?? '',
-          universityChoice4: userData.universityChoice4 ?? '',
+          universityChoice1: this.resolveSavedUniversityChoice(userData.universityChoice1),
+          universityChoice2: this.resolveSavedUniversityChoice(userData.universityChoice2),
+          universityChoice3: this.resolveSavedUniversityChoice(userData.universityChoice3),
+          universityChoice4: this.resolveSavedUniversityChoice(userData.universityChoice4),
           courseChoice1: Array.isArray(userData.courseChoices) ? (userData.courseChoices[0] ?? '') : '',
           courseChoice2: Array.isArray(userData.courseChoices) ? (userData.courseChoices[1] ?? '') : '',
           courseChoice3: Array.isArray(userData.courseChoices) ? (userData.courseChoices[2] ?? '') : '',
@@ -2255,6 +2350,33 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
 
     const aliasMatch = this.getSubjectOcrAliases().find((alias) => alias.alias === normalizedSubject);
     return aliasMatch?.subject ?? '';
+  }
+
+  private resolveSavedUniversityChoice(...values: unknown[]): string {
+    const savedValue = values.find((value) => typeof value === 'string' && value.trim() !== '');
+    if (typeof savedValue !== 'string') {
+      return '';
+    }
+
+    const trimmedValue = savedValue.trim();
+    return this.apsUniversities.find(
+      (university) => university.toLowerCase() === trimmedValue.toLowerCase()
+    ) ?? trimmedValue;
+  }
+
+  private resolveSavedInterest(...values: unknown[]): string {
+    const savedValue = values.find((value) => typeof value === 'string' && value.trim() !== '');
+    if (typeof savedValue !== 'string') {
+      return '';
+    }
+
+    const normalizedValue = savedValue.trim().toLowerCase();
+    const configuredInterest = INTEREST_OPTIONS.find((interest) => (
+      interest.value.toLowerCase() === normalizedValue
+      || interest.label.toLowerCase() === normalizedValue
+    ));
+
+    return configuredInterest?.label ?? savedValue.trim();
   }
 
   private parseHighSchoolSubjectEntry(entry: unknown): SubjectMarkEntry | null {

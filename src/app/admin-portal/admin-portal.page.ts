@@ -43,6 +43,7 @@ interface AdminUserDocument {
   role?: string;
   emailVerified?: boolean;
   currentStudyLevel?: string;
+  currentLevel?: string;
   studyAreas?: string[];
   courseChoices?: string[];
   universityChoice1?: string;
@@ -50,6 +51,7 @@ interface AdminUserDocument {
   universityChoice3?: string;
   universityChoice4?: string;
   academicInformation?: Partial<{
+    currentLevel: string;
     universityChoice1: string;
     universityChoice2: string;
     universityChoice3: string;
@@ -190,7 +192,7 @@ export class AdminPortalPage implements OnInit {
         cityTown: user.cityTown ?? '',
         provinceAddress: user.provinceAddress ?? '',
         postalCode: user.postalCode ?? '',
-        currentStudyLevel: user.currentStudyLevel ?? '',
+        currentStudyLevel: this.getUserCurrentLevel(user),
         studyAreas: this.formatList(user.studyAreas),
         courseChoice1: user.courseChoices?.[0] ?? '',
         courseChoice2: user.courseChoices?.[1] ?? '',
@@ -333,10 +335,17 @@ export class AdminPortalPage implements OnInit {
         this.loadEngagementSnapshot(),
       ]);
       this.users = usersSnapshot.docs
-        .map((userDoc) => ({
-          id: userDoc.id,
-          ...(userDoc.data() as Record<string, unknown>)
-        } as AdminUserDocument))
+        .map((userDoc) => {
+          const user = {
+            id: userDoc.id,
+            ...(userDoc.data() as Record<string, unknown>)
+          } as AdminUserDocument;
+
+          return {
+            ...user,
+            currentStudyLevel: this.getUserCurrentLevel(user),
+          };
+        })
         .sort((a, b) => (a.email || a.id).localeCompare(b.email || b.id));
 
       if (this.expandedUserId && !this.users.some((user) => user.id === this.expandedUserId)) {
@@ -432,6 +441,24 @@ export class AdminPortalPage implements OnInit {
       { label: 'University Choice 3', value: user.universityChoice3 ?? academicInformation.universityChoice3 ?? '' },
       { label: 'University Choice 4', value: user.universityChoice4 ?? academicInformation.universityChoice4 ?? '' },
     ];
+  }
+
+  getUserCurrentLevel(user: AdminUserDocument): string {
+    const value = user.currentLevel
+      || user.academicInformation?.currentLevel
+      || user.currentStudyLevel
+      || '';
+
+    const labels: Record<string, string> = {
+      'high-school': 'High School Learner',
+      'gap-year': 'Gap Year',
+      undergraduate: 'Undergraduate Student',
+      postgraduate: 'Postgraduate Student',
+      'working-professional': 'Working Professional',
+      other: 'Other',
+    };
+
+    return labels[value] ?? value;
   }
 
   formatApsScoreValue(entry: AdminApsScoreEntry): string {
