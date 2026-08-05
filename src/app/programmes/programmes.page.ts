@@ -43,6 +43,7 @@ import { RegisterModalComponent } from '../register-modal/register-modal.compone
 
 type EligibilityStatus = 'qualified' | 'not-qualified' | 'incomplete';
 type EligibilityFilter = 'all' | 'qualified';
+const DEFAULT_UNIVERSITY = 'Nelson Mandela University';
 
 @Component({
   selector: 'app-programmes',
@@ -136,9 +137,9 @@ export class Programmes implements OnInit, OnDestroy {
       // Keep the requested university as an active filter even when the
       // programme dataset has no entries for it, rather than showing unrelated
       // programmes from every institution.
-      this.selectedUniversities = requestedUniversity
-        ? [matchedUniversity ?? requestedUniversity]
-        : [];
+      this.selectedUniversities = [
+        requestedUniversity ? (matchedUniversity ?? requestedUniversity) : DEFAULT_UNIVERSITY
+      ];
       this.applyFilters();
     });
 
