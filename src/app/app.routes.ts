@@ -15,27 +15,22 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'contact',
-    loadComponent: () => import('./contact-us/contact-us.page').then((m) => m.ContactUsPage)
+    path: 'contact', redirectTo: '/tabs/contact-us', pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then( m => m.HomePage)
+    path: 'home', redirectTo: '/tabs/home', pathMatch: 'full'
   },
   {
     path: 'payments',
     loadComponent: () => import('./payments/payments.page').then((m) => m.PaymentsPage)
   },
   {
-    path: 'terms',
-    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+    path: 'terms', redirectTo: '/tabs/terms', pathMatch: 'full'
   },
   {
-    path: 'privacy',
-    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+    path: 'privacy', redirectTo: '/tabs/privacy', pathMatch: 'full'
   },
   {
-    path: 'popia',
-    loadComponent: () => import('./legal/legal.page').then((m) => m.LegalPage)
+    path: 'popia', redirectTo: '/tabs/popia', pathMatch: 'full'
   },
 ];

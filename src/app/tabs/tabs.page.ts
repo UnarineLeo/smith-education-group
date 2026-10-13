@@ -1,162 +1,70 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonList, IonIcon, IonButtons, IonButton, IonToolbar, IonHeader, IonLabel, IonItem, IonModal } from '@ionic/angular/standalone';
-import { AsyncPipe } from '@angular/common';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { addIcons } from 'ionicons';
-import * as icons from 'ionicons/icons';
-import { LoginModalComponent } from '../login-modal/login-modal.component';
-import { RegisterModalComponent } from '../register-modal/register-modal.component';
-import { AuthService } from '../services/auth.service';
+import { IonTabs } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
 
-@Component({
-  selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss'],
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonButtons, IonList, IonButton, IonToolbar, IonHeader, IonLabel, IonItem, IonModal, AsyncPipe, RouterLink, RouterLinkActive, LoginModalComponent, RegisterModalComponent],
-})
+interface NavigationItem {
+  label: string;
+  path?: string;
+  children?: { label: string; path: string }[];
+}
+
+@Component({ selector: 'app-tabs', templateUrl: 'tabs.page.html', styleUrls: ['tabs.page.scss'], imports: [IonTabs, RouterLink, RouterLinkActive, CommonModule] })
 export class TabsPage {
-  public environmentInjector = inject(EnvironmentInjector);
-  loginModalOpen = false;
-  registerModalOpen = false;
-  isLoggedIn$ = this.authService.isLoggedIn$;
+  menuOpen = false;
+  links: NavigationItem[] = [
+    { label: 'Home', path: 'home' },
+    { label: 'About Us', children: [
+      { label: 'Our Story', path: 'about-us' },
+      { label: 'Success Stories', path: 'success-stories' }
+    ] },
+    { label: 'Learning Support', children: [
+      { label: 'Our Services', path: 'services' },
+      { label: 'Universities & Modules', path: 'universities' },
+      { label: 'Our Tutors', path: 'tutors' },
+      { label: 'Academic Resources', path: 'resources' }
+    ] },
+    { label: 'Contact', path: 'contact-us' }
+  ];
 
-  constructor(private authService: AuthService) {
-    addIcons(icons);
+  constructor(private element: ElementRef<HTMLElement>) {}
+
+  closeMenus() {
+    this.menuOpen = false;
+    this.closeSubmenus();
   }
-
-  openLoginModal() {
-    this.loginModalOpen = true;
-  }
-
-  openRegisterModal() {
-    this.registerModalOpen = true;
-  }
-
-  menuOpen: boolean = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    this.closeSubmenus();
   }
 
-  closeMenu() {
-    this.menuOpen = false;
+  onGroupToggle(event: Event) {
+    const current = event.target as HTMLDetailsElement;
+    if (current.open) this.closeSubmenus(current);
   }
 
-  private hasRequiredPasswordComplexity(password: string): boolean {
-    const hasMinimumLength = password.length >= 6;
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasLowercase = /[a-z]/.test(password);
-    const hasSpecialCharacter = /[^A-Za-z0-9]/.test(password);
-
-    return hasMinimumLength && hasUppercase && hasLowercase && hasSpecialCharacter;
+  private closeSubmenus(except?: HTMLDetailsElement) {
+    this.element.nativeElement.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(group => {
+      if (group !== except) group.open = false;
+    });
   }
 
-  async handleLoginDismiss(event: { action: string; payload?: { email?: string; password?: string } } | null) {
-    if (!event) {
-      this.loginModalOpen = false;
-      return;
-    }
-
-    switch (event.action) {
-      case 'open-register':
-        this.loginModalOpen = false;
-        this.registerModalOpen = true;
-        break;
-      case 'google-login':
-        await this.authService.googleSignIn();
-        this.loginModalOpen = false;
-        break;
-      case 'forgot-password':
-        if (event.payload?.email) {
-          this.authService.forgotPassword(event.payload.email);
-        } else {
-          await this.authService.presentToast('Enter your email first');
-        }
-        break;
-      case 'login':
-        if (!event.payload?.email || !event.payload?.password) {
-          await this.authService.presentToast('Email and password are required');
-          return;
-        }
-
-        try {
-          await this.authService.loginFireAuth({
-            email: event.payload.email,
-            password: event.payload.password
-          });
-          this.loginModalOpen = false;
-        } catch {
-          // AuthService handles error toasts; keep modal open for correction.
-        }
-        break;
-      default:
-        this.loginModalOpen = false;
-        break;
-    }
+  @HostListener('document:click', ['$event'])
+  onOutsideClick(event: MouseEvent) {
+    const header = this.element.nativeElement.querySelector('.site-header');
+    if (!header?.contains(event.target as Node)) this.closeMenus();
   }
 
-  async handleRegisterDismiss(event: {
-    action: string;
-    payload?: {
-      firstName?: string;
-      surname?: string;
-      email?: string;
-      password?: string;
-      confirmPassword?: string;
-      currentStudyLevel?: string;
-      interest?: string;
-      courseChoices?: string[];
-    };
-  } | null) {
-    if (!event) {
-      this.registerModalOpen = false;
-      return;
-    }
-
-    switch (event.action) {
-      case 'open-login':
-        this.registerModalOpen = false;
-        this.loginModalOpen = true;
-        break;
-      case 'google-register':
-        await this.authService.googleSignIn();
-        this.registerModalOpen = false;
-        break;
-      case 'register': {
-        const payload = event.payload;
-        if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
-          await this.authService.presentToast('Please complete all required fields');
-          return;
-        }
-
-        if (!this.hasRequiredPasswordComplexity(payload.password)) {
-          await this.authService.presentToast('Use at least 6 characters, including 1 uppercase letter, 1 lowercase letter, and 1 special character.');
-          return;
-        }
-
-        if (payload.password !== payload.confirmPassword) {
-          await this.authService.presentToast('Passwords do not match');
-          return;
-        }
-
-        try {
-          await this.authService.userRegistration({
-            displayName: `${payload.firstName} ${payload.surname}`.trim(),
-            email: payload.email,
-            password: payload.password,
-            currentStudyLevel: payload.currentStudyLevel,
-            interest: payload.interest ?? '',
-            courseChoices: payload.courseChoices ?? []
-          });
-          this.registerModalOpen = false;
-        } catch (error) {
-          // AuthService handles error toasts; keep modal open for correction.
-        }
-        break;
-      }
-      default:
-        this.registerModalOpen = false;
-        break;
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    const openGroup = this.element.nativeElement.querySelector<HTMLDetailsElement>('details[open]');
+    if (openGroup) {
+      openGroup.querySelector('summary')?.focus();
+      this.closeSubmenus();
+    } else if (this.menuOpen) {
+      this.closeMenus();
+      this.element.nativeElement.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();
     }
   }
 }

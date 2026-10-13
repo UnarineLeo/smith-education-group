@@ -6,15 +6,24 @@ export const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
+      ...['privacy', 'terms', 'popia'].map(path => ({ path, loadComponent: () => import('../legal/legal.page').then(m => m.LegalPage) })),
+      { path: 'about-us', data: { page: 'about' }, loadComponent: () => import('../education/education.page').then(m => m.EducationPage) },
+      { path: 'services', data: { page: 'services' }, loadComponent: () => import('../education/education.page').then(m => m.EducationPage) },
+      { path: 'tutors', data: { page: 'tutors' }, loadComponent: () => import('../education/education.page').then(m => m.EducationPage) },
+      { path: 'success-stories', data: { page: 'stories' }, loadComponent: () => import('../education/education.page').then(m => m.EducationPage) },
+      { path: 'resources', data: { page: 'resources' }, loadComponent: () => import('../education/education.page').then(m => m.EducationPage) },
+
       {
         path: 'home',
+        data: { page: 'home' },
         loadComponent: () =>
-          import('../home/home.page').then((m) => m.HomePage),
+          import('../education/education.page').then((m) => m.EducationPage),
       },
       {
         path: 'universities',
+        data: { page: 'universities' },
         loadComponent: () =>
-          import('../universities/universities.page').then((m) => m.Universities),
+          import('../education/education.page').then((m) => m.EducationPage),
       },
       {
         path: 'prospectus/:id',
@@ -27,8 +36,9 @@ export const routes: Routes = [
       },
       {
         path: 'our-story',
+        data: { page: 'about' },
         loadComponent: () =>
-          import('../our-story/our-story.page').then((m) => m.OurStoryPage),
+          import('../education/education.page').then((m) => m.EducationPage),
       },
       {
         path: 'profile',
@@ -47,8 +57,9 @@ export const routes: Routes = [
       },
       {
         path: 'contact-us',
+        data: { page: 'contact' },
         loadComponent: () =>
-          import('../contact-us/contact-us.page').then((m) => m.ContactUsPage),
+          import('../education/education.page').then((m) => m.EducationPage),
       },
       {
         path: '',

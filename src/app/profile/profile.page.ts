@@ -521,7 +521,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     }
 
     if (birthDate > this.getMinimumBirthDate()) {
-      return 'You must be at least 16 years old to use Unipply.';
+      return 'You must be at least 16 years old to use Smith Education Group.';
     }
 
     const identityNumber = this.profile.saIdNumber.trim();

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonSegment, IonSegmentButton } from '@ionic/angular/standalone';
+import { IonContent, IonSegment, IonSegmentButton } from '@ionic/angular/standalone';
+
+import { FooterComponent } from '../footer/footer.component';
 
 type LegalView = 'terms' | 'privacy' | 'popia';
 
@@ -10,7 +12,7 @@ type LegalView = 'terms' | 'privacy' | 'popia';
   templateUrl: './legal.page.html',
   styleUrls: ['./legal.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonSegment, IonSegmentButton],
+  imports: [IonContent, IonSegment, IonSegmentButton, FooterComponent],
 })
 export class LegalPage {
   activeView: LegalView = 'terms';

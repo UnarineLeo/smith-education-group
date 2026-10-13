@@ -1,54 +1,11 @@
 <ion-footer class="ion-no-border">
   <div class="footer-container">
-    <!-- Top Section -->
+    <div class="footer-intro"><span>YOUR NEXT CHAPTER STARTS HERE.</span><a routerLink="/tabs/contact-us">Let’s grow together <span>→</span></a></div>
     <div class="footer-content">
-      <!-- Brand Section -->
-      <div class="footer-section brand-section">
-        <div class="logo-container">
-          <img src="assets/icon/favicon.ico" alt="Unipply Logo" class="footer-logo">
-          <h2>Unipply</h2>
-        </div>
-        <p class="tagline">
-          Empowering South African students to access higher education through our centralized university application platform.
-        </p>
-        <!-- Social Media Icons -->
-        <div class="social-icons" aria-label="Unipply social media">
-          <a href="https://www.instagram.com/unipplysa?igsh=MXN3MW5odDRtcXJleQ==" target="_blank" rel="noopener noreferrer" aria-label="Follow Unipply on Instagram">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-          <a href="https://vm.tiktok.com/ZS9rcDuJPrUb6-UCTz4/" target="_blank" rel="noopener noreferrer" aria-label="Follow Unipply on TikTok">
-            <ion-icon name="logo-tiktok"></ion-icon>
-          </a>
-          <a href="https://www.linkedin.com/company/unipplysa/" target="_blank" rel="noopener noreferrer" aria-label="Follow Unipply on LinkedIn">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </div>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a routerLink="/tabs/universities">Universities</a></li>
-          <li><a routerLink="/tabs/our-story">Our Story</a></li>
-          <li><a routerLink="/contact">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Support -->
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul class="footer-links">
-          <li><a routerLink="/privacy">Privacy Policy</a></li>
-          <li><a routerLink="/terms">Terms of Service</a></li>
-          <li><a routerLink="/popia">POPIA</a></li>
-        </ul>
-      </div>
+      <div class="footer-section brand-section"><a class="footer-brand" routerLink="/tabs/home"><span class="brand-symbol">✳</span><span><strong>SMITH</strong><small>EDUCATION GROUP</small></span></a><p class="tagline">A little guidance. A fresh perspective.<br>A brighter future, built together.</p><span class="location">Based in South Africa. Focused on you.</span></div>
+      <div class="footer-section"><h3>GET TO KNOW US</h3><ul class="footer-links"><li><a routerLink="/tabs/about-us">Our story</a></li><li><a routerLink="/tabs/tutors">Our tutors</a></li><li><a routerLink="/tabs/success-stories">Student stories</a></li><li><a routerLink="/tabs/contact-us">Get in touch</a></li></ul></div>
+      <div class="footer-section"><h3>FIND YOUR SUPPORT</h3><ul class="footer-links"><li><a routerLink="/tabs/services">Our services</a></li><li><a routerLink="/tabs/universities">Universities & modules</a></li><li><a routerLink="/tabs/resources">Learning resources</a></li></ul></div>
     </div>
-
-    <!-- Bottom Section -->
-    <div class="footer-bottom">
-      <p>© {{ currentYear }} Unipply. All rights reserved. | Made with <ion-icon name="heart" style="color: #ff4444; font-size: 1rem; vertical-align: middle;"></ion-icon> for South African students</p>
-    </div>
+    <div class="footer-bottom"><p>© {{ currentYear }} Smith Education Group</p><div><a routerLink="/privacy">Privacy</a><a routerLink="/terms">Terms</a><a routerLink="/popia">POPIA</a></div><span>Education. Opportunity. Growth.</span></div>
   </div>
 </ion-footer>

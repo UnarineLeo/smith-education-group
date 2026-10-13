@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="hero-section unipply-page-hero">
+  <div class="hero-section smith-education-group-page-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-text">
@@ -130,7 +130,7 @@
   <div class="university-cards">
     @for (uni of featuredUniversities; track uni.id) {
       <ion-card class="university-spotlight-card">
-        <img class="card-image" [src]="uni.image" [alt]="uni.name + ' campus'" />
+        <img class="card-image university-logo" [src]="uni.image" [alt]="uni.name + ' logo'" />
 
         <ion-card-content>
           <div class="card-header-row">

@@ -68,6 +68,8 @@ export class HomePage implements OnInit, OnDestroy {
 
   private fragmentSubscription: Subscription | null = null;
   private authSubscription: Subscription | null = null;
+  // Temporarily disabled while account registration is unavailable in navigation.
+  private readonly registrationPromptEnabled = false;
   private registrationPromptTimeout: ReturnType<typeof setTimeout> | null = null;
   private hasShownRegistrationPrompt = false;
 
@@ -112,6 +114,10 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   private scheduleRegistrationPrompt() {
+    if (!this.registrationPromptEnabled) {
+      return;
+    }
+
     this.registrationPromptTimeout = setTimeout(() => {
       if (this.shouldShowRegistrationPrompt()) {
         this.registrationPromptOpen = true;
@@ -523,7 +529,7 @@ export class HomePage implements OnInit, OnDestroy {
     {
       iconFile: 'books.png',
       title: 'Centralized Applications',
-      description: 'Learn more about Unipply and our mission to connect students with universities.'
+      description: 'Learn more about Smith Education Group and our mission to connect students with universities.'
     },
     {
       iconFile: 'track.png',
@@ -538,7 +544,7 @@ export class HomePage implements OnInit, OnDestroy {
     { 
       iconFile: 'document.png',
       title: 'Document Verification',
-      description: 'Stay updated with the latest news and announcements from Unipply.'
+      description: 'Stay updated with the latest news and announcements from Smith Education Group.'
     },
     {
       iconFile: 'people.png',

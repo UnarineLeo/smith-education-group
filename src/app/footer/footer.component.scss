@@ -1,142 +1,25 @@
-ion-footer {
-  background: #0d3b66;
-  color: #ffffff;
-}
-
-.footer-container {
-  padding: 2rem 1rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-  }
-}
-
-.footer-section {
-  h2 {
-    font-size: 1.5rem;
-    margin: 0;
-    font-weight: 700;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
-
-  .tagline {
-    margin: 1rem 0;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-  }
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-
-  ion-icon {
-    font-size: 2rem;
-  }
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  a {
-    display: inline-grid;
-    place-items: center;
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-
-    &:hover {
-      color: #4a9eff;
-      transform: translateY(-2px);
-    }
-
-    &:focus-visible {
-      outline: 2px solid #4a9eff;
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-  }
-
-  ion-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    margin-bottom: 0.75rem;
-
-    a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #4a9eff;
-      }
-    }
-  }
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 1.5rem;
-  text-align: center;
-
-  p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-  }
-}
-
-// Mobile optimization
-@media (max-width: 767px) {
-  .footer-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .footer-section {
-    text-align: center;
-  }
-
-  .logo-container {
-    justify-content: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-  .footer-bottom p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-}
+ion-footer { background:#edf5ff; color:#031d44; font-family:'Avenir Next','Segoe UI',sans-serif; }
+* { box-sizing:border-box; }
+a { text-decoration:none; color:inherit; }
+a:hover { color:#031d44; }
+a:focus-visible { outline:2px solid #031d44; outline-offset:5px; }
+.footer-container { width:min(1200px,calc(100% - 96px)); margin:auto; }
+.footer-intro { display:flex; align-items:center; justify-content:space-between; padding:40px 0; border-bottom:1px solid #cbdff0; }
+.footer-intro > span { font-size:9px; letter-spacing:1.8px; }
+.footer-intro > a { font:italic 30px Georgia,serif; }
+.footer-intro a span { font-style:normal; margin-left:20px; }
+.footer-content { display:grid; grid-template-columns:2fr 1fr 1fr; gap:65px; padding:50px 0; }
+.footer-brand { display:flex; align-items:center; gap:13px; }
+.brand-symbol { font-size:44px; color:#3da5d9; }
+.footer-brand strong { font-size:25px; letter-spacing:3px; display:block; line-height:1; }
+.footer-brand small { display:block; font-size:7px; letter-spacing:1.7px; margin-top:6px; }
+.tagline { font-size:14px; line-height:1.9; color:#516b7c; margin:24px 0 20px; }
+.location { font-size:10px; color:#516b7c; }
+.footer-section h3 { font-size:9px; letter-spacing:1.6px; margin:8px 0 24px; font-weight:600; }
+.footer-links { list-style:none; padding:0; margin:0; }
+.footer-links li { margin-bottom:17px; }
+.footer-links a { font-size:12px; }
+.footer-bottom { display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; border-top:1px solid #cbdff0; padding:25px 0; font-size:10px; color:#516b7c; }
+.footer-bottom p { margin:0; }
+.footer-bottom div { display:flex; gap:20px; }
+@media(max-width:700px) { .footer-container { width:calc(100% - 36px); } .footer-intro { display:block; padding:30px 0; } .footer-intro > span { display:block; margin-bottom:16px; } .footer-intro > a { font-size:27px; } .footer-content { grid-template-columns:1fr 1fr; gap:30px; padding:35px 0; } .brand-section { grid-column:1/-1; } .footer-bottom { gap:18px; } .footer-bottom > span { width:100%; } }

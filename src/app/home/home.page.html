@@ -6,21 +6,21 @@
 
 <ion-content [fullscreen]="true">
   <!-- Hero Section -->
-  <div class="hero-section unipply-page-hero">
+  <div class="hero-section smith-education-group-page-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
 
       <!-- Two-column layout: text left, Lottie right -->
       <div class="hero-inner">
         <div class="hero-text">
-          <span class="hero-eyebrow">Plan your future with Unipply</span>
+          <span class="hero-eyebrow">Plan your future with Smith Education Group</span>
           <h1 class="hero-title">
             Your Gateway to<br>
             <span class="highlight">South African Universities</span>
           </h1>
           <p class="hero-subtitle">
             Apply to multiple universities across South Africa from one central platform.
-            Simplify your journey to higher education with Unipply.
+            Simplify your journey to higher education with Smith Education Group.
           </p>
 
           <div class="hero-buttons">
@@ -80,7 +80,7 @@
   <div class="university-cards">
     @for (uni of featuredUniversities; track uni.id; let index = $index) {
       <ion-card class="university-spotlight-card">
-        <img class="card-image" [src]="uni.image" [alt]="uni.name + ' campus'" />
+        <img class="card-image university-logo" [src]="uni.image" [alt]="uni.name + ' logo'" />
 
         <ion-card-content>
           <div class="card-header-row">
@@ -156,7 +156,7 @@
 
   <div class="search-section">
     <div class="search-container">
-      <h2 class="section-title">Why Choose Unipply?</h2>
+      <h2 class="section-title">Why Choose Smith Education Group?</h2>
       <p class="section-subtitle">
         We've revolutionized the university application process in South Africa, making it easier
         and more efficient for students to pursue their dreams.
@@ -184,7 +184,7 @@
     <ng-template>
       <div class="registration-promo-shell">
         <div class="registration-promo-head">
-          <p class="registration-promo-kicker">Unlock more with Unipply</p>
+          <p class="registration-promo-kicker">Unlock more with Smith Education Group</p>
           <ion-button fill="clear" size="small" class="promo-close-btn" (click)="dismissRegistrationPrompt()">
             Close
           </ion-button>

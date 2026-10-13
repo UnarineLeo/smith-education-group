@@ -4,7 +4,7 @@ set -eu
 project_directory=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 pdf_directory="$project_directory/src/assets/prospectus"
 markdown_directory="$project_directory/src/assets/markdown"
-staging_directory=$(mktemp -d "${TMPDIR:-/tmp}/unipply-markdown.XXXXXX")
+staging_directory=$(mktemp -d "${TMPDIR:-/tmp}/smith-education-group-markdown.XXXXXX")
 
 cleanup() {
   rm -rf "$staging_directory"
