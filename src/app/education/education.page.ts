@@ -24,9 +24,11 @@ export class EducationPage implements OnInit {
     contact: ['Get in Touch', 'Your next chapter starts with a conversation.']
   };
   services = services; universities = universities; tutors = tutors; stories = stories; articles = articles;
-  university = 'All'; faculty = 'All'; module = ''; subject = 'All'; category = 'All'; storyIndex = 0;
-  universityTabs = ['All', 'UCT', 'Stellenbosch', 'Wits', 'UP', 'Other'];
+  university = 'All'; province = 'All'; module = ''; subject = 'All'; category = 'All'; storyIndex = 0;
+  universityTabs = ['All', ...universities.map(university => university.short)];
   subjects = ['All', 'Accounting', 'Economics', 'Finance', 'Statistics', 'Business Management'];
+  provinces = [...new Set(universities.map(university => university.province))].sort();
+  tutorSubjects = ['All', ...new Set(tutors.map(tutor => tutor.subject))];
   categories = ['All', 'Study Tips', 'Exam Preparation', 'University Life', 'Module Guides'];
   detail: { title: string; label: string; paragraphs: string[]; enquiry?: string } | null = null;
   enquiry = { name: '', email: '', phone: '', type: '', message: '', consent: false };
@@ -41,6 +43,9 @@ export class EducationPage implements OnInit {
     this.meta.updateTag({ property: 'og:description', content: this.titles[this.page][1] });
     this.meta.updateTag({ name: 'twitter:title', content: this.title.getTitle() });
     this.meta.updateTag({ name: 'twitter:description', content: this.titles[this.page][1] });
+    const selectedUniversity = this.route.snapshot.queryParamMap.get('university');
+    this.university = selectedUniversity && this.universityTabs.includes(selectedUniversity) ? selectedUniversity : 'All';
+    if (selectedUniversity) { this.province = 'All'; this.module = ''; }
     const type = this.route.snapshot.queryParamMap.get('type');
     if (type) this.enquiry.type = type;
     const about = this.route.snapshot.queryParamMap.get('about');
@@ -50,19 +55,38 @@ export class EducationPage implements OnInit {
     addIcons({ schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline });
   }
   get filteredUniversities() {
-    return this.universities.filter(u => (this.university === 'All' || u.short === this.university) && u.modules.some(m => (!this.module || m.toLowerCase().includes(this.module.toLowerCase())) && (this.faculty === 'All' || (this.faculty === 'Science' ? /statistics|analytics/i.test(m) : !/statistics|analytics/i.test(m)))));
+    const query = this.module.trim().toLowerCase();
+    return this.universities.filter(u =>
+      (this.university === 'All' || u.short === this.university) &&
+      (this.province === 'All' || u.province === this.province) &&
+      (!query || [u.name, u.short, ...u.modules].some(value => value.toLowerCase().includes(query)))
+    );
   }
+  resetUniversityFilters() { this.university = 'All'; this.province = 'All'; this.module = ''; }
   get filteredTutors() { return this.tutors.filter(t => this.subject === 'All' || t.subject === this.subject); }
   get filteredArticles() { return this.articles.filter(a => this.category === 'All' || a.category === this.category); }
+  scrollUniversities(track: HTMLElement, direction: number) {
+    const end = track.scrollWidth - track.clientWidth;
+    const next = direction > 0 && track.scrollLeft >= end - 2 ? 0
+      : direction < 0 && track.scrollLeft <= 2 ? end
+      : track.scrollLeft + direction * track.clientWidth;
+    track.scrollTo({ left: next, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
   changeStory(step: number) { this.storyIndex = (this.storyIndex + step + this.stories.length) % this.stories.length; }
   openDetail(title: string, label: string, paragraphs: string[], enquiry?: string) {
     this.detail = { title, label, paragraphs, enquiry };
     this.detailDialog?.nativeElement.showModal();
   }
   closeDetail() { this.detailDialog?.nativeElement.close(); }
-  saveEnquiry(form: NgForm) {
+  preparePartnership(form: HTMLFormElement) {
+    this.enquiry.type = 'University Partnership';
+    const field = form.querySelector<HTMLSelectElement>('select[name="type"]');
+    field?.focus();
+    field?.scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+  saveEnquiry(form: NgForm, element: HTMLFormElement) {
     this.formStatus = '';
-    if (form.invalid || !this.enquiry.name.trim() || !this.enquiry.message.trim()) { form.control.markAllAsTouched(); this.formStatus = 'Please complete your name, a valid email, enquiry type, message, and consent.'; return; }
+    if (form.invalid || !this.enquiry.name.trim() || !this.enquiry.message.trim()) { form.control.markAllAsTouched(); this.formStatus = 'Please complete the required fields highlighted below.'; element.querySelector<HTMLElement>('.ng-invalid')?.focus(); return; }
     try {
       localStorage.setItem('smith-enquiry-draft', JSON.stringify(this.enquiry));
       this.formStatus = 'Your enquiry draft is saved on this device. It has not been sent; contact details are still being confirmed.';

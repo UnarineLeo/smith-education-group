@@ -23,3 +23,6 @@ a:focus-visible { outline:2px solid #031d44; outline-offset:5px; }
 .footer-bottom p { margin:0; }
 .footer-bottom div { display:flex; gap:20px; }
 @media(max-width:700px) { .footer-container { width:calc(100% - 36px); } .footer-intro { display:block; padding:30px 0; } .footer-intro > span { display:block; margin-bottom:16px; } .footer-intro > a { font-size:27px; } .footer-content { grid-template-columns:1fr 1fr; gap:30px; padding:35px 0; } .brand-section { grid-column:1/-1; } .footer-bottom { gap:18px; } .footer-bottom > span { width:100%; } }
+
+.footer-links a,.footer-bottom a { display:inline-flex; align-items:center; min-height:44px; }
+.footer-links li { margin-bottom:4px; }

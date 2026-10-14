@@ -1,9 +1,9 @@
-:host { display: flex; flex-direction: column; background: #f8f7ff; }
-.site-header { z-index: 100; background: #f8f7ff; border-bottom: 1px solid #dce8f3; position: relative; flex-shrink: 0; }
+:host { display: flex; flex-direction: column; background: #fffefa; }
+.site-header { z-index: 100; background: #fffefa; border-bottom: 1px solid #dce8f3; position: relative; flex-shrink: 0; }
 .header-inner { max-width: 1240px; margin: auto; min-height: 88px; padding: 0 30px; display: flex; align-items: center; gap: 25px; }
 a { text-decoration: none; }
 .brand { display: flex; align-items: center; gap: 9px; color: #031d44; flex-shrink: 0; }
-.brand svg { width: 40px; height: 38px; }
+.brand-mark { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
 .brand strong { font: 800 27px/1 'Avenir Next','Segoe UI',sans-serif; letter-spacing: 2px; display: block; }
 .brand small { font: 7px 'Avenir Next','Segoe UI',sans-serif; letter-spacing: 1.5px; display: block; margin-top: 5px; }
 .desktop-links { display: flex; gap: 32px; align-items: center; margin-left: auto; }
@@ -16,26 +16,49 @@ a { text-decoration: none; }
 ion-tabs { position: relative; flex: 1; min-height: 0; }
 a:focus-visible,button:focus-visible { outline: 2px solid #3da5d9; outline-offset: 4px; }
 @media(max-width:1100px) { .desktop-links { gap: 13px; } .header-inner { gap: 18px; padding-inline: 22px; } .desktop-links a { font-size: 10px; } .brand strong { font-size: 24px; } }
-@media(max-width:950px) { .header-inner { min-height: 76px; } .desktop-links { display: none; } .enquire { margin-left: auto; } .menu-toggle { display: block; } .mobile-menu.open { display: grid; position: absolute; background: #f8f7ff; top: 100%; left: 0; right: 0; padding: 12px 24px 22px; box-shadow: 0 15px 22px #031d4420; max-height: 75vh; overflow: auto; } .mobile-menu a { color: #031d44; padding: 14px 4px; font-size: 13px; border-bottom: 1px solid #e6eff7; display: flex; justify-content: space-between; } .mobile-menu a.active { color: #031d44; } }
-@media(max-width:400px) { .header-inner { padding-inline: 15px; gap: 12px; } .brand svg { width: 30px; } .brand strong { font-size: 21px; } .brand small { font-size: 6px; letter-spacing: 1px; } .enquire { padding: 11px; gap: 7px; font-size: 10px; } }
+@media(max-width:950px) { .header-inner { min-height: 76px; } .desktop-links { display: none; } .enquire { margin-left: auto; } .menu-toggle { display: block; } .mobile-menu.open { display: grid; position: absolute; background: #fffefa; top: 100%; left: 0; right: 0; padding: 12px 24px 22px; box-shadow: 0 15px 22px #031d4420; max-height: 75vh; overflow: auto; } .mobile-menu a { color: #031d44; padding: 14px 4px; font-size: 13px; border-bottom: 1px solid #e6eff7; display: flex; justify-content: space-between; } .mobile-menu a.active { color: #031d44; } }
+@media(max-width:400px) { .header-inner { padding-inline: 15px; gap: 12px; } .brand-mark { width: 32px; height: 32px; } .brand strong { font-size: 21px; } .brand small { font-size: 6px; letter-spacing: 1px; } .enquire { padding: 11px; gap: 7px; font-size: 10px; } }
 
 .nav-group { position: relative; }
 .nav-group summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; list-style: none; cursor: pointer; color: #516b7c; font: 500 12px 'Avenir Next','Segoe UI',sans-serif; }
 .nav-group summary::-webkit-details-marker { display: none; }
 .nav-group summary:focus-visible { outline: 2px solid #3da5d9; outline-offset: 4px; }
-.chevron { display: inline-block; transition: transform .15s; }
-.nav-group[open] > summary .chevron { transform: rotate(180deg); }
-.desktop-links > .nav-group > summary { padding: 35px 0; position: relative; }
-.desktop-links > .active-group > summary { color: #031d44; }
-.desktop-links > .active-group > summary::after { content: ''; height: 2px; background: #3da5d9; position: absolute; bottom: 22px; left: 0; right: 0; }
-.desktop-links .submenu { position: absolute; top: calc(100% - 12px); left: -16px; min-width: 230px; padding: 8px; border: 1px solid #dce8f3; border-top: 2px solid #3da5d9; border-radius: 12px; background: #f8f7ff; box-shadow: 0 12px 30px #031d4418; }
-.desktop-links .submenu a { display: block; padding: 14px 12px; font-size: 12px; border-radius: 2px; }
-.desktop-links .submenu a:hover,.desktop-links .submenu a.active { background: #e7f5ff; color: #031d44; }
-.desktop-links .submenu a.active::after { display: none; }
+.chevron { width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); margin:0 3px 3px 5px; transition:transform .18s; }
+.nav-group[open] > summary .chevron { transform:rotate(225deg); margin-bottom:-3px; }
+.desktop-links > .nav-group > summary { padding:35px 0; position:relative; }
+.desktop-links > .active-group > summary,.nav-group[open] > summary { color:#031d44; }
+.desktop-links > .active-group > summary::after { content:''; height:2px; background:#3da5d9; position:absolute; bottom:22px; left:0; right:0; }
+.desktop-links .submenu { position:absolute; top:calc(100% - 5px); left:50%; transform:translateX(-50%); width:370px; padding:10px; border:1px solid #e1e9ee; border-radius:18px; background:#fff; box-shadow:0 20px 55px -12px #031d4430,0 3px 8px #031d4406; }
+.desktop-links .submenu::before { content:''; position:absolute; top:-6px; left:calc(50% - 6px); width:10px; height:10px; background:white; border-top:1px solid #e1e9ee; border-left:1px solid #e1e9ee; transform:rotate(45deg); }
+.desktop-links .submenu a,.mobile-menu .submenu a { display:flex; align-items:center; justify-content:flex-start; gap:13px; padding:15px 12px; border:0; border-radius:11px; white-space:normal; color:#031d44; transition:background .16s; }
+.submenu-icon { display:grid; place-items:center; flex:0 0 40px; height:40px; background:#eff5f8; color:#28799f; border:1px solid #e3edf2; border-radius:11px; }
+.submenu-icon svg { width:21px; height:21px; }
+.submenu-copy { min-width:0; }
+.submenu-copy strong { display:block; font-size:13px; font-weight:650; line-height:1.4; }
+.submenu-copy small { display:block; font-size:11px; font-weight:400; color:#627485; line-height:1.5; margin-top:4px; }
+.desktop-links .submenu a:hover,.desktop-links .submenu a.active,.mobile-menu .submenu a:hover,.mobile-menu .submenu a.active { background:#edf6fb; color:#031d44; }
+.submenu a:hover .submenu-icon,.submenu a.active .submenu-icon { background:#d9edf7; border-color:#d9edf7; }
+.desktop-links .submenu a.active::after { display:none; }
 @media(max-width:950px) {
-  .mobile-menu summary { padding: 14px 4px; font-size: 13px; border-bottom: 1px solid #e6eff7; }
-  .mobile-menu .active-group > summary { color: #031d44; }
-  .mobile-menu .submenu { margin: 4px 0 10px 8px; padding-left: 14px; border-left: 2px solid #b9e6ff; }
-  .mobile-menu .submenu a { font-size: 12px; }
+  .mobile-menu.open { padding:12px 18px 20px; border-radius:0 0 20px 20px; }
+  .mobile-menu summary { padding:18px 8px; font-size:14px; border-bottom:1px solid #e6eff7; }
+  .mobile-menu .active-group > summary { color:#031d44; }
+  .mobile-menu .submenu { margin:8px 0 12px; padding:5px; border:1px solid #e3ebf0; border-radius:14px; background:white; }
+  .mobile-menu .submenu a { padding:13px 9px; gap:11px; }
+  .mobile-menu .submenu-copy small { font-size:10px; }
 }
-@media(prefers-reduced-motion:reduce) { .chevron { transition: none; } }
+@media(prefers-reduced-motion:reduce) { .chevron,.submenu a { transition:none; } }
+
+.header-inner { min-height:82px; }
+.enquire { background:#031d44; color:white; border-radius:10px; font-size:12px; }
+.desktop-links a,.nav-group summary { font-size:13px; }
+@media(max-width:950px) { .header-inner { min-height:72px; } }
+
+.menu-toggle { width:44px; height:44px; border-radius:9px; }
+
+.enquire { min-height:48px; box-sizing:border-box; justify-content:center; transition:background-color .15s; }
+.enquire:hover { background:#153e64; }
+.enquire:active { box-shadow:inset 0 2px 5px #0002; }
+.enquire:focus-visible { outline:3px solid #267da8; outline-offset:4px; }
+.menu-toggle:hover { background:#edf6fb; border-color:#267da8; }
+@media(max-width:400px) { .enquire { min-height:44px; } }

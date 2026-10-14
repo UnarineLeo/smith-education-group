@@ -1,3 +1,5 @@
+import universityDirectory from '../university-list/university-list.json';
+
 export const services = [
   { title: 'University Tutoring', icon: 'school-outline', text: 'Expert support for the modules that matter to you.', detail: 'Work through challenging concepts, practise module questions, and build a study plan around your university coursework.' },
   { title: 'Private Tutoring', icon: 'people-outline', text: 'One-on-one sessions tailored to your learning needs.', detail: 'Individual learning support shaped around your goals, pace, and areas of difficulty. Enquire about subject and tutor availability.' },
@@ -6,19 +8,37 @@ export const services = [
   { title: 'Recorded Learning Packages', icon: 'play-circle-outline', text: 'Revisit the lesson. Learn at your own pace.', detail: 'Recorded lessons and supporting materials are planned for selected modules. Enquire to register your interest; packages are not yet available to purchase.' },
   { title: 'Future Programmes', icon: 'bulb-outline', text: 'More opportunities to learn and grow.', detail: 'Professional development and specialised education programmes are being explored. Share the skills you would like to develop.' }
 ];
-export const universities = [
+const featuredUniversities = [
   { name: 'University of Cape Town', short: 'UCT', image: 'uct.svg', modules: ['Financial Accounting', 'Management Accounting', 'Economics', 'Statistics'] },
   { name: 'Stellenbosch University', short: 'Stellenbosch', image: 'su.svg', modules: ['Financial Management', 'Marketing Management', 'Business Statistics', 'Econometrics'] },
   { name: 'University of the Witwatersrand', short: 'Wits', image: 'wits.svg', modules: ['Corporate Finance', 'Business Analytics', 'Economics', 'Accounting'] },
   { name: 'University of Pretoria', short: 'UP', image: 'up.png', modules: ['Financial Accounting', 'Taxation', 'Business Management', 'Statistics'] }
 ];
+const universityNames: Record<string, string> = {
+  cput: 'CPUT', cut: 'CUT', dut: 'DUT', mut: 'MUT', nmu: 'NMU', nwu: 'NWU',
+  rhodes: 'Rhodes', smu: 'SMU', spu: 'SPU', su: 'Stellenbosch', tut: 'TUT',
+  uct: 'UCT', ufh: 'UFH', ufs: 'UFS', uj: 'UJ', ukzn: 'UKZN', ul: 'UL',
+  ump: 'UMP', up: 'UP', unisa: 'UNISA', univen: 'UNIVEN', uwc: 'UWC',
+  wits: 'Wits', unizulu: 'UNIZULU', vut: 'VUT', wsu: 'WSU'
+};
+export const universities = universityDirectory.map(university => {
+  const filename = university.logo.split('/').pop()!;
+  const key = filename.split('.')[0];
+  return {
+    name: university.name,
+    short: universityNames[key],
+    image: 'assets/logos/' + filename,
+    province: university.province,
+    modules: featuredUniversities.find(item => item.name === university.name)?.modules ?? []
+  };
+});
 export const tutors = [
   { name: 'Accounting tutor', initials: 'AC', subject: 'Accounting', subjects: 'Accounting · Financial Management', qualification: 'Qualifications to be confirmed' },
   { name: 'Economics tutor', initials: 'EC', subject: 'Economics', subjects: 'Economics · Econometrics', qualification: 'Qualifications to be confirmed' },
   { name: 'Statistics tutor', initials: 'ST', subject: 'Statistics', subjects: 'Statistics · Data Analysis', qualification: 'Qualifications to be confirmed' },
   { name: 'Business tutor', initials: 'BM', subject: 'Business Management', subjects: 'Business Management · Strategy', qualification: 'Qualifications to be confirmed' },
   { name: 'Finance tutor', initials: 'FI', subject: 'Finance', subjects: 'Finance · Corporate Finance', qualification: 'Qualifications to be confirmed' },
-  { name: 'Mathematics tutor', initials: 'MA', subject: 'Statistics', subjects: 'Mathematics · Statistics', qualification: 'Qualifications to be confirmed' }
+  { name: 'Mathematics tutor', initials: 'MA', subject: 'Mathematics', subjects: 'Mathematics · Statistics', qualification: 'Qualifications to be confirmed' }
 ];
 export const stories = [
   { subject: 'Finding confidence in accounting', course: 'Accounting student', quote: 'A student’s experience of working through difficult concepts and building confidence will appear here.' },

@@ -170,6 +170,5 @@ img.university-logo {
   padding: 20px;
   box-sizing: border-box;
 }
-img.university-logo:is([src$="/cput.svg"], [src$="/su.svg"], [src$="/uct.svg"], [src$="/vut.webp"]) {
-  background: #031d44;
-}
+
+@import "./theme/tutoring";

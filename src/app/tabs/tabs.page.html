@@ -1,17 +1,17 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" routerLink="/tabs/home" (click)="closeMenus()" aria-label="Smith Education Group home">
-      <svg viewBox="0 0 48 42" aria-hidden="true"><path d="M2 12 24 2l22 10-22 10Z" fill="#031d44"/><path d="M10 19v11q14 12 28 0V19l-14 7Z" fill="#031d44"/><path d="M43 15v17" stroke="#3da5d9" stroke-width="3"/><path d="m10 13 14 6 14-6" fill="none" stroke="#3da5d9" stroke-width="2"/></svg>
+      <img class="brand-mark" src="assets/icon/smith-education-group.svg" alt="" width="40" height="40"/>
       <span><strong>SMITH</strong><small>EDUCATION GROUP</small></span>
     </a>
     <nav class="desktop-links" aria-label="Main navigation">
       @for (link of links; track link.label) {
         @if (link.children) {
           <details class="nav-group" routerLinkActive="active-group" (toggle)="onGroupToggle($event)">
-            <summary>{{ link.label }} <span class="chevron" aria-hidden="true">⌄</span></summary>
+            <summary>{{ link.label }} <span class="chevron" aria-hidden="true"></span></summary>
             <div class="submenu">
               @for (child of link.children; track child.path) {
-                <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">{{ child.label }}</a>
+                <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
               }
             </div>
           </details>
@@ -20,17 +20,17 @@
         }
       }
     </nav>
-    <a class="enquire" routerLink="/tabs/contact-us" (click)="closeMenus()">Let’s talk <span>→</span></a>
+    <a class="enquire" routerLink="/tabs/contact-us" (click)="closeMenus()">Find support</a>
     <button class="menu-toggle" [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu" aria-label="Toggle navigation" (click)="toggleMenu()">{{ menuOpen ? '✕' : '☰' }}</button>
   </div>
   <nav id="mobile-menu" class="mobile-menu" [class.open]="menuOpen" aria-label="Mobile navigation">
     @for (link of links; track link.label) {
       @if (link.children) {
         <details class="nav-group" routerLinkActive="active-group" (toggle)="onGroupToggle($event)">
-          <summary>{{ link.label }} <span class="chevron" aria-hidden="true">⌄</span></summary>
+          <summary>{{ link.label }} <span class="chevron" aria-hidden="true"></span></summary>
           <div class="submenu">
             @for (child of link.children; track child.path) {
-              <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()">{{ child.label }}</a>
+              <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
             }
           </div>
         </details>

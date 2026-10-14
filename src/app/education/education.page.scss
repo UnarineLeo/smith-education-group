@@ -46,7 +46,6 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--gold); }
 .note-icon { display:grid; place-items:center; color:var(--ink); background:#e7f5ff; width:45px; height:45px; border-radius:50%; font-size:24px; flex-shrink:0; }
 .floating-note strong { display:block; font-size:14px; margin-bottom:6px; }
 .floating-note div > span { color:var(--muted); font-size:11px; }
-.note-arrow { font-size:24px; margin-left:auto; }
 .photo-index { position:absolute; right:0; bottom:12px; font-size:8px; letter-spacing:1.8px; writing-mode:vertical-rl; }
 .learning-ribbon { display:flex; gap:42px; white-space:nowrap; overflow:hidden; padding:23px 30px; background:var(--navy); color:#f8f7ff; align-items:center; justify-content:center; font-size:11px; letter-spacing:2px; }
 .learning-ribbon b { color:#f8f7ff; font-size:22px; }
