@@ -38,7 +38,7 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--gold); }
 .hero-note strong { display:block; font-size:11px; margin-bottom:5px; font-weight:600; }
 .hero-note div > span { display:block; font-size:10px; color:var(--muted); }
 .hero-visual { position:relative; padding:0 0 38px 15px; }
-.hero-photo { min-height:510px; border-radius:150px 18px 18px 18px; position:relative; background:linear-gradient(0deg,#00335055,transparent 50%),url('/assets/education/students.jpg') center/cover; }
+.hero-photo { min-height:510px; border-radius:150px 18px 18px 18px; position:relative; background:linear-gradient(0deg,#00335055,transparent 50%),url('../../assets/education/students.jpg') center/cover; }
 .image-label { position:absolute; bottom:36px; left:30px; color:white; letter-spacing:2px; font-size:8px; }
 .orbit-stamp { position:absolute; right:-22px; top:-27px; width:123px; height:123px; border-radius:50%; background:#b9e6ff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:10px; letter-spacing:2px; text-align:center; line-height:1.5; transform:rotate(12deg); border:8px solid var(--paper); }
 .orbit-stamp em { font:italic 29px Georgia,serif; letter-spacing:-1px; }

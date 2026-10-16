@@ -411,8 +411,7 @@ export class ProspectusViewerComponent implements OnInit, OnDestroy {
       return url;
     }
 
-    const normalized = url.startsWith('/') ? url : `/${url}`;
-    return `${window.location.origin}${normalized}`;
+    return new URL(url.replace(/^\/+/, ''), document.baseURI).href;
   }
 
   private async refreshApsChipState(): Promise<void> {

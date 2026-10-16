@@ -41,7 +41,7 @@ h2 { font-size:clamp(30px,3.2vw,42px); letter-spacing:-1.5px; }
 .home-about { padding:40px; gap:65px; background:#edf4f7; border-radius:24px; }
 .about-photo img { height:390px; }
 .about-copy p { font-size:15px; }
-.university-strip { border:0; background:white; border-radius:16px; }
+.university-strip { border:0; background:transparent; border-radius:16px; }
 .university-strip .strip-logo { height:85px; max-width:190px; }
 .university-strip strong { font:600 18px 'Avenir Next','Segoe UI',sans-serif; }
 .university-home { padding-bottom:0; }
@@ -62,7 +62,7 @@ h2 { font-size:clamp(30px,3.2vw,42px); letter-spacing:-1.5px; }
 
 app-education.ion-page {
   .university-strip { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; background:transparent; }
-  .university-strip a { border:1px solid #dce4e9; border-radius:14px; padding:20px 14px; background:white; }
+  .university-strip a { border:1px solid #dce4e9; border-radius:14px; padding:20px 14px; background:transparent; }
   .university-strip a:last-child,.university-strip a:nth-child(2) { border:1px solid #dce4e9; }
   .university-strip a:hover { border-color:#267da8; }
   .university-strip .strip-logo { height:100px; }
@@ -72,7 +72,7 @@ app-education.ion-page {
 }
 
 app-education.ion-page {
-  .university-logo { display:block; object-fit:contain; object-position:center; margin-inline:auto; }
+  .university-logo { display:block; background:transparent; object-fit:contain; object-position:center; margin-inline:auto; }
   .university-row > img { justify-self:center; max-width:250px; }
   .university-strip {
     display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;

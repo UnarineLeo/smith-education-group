@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { IonContent, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline } from 'ionicons/icons';
+import { schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline, searchOutline, closeCircleOutline } from 'ionicons/icons';
 import { FooterComponent } from '../footer/footer.component';
 import { services, universities, tutors, stories, articles } from './education.data';
 
-@Component({ selector: 'app-education', standalone: true, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './education.page.html', styleUrls: ['./education.page.scss'] })
+@Component({ selector: 'app-education', standalone: true, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, IonSelect, IonSelectOption, FooterComponent], templateUrl: './education.page.html', styleUrls: ['./education.page.scss', './tutor-filters.scss'] })
 export class EducationPage implements OnInit {
   @ViewChild('detailDialog') detailDialog?: ElementRef<HTMLDialogElement>;
   page = 'home';
@@ -24,11 +24,14 @@ export class EducationPage implements OnInit {
     contact: ['Get in Touch', 'Your next chapter starts with a conversation.']
   };
   services = services; universities = universities; tutors = tutors; stories = stories; articles = articles;
-  university = 'All'; province = 'All'; module = ''; subject = 'All'; category = 'All'; storyIndex = 0;
+  university = 'All'; province = 'All'; module = ''; category = 'All'; storyIndex = 0;
   universityTabs = ['All', ...universities.map(university => university.short)];
   subjects = ['All', 'Accounting', 'Economics', 'Finance', 'Statistics', 'Business Management'];
   provinces = [...new Set(universities.map(university => university.province))].sort();
-  tutorSubjects = ['All', ...new Set(tutors.map(tutor => tutor.subject))];
+  tutorSearch = '';
+  selectedTutorSubjects: string[] = [];
+  selectedTutorUniversities: string[] = [];
+  tutorSubjects = [...new Set(tutors.flatMap(tutor => tutor.subjects.split(' · ')))].sort();
   categories = ['All', 'Study Tips', 'Exam Preparation', 'University Life', 'Module Guides'];
   detail: { title: string; label: string; paragraphs: string[]; enquiry?: string } | null = null;
   enquiry = { name: '', email: '', phone: '', type: '', message: '', consent: false };
@@ -52,7 +55,7 @@ export class EducationPage implements OnInit {
     if (about) this.enquiry.message = `I would like to enquire about ${about}.`;
   }
   constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
-    addIcons({ schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline });
+    addIcons({ schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline, searchOutline, closeCircleOutline });
   }
   get filteredUniversities() {
     const query = this.module.trim().toLowerCase();
@@ -63,7 +66,16 @@ export class EducationPage implements OnInit {
     );
   }
   resetUniversityFilters() { this.university = 'All'; this.province = 'All'; this.module = ''; }
-  get filteredTutors() { return this.tutors.filter(t => this.subject === 'All' || t.subject === this.subject); }
+  get filteredTutors() {
+    const query = this.tutorSearch.trim().toLowerCase();
+    return this.tutors.filter(tutor =>
+      (!this.selectedTutorUniversities.length || tutor.universities.some(university => this.selectedTutorUniversities.includes(university))) &&
+      (!this.selectedTutorSubjects.length || tutor.subjects.split(' · ').some(subject => this.selectedTutorSubjects.includes(subject))) &&
+      (!query || [tutor.name, tutor.subjects, tutor.qualification, ...tutor.universities].join(' ').toLowerCase().includes(query))
+    );
+  }
+  hasTutorFilters() { return Boolean(this.tutorSearch || this.selectedTutorSubjects.length || this.selectedTutorUniversities.length); }
+  resetTutorFilters() { this.tutorSearch = ''; this.selectedTutorSubjects = []; this.selectedTutorUniversities = []; }
   get filteredArticles() { return this.articles.filter(a => this.category === 'All' || a.category === this.category); }
   scrollUniversities(track: HTMLElement, direction: number) {
     const end = track.scrollWidth - track.clientWidth;

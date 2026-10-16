@@ -2,7 +2,7 @@
   "name": "smith-education-group",
   "version": "0.0.0",
   "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://smitheducationgroup.co.za/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +14,9 @@
     "convert:prospectuses": "scripts/convert-prospectuses.sh",
     "update:universities": "node scripts/update-university-data.cjs",
     "ionic:build": "npm run build",
-    "ionic:serve": "npm run start -- --open"
+    "ionic:serve": "npm run start -- --open",
+    "build:pages": "ng build --configuration production,pages",
+    "build:cpanel": "ng build --configuration production --base-href / && node scripts/package-cpanel.mjs"
   },
   "private": true,
   "dependencies": {

@@ -21,9 +21,8 @@ export const routes: Routes = [
       },
       {
         path: 'universities',
-        data: { page: 'universities' },
         loadComponent: () =>
-          import('../education/education.page').then((m) => m.EducationPage),
+          import('../universities/universities.page').then((m) => m.Universities),
       },
       {
         path: 'prospectus/:id',

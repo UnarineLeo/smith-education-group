@@ -27,18 +27,47 @@ export const universities = universityDirectory.map(university => {
   return {
     name: university.name,
     short: universityNames[key],
-    image: 'assets/logos/' + filename,
+    image: 'assets/logos/' + (key === 'uwc' ? 'uwc.png' : key === 'uj' ? 'uj.gif' : filename),
     province: university.province,
     modules: featuredUniversities.find(item => item.name === university.name)?.modules ?? []
   };
 });
-export const tutors = [
-  { name: 'Accounting tutor', initials: 'AC', subject: 'Accounting', subjects: 'Accounting · Financial Management', qualification: 'Qualifications to be confirmed' },
-  { name: 'Economics tutor', initials: 'EC', subject: 'Economics', subjects: 'Economics · Econometrics', qualification: 'Qualifications to be confirmed' },
-  { name: 'Statistics tutor', initials: 'ST', subject: 'Statistics', subjects: 'Statistics · Data Analysis', qualification: 'Qualifications to be confirmed' },
-  { name: 'Business tutor', initials: 'BM', subject: 'Business Management', subjects: 'Business Management · Strategy', qualification: 'Qualifications to be confirmed' },
-  { name: 'Finance tutor', initials: 'FI', subject: 'Finance', subjects: 'Finance · Corporate Finance', qualification: 'Qualifications to be confirmed' },
-  { name: 'Mathematics tutor', initials: 'MA', subject: 'Mathematics', subjects: 'Mathematics · Statistics', qualification: 'Qualifications to be confirmed' }
+export interface UniversityModule {
+  name: string;
+  code: string | null;
+  university: string;
+  short: string;
+  description: string;
+}
+
+// Codes are university-specific; populate them only when confirmed.
+export const universityModules: UniversityModule[] = universities.flatMap(university =>
+  university.modules.map(name => ({
+    name,
+    code: null,
+    university: university.name,
+    short: university.short,
+    description: `Explore tutoring support for ${name}, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support.`
+  }))
+);
+
+export interface Tutor {
+  name: string;
+  initials: string;
+  subject: string;
+  subjects: string;
+  qualification: string;
+  universities: string[];
+}
+
+// Use full university names for confirmed tutor university associations.
+export const tutors: Tutor[] = [
+  { name: 'Accounting tutor', initials: 'AC', subject: 'Accounting', subjects: 'Accounting · Financial Management', qualification: 'Qualifications to be confirmed', universities: [] },
+  { name: 'Economics tutor', initials: 'EC', subject: 'Economics', subjects: 'Economics · Econometrics', qualification: 'Qualifications to be confirmed', universities: [] },
+  { name: 'Statistics tutor', initials: 'ST', subject: 'Statistics', subjects: 'Statistics · Data Analysis', qualification: 'Qualifications to be confirmed', universities: [] },
+  { name: 'Business tutor', initials: 'BM', subject: 'Business Management', subjects: 'Business Management · Strategy', qualification: 'Qualifications to be confirmed', universities: [] },
+  { name: 'Finance tutor', initials: 'FI', subject: 'Finance', subjects: 'Finance · Corporate Finance', qualification: 'Qualifications to be confirmed', universities: [] },
+  { name: 'Mathematics tutor', initials: 'MA', subject: 'Mathematics', subjects: 'Mathematics · Statistics', qualification: 'Qualifications to be confirmed', universities: [] }
 ];
 export const stories = [
   { subject: 'Finding confidence in accounting', course: 'Accounting student', quote: 'A student’s experience of working through difficult concepts and building confidence will appear here.' },

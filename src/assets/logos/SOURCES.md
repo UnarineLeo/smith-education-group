@@ -28,3 +28,15 @@ Downloaded from university websites except the Pretoria crest, sourced from Wiki
 - [vut.webp](https://vut.ac.za/wp-content/uploads/2026/03/Vaal-University-of-Technology-60th-logo-scaled-300x72.webp)
 - [wits.svg](https://www.wits.ac.za/media/wits-university-style-assets/images/wits-logo.svg)
 - [wsu.png](https://www.wsu.ac.za/images/2025/07/16/header-logo.png)
+
+## Transparent website variants
+
+The website uses transparent PNG variants for NMU, UMP and UWC, edited with the built-in image generation tool. UWC's original JPEG is retained as a source; the website uses `uwc.png`.
+
+Edit brief: remove the outer solid background to alpha transparency, preserve logo lettering and composition, and retain intentional colours inside crests.
+
+UNIVEN and UJ use original transparent artwork downloaded from university-hosted sources:
+- [univen.png](https://www.univen.ac.za/wp-content/uploads/2026/03/univen-logo.png)
+- [uj.gif](https://panip.febe.uj.ac.za/wp-content/uploads/2019/06/UJ-Landscape-Logo-Colour_09.gif)
+
+The opaque UJ PNG and UWC JPEG are retained as source files and are not used by the logo carousel. Other PNG/WebP and SVG logos already have transparent backgrounds. Carousel tiles also use transparent CSS backgrounds.

@@ -1,0 +1,74 @@
+name: Build website for cPanel
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cpanel-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Build cPanel website
+        env:
+          CPANEL_DOCUMENT_ROOT: ${{ vars.CPANEL_DOCUMENT_ROOT }}
+        run: npm run build:cpanel
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cpanel-site
+          path: www/
+          include-hidden-files: true
+          retention-days: 14
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v4
+        with:
+          name: cpanel-site
+          path: deployment-output
+      - name: Publish compiled files to cpanel-deploy
+        shell: bash
+        run: |
+          if [ ! -f deployment-output/.cpanel.yml ]; then
+            echo 'The deployment tasks are missing. Check deployment/cpanel/config.json and rerun the build.'
+            exit 1
+          fi
+          deploy_checkout="$RUNNER_TEMP/cpanel-site"
+          if git ls-remote --exit-code --heads origin cpanel-deploy; then
+            git fetch origin cpanel-deploy
+            git worktree add --detach "$deploy_checkout" FETCH_HEAD
+          else
+            git worktree add --detach "$deploy_checkout" HEAD
+            git -C "$deploy_checkout" checkout --orphan cpanel-deploy
+          fi
+          rsync -a --delete --exclude=.git deployment-output/ "$deploy_checkout/"
+          git -C "$deploy_checkout" add --all
+          if git -C "$deploy_checkout" diff --cached --quiet; then
+            echo 'The compiled website is unchanged.'
+            exit 0
+          fi
+          git -C "$deploy_checkout" config user.name 'github-actions[bot]'
+          git -C "$deploy_checkout" config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C "$deploy_checkout" commit -m "Deploy website from ${GITHUB_SHA}"
+          git -C "$deploy_checkout" push origin HEAD:refs/heads/cpanel-deploy

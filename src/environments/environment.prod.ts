@@ -1,4 +1,5 @@
 export const environment = {
+  useHashRouting: false,
   production: true,
   googleMapsApiKey: '',
 
