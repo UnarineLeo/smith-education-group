@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - "/usr/bin/rsync -a --exclude=.git --exclude=.cpanel.yml ./ /home/smithed7g7f8/public_html/"
