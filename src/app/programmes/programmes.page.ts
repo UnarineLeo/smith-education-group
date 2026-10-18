@@ -34,6 +34,7 @@ import {
 import { getAuth, onAuthStateChanged, Unsubscribe, User } from 'firebase/auth';
 import programmesData from '../shared/programme-list.json';
 import universityList from '../university-list/university-list.json';
+import { universities } from '../education/education.data';
 import { University } from '../shared/app-data';
 import { FACULTIES, Programme, QUALIFICATION_TYPES } from '../shared/programme-data';
 import { ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
@@ -43,7 +44,7 @@ import { RegisterModalComponent } from '../register-modal/register-modal.compone
 
 type EligibilityStatus = 'qualified' | 'not-qualified' | 'incomplete';
 type EligibilityFilter = 'all' | 'qualified';
-const DEFAULT_UNIVERSITY = 'Nelson Mandela University';
+const DEFAULT_UNIVERSITY = 'University of the Witwatersrand';
 
 @Component({
   selector: 'app-programmes',
@@ -78,7 +79,7 @@ const DEFAULT_UNIVERSITY = 'Nelson Mandela University';
 export class Programmes implements OnInit, OnDestroy {
   @ViewChild(IonContent) private content?: IonContent;
 
-  private readonly allProgrammes: Programme[] = programmesData as Programme[];
+  private readonly allProgrammes: Programme[] = (programmesData as Programme[]).filter(programme => universities.some(university => university.name === programme.universityName));
   private readonly universitiesById = new Map(
     (universityList as University[]).map((university) => [university.id, university])
   );
@@ -533,7 +534,7 @@ export class Programmes implements OnInit, OnDestroy {
   }
 
   private buildUniversityOptions(): string[] {
-    const names = new Set(this.allProgrammes.map((programme) => programme.universityName));
+    const names = new Set(universities.map(university => university.name));
     return Array.from(names).sort((a, b) => a.localeCompare(b));
   }
 }

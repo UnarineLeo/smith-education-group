@@ -1,37 +1,24 @@
-import universityDirectory from '../university-list/university-list.json';
+export const universitySubjects = ['Statistics', 'Economics', 'Accounting', 'Informatics', 'Computer Science', 'Taxation'];
+export const schoolSubjects = ['Physics', 'Maths', 'Economics', 'Life Science', 'Accounting'];
+export const schoolGrades = Array.from({ length: 9 }, (_, index) => index + 4);
 
 export const services = [
   { title: 'University Tutoring', icon: 'school-outline', text: 'Expert support for the modules that matter to you.', detail: 'Work through challenging concepts, practise module questions, and build a study plan around your university coursework.' },
+  { title: 'School Tutoring', icon: 'school-outline', text: 'Personalised subject support for Grades 4–12.', detail: 'Build understanding in Maths, Physics, Economics, Life Science and Accounting, with lessons suited to the learner’s grade and curriculum. Confirm subject availability for your grade on enquiry.' },
   { title: 'Private Tutoring', icon: 'people-outline', text: 'One-on-one sessions tailored to your learning needs.', detail: 'Individual learning support shaped around your goals, pace, and areas of difficulty. Enquire about subject and tutor availability.' },
-  { title: 'Revision Camps', icon: 'calendar-outline', text: 'Focused preparation. A more confident exam season.', detail: 'Structured revision covering core concepts, practice questions, and exam technique. Dates and available modules will be announced here.' },
+  { title: 'Revision Camps', icon: 'calendar-outline', text: 'Focused preparation. A more confident exam season.', detail: 'Structured revision covering core concepts, practice questions, and exam technique. Enquire about upcoming dates and subjects.' },
   { title: 'Academic Workshops', icon: 'bar-chart-outline', text: 'Build study skills that stay with you.', detail: 'Explore time management, effective note-taking, academic writing, and exam preparation in guided group sessions.' },
-  { title: 'Recorded Learning Packages', icon: 'play-circle-outline', text: 'Revisit the lesson. Learn at your own pace.', detail: 'Recorded lessons and supporting materials are planned for selected modules. Enquire to register your interest; packages are not yet available to purchase.' },
-  { title: 'Future Programmes', icon: 'bulb-outline', text: 'More opportunities to learn and grow.', detail: 'Professional development and specialised education programmes are being explored. Share the skills you would like to develop.' }
+  { title: 'Recorded Learning Packages', icon: 'play-circle-outline', text: 'Revisit the lesson. Learn at your own pace.', detail: 'Register your interest in recorded lessons and supporting study materials for your module.' },
+  { title: 'Learning & Development', icon: 'bulb-outline', text: 'More opportunities to learn and grow.', detail: 'Tell us about your academic and career goals to discuss your learning and development needs.' }
 ];
-const featuredUniversities = [
-  { name: 'University of Cape Town', short: 'UCT', image: 'uct.svg', modules: ['Financial Accounting', 'Management Accounting', 'Economics', 'Statistics'] },
-  { name: 'Stellenbosch University', short: 'Stellenbosch', image: 'su.svg', modules: ['Financial Management', 'Marketing Management', 'Business Statistics', 'Econometrics'] },
-  { name: 'University of the Witwatersrand', short: 'Wits', image: 'wits.svg', modules: ['Corporate Finance', 'Business Analytics', 'Economics', 'Accounting'] },
-  { name: 'University of Pretoria', short: 'UP', image: 'up.png', modules: ['Financial Accounting', 'Taxation', 'Business Management', 'Statistics'] }
-];
-const universityNames: Record<string, string> = {
-  cput: 'CPUT', cut: 'CUT', dut: 'DUT', mut: 'MUT', nmu: 'NMU', nwu: 'NWU',
-  rhodes: 'Rhodes', smu: 'SMU', spu: 'SPU', su: 'Stellenbosch', tut: 'TUT',
-  uct: 'UCT', ufh: 'UFH', ufs: 'UFS', uj: 'UJ', ukzn: 'UKZN', ul: 'UL',
-  ump: 'UMP', up: 'UP', unisa: 'UNISA', univen: 'UNIVEN', uwc: 'UWC',
-  wits: 'Wits', unizulu: 'UNIZULU', vut: 'VUT', wsu: 'WSU'
-};
-export const universities = universityDirectory.map(university => {
-  const filename = university.logo.split('/').pop()!;
-  const key = filename.split('.')[0];
-  return {
-    name: university.name,
-    short: universityNames[key],
-    image: 'assets/logos/' + (key === 'uwc' ? 'uwc.png' : key === 'uj' ? 'uj.gif' : filename),
-    province: university.province,
-    modules: featuredUniversities.find(item => item.name === university.name)?.modules ?? []
-  };
-});
+// Selected institutions for tutoring enquiries, not a university ranking.
+export const universities = [
+  { name: 'University of the Witwatersrand', short: 'Wits', image: 'assets/logos/wits.svg', province: 'Gauteng' },
+  { name: 'University of Cape Town', short: 'UCT', image: 'assets/logos/uct.svg', province: 'Western Cape' },
+  { name: 'Stellenbosch University', short: 'Stellies', image: 'assets/logos/su.svg', province: 'Western Cape' },
+  { name: 'University of Pretoria', short: 'UP', image: 'assets/logos/up.png', province: 'Gauteng' },
+  { name: 'Varsity College', short: 'Varsity College', image: '', province: 'Multiple provinces' }
+].map(university => ({ ...university, modules: [...universitySubjects] }));
 export interface UniversityModule {
   name: string;
   code: string | null;
@@ -61,18 +48,17 @@ export interface Tutor {
 }
 
 // Use full university names for confirmed tutor university associations.
-export const tutors: Tutor[] = [
-  { name: 'Accounting tutor', initials: 'AC', subject: 'Accounting', subjects: 'Accounting · Financial Management', qualification: 'Qualifications to be confirmed', universities: [] },
-  { name: 'Economics tutor', initials: 'EC', subject: 'Economics', subjects: 'Economics · Econometrics', qualification: 'Qualifications to be confirmed', universities: [] },
-  { name: 'Statistics tutor', initials: 'ST', subject: 'Statistics', subjects: 'Statistics · Data Analysis', qualification: 'Qualifications to be confirmed', universities: [] },
-  { name: 'Business tutor', initials: 'BM', subject: 'Business Management', subjects: 'Business Management · Strategy', qualification: 'Qualifications to be confirmed', universities: [] },
-  { name: 'Finance tutor', initials: 'FI', subject: 'Finance', subjects: 'Finance · Corporate Finance', qualification: 'Qualifications to be confirmed', universities: [] },
-  { name: 'Mathematics tutor', initials: 'MA', subject: 'Mathematics', subjects: 'Mathematics · Statistics', qualification: 'Qualifications to be confirmed', universities: [] }
-];
+export const tutors: Tutor[] = [...new Set([...universitySubjects, ...schoolSubjects])].map(subject => ({
+  name: `${subject} tutor`, initials: subject.slice(0, 2).toUpperCase(), subject,
+  subjects: subject, qualification: 'Personalised academic support', universities: []
+}));
+// Learning benefits describe our approach without attributing invented endorsements.
 export const stories = [
-  { subject: 'Finding confidence in accounting', course: 'Accounting student', quote: 'A student’s experience of working through difficult concepts and building confidence will appear here.' },
-  { subject: 'Making revision more effective', course: 'Economics student', quote: 'A student’s experience of preparing for exams with structured revision will appear here.' },
-  { subject: 'Learning at your own pace', course: 'Commerce student', quote: 'A student’s experience of personalised academic support will appear here.' }
+  { subject: 'Make sense of Statistics', course: 'Statistics', quote: 'Move beyond memorising formulas. Work through how to choose a method, interpret your results and explain your reasoning, with guided practice shaped around your module.' },
+  { subject: 'See the story behind the numbers', course: 'Accounting', quote: 'Build your understanding from the first transaction to the financial statements. Explore how entries connect, practise clear workings and develop a systematic approach to checking your answers.' },
+  { subject: 'Connect Economics to everyday life', course: 'Economics', quote: 'Explore the reasoning behind the graphs. Connect economic concepts to familiar situations and practise building clear, well-supported answers to coursework and examination questions.' },
+  { subject: 'Build confidence in Maths', course: 'School Maths', quote: 'Break challenging questions into manageable steps. Strengthen your foundations, work through mistakes constructively and develop a practice routine that fits your grade and learning pace.' },
+  { subject: 'Give Physics revision a clear direction', course: 'School Physics', quote: 'Turn theory into a practical problem-solving process. Use diagrams, identify the information that matters and check your units as you work through questions suited to your curriculum.' }
 ];
 export const articles = [
   { title: '10 effective study tips for university success', category: 'Study Tips', image: 'study.jpg', intro: 'Small, consistent habits make your study time more purposeful.', paragraphs: ['Set one clear goal for each study session. Break larger assignments into manageable tasks, and use a weekly plan to spread the work.', 'Test yourself from memory before checking your notes. Explain a concept aloud, practise a question, or write down what you remember.', 'Space your revision across several days. Mix practice with short breaks, review the areas you find difficult, and ask for help when a concept remains unclear.'] },

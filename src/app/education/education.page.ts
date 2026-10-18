@@ -7,26 +7,27 @@ import { IonContent, IonIcon, IonSelect, IonSelectOption } from '@ionic/angular/
 import { addIcons } from 'ionicons';
 import { schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline, searchOutline, closeCircleOutline } from 'ionicons/icons';
 import { FooterComponent } from '../footer/footer.component';
-import { services, universities, tutors, stories, articles } from './education.data';
+import { services, universities, tutors, stories, articles, universitySubjects, schoolSubjects, schoolGrades } from './education.data';
 
-@Component({ selector: 'app-education', standalone: true, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, IonSelect, IonSelectOption, FooterComponent], templateUrl: './education.page.html', styleUrls: ['./education.page.scss', './tutor-filters.scss'] })
+@Component({ selector: 'app-education', standalone: true, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, IonSelect, IonSelectOption, FooterComponent], templateUrl: './education.page.html', styleUrls: ['./education.page.scss', './tutor-filters.scss', './about-story.scss', './learning-cards.scss'] })
 export class EducationPage implements OnInit {
   @ViewChild('detailDialog') detailDialog?: ElementRef<HTMLDialogElement>;
   page = 'home';
   titles: Record<string, string[]> = {
     home: ['Empowering students. Building brighter futures.', 'Academic support, personal guidance, and a little more confidence for the journey ahead.'],
-    about: ['About Smith Education Group', 'Education. Opportunity. Growth.'],
+    about: ['About Smith Education Group', 'Empowering Minds. Building Futures.'],
     services: ['Our Services', 'Support for every stage of your academic journey.'],
     universities: ['Universities & Modules', 'Find support for your university and the subjects you study.'],
-    tutors: ['Meet Our Tutors', 'A personal approach to learning. A shared commitment to your progress.'],
-    stories: ['Student Success Stories', 'Every student has a story. We look forward to sharing yours.'],
+    tutors: ['Find Your Tutor', 'Personalised subject support. A shared commitment to your progress.'],
+    stories: ['Student Testimonials', 'Personal experiences from the Smith Education Group community.'],
     resources: ['Academic Resources', 'Study tips, fresh perspectives, and practical guides.'],
     contact: ['Get in Touch', 'Your next chapter starts with a conversation.']
   };
   services = services; universities = universities; tutors = tutors; stories = stories; articles = articles;
   university = 'All'; province = 'All'; module = ''; category = 'All'; storyIndex = 0;
   universityTabs = ['All', ...universities.map(university => university.short)];
-  subjects = ['All', 'Accounting', 'Economics', 'Finance', 'Statistics', 'Business Management'];
+  subjects = ['All', ...universitySubjects];
+  universitySubjects = universitySubjects; schoolSubjects = schoolSubjects; schoolGrades = schoolGrades; schoolGrade = 4;
   provinces = [...new Set(universities.map(university => university.province))].sort();
   tutorSearch = '';
   selectedTutorSubjects: string[] = [];
@@ -34,7 +35,8 @@ export class EducationPage implements OnInit {
   tutorSubjects = [...new Set(tutors.flatMap(tutor => tutor.subjects.split(' · ')))].sort();
   categories = ['All', 'Study Tips', 'Exam Preparation', 'University Life', 'Module Guides'];
   detail: { title: string; label: string; paragraphs: string[]; enquiry?: string } | null = null;
-  enquiry = { name: '', email: '', phone: '', type: '', message: '', consent: false };
+  enquiry = { name: '', email: '', phone: '', university: '', type: '', message: '', consent: false };
+  testimonials: { quote: string; name: string; context: string }[] = [];
   formStatus = '';
   ngOnInit() { this.refreshPage(); }
   ionViewWillEnter() { this.refreshPage(); }
@@ -48,6 +50,7 @@ export class EducationPage implements OnInit {
     this.meta.updateTag({ name: 'twitter:description', content: this.titles[this.page][1] });
     const selectedUniversity = this.route.snapshot.queryParamMap.get('university');
     this.university = selectedUniversity && this.universityTabs.includes(selectedUniversity) ? selectedUniversity : 'All';
+    if (selectedUniversity) this.enquiry.university = universities.find(item => [item.name, item.short].includes(selectedUniversity))?.name ?? selectedUniversity;
     if (selectedUniversity) { this.province = 'All'; this.module = ''; }
     const type = this.route.snapshot.queryParamMap.get('type');
     if (type) this.enquiry.type = type;
@@ -69,7 +72,7 @@ export class EducationPage implements OnInit {
   get filteredTutors() {
     const query = this.tutorSearch.trim().toLowerCase();
     return this.tutors.filter(tutor =>
-      (!this.selectedTutorUniversities.length || tutor.universities.some(university => this.selectedTutorUniversities.includes(university))) &&
+      (!this.selectedTutorUniversities.length || universitySubjects.includes(tutor.subject)) &&
       (!this.selectedTutorSubjects.length || tutor.subjects.split(' · ').some(subject => this.selectedTutorSubjects.includes(subject))) &&
       (!query || [tutor.name, tutor.subjects, tutor.qualification, ...tutor.universities].join(' ').toLowerCase().includes(query))
     );
@@ -101,7 +104,7 @@ export class EducationPage implements OnInit {
     if (form.invalid || !this.enquiry.name.trim() || !this.enquiry.message.trim()) { form.control.markAllAsTouched(); this.formStatus = 'Please complete the required fields highlighted below.'; element.querySelector<HTMLElement>('.ng-invalid')?.focus(); return; }
     try {
       localStorage.setItem('smith-enquiry-draft', JSON.stringify(this.enquiry));
-      this.formStatus = 'Your enquiry draft is saved on this device. It has not been sent; contact details are still being confirmed.';
+      this.formStatus = 'Your enquiry draft is saved on this device. It has not been sent to our team.';
     } catch { this.formStatus = 'This browser could not save the draft. Please copy your message to keep it.'; }
   }
   restoreDraft() {

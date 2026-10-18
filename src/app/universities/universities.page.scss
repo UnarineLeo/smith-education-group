@@ -36,3 +36,15 @@
   .art-orbit { display:none; }
   .breadcrumbs { font-size:9px; }
 }
+.catalogue-section { padding-top: 36px; padding-bottom: 36px; }
+.catalogue-heading h2 { color: #102c46; font-size: clamp(28px, 4vw, 38px); margin: 12px 0; }
+.catalogue-heading p, .catalogue-count { color: #52677a; line-height: 1.6; }
+.subject-card-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+.subject-card { flex: 1 1 calc(33.333% - 24px); min-width: 0; padding: 28px; border: 1px solid #e0e6eb; border-radius: 18px; background: #fff; box-shadow: 0 8px 24px #102c4608; }
+.subject-card h3 { font-size: 25px; color: #102c46; margin: 20px 0 28px; }
+.subject-card a { display: inline-flex; align-items: center; gap: 14px; color: #102c46; font-weight: 700; text-decoration: none; padding: 10px 0; }
+.school-subject-card { background: #faf6eb; }
+.catalogue-grade { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; color: #102c46; font-weight: 600; margin: 24px 0; }
+.catalogue-grade select { background: white; border: 1px solid #bdc8d2; padding: 12px 18px; border-radius: 8px; color: #102c46; }
+@media (max-width: 850px) { .subject-card { flex-basis: calc(50% - 24px); } }
+@media (max-width: 580px) { .subject-card { flex-basis: 100%; } }

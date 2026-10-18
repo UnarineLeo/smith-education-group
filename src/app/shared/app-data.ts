@@ -16,14 +16,14 @@ export interface University {
   brochure_asset?: string;
 }
 
-import universityList from '../university-list/university-list.json';
+import { universities } from '../education/education.data';
 
 export interface SelectOption {
   value: string;
   label: string;
 }
 
-const UNIVERSITY_DATA = universityList as University[];
+const UNIVERSITY_DATA = universities;
 
 export const UNIVERSITY_OPTIONS: SelectOption[] = UNIVERSITY_DATA.map((university) => ({
   value: university.name,

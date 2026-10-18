@@ -1,39 +1,44 @@
 <ion-content [fullscreen]="true" [scrollEvents]="true" class="programmes-content" (ionScroll)="onContentScroll($event)">
   <section class="page-hero wrap">
     <div class="page-hero-copy">
-      <span class="eyebrow">SMITH EDUCATION GROUP / UNIVERSITIES</span>
-      <h1>Universities &amp; Modules<span class="title-dot">.</span></h1>
-      <p>Find support for your university and the subjects you study.</p>
+      <span class="eyebrow">SMITH EDUCATION GROUP / SUBJECTS</span>
+      <h1>Subjects &amp; Modules<span class="title-dot">.</span></h1>
+      <p>Find your focus, from school foundations to university modules.</p>
     </div>
     <div class="page-hero-art" aria-hidden="true"><span class="hero-spark">✳</span><span class="art-caption">LEARN. GROW.<br>GO FURTHER.</span><span class="art-orbit"></span></div>
   </section>
-  <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">Universities &amp; Modules</span></nav>
+  <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">Subjects &amp; Modules</span></nav>
   <ion-card class="filter-card"><ion-card-content>
     <header class="filter-card-header">
-      <div><span class="filter-eyebrow">Refine your results</span><h2>Find your module match</h2><p>Search by module code, name or description, or narrow the list by module and university.</p></div>
+      <div><span class="filter-eyebrow">Refine your results</span><h2>Find your subject</h2><p>Search subjects and modules, or choose your university to personalise your enquiry.</p></div>
       @if (hasActiveFilters()) { <ion-button fill="clear" class="clear-button" (click)="clearFilters()"><ion-icon slot="start" name="close-circle-outline"/>Reset filters</ion-button> }
     </header>
     <div class="primary-filter-grid">
-      <label class="filter-field"><span class="filter-label">Search modules</span><span class="search-input-wrapper"><ion-icon name="search-outline"/><input type="search" class="search-input" placeholder="Module name, code, university or description" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()"/></span></label>
+      <label class="filter-field"><span class="filter-label">Search subjects & modules</span><span class="search-input-wrapper"><ion-icon name="search-outline"/><input type="search" class="search-input" placeholder="Subject, module or university" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()"/></span></label>
     </div>
     <div class="secondary-filter-row">
-      <label class="select-wrapper"><span class="filter-label">Module</span><ion-select aria-label="Module" placeholder="All modules" [(ngModel)]="selectedModules" [multiple]="true" interface="popover" class="custom-select" (ionChange)="applyFilters()"><ion-select-option *ngFor="let name of moduleOptions" [value]="name">{{ name }}</ion-select-option></ion-select></label>
+      <label class="select-wrapper"><span class="filter-label">Subject / module</span><ion-select aria-label="Subject or module" placeholder="All subjects & modules" [(ngModel)]="selectedModules" [multiple]="true" interface="popover" class="custom-select" (ionChange)="applyFilters()"><ion-select-option *ngFor="let name of moduleOptions" [value]="name">{{ name }}</ion-select-option></ion-select></label>
       <label class="select-wrapper"><span class="filter-label">University</span><ion-select aria-label="University" placeholder="All universities" [(ngModel)]="selectedUniversities" [multiple]="true" interface="popover" class="custom-select" (ionChange)="applyFilters()"><ion-select-option *ngFor="let uni of universityOptions" [value]="uni.name">{{ uni.name }}</ion-select-option></ion-select></label>
     </div>
   </ion-card-content></ion-card>
-  <div class="results-meta" aria-live="polite"><span>{{ filteredModules.length }} {{ filteredModules.length === 1 ? 'module' : 'modules' }} found</span><span>Listed modules are examples; tutoring availability is confirmed on enquiry.</span></div>
-  <section class="programme-cards" aria-label="Module results">
-    @for (module of filteredModules; track module.university + module.name + module.code) {
-      <ion-card class="programme-card"><span class="programme-accent"></span><ion-card-content>
-        <div><p class="requirements-label">Module</p><h2 class="programme-name">{{ module.name }}</h2></div>
-        <div><p class="requirements-label">Module Code</p><p class="university-line">{{ module.code || 'To be confirmed' }}</p></div>
-        <div><p class="requirements-label">University</p><p class="university-line">{{ module.university }}</p></div>
-        <div class="requirements-block"><h3 class="requirements-label">Module Description</h3><p class="module-description">{{ module.description }}</p></div>
-        <div class="programme-footer"><ion-button class="apply-programme-btn" routerLink="/tabs/contact-us" [queryParams]="{type: 'University Tutoring', about: module.name + (module.code ? ' (' + module.code + ')' : '') + ' at ' + module.university}" [attr.aria-label]="'Enquire about ' + module.name + ' at ' + module.university">Enquire<ion-icon slot="end" name="arrow-forward-outline"/></ion-button></div>
-      </ion-card-content></ion-card>
-    } @empty {
-      <div class="empty-state"><ion-icon name="search-outline"/><h2>No modules found</h2><p>Try another search or clear your filters. You can also enquire about a module that is not listed.</p><ion-button fill="outline" (click)="clearFilters()">Reset filters</ion-button><ion-button routerLink="/tabs/contact-us" [queryParams]="{type: 'University Tutoring', about: selectedUniversities.join(', ') || searchQuery || 'my module'}">Ask about a module</ion-button></div>
-    }
+  <section class="catalogue-section wrap" aria-labelledby="university-modules-title">
+    <header class="catalogue-heading"><span class="eyebrow">UNIVERSITY SUPPORT</span><h2 id="university-modules-title">University modules</h2><p>Wits · UCT · Stellies · UP · Varsity College</p></header>
+    <p class="catalogue-count" aria-live="polite">{{ visibleModuleNames.length }} modules found</p>
+    <div class="subject-card-grid">
+      @for (name of visibleModuleNames; track name) {
+        <article class="subject-card"><span class="eyebrow">UNIVERSITY MODULE</span><h3>{{ name }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'University Tutoring', university: selectedUniversities.join(', '), about: name + (selectedUniversities.length ? ' at ' + selectedUniversities.join(', ') : '')}" [attr.aria-label]="'Enquire about ' + name">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
+      } @empty { <p>No modules match your filters. <button type="button" (click)="clearFilters()">Clear filters</button></p> }
+    </div>
+  </section>
+  <section class="catalogue-section wrap" aria-labelledby="school-subjects-title">
+    <header class="catalogue-heading"><span class="eyebrow">GRADES 4–12</span><h2 id="school-subjects-title">School subjects</h2><p>High school support and foundations for younger learners, tailored to your grade and curriculum.</p></header>
+    <label class="catalogue-grade">Choose your grade <select [(ngModel)]="selectedGrade"><option *ngFor="let grade of schoolGrades" [ngValue]="grade">Grade {{ grade }}</option></select></label>
+    <p class="catalogue-count" aria-live="polite">{{ visibleSchoolSubjects.length }} subjects found</p>
+    <div class="subject-card-grid">
+      @for (subject of visibleSchoolSubjects; track subject) {
+        <article class="subject-card school-subject-card"><span class="eyebrow">SCHOOL SUBJECT</span><h3>{{ subject }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'School Tutoring', about: 'Grade ' + selectedGrade + ' · ' + subject}" [attr.aria-label]="'Enquire about Grade ' + selectedGrade + ' ' + subject">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
+      } @empty { <p>No school subjects match your search. <button type="button" (click)="clearFilters()">Clear filters</button></p> }
+    </div>
   </section>
   <app-footer/>
   @if (showBackToTop) { <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="back-to-top-fab"><ion-fab-button class="back-to-top-button" aria-label="Back to top" (click)="scrollToTop()"><ion-icon name="arrow-up-outline"/></ion-fab-button></ion-fab> }
