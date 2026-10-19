@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" routerLink="/tabs/home" (click)="closeMenus()" aria-label="Smith Education Group home">
+    <a class="brand" routerLink="/tabs/home" (click)="selectMenuPage('/tabs/home', $event)" aria-label="Smith Education Group home">
       <img class="brand-mark" src="assets/icon/smith-education-group.svg" alt="" width="40" height="40"/>
       <span><strong>SMITH</strong><small>EDUCATION GROUP</small></span>
     </a>
@@ -11,16 +11,16 @@
             <summary>{{ link.label }} <span class="chevron" aria-hidden="true"></span></summary>
             <div class="submenu">
               @for (child of link.children; track child.path) {
-                <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
+                <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="selectMenuPage('/tabs/' + child.path, $event)"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
               }
             </div>
           </details>
         } @else {
-          <a [routerLink]="'/tabs/' + link.path" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenus()">{{ link.label }}</a>
+          <a [routerLink]="'/tabs/' + link.path" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{exact:true}" (click)="selectMenuPage('/tabs/' + link.path, $event)">{{ link.label }}</a>
         }
       }
     </nav>
-    <a class="enquire" routerLink="/tabs/contact-us" (click)="closeMenus()">Find support</a>
+    <a class="enquire" routerLink="/tabs/contact-us" (click)="selectMenuPage('/tabs/contact-us', $event)">Find support</a>
     <button class="menu-toggle" [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu" aria-label="Toggle navigation" (click)="toggleMenu()">{{ menuOpen ? '✕' : '☰' }}</button>
   </div>
   <nav id="mobile-menu" class="mobile-menu" [class.open]="menuOpen" aria-label="Mobile navigation">
@@ -30,12 +30,12 @@
           <summary>{{ link.label }} <span class="chevron" aria-hidden="true"></span></summary>
           <div class="submenu">
             @for (child of link.children; track child.path) {
-              <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenus()"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
+              <a [routerLink]="'/tabs/' + child.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="selectMenuPage('/tabs/' + child.path, $event)"><span class="submenu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="child.icon"/></svg></span><span class="submenu-copy"><strong>{{ child.label }}</strong><small>{{ child.description }}</small></span></a>
             }
           </div>
         </details>
       } @else {
-        <a [routerLink]="'/tabs/' + link.path" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenus()">{{ link.label }} <span aria-hidden="true">→</span></a>
+        <a [routerLink]="'/tabs/' + link.path" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{exact:true}" (click)="selectMenuPage('/tabs/' + link.path, $event)">{{ link.label }} <span aria-hidden="true">→</span></a>
       }
     }
   </nav>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IonTabs } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +23,17 @@ export class TabsPage {
     { label: 'Subjects & Modules', path: 'universities' },
   ];
 
-  constructor(private element: ElementRef<HTMLElement>) {}
+  constructor(private element: ElementRef<HTMLElement>, private router: Router) {}
+
+  selectMenuPage(path: string, event: MouseEvent): void {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    this.closeMenus();
+    // A repeated selection does not trigger Ionic's page-entry lifecycle.
+    if (!this.router.isActive(this.router.createUrlTree([path]), { paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored' })) return;
+    this.element.nativeElement.querySelectorAll<HTMLElement & { scrollToTop?: (duration: number) => Promise<void> }>('ion-content').forEach(content => {
+      if (!content.closest('.ion-page-hidden')) void content.scrollToTop?.(0);
+    });
+  }
 
   closeMenus() {
     this.menuOpen = false;

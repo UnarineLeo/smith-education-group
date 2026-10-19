@@ -1,10 +1,13 @@
-import { Directive, inject, OnInit } from '@angular/core';
+import { IonContent } from '@ionic/angular/standalone';
+import { Directive, inject, OnInit, ViewChild } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { addIcons } from 'ionicons';
 import { schoolOutline, peopleOutline, calendarOutline, barChartOutline, playCircleOutline, bulbOutline, arrowForwardOutline, arrowBackOutline, checkmarkOutline, heartOutline, flagOutline, compassOutline, locationOutline, mailOutline, closeOutline, searchOutline, closeCircleOutline } from 'ionicons/icons';
 
 @Directive()
 export abstract class ContentPage implements OnInit {
+  @ViewChild(IonContent) protected pageContent?: IonContent;
+  ionViewDidEnter(): void { void this.pageContent?.scrollToTop(0); }
   abstract readonly pageTitle: string;
   abstract readonly pageDescription: string;
   private readonly title = inject(Title);

@@ -377,6 +377,8 @@ export class Universities implements OnInit {
     this.showBackToTop = (event.detail.scrollTop ?? 0) > 500;
   }
 
+  ionViewDidEnter(): void { void this.content?.scrollToTop(0); }
+
   scrollToTop(): void {
     void this.content?.scrollToTop(450);
   }

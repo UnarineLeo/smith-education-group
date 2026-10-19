@@ -15,6 +15,23 @@ interface Tutor {
   biography: string[];
 }
 const tutors: Tutor[] = [
+{
+  "name": "Simile Fakazi",
+  "role": "Accounting Tutor",
+  "subjects": [
+    "Accounting"
+  ],
+  "universities": [
+    "University of Cape Town"
+  ],
+  "image": "assets/tutors/Simile Fakazi.jpeg",
+  "rotate": false,
+  "biography": [
+    "Simile Fakazi is a dedicated and passionate tutor with a BCom in Management Studies, majoring in Accounting, from the University of Cape Town.",
+    "With two years of tutoring experience and a background in academic mentorship, she is committed to helping learners build confidence, strengthen their understanding of challenging concepts, and achieve academic success.",
+    "Her patient, supportive, and learner-centred approach allows her to adapt to different learning needs and empower students to reach their full potential."
+  ]
+},
   {
     "name": "Kamogelo Mothapo",
     "role": "Economics Tutor",

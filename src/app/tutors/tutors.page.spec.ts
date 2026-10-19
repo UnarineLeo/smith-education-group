@@ -1,3 +1,5 @@
+import { By } from '@angular/platform-browser';
+import { IonContent } from '@ionic/angular/standalone';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TutorsPage } from './tutors.page';
@@ -26,4 +28,18 @@ describe('Tutor biography controls', () => {
       expect(buttons[0].getAttribute('aria-expanded')).toBe('false');
     }
   });
+  it('returns to the hero on page entry and includes Simile with Kwanda first', () => {
+    TestBed.configureTestingModule({ providers: [provideRouter([])] });
+    const fixture = TestBed.createComponent(TutorsPage);
+    fixture.detectChanges();
+    const content = fixture.debugElement.query(By.directive(IonContent)).componentInstance as IonContent;
+    const scroll = spyOn(content, 'scrollToTop').and.resolveTo();
+    fixture.componentInstance.ionViewDidEnter();
+    expect(scroll).toHaveBeenCalledWith(0);
+    const names = Array.from((fixture.nativeElement as HTMLElement).querySelectorAll('.tutor-info h3')).map(el => el.textContent);
+    expect(names[0]).toBe('Kwanda Camane');
+    expect(names).toContain('Simile Fakazi');
+    expect(names.length).toBe(8);
+  });
+
 });
