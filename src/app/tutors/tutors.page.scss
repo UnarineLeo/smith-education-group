@@ -101,3 +101,23 @@
   @media (max-width: 680px) { .tutor-filter-selects { grid-template-columns: 1fr; } header { flex-direction: column; } }
   @media (max-width: 480px) { padding: 20px 16px; .tutor-search-box { padding: 12px; } }
 }
+:host .tutor-grid { align-items:stretch; }
+:host .tutor-card { display:flex; flex-direction:column; }
+:host .tutor-portrait { height:auto; aspect-ratio:4 / 5; background:#edf2f5; flex-shrink:0; }
+:host .tutor-portrait::before { display:none; }
+:host .tutor-portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+:host .tutor-portrait img.rotate-portrait { position:absolute; width:125%; height:80%; max-width:none; top:50%; left:50%; transform:translate(-50%,-50%) rotate(90deg); object-position:center; }
+:host .tutor-info { display:flex; flex-direction:column; flex:1; padding:26px; }
+:host .tutor-info h3 { margin:0 0 10px; font-size:23px; }
+:host .tutor-info .tutor-role { font-size:13px; font-weight:650; line-height:1.6; color:#176c95; margin-bottom:16px; }
+:host .tutor-info .tutor-intro { font-size:14px; line-height:1.8; margin-bottom:24px; }
+:host .tutor-actions { display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin-top:auto; }
+@media(min-width:701px) and (max-width:1050px) { :host .tutor-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) { :host .tutor-grid { grid-template-columns:1fr; } }
+
+:host .tutor-biography { margin: -8px 0 24px; }
+:host .tutor-biography .biography-toggle { width: fit-content; padding: 10px 0; color: #176c95; font-size: 14px; font-weight: 650; cursor: pointer; }
+:host .tutor-biography .biography-toggle:focus-visible { outline: 3px solid #267da8; outline-offset: 4px; }
+:host .tutor-biography p { font-size: 14px; line-height: 1.8; margin: 12px 0 16px; }
+:host .biography-toggle { border:0; background:transparent; font-family:inherit; min-height:44px; text-align:left; }
+:host .tutor-biography [hidden] { display:none; }
