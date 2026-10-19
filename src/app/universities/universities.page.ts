@@ -5,18 +5,323 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IonContent, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { searchOutline, closeCircleOutline, arrowForwardOutline, arrowUpOutline } from 'ionicons/icons';
-import { universities, universityModules, schoolSubjects, schoolGrades } from '../education/education.data';
+const universities = [
+  {
+    "name": "University of the Witwatersrand",
+    "short": "Wits",
+    "image": "assets/logos/wits.svg",
+    "province": "Gauteng",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "University of Cape Town",
+    "short": "UCT",
+    "image": "assets/logos/uct.svg",
+    "province": "Western Cape",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "Stellenbosch University",
+    "short": "Stellies",
+    "image": "assets/logos/su.svg",
+    "province": "Western Cape",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "University of Pretoria",
+    "short": "UP",
+    "image": "assets/logos/up.svg",
+    "province": "Gauteng",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "Varsity College",
+    "short": "Varsity College",
+    "image": "",
+    "province": "Multiple provinces",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  }
+];
+
+const universityModules = [
+  {
+    "name": "Statistics",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Statistics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Economics",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Economics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Accounting",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Accounting, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Informatics",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Informatics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Computer Science",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Computer Science, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Taxation",
+    "code": null,
+    "university": "University of the Witwatersrand",
+    "short": "Wits",
+    "description": "Explore tutoring support for Taxation, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Statistics",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Statistics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Economics",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Economics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Accounting",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Accounting, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Informatics",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Informatics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Computer Science",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Computer Science, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Taxation",
+    "code": null,
+    "university": "University of Cape Town",
+    "short": "UCT",
+    "description": "Explore tutoring support for Taxation, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Statistics",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Statistics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Economics",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Economics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Accounting",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Accounting, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Informatics",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Informatics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Computer Science",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Computer Science, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Taxation",
+    "code": null,
+    "university": "Stellenbosch University",
+    "short": "Stellies",
+    "description": "Explore tutoring support for Taxation, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Statistics",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Statistics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Economics",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Economics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Accounting",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Accounting, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Informatics",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Informatics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Computer Science",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Computer Science, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Taxation",
+    "code": null,
+    "university": "University of Pretoria",
+    "short": "UP",
+    "description": "Explore tutoring support for Taxation, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Statistics",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Statistics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Economics",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Economics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Accounting",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Accounting, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Informatics",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Informatics, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Computer Science",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Computer Science, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  },
+  {
+    "name": "Taxation",
+    "code": null,
+    "university": "Varsity College",
+    "short": "Varsity College",
+    "description": "Explore tutoring support for Taxation, with help working through concepts, practice questions and revision. Share your module outline so we can confirm suitable support."
+  }
+];
+
+const schoolSubjects = [
+  "Physics",
+  "Maths",
+  "Economics",
+  "Life Science",
+  "Accounting"
+];
+
+const schoolGrades = [
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12
+];
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-universities',
   templateUrl: 'universities.page.html',
-  styleUrls: ['../programmes/programmes.page.scss', 'universities.page.scss'],
+  styleUrls: ['universities.page.scss'],
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, IonContent, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, IonFab, IonFabButton, FooterComponent],
 })
 export class Universities implements OnInit {
   @ViewChild(IonContent) private content?: IonContent;
+  readonly showFilters = false;
   readonly universityOptions = universities;
   readonly modules = universityModules;
   readonly moduleOptions = [...new Set([...this.modules.map(module => module.name), ...schoolSubjects])].sort();

@@ -1,0 +1,115 @@
+
+:host .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+:host .chips button {
+  background: transparent;
+  color: #516b7c;
+  border: 1px solid #cadfec;
+  padding: 10px 18px;
+  font-size: 11px;
+  border-radius: 30px;
+}
+:host .chips button.active {
+  background: var(--navy);
+  color: #f8f7ff;
+  border-color: var(--navy);
+}
+:host .article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+:host .article-card {
+  min-width: 0;
+}
+:host .article-card img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+:host .article-card > div {
+  padding: 23px 4px;
+}
+:host .article-card .eyebrow {
+  font-size: 9px;
+  margin-bottom: 14px;
+}
+:host .article-card .eyebrow span {
+  color: #516b7c;
+  letter-spacing: 1px;
+}
+:host .article-card h3 {
+  min-height: 55px;
+  font-size: 22px;
+}
+:host .article-card p {
+  font-size: 13px;
+  min-height: 65px;
+}
+@media (max-width: 700px) {
+  :host .chips {
+    gap: 7px;
+  }
+}
+@media (max-width: 700px) {
+  :host .chips button {
+    padding: 9px 12px;
+  }
+}
+@media (max-width: 700px) {
+  :host .article-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 700px) {
+  :host .article-card h3 {
+    min-height: 0;
+  }
+}
+@media (max-width: 700px) {
+  :host .article-card p {
+    min-height: 0;
+  }
+}
+@media (max-width: 700px) {
+  :host .article-card img {
+    height: 220px;
+  }
+}
+@media (max-width: 700px) {
+  :host .article-card > div {
+    padding-bottom: 0;
+  }
+}
+:host(.education-content.ion-page) .article-card img {
+  border-radius: 14px;
+}
+:host(.education-content.ion-page) .directory .chips {
+  max-height: 150px;
+  overflow: auto;
+  padding: 4px;
+}
+:host(.education-content.ion-page) .chips button {
+  min-height: 44px;
+}
+:host(.education-content.ion-page) .chips button:focus-visible {
+  outline: 3px solid #267da8;
+  outline-offset: 4px;
+}
+:host(.education-content.ion-page) .chips button {
+  min-height: 44px;
+  font-size: 13px;
+  padding: 10px 16px;
+}
+:host(.education-content.ion-page) .chips button:hover:not(.active) {
+  background: #eaf4fa;
+  border-color: #267da8;
+  color: #031d44;
+}
+

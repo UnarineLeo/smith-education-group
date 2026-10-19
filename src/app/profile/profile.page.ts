@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { getApp, getApps } from 'firebase/app';
 import { ApsCalculationResult, ApsCalculationService, ApsSubjectInput } from '../services/aps-calculation.service';
-import { INTEREST_OPTIONS, UNIVERSITY_OPTIONS } from '../shared/app-data';
+import { INTEREST_OPTIONS } from '../shared/app-data';
 import { FooterComponent } from '../footer/footer.component';
 
 type ProfileTab = 'personal' | 'nextOfKin' | 'password' | 'highSchoolSubjects' | 'documents' | 'account';
@@ -232,7 +232,7 @@ export class ProfilePage implements OnDestroy, AfterViewInit {
     courseChoice4: ''
   };
 
-  readonly apsUniversities = UNIVERSITY_OPTIONS.map((university) => university.value);
+  readonly apsUniversities = ['University of the Witwatersrand', 'University of Cape Town', 'Stellenbosch University', 'University of Pretoria', 'Varsity College'];
 
   requiredDocuments: RequiredDocumentRequirement[] = [
     {

@@ -1,75 +1,35 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IonContent, IonSegment, IonSegmentButton } from '@ionic/angular/standalone';
-
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
+import { IonContent } from '@ionic/angular/standalone';
 import { FooterComponent } from '../footer/footer.component';
 
 type LegalView = 'terms' | 'privacy' | 'popia';
 
 @Component({
-  selector: 'app-legal',
-  templateUrl: './legal.page.html',
-  styleUrls: ['./legal.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonSegment, IonSegmentButton, FooterComponent],
+  selector: 'app-legal', standalone: true,
+  templateUrl: './legal.page.html', styleUrls: ['./legal.page.scss'],
+  imports: [IonContent, RouterLink, FooterComponent],
 })
 export class LegalPage {
   activeView: LegalView = 'terms';
-
-  readonly effectiveDate = '18 March 2026';
-
-  constructor(private route: ActivatedRoute, private router: Router, private location: Location) {
-    this.route.url.subscribe((segments) => {
+  readonly lastUpdated = '15 October 2026';
+  readonly policies = [
+    { key: 'privacy', title: 'Privacy Policy', path: '/privacy' },
+    { key: 'terms', title: 'Terms of Service', path: '/terms' },
+    { key: 'popia', title: 'POPIA Notice', path: '/popia' },
+  ];
+  readonly information = {
+    privacy: { title: 'Privacy Policy', description: 'Your learning journey is personal. Here is how we handle the information you share with us.', summary: 'We use your information to respond to enquiries and support your learning. An enquiry saved on this website stays in your browser until you choose to contact us by email or WhatsApp.' },
+    terms: { title: 'Terms of Service', description: 'Clear expectations for tutoring, revision support and using our website.', summary: 'Explore support for Grades 4–12 and university modules. Contact us to discuss your needs; a session is booked only once the details have been agreed with you.' },
+    popia: { title: 'POPIA Notice', description: 'Understand your personal-information rights and how to get in touch about them.', summary: 'Smith Education Group (Pty) Ltd handles personal information in connection with tutoring enquiries and services. You can contact us about access, corrections or other privacy concerns.' },
+  };
+  constructor(route: ActivatedRoute, title: Title, meta: Meta) {
+    route.url.subscribe(segments => {
       const path = segments[0]?.path;
-      if (path === 'privacy') {
-        this.activeView = 'privacy';
-        return;
-      }
-
-      if (path === 'popia') {
-        this.activeView = 'popia';
-        return;
-      }
-
-      this.activeView = 'terms';
+      this.activeView = path === 'privacy' || path === 'popia' ? path : 'terms';
+      title.setTitle(`${this.information[this.activeView].title} | Smith Education Group`);
+      meta.updateTag({ name: 'description', content: this.information[this.activeView].description });
     });
-  }
-
-  async swapView(view: LegalView) {
-    this.activeView = view;
-    const routeMap: Record<LegalView, string> = {
-      terms: '/terms',
-      privacy: '/privacy',
-      popia: '/popia',
-    };
-
-    await this.router.navigate([routeMap[view]]);
-  }
-
-  onTabChange(value: string | number | null | undefined) {
-    if (value === 'back') {
-      void this.goBack();
-      return;
-    }
-
-    if (!this.isLegalView(value)) {
-      return;
-    }
-
-    void this.swapView(value);
-  }
-
-  async goBack() {
-    if (window.history.length > 1) {
-      this.location.back();
-      return;
-    }
-
-    await this.router.navigate(['/tabs/home']);
-  }
-
-  private isLegalView(value: string | number | null | undefined): value is LegalView {
-    return value === 'terms' || value === 'privacy' || value === 'popia';
   }
 }

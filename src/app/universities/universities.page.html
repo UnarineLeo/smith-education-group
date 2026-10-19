@@ -8,6 +8,7 @@
     <div class="page-hero-art" aria-hidden="true"><span class="hero-spark">✳</span><span class="art-caption">LEARN. GROW.<br>GO FURTHER.</span><span class="art-orbit"></span></div>
   </section>
   <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">Subjects &amp; Modules</span></nav>
+@if (showFilters) {
   <ion-card class="filter-card"><ion-card-content>
     <header class="filter-card-header">
       <div><span class="filter-eyebrow">Refine your results</span><h2>Find your subject</h2><p>Search subjects and modules, or choose your university to personalise your enquiry.</p></div>
@@ -21,8 +22,9 @@
       <label class="select-wrapper"><span class="filter-label">University</span><ion-select aria-label="University" placeholder="All universities" [(ngModel)]="selectedUniversities" [multiple]="true" interface="popover" class="custom-select" (ionChange)="applyFilters()"><ion-select-option *ngFor="let uni of universityOptions" [value]="uni.name">{{ uni.name }}</ion-select-option></ion-select></label>
     </div>
   </ion-card-content></ion-card>
+}
   <section class="catalogue-section wrap" aria-labelledby="university-modules-title">
-    <header class="catalogue-heading"><span class="eyebrow">UNIVERSITY SUPPORT</span><h2 id="university-modules-title">University modules</h2><p>Wits · UCT · Stellies · UP · Varsity College</p></header>
+    <header class="catalogue-heading"><span class="eyebrow">UNIVERSITY SUPPORT</span><h2 id="university-modules-title">University modules</h2></header>
     <p class="catalogue-count" aria-live="polite">{{ visibleModuleNames.length }} modules found</p>
     <div class="subject-card-grid">
       @for (name of visibleModuleNames; track name) {

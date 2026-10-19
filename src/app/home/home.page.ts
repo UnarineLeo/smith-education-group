@@ -1,604 +1,135 @@
-import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, 
- IonCardTitle, IonCardHeader, IonModal } from '@ionic/angular/standalone';
-import { Router, RouterLink, ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular/standalone';
-import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
+import { IonContent, IonIcon } from '@ionic/angular/standalone';
 import { FooterComponent } from '../footer/footer.component';
-import { LoginModalComponent } from '../login-modal/login-modal.component';
-import { RegisterModalComponent } from '../register-modal/register-modal.component';
-import { AuthService } from '../services/auth.service';
-import universitiesData from '../university-list/university-list.json';
-import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
-import { getAuth } from 'firebase/auth';
-
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonCardTitle, IonCardHeader, IonModal, RouterLink,
-    FooterComponent, LoginModalComponent, RegisterModalComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class HomePage implements OnInit, OnDestroy {
-  private readonly featuredUniversityOrder: string[] = [
-    'University of Cape Town',
-    'University of the Witwatersrand',
-    'University of Pretoria',
-    'University of Johannesburg',
-    'Stellenbosch University',
-    'University of the Western Cape'
-  ];
-
-  featuredUniversities: University[] = this.getFeaturedUniversities();
-  upcomingDeadlines: {
-    universityId: number;
-    universityName: string;
-    date: Date;
-    formattedDate: string;
-    daysLeft: number;
-  }[] = [];
-  // Counter properties
-  currentUniversities: number = 0;
-  currentStudents: number = 0;
-  currentSuccessRate: number = 0;
-  targetUniversities: number = 25;
-  targetStudents: number = 100;
-  targetSuccessRate: number = 99.9;
-  private animationInterval: any;
-
-  // Search properties
-  searchQuery: string = '';
-  selectedField: string = '';
-  selectedProvince: string = '';
-  isLoggedIn = false;
-  registrationPromptOpen = false;
-  loginModalOpen = false;
-  registerModalOpen = false;
-
-  // Study Fields Array
-  studyFields = STUDY_FIELDS;
-
-  // Provinces Array
-  provinces = PROVINCES;
-
-  private fragmentSubscription: Subscription | null = null;
-  private authSubscription: Subscription | null = null;
-  // Temporarily disabled while account registration is unavailable in navigation.
-  private readonly registrationPromptEnabled = false;
-  private registrationPromptTimeout: ReturnType<typeof setTimeout> | null = null;
-  private hasShownRegistrationPrompt = false;
-
-  constructor(
-    private router: Router,
-    private alertController: AlertController,
-    private activatedRoute: ActivatedRoute,
-    private authService: AuthService
-  ) {}
-
-  ngOnInit() {
-    this.upcomingDeadlines = this.getUpcomingDeadlines(6);
-    this.animateCounters();
-    this.subscribeToFragmentChanges();
-    this.subscribeToAuthState();
-    this.scheduleRegistrationPrompt();
+import { ContentPage } from '../shared/content-page';
+const services = [
+  {
+    "title": "University Tutoring",
+    "icon": "school-outline",
+    "text": "Expert support for the modules that matter to you.",
+    "detail": "Work through challenging concepts, practise module questions, and build a study plan around your university coursework."
+  },
+  {
+    "title": "School Tutoring",
+    "icon": "school-outline",
+    "text": "Personalised subject support for Grades 4–12.",
+    "detail": "Build understanding in Maths, Physics, Economics, Life Science and Accounting, with lessons suited to the learner’s grade and curriculum. Confirm subject availability for your grade on enquiry."
+  },
+  {
+    "title": "Private Tutoring",
+    "icon": "people-outline",
+    "text": "One-on-one sessions tailored to your learning needs.",
+    "detail": "Individual learning support shaped around your goals, pace, and areas of difficulty. Enquire about subject and tutor availability."
+  },
+  {
+    "title": "Revision Camps",
+    "icon": "calendar-outline",
+    "text": "Focused preparation. A more confident exam season.",
+    "detail": "Structured revision covering core concepts, practice questions, and exam technique. Enquire about upcoming dates and subjects."
   }
+];
 
-  ngOnDestroy() {
-    if (this.animationInterval) {
-      clearInterval(this.animationInterval);
-    }
-    if (this.fragmentSubscription) {
-      this.fragmentSubscription.unsubscribe();
-    }
-    if (this.authSubscription) {
-      this.authSubscription.unsubscribe();
-    }
-    if (this.registrationPromptTimeout) {
-      clearTimeout(this.registrationPromptTimeout);
-    }
+const universities = [
+  {
+    "name": "University of the Witwatersrand",
+    "short": "Wits",
+    "image": "assets/logos/wits.svg",
+    "province": "Gauteng",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "University of Cape Town",
+    "short": "UCT",
+    "image": "assets/logos/uct.png",
+    "province": "Western Cape",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "Stellenbosch University",
+    "short": "Stellies",
+    "image": "assets/logos/su.jpg",
+    "province": "Western Cape",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
+  },
+  {
+    "name": "University of Pretoria",
+    "short": "UP",
+    "image": "assets/logos/up.png",
+    "province": "Gauteng",
+    "modules": [
+      "Statistics",
+      "Economics",
+      "Accounting",
+      "Informatics",
+      "Computer Science",
+      "Taxation"
+    ]
   }
+];
 
-  private subscribeToAuthState() {
-    this.authSubscription = this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
-      this.isLoggedIn = isLoggedIn;
-
-      if (isLoggedIn) {
-        this.dismissRegistrationPrompt();
-      }
-    });
+@Component({ selector: 'app-home', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './home.page.html', styleUrls: ['./home.page.scss'] })
+export class HomePage extends ContentPage {
+  readonly pageTitle = "Empowering students. Building brighter futures.";
+  readonly pageDescription = "Academic support, personal guidance, and a little more confidence for the journey ahead.";
+  readonly testimonials = [
+  {
+    "name": "Thabo M.",
+    "context": "University Student",
+    "quote": "I used to struggle with Statistics and Economics, especially when it came to calculations and understanding graphs. The tutors explained everything in a way that actually made sense. I feel much more confident going into tests now."
+  },
+  {
+    "name": "Lerato P.",
+    "context": "Accounting Student",
+    "quote": "Accounting was one of my biggest challenges until I started attending these tutoring sessions. The tutor was patient and took me through each topic step by step. I finally understand financial statements and how to approach exam questions."
+  },
+  {
+    "name": "Naledi K.",
+    "context": "Informatics Student",
+    "quote": "The Informatics sessions really helped me understand databases, SQL and systems analysis. I liked that we worked through practical examples instead of just going over theory. It made my assignments so much easier to tackle."
+  },
+  {
+    "name": "Sipho D.",
+    "context": "Computer Science Student",
+    "quote": "I was completely lost when it came to programming and data structures. My tutor helped me understand the logic behind the code instead of just memorising solutions. I'm now able to solve problems on my own, which is a huge improvement."
+  },
+  {
+    "name": "Amanda N.",
+    "context": "Taxation Student",
+    "quote": "Taxation can be overwhelming with all the rules and calculations. The tutoring sessions helped me understand how to apply the concepts to different scenarios. The exam preparation was especially helpful, and I went into my assessment feeling prepared."
   }
-
-  private scheduleRegistrationPrompt() {
-    if (!this.registrationPromptEnabled) {
-      return;
-    }
-
-    this.registrationPromptTimeout = setTimeout(() => {
-      if (this.shouldShowRegistrationPrompt()) {
-        this.registrationPromptOpen = true;
-        this.hasShownRegistrationPrompt = true;
-      }
-    }, 10000);
+];
+  index = 0;
+  move(step: number): void { this.index = (this.index + step + this.testimonials.length) % this.testimonials.length; }
+  services = services;
+  universities = universities.filter(university => ['Wits', 'UCT', 'Stellies', 'UP'].includes(university.short));
+  scrollUniversities(track: HTMLElement, direction: number) {
+    const end = track.scrollWidth - track.clientWidth;
+    const next = direction > 0 && track.scrollLeft >= end - 2 ? 0
+      : direction < 0 && track.scrollLeft <= 2 ? end
+      : track.scrollLeft + direction * track.clientWidth;
+    track.scrollTo({ left: next, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
-
-  private shouldShowRegistrationPrompt(): boolean {
-    return !this.isLoggedIn && !this.hasShownRegistrationPrompt && !getAuth().currentUser;
-  }
-
-  dismissRegistrationPrompt() {
-    this.registrationPromptOpen = false;
-  }
-
-  openRegisterModal() {
-    this.registrationPromptOpen = false;
-    this.registerModalOpen = true;
-  }
-
-  openLoginModal() {
-    this.registrationPromptOpen = false;
-    this.loginModalOpen = true;
-  }
-
-  async handleLoginDismiss(event: { action: string; payload?: { email?: string; password?: string } } | null) {
-    if (!event) {
-      this.loginModalOpen = false;
-      return;
-    }
-
-    switch (event.action) {
-      case 'open-register':
-        this.loginModalOpen = false;
-        this.registerModalOpen = true;
-        break;
-      case 'google-login':
-        await this.authService.googleSignIn();
-        this.loginModalOpen = false;
-        break;
-      case 'forgot-password':
-        if (event.payload?.email) {
-          this.authService.forgotPassword(event.payload.email);
-        } else {
-          await this.authService.presentToast('Enter your email first');
-        }
-        break;
-      case 'login':
-        if (!event.payload?.email || !event.payload?.password) {
-          await this.authService.presentToast('Email and password are required');
-          return;
-        }
-
-        try {
-          await this.authService.loginFireAuth({
-            email: event.payload.email,
-            password: event.payload.password
-          });
-          this.loginModalOpen = false;
-        } catch {
-          // AuthService handles error toasts; keep modal open for correction.
-        }
-        break;
-      default:
-        this.loginModalOpen = false;
-        break;
-    }
-  }
-
-  async handleRegisterDismiss(event: {
-    action: string;
-    payload?: {
-      firstName?: string;
-      surname?: string;
-      email?: string;
-      password?: string;
-      confirmPassword?: string;
-      currentStudyLevel?: string;
-      interest?: string;
-      courseChoices?: string[];
-    };
-  } | null) {
-    if (!event) {
-      this.registerModalOpen = false;
-      return;
-    }
-
-    switch (event.action) {
-      case 'open-login':
-        this.registerModalOpen = false;
-        this.loginModalOpen = true;
-        break;
-      case 'google-register':
-        await this.authService.googleSignIn();
-        this.registerModalOpen = false;
-        break;
-      case 'register': {
-        const payload = event.payload;
-        if (!payload?.firstName || !payload?.surname || !payload?.email || !payload?.password || !payload?.confirmPassword) {
-          await this.authService.presentToast('Please complete all required fields');
-          return;
-        }
-
-        if (payload.password !== payload.confirmPassword) {
-          await this.authService.presentToast('Passwords do not match');
-          return;
-        }
-
-        try {
-          await this.authService.userRegistration({
-            displayName: `${payload.firstName} ${payload.surname}`.trim(),
-            email: payload.email,
-            password: payload.password,
-            currentStudyLevel: payload.currentStudyLevel,
-            interest: payload.interest ?? '',
-            courseChoices: payload.courseChoices ?? []
-          });
-          this.registerModalOpen = false;
-        } catch {
-          // AuthService handles error toasts; keep modal open for correction.
-        }
-        break;
-      }
-      default:
-        this.registerModalOpen = false;
-        break;
-    }
-  }
-
-  private subscribeToFragmentChanges() {
-    this.fragmentSubscription = this.activatedRoute.fragment.subscribe((fragment: string | null) => {
-      if (fragment) {
-        setTimeout(() => {
-          const element = document.getElementById(fragment);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
-      }
-    });
-  }
-
-  animateCounters() {
-    const duration = 2000;
-    const steps = 60;
-    const stepDuration = duration / steps;
-    let currentStep = 0;
-
-    this.animationInterval = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-
-      this.currentUniversities = Math.floor(this.targetUniversities * easeProgress);
-      this.currentStudents = Math.floor(this.targetStudents * easeProgress);
-      this.currentSuccessRate = Math.floor(this.targetSuccessRate * easeProgress);
-
-      if (currentStep >= steps) {
-        this.currentUniversities = this.targetUniversities;
-        this.currentStudents = this.targetStudents;
-        this.currentSuccessRate = this.targetSuccessRate;
-        clearInterval(this.animationInterval);
-      }
-    }, stepDuration);
-  }
-
-  searchUniversities() {
-    // Validate that at least one search criteria is provided
-    if (!this.searchQuery && !this.selectedField && !this.selectedProvince) {
-      this.showAlert('Please enter a search term or select filters');
-      return;
-    }
-
-    console.log('Searching universities:', {
-      query: this.searchQuery,
-      field: this.selectedField,
-      province: this.selectedProvince
-    });
-
-    // Navigate to universities page with search params
-    this.router.navigate(['/tabs/universities'], {
-      queryParams: {
-        q: this.searchQuery || undefined,
-        field: this.selectedField || undefined,
-        province: this.selectedProvince || undefined
-      }
-    });
-  }
-
-  async showAdvancedFilters() {
-    const alert = await this.alertController.create({
-      header: 'Advanced Filters',
-      message: 'Advanced filtering options coming soon! Filter by tuition fees, acceptance rates, programs, and more.',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
-  async showAlert(message: string) {
-    const alert = await this.alertController.create({
-      header: 'Search',
-      message: message,
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
-  startApplication() {
-    this.router.navigate(['/tabs/universities']);
-  }
-
-  exploreUniversities() {
-    this.router.navigate(['/tabs/home'], {
-      fragment: 'universities'
-    });
-  }
-
-  exploreMoreUniversities(){
-    this.router.navigate(['/tabs/universities']);
-  }
-
-  openProspectus(uni: University) {
-    this.router.navigate(['/tabs/prospectus', uni.id], {
-      queryParams: { from: 'home' },
-    });
-  }
-
-  // Helper method to get label from value
-  getFieldLabel(value: string): string {
-    const field = this.studyFields.find(f => f.value === value);
-    return field ? field.label : '';
-  }
-
-  getProvinceLabel(value: string): string {
-    const province = this.provinces.find(p => p.value === value);
-    return province ? province.label : '';
-  }
-
-  formatPrograms(fields: string[]): string {
-    return fields
-      .map(field => this.getFieldLabel(field) || field.replace(/-/g, ' '))
-      .map(label => label.replace(/\b\w/g, char => char.toUpperCase()))
-      .join(', ');
-  }
-
-  // Method to clear all filters
-  clearFilters() {
-    this.searchQuery = '';
-    this.selectedField = '';
-    this.selectedProvince = '';
-  }
-
-  private getFeaturedUniversities(): University[] {
-    const universities = universitiesData as University[];
-    const universitiesByName = new Map(universities.map(uni => [uni.name, uni]));
-
-    return this.featuredUniversityOrder
-      .map(name => universitiesByName.get(name))
-      .filter((uni): uni is University => !!uni);
-  }
-
-  private parseDate(dateString: string): Date | null {
-    const currentYear = new Date().getFullYear();
-    return this.parseDateForYear(dateString, currentYear);
-  }
-
-  private parseDateForYear(dateString: string, year: number): Date | null {
-    if (!dateString) return null;
-
-    const [dayPart, monthPart] = dateString.split('/');
-    const day = Number.parseInt(dayPart, 10);
-    const month = Number.parseInt(monthPart, 10);
-
-    if (Number.isNaN(day) || Number.isNaN(month) || day < 1 || day > 31 || month < 1 || month > 12) {
-      return null;
-    }
-
-    const date = new Date(year, month - 1, day);
-    if (date.getMonth() !== month - 1 || date.getDate() !== day) {
-      return null;
-    }
-
-    return date;
-  }
-
-  private getNextOccurrenceDate(dateString: string, fromDate: Date): Date | null {
-    const currentYearDate = this.parseDateForYear(dateString, fromDate.getFullYear());
-    if (!currentYearDate) {
-      return null;
-    }
-
-    if (currentYearDate >= fromDate) {
-      return currentYearDate;
-    }
-
-    return this.parseDateForYear(dateString, fromDate.getFullYear() + 1);
-  }
-
-  private getUpcomingDeadlines(limit: number): {
-    universityId: number;
-    universityName: string;
-    date: Date;
-    formattedDate: string;
-    daysLeft: number;
-  }[] {
-    const allUniversities = universitiesData as University[];
-    const today = this.getTodayDateOnly();
-    const dayMs = 24 * 60 * 60 * 1000;
-
-    return allUniversities
-      .map((uni) => {
-        const upcomingDate = this.getNextOccurrenceDate(uni.closingDate, today);
-        if (!upcomingDate) {
-          return null;
-        }
-
-        const daysLeft = Math.round((upcomingDate.getTime() - today.getTime()) / dayMs);
-
-        return {
-          universityId: uni.id,
-          universityName: uni.name,
-          date: upcomingDate,
-          formattedDate: this.formatDate(upcomingDate),
-          daysLeft
-        };
-      })
-      .filter((item): item is {
-        universityId: number;
-        universityName: string;
-        date: Date;
-        formattedDate: string;
-        daysLeft: number;
-      } => !!item)
-      .sort((a, b) => a.date.getTime() - b.date.getTime())
-      .slice(0, limit);
-  }
-
-  openDeadlineProspectus(universityId: number): void {
-    this.router.navigate(['/tabs/prospectus', universityId], {
-      queryParams: { from: 'home' },
-    });
-  }
-
-  getDeadlineCountdownLabel(daysLeft: number): string {
-    if (daysLeft <= 0) {
-      return 'Today';
-    }
-
-    if (daysLeft === 1) {
-      return 'Tomorrow';
-    }
-
-    return `In ${daysLeft} days`;
-  }
-
-  private formatDate(date: Date | null): string {
-    if (!date) return 'N/A';
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }).format(date);
-  }
-
-  private getTodayDateOnly(): Date {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  }
-
-  private getApplicationDisplay(uni: University): { label: string; value: string } {
-    const openingDate = this.parseDate(uni.openingDate);
-    const closingDate = this.parseDate(uni.closingDate);
-    const today = this.getTodayDateOnly();
-
-    const isOpenByOpening = !openingDate || today >= openingDate;
-    const isOpenByClosing = !closingDate || today <= closingDate;
-    const isOpen = isOpenByOpening && isOpenByClosing;
-
-    return {
-      label: 'Application Status',
-      value: isOpen ? 'Open' : 'Closed'
-    };
-  }
-
-  getApplicationMetricLabel(uni: University): string {
-    return this.getApplicationDisplay(uni).label;
-  }
-
-  getApplicationMetricValue(uni: University): string {
-    return this.getApplicationDisplay(uni).value;
-  }
-
-  isClosedStatusDisplay(uni: University): boolean {
-    const label = this.getApplicationMetricLabel(uni);
-    const value = this.getApplicationMetricValue(uni);
-    return label === 'Application Status' && value.toLowerCase() === 'closed';
-  }
-
-  isOpenStatusDisplay(uni: University): boolean {
-    const label = this.getApplicationMetricLabel(uni);
-    const value = this.getApplicationMetricValue(uni);
-    return label === 'Application Status' && value.toLowerCase() === 'open';
-  }
-
-  moreinfo = [
-    {
-      iconFile: 'books.png',
-      title: 'Centralized Applications',
-      description: 'Learn more about Smith Education Group and our mission to connect students with universities.'
-    },
-    {
-      iconFile: 'track.png',
-      title: 'Smart University Matching',
-      description: 'Get assistance with your university applications and other inquiries.'    
-    },
-    {
-      iconFile: 'document.png',
-      title: 'Real-time Tracking',
-      description: 'Access guides, articles, and tools to help you navigate the university application process.'
-    },
-    { 
-      iconFile: 'document.png',
-      title: 'Document Verification',
-      description: 'Stay updated with the latest news and announcements from Smith Education Group.'
-    },
-    {
-      iconFile: 'people.png',
-      title: 'Expert Guidance',
-      description: 'Join our community of students and share your experiences and tips.'
-    },
-    {
-      iconFile: 'shield.png',
-      title: 'Secure & Trusted',
-      description: 'Manage your account settings and preferences.'
-    }
-  ]
-
-  private formatDateToReadable(dateString: string): string {
-    if (!dateString) return 'N/A';
-    
-    const [day, month] = dateString.split('/');
-    const dayNum = parseInt(day, 10);
-    const monthNum = parseInt(month, 10);
-    
-    const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    
-    const getOrdinal = (n: number): string => {
-      if (n > 3 && n < 21) return 'th';
-      switch (n % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-      }
-    };
-    
-    if (monthNum < 1 || monthNum > 12) return 'N/A';
-    
-    const ordinal = getOrdinal(dayNum);
-    const monthName = monthNames[monthNum - 1];
-    
-    return `${dayNum} ${monthName}`;
-  }
-
-  getYearAndDates(uni: University): string {
-    const opening = this.formatDateToReadable(uni.openingDate);
-    const closing = this.formatDateToReadable(uni.closingDate);
-    return `${opening} - ${closing}`;
-  }
-
-  getApplicationFeeDisplay(uni: University): string {
-    if (uni.application_fee === 0 || uni.application_fee === null || uni.application_fee === undefined) {
-      return 'Free';
-    }
-    return `R${uni.application_fee.toLocaleString()}`;
-  }
-
 }

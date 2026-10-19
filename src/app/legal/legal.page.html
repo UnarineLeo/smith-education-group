@@ -1,159 +1,85 @@
 <ion-content [fullscreen]="true">
-  <section class="legal-hero smith-education-group-page-hero">
-    <div class="legal-hero-inner">
-      <p class="eyebrow">Policies</p>
-      <h1>
-        {{
-          activeView === 'terms'
-            ? 'Terms of Service'
-            : activeView === 'privacy'
-              ? 'Privacy Policy'
-              : 'POPIA Notice'
-        }}
-      </h1>
-      <p>
-        Please review the information below carefully. By using Smith Education Group, you agree to these terms and policies.
-      </p>
-    </div>
-  </section>
-
-  <section class="legal-shell">
-    <div class="legal-tabs-row">
-
-      <ion-segment
-        class="legal-tabs"
-        [value]="activeView"
-        (ionChange)="onTabChange($event.detail.value)">
-        <ion-segment-button value="back">
-          Back
-        </ion-segment-button>
-        <ion-segment-button value="terms">
-          Terms of Service
-        </ion-segment-button>
-        
-        <ion-segment-button value="privacy">
-          Privacy Policy
-        </ion-segment-button>
-        <ion-segment-button value="popia">
-          POPIA
-        </ion-segment-button>
-      </ion-segment>
-    </div>
-
+  <main class="policy-page">
+    <header class="policy-hero">
+      <div class="policy-wrap">
+        <nav class="policy-breadcrumbs" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">{{ information[activeView].title }}</span></nav>
+        <span class="eyebrow">SMITH EDUCATION GROUP / POLICIES</span>
+        <h1>{{ information[activeView].title }}<span>.</span></h1>
+        <p class="policy-description">{{ information[activeView].description }}</p>
+        <p class="policy-date">Last updated: <time datetime="2026-10-15">{{ lastUpdated }}</time></p>
+      </div>
+    </header>
+    <div class="policy-wrap policy-layout">
+      <aside class="policy-sidebar">
+        <nav aria-label="Policies"><span class="eyebrow">YOUR GUIDE</span>
+          @for (policy of policies; track policy.key) {
+            <a [routerLink]="policy.path" [class.active]="activeView === policy.key" [attr.aria-current]="activeView === policy.key ? 'page' : null">{{ policy.title }}</a>
+          }
+        </nav>
+        <div class="policy-help"><h2>Let’s clear things up.</h2><p>Have a question about these policies or your information?</p><a href="mailto:info@smithgroupeducation.co.za">Email our team</a><a href="https://wa.me/27624097103" target="_blank" rel="noopener noreferrer">WhatsApp +27 62 409 7103</a></div>
+      </aside>
+      <div class="policy-body">
+        <section class="policy-summary" aria-label="At a glance"><span class="eyebrow">AT A GLANCE</span><p>{{ information[activeView].summary }}</p></section>
     @if (activeView === 'terms') {
       <article class="legal-card" aria-label="Terms of Service">
-        <h2>Terms of Service</h2>
-        <p class="meta">Effective date: {{ effectiveDate }}</p>
-
-        <h3>1. Platform Scope</h3>
-        <p>
-          Smith Education Group is an information and guidance platform. University applications are completed on the various
-          university websites. We help by bringing university information into one space to reduce repeated searching,
-          support career guidance, and share useful university information.
-        </p>
-
-        <h3>2. User Responsibilities</h3>
-        <p>
-          You are responsible for checking deadlines, admission criteria, supporting documents, and final application
-          submissions on official university websites.
-        </p>
-
-        <h3>3. Accuracy Disclaimer</h3>
-        <p>
-          We work to keep information accurate and current, but requirements can change at any time. Always verify
-          details directly with the university.
-        </p>
-
-        <h3>4. Acceptable Use</h3>
-        <p>
-          You agree not to misuse the platform, interfere with service availability, or submit false information.
-        </p>
-
-        <h3>5. Limitation of Liability</h3>
-        <p>
-          Smith Education Group is not liable for decisions made by universities, missed deadlines, or outcomes caused by third-party
-          website changes.
-        </p>
+        <h2>Terms of Service</h2><p class="meta">Last updated: {{ lastUpdated }}</p>
+        <h3>1. About our services</h3>
+        <p>Smith Education Group (Pty) Ltd provides tutoring for Grades 4–12 and university students, one-to-one lessons and revision camps. School support includes Maths, Physics, Economics, Life Science and Accounting where appropriate to the learner’s grade. University support includes Statistics, Economics, Accounting, Informatics, Computer Science and Taxation. These terms apply to use of this website. Any tutoring arrangement is also subject to the booking details agreed with you.</p>
+        <h3>2. Enquiries and bookings</h3>
+        <p>An enquiry does not confirm a booking. We will discuss the subject, tutor availability, session format, fees and applicable cancellation or rescheduling terms before you commit. Contact us if you need to change an agreed session.</p>
+        <p>The website’s Save Enquiry Draft feature stores your details on your device only. It does not send a message or reserve a session. Use our email or WhatsApp contact links to get in touch.</p>
+        <h3>3. Learning and academic integrity</h3>
+        <p>Tutoring supports your understanding and independent work. We do not guarantee particular marks, admissions or examination outcomes. Students remain responsible for their submissions and must follow their school or university’s academic integrity rules.</p>
+        <h3>4. Learners under 18</h3>
+        <p>A parent or legal guardian should arrange tutoring for a learner under 18 and participate in decisions about sharing the learner’s information.</p>
+        <h3>5. Website information and acceptable use</h3>
+        <p>Use the website lawfully and provide accurate information. Do not interfere with its operation, access other people’s accounts or redistribute learning materials without permission. University names and logos identify the institutions students attend; they do not imply an official partnership or endorsement. Verify admissions requirements with the institution. Tutoring enquiries are separate from university applications.</p>
+        <h3>6. Your rights and concerns</h3>
+        <p>Nothing in these terms excludes rights or remedies that cannot lawfully be excluded under South African law. If you have a concern about a service, contact us with the details so we can work towards a resolution.</p>
+        <h3>7. Contact and updates</h3>
+        <p>Email <a href="mailto:info@smithgroupeducation.co.za">info&#64;smithgroupeducation.co.za</a> or WhatsApp <a href="https://wa.me/27624097103" target="_blank" rel="noopener noreferrer">+27 62 409 7103</a>. Changes to these website terms will be reflected in the last-updated date above.</p>
       </article>
     }
-
     @if (activeView === 'privacy') {
       <article class="legal-card" aria-label="Privacy Policy">
-        <h2>Privacy Policy</h2>
-        <p class="meta">Effective date: {{ effectiveDate }}</p>
-
-        <h3>1. Information We Collect</h3>
-        <p>
-          We may collect account details, profile data, and platform usage data needed to provide guidance features,
-          subject tracking, and personalized recommendations.
-        </p>
-
-        <h3>2. How We Use Information</h3>
-        <p>
-          We use your data to improve user experience, provide career guidance, and present university information in a
-          clear and centralized way.
-        </p>
-
-        <h3>3. Application Submission Clarification</h3>
-        <p>
-          Smith Education Group does not submit applications to universities on your behalf. Applications are completed on official
-          university websites.
-        </p>
-
-        <h3>4. Data Sharing</h3>
-        <p>
-          We do not sell personal data. We only share information when required for service delivery, legal compliance,
-          or with your explicit consent.
-        </p>
-
-        <h3>5. Contact</h3>
-        <p>
-          For privacy questions, contact support through the official support channels listed in the app.
-        </p>
+        <h2>Privacy Policy</h2><p class="meta">Last updated: {{ lastUpdated }}</p>
+        <h3>1. Who this policy covers</h3>
+        <p>This policy explains how Smith Education Group (Pty) Ltd handles information connected with this website and enquiries about academic support.</p>
+        <h3>2. Information you provide</h3>
+        <p>When you contact us about tutoring, the information you choose to share may include your name, email, phone number, university or school, subject, grade or study level, and message. If you use account and profile features, you may also provide login details, academic interests, subjects and marks. Share only the information needed for your request; avoid sending identity documents, financial details or sensitive records unless specifically required through an agreed channel.</p>
+        <h3>3. Why we use information</h3>
+        <p>We use information to respond to enquiries, discuss suitable tutoring, arrange agreed support, manage accounts and provide requested academic guidance. Information needed for a particular service will be explained when it is requested.</p>
+        <h3>4. Saved enquiries and browser storage</h3>
+        <p>Saving an enquiry draft stores its contents in your browser’s local storage. That action does not send the enquiry to us. The draft stays on that browser until you delete it using Delete saved draft or clear the site’s browser data. Avoid saving personal details on a shared device. Account features may also use browser storage to maintain a sign-in session.</p>
+        <h3>5. Service providers and external communications</h3>
+        <p>Account and profile features use Google Firebase authentication and database services. Email and WhatsApp messages are handled through the respective communication providers as well as by our team. These providers may process information outside South Africa. Their privacy terms also apply when you use their services.</p>
+        <p>For tutoring enquiries, relevant learning needs and contact details may need to be shared with the tutor or team member arranging your support. Such sharing should be limited to what is needed for that purpose or a legal obligation. Contact us if you would like details about how information related to your enquiry is handled.</p>
+        <h3>6. Retention and security</h3>
+        <p>Enquiry and service records should be kept only for as long as needed for their purpose or a legal requirement. You can ask us to review or delete records relating to you. No online channel is completely secure: protect your login details and tell us promptly if you suspect unauthorised access.</p>
+        <h3>7. Children and privacy requests</h3>
+        <p>A parent or legal guardian should contact us on behalf of learners under 18. For access, correction or deletion requests, email <a href="mailto:info@smithgroupeducation.co.za">info&#64;smithgroupeducation.co.za</a>. We may need to confirm your identity before disclosing or changing personal information. The POPIA notice explains your rights and the complaints process.</p>
       </article>
     }
-
     @if (activeView === 'popia') {
       <article class="legal-card" aria-label="POPIA Notice">
-        <h2>POPIA Notice</h2>
-        <p class="meta">Effective date: {{ effectiveDate }}</p>
-
-        <h3>1. Purpose</h3>
-        <p>
-          This notice explains how Smith Education Group processes personal information in accordance with South Africa's Protection
-          of Personal Information Act (POPIA).
-        </p>
-
-        <h3>2. Information Processed</h3>
-        <p>
-          We process account details, profile information, platform activity, and support communications required to
-          deliver guidance features and improve service quality.
-        </p>
-
-        <h3>3. Lawful Basis and Use</h3>
-        <p>
-          Personal information is processed to provide requested services, maintain platform security, comply with
-          legal obligations, and support legitimate operational needs.
-        </p>
-
-        <h3>4. Data Subject Rights</h3>
-        <p>
-          You may request access, correction, deletion, or restriction of personal information, and you may object to
-          certain processing where applicable under POPIA.
-        </p>
-
-        <h3>5. Retention and Safeguards</h3>
-        <p>
-          We retain personal information only as long as necessary for legitimate business or legal purposes and apply
-          reasonable technical and organizational safeguards to protect that information.
-        </p>
-
-        <h3>6. Contact</h3>
-        <p>
-          For POPIA-related requests or concerns, contact support through the official channels listed in the app.
-        </p>
+        <h2>POPIA Notice</h2><p class="meta">Last updated: {{ lastUpdated }}</p>
+        <h3>1. Responsible party</h3>
+        <p>Smith Education Group (Pty) Ltd is responsible for personal information it processes when handling your enquiries and providing its services. Direct POPIA enquiries to <a href="mailto:info@smithgroupeducation.co.za?subject=POPIA%20enquiry">info&#64;smithgroupeducation.co.za</a>, or contact us on WhatsApp at <a href="https://wa.me/27624097103" target="_blank" rel="noopener noreferrer">+27 62 409 7103</a>.</p>
+        <h3>2. Purpose and lawful processing</h3>
+        <p>We process contact, institution and learning-related information for enquiries, agreed academic support and account services. Processing must have a lawful basis, such as consent, steps to fulfil an agreement or a legal obligation. Providing information is voluntary, but missing details may prevent us from responding or arranging support.</p>
+        <h3>3. Your rights</h3>
+        <p>Subject to POPIA, you may request access to your information, correction of inaccurate information, deletion where applicable, or object to certain processing. Where processing relies on consent, you may withdraw that consent. Withdrawal does not invalidate earlier lawful processing.</p>
+        <h3>4. How to make a request</h3>
+        <p>Email us with the subject “POPIA request”, describe the request and provide a way to contact you. Do not include unnecessary sensitive information. We may ask for proportionate identity verification and will explain any information we are legally required to retain.</p>
+        <h3>5. Safeguards and children’s information</h3>
+        <p>POPIA requires reasonable safeguards, appropriate retention and lawful handling of children’s information and cross-border transfers. A parent or legal guardian should arrange support for a minor. Our Privacy Policy describes the website’s local enquiry storage and service providers.</p>
+        <h3>6. Complaints</h3>
+        <p>You may raise a concern with us or lodge a complaint with South Africa’s <a href="https://inforegulator.org.za/complaints/" target="_blank" rel="noopener noreferrer">Information Regulator</a>. Read the <a href="https://www.justice.gov.za/legislation/acts/2013-004.pdf" target="_blank" rel="noopener noreferrer">Protection of Personal Information Act 4 of 2013</a> for the governing legislation.</p>
       </article>
     }
-  </section>
+      </div>
+    </div>
+    <section class="policy-contact policy-wrap"><div><span class="eyebrow">HERE TO HELP</span><h2>Questions about learning with us?</h2><p>Talk to our team about your subject, your goals or these policies.</p></div><a class="policy-button" routerLink="/tabs/contact-us">Contact Us</a></section>
+  </main>
   <app-footer/>
 </ion-content>

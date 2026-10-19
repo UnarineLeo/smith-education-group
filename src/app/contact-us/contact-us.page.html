@@ -1,79 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Contact Us</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <main class="page-contact">
+<section class="page-hero wrap"><div class="page-hero-copy"><span class="eyebrow">SMITH EDUCATION GROUP / CONTACT US</span><h1>{{ pageTitle }}<span class="title-dot">.</span></h1><p>{{ pageDescription }}</p></div><div class="page-hero-art" aria-hidden="true"><span class="hero-spark">✳</span><span class="art-caption">LEARN. GROW.<br>GO FURTHER.</span><span class="art-orbit"></span></div></section>
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">{{ pageTitle }}</span></nav>
+        <section class="section wrap contact-grid"><div><span class="eyebrow">LET’S TALK ABOUT YOUR NEXT STEP</span><h2>Prepare your enquiry.</h2><p class="form-notice">Organise your learning goals and save your enquiry on this device. Saving does not send it to our team.</p><form #enquiryForm="ngForm" #enquiryElement (ngSubmit)="saveEnquiry(enquiryForm, enquiryElement)" novalidate><p class="required-note">Fields marked * are required. Your draft stays on this device.</p><div class="form-row"><label>Full name <span>*</span><input pattern=".*\S.*" name="name" #nameField="ngModel" [attr.aria-invalid]="nameField.invalid && nameField.touched" aria-describedby="name-error" [(ngModel)]="enquiry.name" required autocomplete="name" placeholder="Your full name"/><small id="name-error" class="field-error" *ngIf="nameField.invalid && nameField.touched">Enter your full name.</small></label><label>Email address <span>*</span><input type="email" name="email" #emailField="ngModel" [attr.aria-invalid]="emailField.invalid && emailField.touched" aria-describedby="email-error" [(ngModel)]="enquiry.email" required email autocomplete="email" placeholder="you@example.com"/><small id="email-error" class="field-error" *ngIf="emailField.invalid && emailField.touched">Enter a valid email address.</small></label></div><div class="form-row"><label>Phone number<input type="tel" name="phone" [(ngModel)]="enquiry.phone" autocomplete="tel" placeholder="Optional"/></label><label>Type of enquiry <span>*</span><select name="type" #typeField="ngModel" [attr.aria-invalid]="typeField.invalid && typeField.touched" aria-describedby="type-error" [(ngModel)]="enquiry.type" required><option value="">Select an option</option><option *ngFor="let service of services">{{ service.title }}</option><option>University Partnership</option><option>Share Your Story</option><option>General Enquiry</option></select><small id="type-error" class="field-error" *ngIf="typeField.invalid && typeField.touched">Choose an enquiry type.</small></label></div><label>University/School <span class="optional-label">(optional)</span><input type="text" name="university" [(ngModel)]="enquiry.university" placeholder="Enter your university or school" autocomplete="organization"/></label><label>Message <span>*</span><textarea pattern="[\s\S]*\S[\s\S]*" name="message" #messageField="ngModel" [attr.aria-invalid]="messageField.invalid && messageField.touched" aria-describedby="message-error" [(ngModel)]="enquiry.message" required rows="6" placeholder="Tell us a little about the support you’re looking for…"></textarea><small id="message-error" class="field-error" *ngIf="messageField.invalid && messageField.touched">Tell us what support you need.</small></label><label class="consent"><input type="checkbox" name="consent" [(ngModel)]="enquiry.consent" required/><span>I agree to save these details on this device. I can delete the draft below.</span></label><small class="field-error" *ngIf="enquiryForm.submitted && !enquiry.consent">Please agree to saving your draft on this device.</small><button class="button gold" type="submit">Save Enquiry Draft <ion-icon name="arrow-forward-outline"/></button><div class="draft-actions"><button type="button" class="text-link" (click)="restoreDraft()">Restore saved draft</button><button type="button" class="text-link delete-draft" (click)="clearDraft()">Delete saved draft</button></div><p class="form-status" role="status">{{ formStatus }}</p></form></div><aside class="contact-info"><h3>Contact Information</h3><div class="contact-item"><ion-icon name="mail-outline"/><div><strong>Email</strong><p><a href="mailto:info@smithgroupeducation.co.za">info&#64;smithgroupeducation.co.za</a></p></div></div><div class="contact-item"><ion-icon name="logo-whatsapp"/><div><strong>WhatsApp</strong><p><a href="https://wa.me/27624097103" target="_blank" rel="noopener noreferrer">+27 62 409 7103</a></p></div></div><div class="contact-item"><ion-icon name="school-outline"/><div><strong>Learning support</strong><p>Grades 4–12 and university subjects</p></div></div><div class="contact-item"><ion-icon name="location-outline"/><div><strong>Location</strong><p>South Africa</p><small>Support shaped around your learning needs</small></div></div><div class="partnership"><span class="eyebrow">GROW WITH US</span><h3>University partnerships</h3><p>Interested in supporting more students? Tell us about your institution and how you would like to collaborate.</p><button class="button navy" (click)="preparePartnership(enquiryElement)">Partnership Enquiry</button></div></aside></section>
+  </main>
+  <app-footer/>
 
-<ion-content [fullscreen]="true">
-  <section class="contact-hero smith-education-group-page-hero">
-    <div class="contact-hero-inner">
-      <span class="hero-eyebrow">Smith Education Group Support</span>
-      <h1>Let’s get you the help you need</h1>
-      <p>
-        Whether you have a question about your profile, programmes, or university information,
-        our team is ready to point you in the right direction.
-      </p>
-      <div class="support-status">
-        <span class="status-dot"></span>
-        Student support
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section">
-    <div class="section-heading">
-      <span class="section-eyebrow">Contact channels</span>
-      <h2>Get in touch</h2>
-      <p>For the fastest response, include the email address linked to your Smith Education Group profile.</p>
-    </div>
-
-    <div class="contact-grid">
-      <ion-card class="contact-card email-card">
-        <ion-card-header>
-          <div class="contact-icon email-icon"><ion-icon name="mail-outline"></ion-icon></div>
-          <span class="channel-label">Best for detailed questions</span>
-          <ion-card-title>Email Support</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>For account, platform, or general questions, check back for our contact details.</p>
-          <p>Support contact details will be available here soon.</p>
-        </ion-card-content>
-      </ion-card>
-
-
-
-
-
-      <!-- <ion-card class="contact-card">
-        <ion-card-header>
-          <ion-card-title>Phone</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Speak to our support team directly for urgent issues.</p>
-          <ion-button href="tel:+27110000000" class="contact-btn" shape="round">
-            +27 11 000 0000
-          </ion-button>
-        </ion-card-content>
-      </ion-card> -->
-    </div>
-  </section>
-
-  <section class="contact-section muted">
-    <div class="guidance-card">
-      <div>
-        <span class="section-eyebrow">Good to know</span>
-        <h2>University applications remain with each institution</h2>
-        <p>
-          Smith Education Group helps you discover universities and programmes in one place. Final applications
-          and admission decisions are handled directly by each university.
-        </p>
-      </div>
-      <ion-button href="/tabs/universities" class="contact-btn guidance-btn" shape="round">
-        Explore Universities
-        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
-      </ion-button>
-    </div>
-  </section>
-
-  <app-footer></app-footer>
 </ion-content>

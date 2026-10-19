@@ -1,0 +1,15 @@
+<ion-content>
+  <main class="page-stories">
+<section class="page-hero wrap"><div class="page-hero-copy"><span class="eyebrow">SMITH EDUCATION GROUP / SUCCESS STORIES</span><h1>{{ pageTitle }}<span class="title-dot">.</span></h1><p>{{ pageDescription }}</p></div><div class="page-hero-art" aria-hidden="true"><span class="hero-spark">✳</span><span class="art-caption">LEARN. GROW.<br>GO FURTHER.</span><span class="art-orbit"></span></div></section>
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a routerLink="/tabs/home">Home</a><span>/</span><span aria-current="page">{{ pageTitle }}</span></nav>
+        <section class="section wrap student-testimonials">
+          @if (testimonials.length) {
+            <div class="testimony-grid"><article class="testimony-card" *ngFor="let testimonial of testimonials"><blockquote>{{ testimonial.quote }}</blockquote><p class="story-byline">{{ testimonial.name }} · {{ testimonial.context }}</p></article></div>
+          } @else {
+            <div class="testimonial-invitation"><span class="eyebrow">YOUR EXPERIENCE MATTERS</span><h2>Tell us about your learning journey.</h2><p>Have you studied with Smith Education Group? Share what helped you, what changed and what you would tell another student considering tutoring.</p><a class="button gold" routerLink="/tabs/contact-us" [queryParams]="{type: 'Share Your Story'}">Share your experience <ion-icon name="arrow-forward-outline"/></a></div>
+          }
+        </section>
+  </main>
+  <app-footer/>
+
+</ion-content>

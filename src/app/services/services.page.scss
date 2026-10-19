@@ -1,0 +1,184 @@
+
+:host .service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+:host .service-card {
+  background: #e7f5ff;
+  padding: 36px;
+  position: relative;
+  border-radius: 18px;
+  transition: transform 0.2s;
+}
+:host .service-card:nth-child(3n+2) {
+  background: #edf0ff;
+}
+:host .service-card:nth-child(3n) {
+  background: #e1f2ff;
+}
+:host .service-card:hover {
+  transform: translateY(-5px);
+}
+:host .service-card > ion-icon {
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+:host .card-number {
+  position: absolute;
+  right: 30px;
+  top: 35px;
+  color: #516b7c;
+  font-size: 11px;
+}
+:host .service-card p {
+  font-size: 14px;
+  min-height: 50px;
+}
+@media (max-width: 1000px) {
+  :host .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  :host .service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 700px) {
+  :host .service-card {
+    padding: 30px;
+  }
+}
+@media (max-width: 700px) {
+  :host .service-card p {
+    min-height: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :host .service-card {
+    transition: none;
+  }
+}
+:host .learning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+:host .learning-card {
+  background: #fff;
+  border: 1px solid #e3e7eb;
+  border-radius: 20px;
+  padding: 30px;
+}
+:host .learning-card h3 {
+  color: #102c46;
+  font-size: 25px;
+  margin: 14px 0;
+}
+:host .learning-card p {
+  line-height: 1.75;
+  color: #506174;
+}
+:host .school-card {
+  background: #f8f4e9;
+}
+:host .learning-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+:host .learning-subjects a {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid #d3dce3;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #102c46;
+  background: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+:host .learning-subjects a:hover {
+  border-color: #9a741d;
+  background: #fff9e7;
+}
+:host .grade-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: #102c46;
+}
+:host .grade-picker select {
+  padding: 10px 16px;
+  border: 1px solid #bdc8d2;
+  border-radius: 8px;
+  background: #fff;
+  color: #102c46;
+}
+@media (max-width: 640px) {
+  :host .learning-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  :host .learning-card {
+    padding: 24px;
+  }
+}
+:host .learning-card {
+  box-shadow: 0 8px 30px rgba(16, 44, 70, 0.04);
+}
+:host .learning-subjects a:focus-visible {
+  outline: 3px solid #a37b20;
+  outline-offset: 3px;
+}
+:host .grade-picker select:focus-visible {
+  outline: 3px solid #a37b20;
+  outline-offset: 3px;
+}
+:host .service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+:host .service-grid > article {
+  flex: 1 1 calc(25% - 24px);
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  :host .service-grid > article {
+    flex-basis: calc(50% - 24px);
+  }
+}
+@media (max-width: 640px) {
+  :host .service-grid > article {
+    flex: 1 1 100%;
+  }
+}
+:host(.education-content.ion-page) .service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+:host(.education-content.ion-page) .service-grid > article {
+  flex: 1 1 calc(25% - 24px);
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  :host(.education-content.ion-page) .service-grid > article {
+    flex-basis: calc(50% - 24px);
+  }
+}
+@media (max-width: 640px) {
+  :host(.education-content.ion-page) .service-grid > article {
+    flex: 1 1 100%;
+  }
+}
+

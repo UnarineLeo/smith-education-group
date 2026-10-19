@@ -1,239 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <!-- Hero Section -->
-  <div class="hero-section smith-education-group-page-hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-
-      <!-- Two-column layout: text left, Lottie right -->
-      <div class="hero-inner">
-        <div class="hero-text">
-          <span class="hero-eyebrow">Plan your future with Smith Education Group</span>
-          <h1 class="hero-title">
-            Your Gateway to<br>
-            <span class="highlight">South African Universities</span>
-          </h1>
-          <p class="hero-subtitle">
-            Apply to multiple universities across South Africa from one central platform.
-            Simplify your journey to higher education with Smith Education Group.
-          </p>
-
-          <div class="hero-buttons">
-            <ion-button size="large" class="start-btn" shape="round" routerLink="/tabs/programmes">
-              Explore Programmes
-              <ion-icon slot="end" name="arrow-forward"></ion-icon>
-            </ion-button>
-            <ion-button size="large" fill="outline" class="explore-btn" shape="round" routerLink="/tabs/universities">
-              Explore Universities
-              <ion-icon slot="end" name="search"></ion-icon>
-            </ion-button>
-          </div>
+<ion-content>
+  <main class="page-home">
+      <div class="hero-stage">
+      <section class="home-hero wrap">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot"></span> PERSONAL TUTORING. REAL UNDERSTANDING.</span>
+          <h1>A little support.<br>A <em>big difference.</em></h1>
+          <p>Turn “I don’t get it” into “I’ve got this.” Personal tutoring and focused revision to help you feel ready for your next lecture, assignment, or exam.</p>
+          <div class="actions"><a class="button gold" routerLink="/tabs/services">Explore Our Programmes <ion-icon name="arrow-forward-outline"/></a><a class="button outline" routerLink="/tabs/contact-us">Enquire Now</a></div>
+          <div class="hero-benefits"><span><ion-icon name="checkmark-outline"/> Your pace</span><span><ion-icon name="checkmark-outline"/> Your goals</span><span><ion-icon name="checkmark-outline"/> Your next step</span></div>
         </div>
-
-        <!-- Animated Stats Section -->
-        <div class="stats-section">
-          <div class="stat-item">
-            <h2 class="stat-number">{{ currentUniversities }}+</h2>
-            <p class="stat-label">Universities</p>
-          </div>
-          <div class="stat-item">
-            <h2 class="stat-number">{{ currentStudents }}+</h2>
-            <p class="stat-label">Students</p>
-          </div>
-          <div class="stat-item">
-            <h2 class="stat-number">{{ currentSuccessRate }}%</h2>
-            <p class="stat-label">Success Rate</p>
-          </div>
+        <div class="hero-visual">
+          <div class="hero-photo" role="img" aria-label="Students learning and sharing ideas together"></div>
+          <div class="lesson-tag"><span class="note-icon"><ion-icon name="bulb-outline"/></span><span>That lightbulb moment.<strong>Let’s find yours.</strong></span></div>
+          <div class="floating-note"><span class="note-icon"><ion-icon name="school-outline"/></span><div><strong>Big goals. Personal support.</strong><span>Learning built around you.</span></div></div>
+          <span class="visual-spark" aria-hidden="true">✳</span>
         </div>
-
-        <!-- Lottie Animation -->
-        <div class="hero-lottie">
-          <dotlottie-player
-            src="../../assets/lottiefiles/studydesk.json"
-            autoplay
-            loop
-            style="width: 100%; height: 100%;">
-          </dotlottie-player>
-        </div>
+      </section>
       </div>
-    </div>
-  </div>
+      <section class="section wrap home-support"><div class="section-heading"><div><span class="eyebrow">SUPPORT THAT FITS YOUR LIFE</span><h2>Your goals. Your way to learn.</h2></div><p>Whether you’re finding your feet or preparing for your next exam, you don’t have to figure it all out alone.</p></div><div class="quick-services"><a routerLink="/tabs/services" *ngFor="let service of services.slice(0, 4); let i = index"><span class="service-top"><ion-icon [name]="service.icon"/><span>0{{ i + 1 }}</span></span><h3>{{ service.title }}</h3><p>{{ service.text }}</p><span class="card-link">Explore support <span>→</span></span></a></div></section>
+      <section class="section wrap university-home"><div class="section-heading"><div><span class="eyebrow">FOR YOUR UNIVERSITY JOURNEY</span><h2>Your campus. Your next chapter.</h2></div><a class="text-link" routerLink="/tabs/universities">Explore subjects & modules <span>→</span></a></div><div class="university-strip home-university-logos" aria-label="Universities"><a *ngFor="let uni of universities" routerLink="/tabs/universities" [queryParams]="{university: uni.short}"><img class="university-logo strip-logo" [src]="uni.image" [alt]="uni.name + ' logo'" loading="lazy"/></a></div></section>
+      <section class="section wrap home-testimonies"><div class="section-heading"><div><span class="eyebrow">STUDENT TESTIMONIALS</span><h2>What our students say.</h2></div><a class="text-link" routerLink="/tabs/success-stories">Read student testimonials →</a></div><section class="progress-carousel" role="region" aria-roledescription="carousel" aria-label="Student testimonials">
+  <div aria-live="polite" aria-atomic="true"><article class="testimony-card progress-slide" role="group" aria-roledescription="slide" [attr.aria-label]="(index + 1) + ' of ' + testimonials.length">
+    <blockquote class="learning-benefit">“{{ testimonials[index].quote }}”</blockquote>
+    <p class="story-byline"><strong>{{ testimonials[index].name }}</strong> · {{ testimonials[index].context }}</p>
+  </article></div>
+  <div class="progress-controls"><button type="button" aria-label="Previous testimonial" (click)="move(-1)"><ion-icon name="arrow-back-outline"/></button><div class="progress-dots"><button *ngFor="let testimonial of testimonials; let i = index" type="button" [class.active]="index === i" [attr.aria-label]="'Show testimonial from ' + testimonial.name" [attr.aria-pressed]="index === i" (click)="index = i"></button></div><button type="button" aria-label="Next testimonial" (click)="move(1)"><ion-icon name="arrow-forward-outline"/></button></div>
+</section></section>
 
-  <!-- Find Your Perfect University Section -->
+  </main>
+  <app-footer/>
 
-
-  <div class="search-section" id="universities">
-    <div class="search-container">
-      <h2 class="section-title">Top South African Universities</h2>
-      <p class="section-subtitle">
-        Discover leading institutions across the country, from world-renowned research universities
-        to specialized colleges offering diverse academic programs.
-      </p>
-    </div>
-  </div>
-
-  <div class="university-cards">
-    @for (uni of featuredUniversities; track uni.id; let index = $index) {
-      <ion-card class="university-spotlight-card">
-        <img class="card-image university-logo" [src]="uni.image" [alt]="uni.name + ' logo'" />
-
-        <ion-card-content>
-          <div class="card-header-row">
-            <h3 class="card-title">{{ uni.name }}</h3>
-            <span class="rank-badge">#{{ index + 1 }}</span>
-          </div>
-
-          <p class="card-location">{{ uni.suburb }}, {{ uni.province }}</p>
-
-          <div class="card-metrics">
-            <div class="metric">
-              <span class="metric-label">Application Dates</span>
-              <span class="metric-value">{{ getYearAndDates(uni) }}</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Application Fee</span>
-              <span class="metric-value">{{ getApplicationFeeDisplay(uni) }}</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">{{ getApplicationMetricLabel(uni) }}</span>
-              <span class="metric-value" [class.closed-status-text]="isClosedStatusDisplay(uni)" [class.open-status-text]="isOpenStatusDisplay(uni)">
-                {{ getApplicationMetricValue(uni) }}
-              </span>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <ion-button fill="outline" class="learn-more-btn" (click)="openProspectus(uni)">
-              Learn More
-            </ion-button>
-            <ion-button class="apply-now-btn" [href]="uni.link" target="_blank" rel="noopener noreferrer">
-              Apply Now
-            </ion-button>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    }
-  </div>
-
-  <div class="more-universities-cta">
-    <ion-button class="view-more-universities-btn" (click)="exploreMoreUniversities()">
-      View More Universities
-    </ion-button>
-  </div>
-
-  <div class="search-section">
-    <div class="search-container">
-      <h2 class="section-title">Upcoming Deadlines</h2>
-      <p class="section-subtitle">
-        Stay ahead with the next six university application deadlines from today.
-      </p>
-    </div>
-  </div>
-
-  <div class="deadlines-grid" id="deadlines">
-    @for (deadline of upcomingDeadlines; track deadline.universityId) {
-      <ion-card class="deadline-card">
-        <ion-card-content>
-          <p class="deadline-kicker">Application Deadline</p>
-          <h3 class="deadline-uni">{{ deadline.universityName }}</h3>
-          <p class="deadline-date">{{ deadline.formattedDate }}</p>
-          <span class="deadline-pill">{{ getDeadlineCountdownLabel(deadline.daysLeft) }}</span>
-
-          <div class="deadline-actions">
-            <ion-button class="deadline-apply-btn" (click)="openDeadlineProspectus(deadline.universityId)">
-              View Prospectus
-            </ion-button>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    }
-  </div>
-
-  <div class="search-section">
-    <div class="search-container">
-      <h2 class="section-title">Why Choose Smith Education Group?</h2>
-      <p class="section-subtitle">
-        We've revolutionized the university application process in South Africa, making it easier
-        and more efficient for students to pursue their dreams.
-      </p>
-    </div>
-  </div>
-
-  <div class="cards-grid">
-    @for(info of moreinfo; track info.title){
-      <ion-card class="info-card">
-        <ion-card-header class="info-card-header">
-          <img class="info-icon" [src]="'assets/icon/' + info.iconFile" [alt]="info.title + ' icon'" />
-          <ion-card-title class="info-card-title">{{info.title}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="info-card-content">{{info.description}}</ion-card-content>
-      </ion-card>
-    }
-  </div>
-
-  <ion-modal
-    [isOpen]="registrationPromptOpen"
-    cssClass="registration-promo-modal"
-    [backdropDismiss]="true"
-    (didDismiss)="dismissRegistrationPrompt()">
-    <ng-template>
-      <div class="registration-promo-shell">
-        <div class="registration-promo-head">
-          <p class="registration-promo-kicker">Unlock more with Smith Education Group</p>
-          <ion-button fill="clear" size="small" class="promo-close-btn" (click)="dismissRegistrationPrompt()">
-            Close
-          </ion-button>
-        </div>
-
-        <h2 class="registration-promo-title">Register to get personalized application support</h2>
-        <p class="registration-promo-text">
-          Create your account to calculate APS scores across universities, receive deadline updates,
-          and track the applications that matter to you.
-        </p>
-
-        <div class="registration-benefits">
-          <div class="registration-benefit">
-            <ion-icon name="calculator-outline" aria-hidden="true"></ion-icon>
-            <span>APS calculations for all universities</span>
-          </div>
-          <div class="registration-benefit">
-            <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
-            <span>Deadline reminders and updates</span>
-          </div>
-          <div class="registration-benefit">
-            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-            <span>Smarter tracking of open and closing dates</span>
-          </div>
-        </div>
-
-        <div class="registration-promo-actions">
-          <ion-button expand="block" class="register-now-btn" (click)="openRegisterModal()">
-            Register Now
-          </ion-button>
-          <ion-button expand="block" fill="outline" class="login-cta-btn" (click)="openLoginModal()">
-            I Already Have an Account
-          </ion-button>
-        </div>
-      </div>
-    </ng-template>
-  </ion-modal>
-
-  <ion-modal cssClass="auth-login-modal" [isOpen]="loginModalOpen" (didDismiss)="loginModalOpen = false">
-    <ng-template>
-      <app-login-modal (dismissed)="handleLoginDismiss($event)"></app-login-modal>
-    </ng-template>
-  </ion-modal>
-
-  <ion-modal cssClass="auth-register-modal" [isOpen]="registerModalOpen" (didDismiss)="registerModalOpen = false">
-    <ng-template>
-      <app-register-modal (dismissed)="handleRegisterDismiss($event)"></app-register-modal>
-    </ng-template>
-  </ion-modal>
-
-  <app-footer></app-footer>
 </ion-content>
