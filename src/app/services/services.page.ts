@@ -56,7 +56,8 @@ const universitySubjects = [
   "Accounting",
   "Informatics",
   "Computer Science",
-  "Taxation"
+  "Taxation",
+  "Mathematics"
 ];
 
 const schoolSubjects = [
@@ -81,6 +82,12 @@ const schoolGrades = [
 
 @Component({ selector: 'app-services', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './services.page.html', styleUrls: ['./services.page.scss'] })
 export class ServicesPage extends DetailPage {
+  readonly seo = {
+  "title": "Tutoring Services for School & University | Smith Education Group",
+  "description": "Explore school tutoring, university module support, private lessons and revision camps. Find personalised academic support with Smith Education Group.",
+  "path": "/tabs/services",
+  "index": true
+};
   readonly pageTitle = "Our Services";
   readonly pageDescription = "Support for every stage of your academic journey.";
   services = services;

@@ -127,6 +127,12 @@ const universities = [
 
 @Component({ selector: 'app-contact-us', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './contact-us.page.html', styleUrls: ['./contact-us.page.scss'] })
 export class ContactUsPage extends ContentPage {
+  readonly seo = {
+  "title": "Contact Us for Tutoring | Smith Education Group",
+  "description": "Enquire about school or university tutoring. WhatsApp +27 62 409 7103 or email info@smithgroupeducation.co.za to discuss your learning goals.",
+  "path": "/tabs/contact-us",
+  "index": true
+};
   constructor() { super(); addIcons({ logoWhatsapp }); }
   readonly pageTitle = "Get in Touch";
   readonly pageDescription = "Your next chapter starts with a conversation.";

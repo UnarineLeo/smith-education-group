@@ -34,6 +34,12 @@ const testimonials = [
 
 @Component({ selector: 'app-success-stories', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './success-stories.page.html', styleUrls: ['./success-stories.page.scss'] })
 export class SuccessStoriesPage extends ContentPage {
+  readonly seo = {
+  "title": "Student Testimonials | Smith Education Group",
+  "description": "Read student feedback on Statistics, Economics, Accounting, Informatics, Computer Science and Taxation tutoring with Smith Education Group.",
+  "path": "/tabs/success-stories",
+  "index": true
+};
   readonly pageTitle = "Student Testimonials";
   readonly pageDescription = "Personal experiences from the Smith Education Group community.";
   testimonials = testimonials;

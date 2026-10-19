@@ -75,6 +75,12 @@ const articles = [
 
 @Component({ selector: 'app-resources', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './resources.page.html', styleUrls: ['./resources.page.scss'] })
 export class ResourcesPage extends DetailPage {
+  readonly seo = {
+  "title": "Study Resources | Smith Education Group",
+  "description": "Explore study tips, exam preparation advice and practical academic learning guides from Smith Education Group.",
+  "path": "/tabs/resources",
+  "index": false
+};
   readonly pageTitle = "Academic Resources";
   readonly pageDescription = "Study tips, fresh perspectives, and practical guides.";
   articles = articles;

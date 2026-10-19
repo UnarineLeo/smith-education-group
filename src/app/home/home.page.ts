@@ -92,6 +92,12 @@ const universities = [
 
 @Component({ selector: 'app-home', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './home.page.html', styleUrls: ['./home.page.scss'] })
 export class HomePage extends ContentPage {
+  readonly seo = {
+  "title": "School & University Tutoring in South Africa | Smith Education Group",
+  "description": "Personalised tutoring for Grades 4\u201312 and university students. Build confidence in Maths, Statistics, Accounting, Economics and more with Smith Education Group.",
+  "path": "/",
+  "index": true
+};
   readonly pageTitle = "Empowering students. Building brighter futures.";
   readonly pageDescription = "Academic support, personal guidance, and a little more confidence for the journey ahead.";
   readonly testimonials = [

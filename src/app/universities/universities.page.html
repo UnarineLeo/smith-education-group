@@ -28,7 +28,7 @@
     <p class="catalogue-count" aria-live="polite">{{ visibleModuleNames.length }} modules found</p>
     <div class="subject-card-grid">
       @for (name of visibleModuleNames; track name) {
-        <article class="subject-card"><span class="eyebrow">UNIVERSITY MODULE</span><h3>{{ name }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'University Tutoring', university: selectedUniversities.join(', '), about: name + (selectedUniversities.length ? ' at ' + selectedUniversities.join(', ') : '')}" [attr.aria-label]="'Enquire about ' + name">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
+        <article class="subject-card"><div class="subject-icon" aria-hidden="true"><ion-icon [name]="subjectIcons[name] || 'school-outline'"/></div><span class="eyebrow">UNIVERSITY MODULE</span><h3>{{ name }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'University Tutoring', university: selectedUniversities.join(', '), about: name + (selectedUniversities.length ? ' at ' + selectedUniversities.join(', ') : '')}" [attr.aria-label]="'Enquire about ' + name">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
       } @empty { <p>No modules match your filters. <button type="button" (click)="clearFilters()">Clear filters</button></p> }
     </div>
   </section>
@@ -38,7 +38,7 @@
     <p class="catalogue-count" aria-live="polite">{{ visibleSchoolSubjects.length }} subjects found</p>
     <div class="subject-card-grid">
       @for (subject of visibleSchoolSubjects; track subject) {
-        <article class="subject-card school-subject-card"><span class="eyebrow">SCHOOL SUBJECT</span><h3>{{ subject }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'School Tutoring', about: 'Grade ' + selectedGrade + ' · ' + subject}" [attr.aria-label]="'Enquire about Grade ' + selectedGrade + ' ' + subject">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
+        <article class="subject-card school-subject-card"><div class="subject-icon" aria-hidden="true"><ion-icon [name]="subjectIcons[subject] || 'school-outline'"/></div><span class="eyebrow">SCHOOL SUBJECT</span><h3>{{ subject }}</h3><a routerLink="/tabs/contact-us" [queryParams]="{type: 'School Tutoring', about: 'Grade ' + selectedGrade + ' · ' + subject}" [attr.aria-label]="'Enquire about Grade ' + selectedGrade + ' ' + subject">Enquire <ion-icon name="arrow-forward-outline"/></a></article>
       } @empty { <p>No school subjects match your search. <button type="button" (click)="clearFilters()">Clear filters</button></p> }
     </div>
   </section>

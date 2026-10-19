@@ -1,10 +1,11 @@
+import { SeoService } from '../services/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IonContent, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { searchOutline, closeCircleOutline, arrowForwardOutline, arrowUpOutline } from 'ionicons/icons';
+import { searchOutline, closeCircleOutline, arrowForwardOutline, arrowUpOutline, statsChartOutline, trendingUpOutline, calculatorOutline, gitNetworkOutline, codeSlashOutline, receiptOutline, flashOutline, leafOutline, schoolOutline } from 'ionicons/icons';
 const universities = [
   {
     "name": "University of the Witwatersrand",
@@ -17,7 +18,7 @@ const universities = [
       "Accounting",
       "Informatics",
       "Computer Science",
-      "Taxation"
+      "Taxation",
     ]
   },
   {
@@ -293,7 +294,7 @@ const universityModules = [
 
 const schoolSubjects = [
   "Physics",
-  "Maths",
+  "Mathematics",
   "Economics",
   "Life Science",
   "Accounting"
@@ -320,7 +321,24 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [CommonModule, FormsModule, RouterLink, IonContent, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, IonFab, IonFabButton, FooterComponent],
 })
 export class Universities implements OnInit {
+  readonly seo = {
+  "title": "University Modules & School Subjects | Smith Education Group",
+  "description": "Explore support in Statistics, Economics, Accounting, Informatics, Computer Science and Taxation, plus school subjects for Grades 4\u201312.",
+  "path": "/tabs/universities",
+  "index": true
+};
   @ViewChild(IonContent) private content?: IonContent;
+  readonly subjectIcons: Record<string, string> = {
+    Statistics: 'stats-chart-outline',
+    Economics: 'trending-up-outline',
+    Accounting: 'calculator-outline',
+    Informatics: 'git-network-outline',
+    'Computer Science': 'code-slash-outline',
+    Taxation: 'receipt-outline',
+    Physics: 'flash-outline',
+    Maths: 'calculator-outline',
+    'Life Science': 'leaf-outline',
+  };
   readonly showFilters = false;
   readonly universityOptions = universities;
   readonly modules = universityModules;
@@ -339,11 +357,12 @@ export class Universities implements OnInit {
   selectedModules: string[] = [];
   showBackToTop = false;
 
-  constructor(private route: ActivatedRoute) {
-    addIcons({ searchOutline, closeCircleOutline, arrowForwardOutline, arrowUpOutline });
+  constructor(private route: ActivatedRoute, private seoService: SeoService) {
+    addIcons({ searchOutline, closeCircleOutline, arrowForwardOutline, arrowUpOutline, statsChartOutline, trendingUpOutline, calculatorOutline, gitNetworkOutline, codeSlashOutline, receiptOutline, flashOutline, leafOutline, schoolOutline });
   }
 
   ngOnInit(): void {
+    this.seoService.update(this.seo);
     this.route.queryParamMap.subscribe(params => {
       const requested = params.get('university')?.trim();
       const match = universities.find(uni => [uni.name, uni.short].some(value => value.toLowerCase() === requested?.toLowerCase()));
@@ -376,6 +395,8 @@ export class Universities implements OnInit {
   onContentScroll(event: CustomEvent): void {
     this.showBackToTop = (event.detail.scrollTop ?? 0) > 500;
   }
+
+  ionViewWillEnter(): void { this.seoService.update(this.seo); }
 
   ionViewDidEnter(): void { void this.content?.scrollToTop(0); }
 

@@ -155,6 +155,12 @@ const universities = [...new Set(tutors.flatMap(tutor => tutor.universities))].m
 
 @Component({ selector: 'app-tutors', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, FormsModule, RouterLink, IonContent, IonIcon, IonSelect, IonSelectOption, FooterComponent], templateUrl: './tutors.page.html', styleUrls: ['./tutors.page.scss'] })
 export class TutorsPage extends ContentPage {
+  readonly seo = {
+  "title": "Meet Our Tutors | Smith Education Group",
+  "description": "Meet our tutors in Mathematics, Statistics, Economics, Accounting, Informatics and Sciences. Read their profiles and enquire about personalised learning support.",
+  "path": "/tabs/tutors",
+  "index": true
+};
   readonly showFilters = false;
   readonly pageTitle = "Meet Our Tutors";
   readonly pageDescription = "Personalised subject support. A shared commitment to your progress.";

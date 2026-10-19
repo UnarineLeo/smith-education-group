@@ -816,3 +816,7 @@ ion-content.programmes-content::part(scroll)::-webkit-scrollbar-thumb:hover {
 .catalogue-grade select { background: white; border: 1px solid #bdc8d2; padding: 12px 18px; border-radius: 8px; color: #102c46; }
 @media (max-width: 850px) { .subject-card { flex-basis: calc(50% - 24px); } }
 @media (max-width: 580px) { .subject-card { flex-basis: 100%; } }
+
+.subject-icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 20px; border-radius: 14px; background: #eaf4fa; color: #176c95; }
+.subject-icon ion-icon { font-size: 28px; }
+.school-subject-card .subject-icon { background: #f0e6cc; color: #806322; }
