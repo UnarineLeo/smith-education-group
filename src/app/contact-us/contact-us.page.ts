@@ -129,7 +129,7 @@ const universities = [
 export class ContactUsPage extends ContentPage {
   readonly seo = {
   "title": "Contact Us for Tutoring | Smith Education Group",
-  "description": "Enquire about school or university tutoring. WhatsApp +27 62 409 7103 or email info@smithgroupeducation.co.za to discuss your learning goals.",
+  "description": "Enquire about school or university tutoring. WhatsApp +27 62 409 7103 or email info@smitheducationgroup.co.za to discuss your learning goals.",
   "path": "/tabs/contact-us",
   "index": true
 };
@@ -139,6 +139,8 @@ export class ContactUsPage extends ContentPage {
   private readonly route = inject(ActivatedRoute);
   services = services;
   enquiry = { name: '', email: '', phone: '', university: '', type: '', message: '', consent: false };
+  submitting = false;
+  website = '';
   formStatus = '';
   override ngOnInit(): void { super.ngOnInit(); this.prefillEnquiry(); }
   override ionViewWillEnter(): void { super.ionViewWillEnter(); this.prefillEnquiry(); }
@@ -157,16 +159,32 @@ export class ContactUsPage extends ContentPage {
     field?.focus();
     field?.scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
-  saveEnquiry(form: NgForm, element: HTMLFormElement) {
+  async submitEnquiry(form: NgForm, element: HTMLFormElement): Promise<void> {
+    if (this.submitting) return;
     this.formStatus = '';
-    if (form.invalid || !this.enquiry.name.trim() || !this.enquiry.message.trim()) { form.control.markAllAsTouched(); this.formStatus = 'Please complete the required fields highlighted below.'; element.querySelector<HTMLElement>('.ng-invalid')?.focus(); return; }
+    if (form.invalid || !this.enquiry.name.trim() || !this.enquiry.message.trim()) {
+      form.control.markAllAsTouched();
+      this.formStatus = 'Please complete the required fields highlighted below.';
+      element.querySelector<HTMLElement>('.ng-invalid')?.focus();
+      return;
+    }
+    this.submitting = true;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
     try {
-      localStorage.setItem('smith-enquiry-draft', JSON.stringify(this.enquiry));
-      this.formStatus = 'Your enquiry draft is saved on this device. It has not been sent to our team.';
-    } catch { this.formStatus = 'This browser could not save the draft. Please copy your message to keep it.'; }
+      const response = await fetch('/api/contact.php', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...this.enquiry, website: this.website }), signal: controller.signal
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error('Submission failed');
+      form.resetForm({ name: '', email: '', phone: '', university: '', type: '', message: '', consent: false });
+      this.formStatus = 'Thank you. Your enquiry has been submitted. Our team will be in touch.';
+    } catch {
+      this.formStatus = 'We could not confirm your submission. Your details are still here. Please try again or email info@smitheducationgroup.co.za.';
+    } finally {
+      clearTimeout(timeout);
+      this.submitting = false;
+    }
   }
-  restoreDraft() {
-    try { const raw = localStorage.getItem('smith-enquiry-draft'); if (raw) { this.enquiry = { ...this.enquiry, ...JSON.parse(raw) }; this.formStatus = 'Saved draft restored.'; } else this.formStatus = 'There is no saved draft on this device.'; }
-    catch { this.formStatus = 'The saved draft could not be restored.'; }
-  }
-  clearDraft() { try { localStorage.removeItem('smith-enquiry-draft'); this.formStatus = 'Saved draft deleted from this device.'; } catch { this.formStatus = 'Browser storage is unavailable.'; } }}
+}

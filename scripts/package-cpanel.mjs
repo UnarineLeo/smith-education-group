@@ -1,8 +1,10 @@
 import { packageSeo } from './package-seo.mjs';
-import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 if (!existsSync('www/index.html')) throw new Error('Build the website before packaging it.');
 packageSeo();
+mkdirSync('www/api', { recursive: true });
+copyFileSync('deployment/cpanel/contact.php', 'www/api/contact.php');
 copyFileSync('deployment/cpanel/.htaccess', 'www/.htaccess');
 
 const config = JSON.parse(readFileSync(new URL('../deployment/cpanel/config.json', import.meta.url), 'utf8'));

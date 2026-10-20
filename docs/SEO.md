@@ -41,3 +41,9 @@ Official references:
 - DNS verification: https://support.google.com/webmasters/answer/9008080
 - Sitemap management: https://support.google.com/webmasters/answer/7451001
 - JavaScript SEO: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+
+## Contact form hosting
+
+The cPanel package includes `api/contact.php`. The contact form posts enquiries to this endpoint, which uses PHP's hosting mail transport to send to `info@smitheducationgroup.co.za`, with the visitor's email as Reply-To. Ensure that this mailbox exists and the host permits PHP mail. The endpoint is not available on GitHub Pages or the Angular development server.
+
+After deployment, submit a real test enquiry, check the inbox/spam folder, and use cPanel **Track Delivery** if it does not arrive. A successful form response confirms the server accepted the message; it cannot confirm inbox delivery. If hosting mail is disabled, ask the host to enable it or configure an authenticated SMTP integration. No mailbox password is stored in the frontend.
