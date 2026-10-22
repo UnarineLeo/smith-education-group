@@ -20,7 +20,7 @@
         }
       }
     </nav>
-    <a class="enquire" routerLink="/tabs/contact-us" (click)="selectMenuPage('/tabs/contact-us', $event)">Find support</a>
+    <a class="enquire" routerLink="/tabs/contact-us" (click)="selectMenuPage('/tabs/contact-us', $event)">Contact Us</a>
     <button class="menu-toggle" [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu" aria-label="Toggle navigation" (click)="toggleMenu()">{{ menuOpen ? '✕' : '☰' }}</button>
   </div>
   <nav id="mobile-menu" class="mobile-menu" [class.open]="menuOpen" aria-label="Mobile navigation">
