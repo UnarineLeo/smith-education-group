@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - "/usr/bin/rsync -a --exclude=.git --exclude=.cpanel.yml ./ /home/smithed7g7f8/public_html/"
+    - "/usr/bin/rsync -a --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r --exclude=.git --exclude=.cpanel.yml ./ /home/smithed7g7f8/public_html/"
+    - "/bin/chmod 755 /home/smithed7g7f8/public_html"
