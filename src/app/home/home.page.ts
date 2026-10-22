@@ -61,20 +61,6 @@ const universities = [
     ]
   },
   {
-    "name": "Stellenbosch University",
-    "short": "Stellies",
-    "image": "assets/logos/su.jpg",
-    "province": "Western Cape",
-    "modules": [
-      "Statistics",
-      "Economics",
-      "Accounting",
-      "Informatics",
-      "Computer Science",
-      "Taxation"
-    ]
-  },
-  {
     "name": "University of Pretoria",
     "short": "UP",
     "image": "assets/logos/up.png",
@@ -87,7 +73,10 @@ const universities = [
       "Computer Science",
       "Taxation"
     ]
-  }
+  },
+  { name: 'Varsity College', short: 'Varsity College', image: 'assets/logos/varsity_college.png' },
+  { name: 'University of the Western Cape', short: 'UWC', image: 'assets/logos/uwc.png' },
+  { name: 'University of South Africa', short: 'UNISA', image: 'assets/logos/unisa_logo.png' },
 ];
 
 @Component({ selector: 'app-home', standalone: true, host: { class: 'education-content' }, imports: [CommonModule, RouterLink, IonContent, IonIcon, FooterComponent], templateUrl: './home.page.html', styleUrls: ['./home.page.scss'] })
@@ -130,7 +119,7 @@ export class HomePage extends ContentPage {
   index = 0;
   move(step: number): void { this.index = (this.index + step + this.testimonials.length) % this.testimonials.length; }
   services = services;
-  universities = universities.filter(university => ['Wits', 'UCT', 'Stellies', 'UP'].includes(university.short));
+  universities = universities;
   scrollUniversities(track: HTMLElement, direction: number) {
     const end = track.scrollWidth - track.clientWidth;
     const next = direction > 0 && track.scrollLeft >= end - 2 ? 0

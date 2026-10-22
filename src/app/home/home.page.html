@@ -18,7 +18,21 @@
       </section>
       </div>
       <section class="section wrap home-support"><div class="section-heading"><div><span class="eyebrow">SUPPORT THAT FITS YOUR LIFE</span><h2>Your goals. Your way to learn.</h2></div><p>Whether you’re finding your feet or preparing for your next exam, you don’t have to figure it all out alone.</p></div><div class="quick-services"><a routerLink="/tabs/services" *ngFor="let service of services.slice(0, 4); let i = index"><span class="service-top"><ion-icon [name]="service.icon"/><span>0{{ i + 1 }}</span></span><h3>{{ service.title }}</h3><p>{{ service.text }}</p><span class="card-link">Explore support <span>→</span></span></a></div></section>
-      <section class="section wrap university-home"><div class="section-heading"><div><span class="eyebrow">FOR YOUR UNIVERSITY JOURNEY</span><h2>Your campus. Your next chapter.</h2></div><a class="text-link" routerLink="/tabs/universities">Explore subjects & modules <span>→</span></a></div><div class="university-strip home-university-logos" aria-label="Universities"><a *ngFor="let uni of universities" routerLink="/tabs/universities" [queryParams]="{university: uni.short}"><img class="university-logo strip-logo" [src]="uni.image" [alt]="uni.name + ' logo'" loading="lazy"/></a></div></section>
+      <section class="section wrap university-home" aria-label="Universities we cover">
+        <div class="section-heading"><div><span class="eyebrow">FOR YOUR UNIVERSITY JOURNEY</span><h2>Your campus. Your next chapter.</h2><p>We cover all universities across South Africa, including yours.</p></div><a class="text-link" routerLink="/tabs/universities">Explore subjects & modules <span>→</span></a></div>
+        <div role="region" aria-roledescription="carousel" aria-label="Featured universities">
+          <div #universityTrack id="university-track" class="university-strip home-university-logos" tabindex="0" aria-label="University logos. Swipe or use the arrow buttons to browse.">
+            <a *ngFor="let uni of universities" routerLink="/tabs/universities" [queryParams]="uni.short === 'UWC' || uni.short === 'UNISA' ? {} : {university: uni.short}" [attr.aria-label]="uni.name">
+              <img *ngIf="uni.image; else universityName" class="university-logo strip-logo" [src]="uni.image" [alt]="uni.name + ' logo'" loading="lazy"/>
+              <ng-template #universityName><strong>{{ uni.name }}</strong></ng-template>
+            </a>
+          </div>
+          <div class="carousel-controls"><span>We tutor students from all universities.</span><div>
+            <button type="button" aria-label="Previous universities" aria-controls="university-track" (click)="scrollUniversities(universityTrack, -1)"><ion-icon name="arrow-back-outline"/></button>
+            <button type="button" aria-label="Next universities" aria-controls="university-track" (click)="scrollUniversities(universityTrack, 1)"><ion-icon name="arrow-forward-outline"/></button>
+          </div></div>
+        </div>
+      </section>
       <section class="section wrap home-testimonies"><div class="section-heading"><div><span class="eyebrow">STUDENT TESTIMONIALS</span><h2>What our students say.</h2></div><a class="text-link" routerLink="/tabs/success-stories">Read student testimonials →</a></div><section class="progress-carousel" role="region" aria-roledescription="carousel" aria-label="Student testimonials">
   <div aria-live="polite" aria-atomic="true"><article class="testimony-card progress-slide" role="group" aria-roledescription="slide" [attr.aria-label]="(index + 1) + ' of ' + testimonials.length">
     <blockquote class="learning-benefit">“{{ testimonials[index].quote }}”</blockquote>

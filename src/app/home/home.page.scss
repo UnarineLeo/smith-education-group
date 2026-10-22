@@ -1035,11 +1035,10 @@
   }
 }
 :host(.education-content.ion-page) .home-university-logos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  overflow: visible;
-  padding: 0;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 2px 20px;
 }
 :host(.education-content.ion-page) .home-university-logos a {
   min-width: 0;
