@@ -15,7 +15,9 @@ if (documentRoot) {
       || documentRoot.split('/').some(part => part === '..' || part === '.')) {
     throw new Error('CPANEL_DOCUMENT_ROOT must be the absolute domain document root under /home/username/.');
   }
-  const command = `/usr/bin/rsync -a --exclude=.git --exclude=.cpanel.yml ./ ${documentRoot.replace(/\/$/, '')}/`;
-  writeFileSync('www/.cpanel.yml', `---\ndeployment:\n  tasks:\n    - ${JSON.stringify(command)}\n`);
+  // Do not copy the private checkout directory permissions onto the public web root.
+  const command = `/usr/bin/rsync -a --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r --exclude=.git --exclude=.cpanel.yml ./ ${documentRoot.replace(/\/$/, '')}/`;
+  const permissions = `/bin/chmod 755 ${documentRoot.replace(/\/$/, '')}`;
+  writeFileSync('www/.cpanel.yml', `---\ndeployment:\n  tasks:\n    - ${JSON.stringify(command)}\n    - ${JSON.stringify(permissions)}\n`);
 }
 console.log('cPanel package ready in www/' + (documentRoot ? ` for ${documentRoot}` : ' (manual upload; set CPANEL_DOCUMENT_ROOT to include Git deployment tasks).'));

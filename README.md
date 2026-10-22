@@ -85,6 +85,21 @@ No Node.js server is needed on cPanel. Deployment preserves unrelated files in t
 web root; old hashed build files can be cleaned up separately once a release is verified.
 Back up an existing site before replacing its files, including `.htaccess`.
 
+### Web root permissions
+
+Deployment explicitly sets directories to `755` and deployed files to `644`.
+This prevents `rsync -a` from copying a private checkout's `700` permissions onto
+`public_html`. Unrelated files are not recursively chmodded.
+
+If the live web root is already `700`, restore it through cPanel File Manager
+(select `public_html` → Permissions → `755`) or run in cPanel Terminal:
+
+```sh
+chmod 755 /home/smithed7g7f8/public_html
+```
+
+Then deploy the updated `cpanel-deploy` branch after the GitHub build completes.
+
 ### Build and upload manually
 
 Run `npm ci` and `npm run build:cpanel`. Upload the **contents** of `www/`, including
